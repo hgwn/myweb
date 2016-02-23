@@ -1,0 +1,121 @@
+<div class="row" ng-controller="tabExternalController">
+<div class="col-sm-12" >
+<form class="form-horizontal h_tunnelmanagerForm" style="padding-top: 10px;" role="form">
+    <div class="form-group">
+        <label class="col-md-1 col-sm-2  control-label h_mb5">
+           外部终端号
+        </label>
+        <div class="col-md-2 col-sm-4 h_mb5">
+           <input class="form-control input-sm" type="text" ng-model="external_queryDataForm.externalterminalcode" placeholder="外部终端号"/>
+        </div>
+        <label class="col-md-1 col-sm-2  control-label">
+          外部商户号
+        </label>
+        <div class="col-md-2 col-sm-4 h_mb5">
+           <input class="form-control input-sm" type="text" ng-model="external_queryDataForm.externalmercode" placeholder="外部商户号"/>
+        </div>
+        <label class="col-md-1 col-sm-2  control-label h_mb5">
+         外部商户名称
+        </label>
+        <div class="col-md-3 col-sm-4  h_mb5">
+            <input class="form-control input-sm" type="text" ng-model="external_queryDataForm.externalmername" placeholder="外部商户名称"/>
+        </div>
+        <div class="col-md-1 h_mb5 col-sm-2  col-md-offset-0 col-sm-offset-2">
+             <button id="btn_search" type="button"  class="btn btn-primary btn-block btn-sm" ng-click="externalQueryForm()"><span class="glyphicon glyphicon-search"></span>&nbsp;查 询</button>
+        </div>
+    </div>
+</form>
+</div>
+
+<div class="col-sm-12">
+    <div class="table-responsive">
+    <table class="table h_table table-bordered table-hover table-striped table-condensed">
+        <thead>
+        <tr class="info">
+        	<th width="50">序号</th>
+            <th width="60">操作</th>
+            <th>外部终端号</th>
+            <th>外部商户号</th>
+            <th>外部商户名称</th>
+            <th>支付通道号</th>
+            <th>支付通道名称</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in externalData.data.rows">
+        	<td ng-bind="$index+1" align="center" class="h_bgf3">1</td>
+            <td align="center" class="h_bgf3">
+                 <a href="javascript:;" class="btn_audit green" title="绑定" ng-click="externalAudit(item)"><span class="glyphicon glyphicon-log-in green"></span>绑定</a>
+            </td>
+            <td>{{item.externalterminalcode}}</td>
+            <td>{{item.externalmercode}}</td>
+            <td>{{item.externalmername}}</td>
+            <td>{{item.paymentchannelcode}}</td>
+            <td>{{item.paymentchannelname}}</td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>   
+</div>
+ <div class="col-sm-12 column">
+        <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" style="height: 40px; padding-top: 5px;">
+            <pagination recordcount="{{externalData.totalCount}}" pagenum="external_queryDataForm.pagenum" pagesize="external_queryDataForm.pagesize" onselect="externalQueryForm();"></pagination>
+        </nav>
+</div>
+<!-- start -->
+<div class="modal fade" id="external_viewModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:900px">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true" title="关闭">
+                    &times;
+                </button>
+                <h4 class="modal-title">
+                    外部终端号:{{externalViewmodal.externalterminalcode}}
+                </h4>
+            </div>
+            <form name="modeleditForm" class="form-horizontal h_tunnelmanagerForm" role="form" novalidate>
+            <!--start modal-body  -->
+            <div class="modal-body">
+                 <div class="container-fluid well" style=" border: 0px;border-radius: 0px;margin: -15px;">
+                 
+                     <div class="form-group">
+                        <label class="control-label" style="float:left; display:block; margin-left:15px;">
+                         内部终端号
+                        </label>
+                        <div class="col-sm-3">
+                            <input class="form-control input-sm" type="text" ng-model="internal_queryViewmodal.internalterminalcode" placeholder="内部终端号"/>
+                        </div>
+                
+                        <label class="col-sm-2 control-label">
+                           内部商户名称
+                        </label>
+                        <div class="col-sm-3">
+                           <input class="form-control input-sm" type="text" ng-model="internal_queryViewmodal.internalmernamename" placeholder="内部商户名称"/>
+                        </div>
+                        <div class="col-sm-2">
+                             <button id="btn_search" type="button" style="width:70px;" class="btn btn-primary btn-block btn-sm" ng-click="internal_queryViewForm()"><span class="glyphicon glyphicon-search"></span>&nbsp;查 询</button>
+                        </div>
+                    </div> <!-- end form-group  -->
+                 
+                    <!--start table-responsive -->
+                    <div class="table-responsive">
+                        <div ui-grid="gridOptions" ui-grid-pagination ui-grid-auto-resize  ui-grid-selection ui-grid-selection class="grid"></div>
+                    </div>
+                    <!--end table-responsive -->
+                 </div>
+            </div>
+            <!--end modal-body  -->
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary"  ng-click="onClickToSave_external()" ><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;保存</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取 消</button>
+            </div>
+            </form>
+        </div><!-- end modal-content -->
+    </div><!-- end modal-dialog -->
+</div><!-- end modal  -->
+<!-- end -->
+</div>

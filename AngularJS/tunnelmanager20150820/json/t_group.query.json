@@ -1,0 +1,40 @@
+{
+"ret":0,
+"message":"查询组数据成功",
+"total":3,
+"data":[
+{
+"group_id":1,
+"group_name":"测试组1",
+"remark":"备注",
+"priority":999,
+"status":"E",
+"effective_time":"2015-07-20  11:01:50",
+"expire_time":"2015-07-20  11:01:50",
+"created_by":"admin",
+"created_time":"2015-07-20  11:01:50"
+},
+{
+"group_id":2,
+"group_name":"测试组2",
+"remark":"备注",
+"priority":999,
+"status":"E",
+"effective_time":"2015-07-20  11:01:50",
+"expire_time":"2015-07-20  11:01:50",
+"created_by":"admin",
+"created_time":"2015-07-20  11:01:50"
+},
+{
+"group_id":3,
+"group_name":"测试组12",
+"remark":"备注",
+"priority":999,
+"status":"D",
+"effective_time":"2015-07-20  11:01:50",
+"expire_time":"2015-07-20  11:01:50",
+"created_by":"admin",
+"created_time":"2015-07-20  11:01:50"
+}
+]
+}

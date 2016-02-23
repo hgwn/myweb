@@ -1,0 +1,54 @@
+<div class="modal fade" id="externalGroup_viewModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:95%;">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true" title="关闭">
+                    &times;
+                </button>
+                <h4 class="modal-title">
+                    外部终端号
+                </h4>
+            </div>
+            <form name="viewModel_externalForm" class="form-horizontal h_tunnelmanagerForm" role="form" novalidate>
+            <!--start modal-body  -->
+            <div class="modal-body">
+                 <div class="container-fluid well" style=" border: 0px;border-radius: 0px;margin: -15px; background-color:#fff;">
+                 
+                 	 <div class="form-group">
+                 	 	 <label class="col-sm-1 control-label">
+				           外部终端号
+				        </label>
+				        <div class="col-sm-3">
+				           <input class="form-control input-sm" type="text" ng-model="getexternalDataForm.externalterminalcode" placeholder="外部终端号"/>
+				        </div>
+				        <label class="control-label" style="float:left; display:block; margin-left:15px;">
+				         外部商户名称
+				        </label>
+				        <div class="col-sm-3">
+				            <input class="form-control input-sm" type="text" ng-model="getexternalDataForm.externalmername" placeholder="外部商户名称"/>
+				        </div>
+				
+				        <div class="col-sm-1">
+				        	 <button id="btn_search" type="button" class="btn btn-primary btn-block btn-sm" ng-click="getexternalData()"><span class="glyphicon glyphicon-search"></span>&nbsp;查 询</button>
+				        </div>
+				    </div> <!-- end form-group  -->
+                 
+                 	<!--start table-responsive -->
+                 	<div class="table-responsive">
+                 		<div ui-grid="gridOptions" ui-grid-pagination ui-grid-auto-resize ui-grid-resize-columns ui-grid-move-columns  ui-grid-edit ui-grid-cellnav ui-grid-selection class="grid" ></div>
+                 	</div>
+                 	<!--end table-responsive -->
+                 	
+                 </div>
+            </div>
+            <!--end modal-body  -->
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary btn-sm"  ng-click="onClickToSave_external()" ><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;保存</button>
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>&nbsp;取 消</button>
+            </div>
+            </form>
+        </div><!-- end modal-content -->
+    </div><!-- end modal-dialog -->
+</div><!-- end modal  -->

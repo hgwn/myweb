@@ -1,0 +1,37 @@
+<div class="row" ng-controller="exSearchTunnelController" style="padding: 0px;margin: 0px;padding-top: 10px;">
+	<!--start form  -->
+		<form class="form-horizontal h_tunnelmanagerForm" role="form">
+     <div class="form-group">
+     	<label class=" col-md-1 col-sm-2 h_mb5 control-label">
+        外部终端号
+        </label>
+        <div class=" col-md-2 col-sm-4 h_mb5">
+            <input type="text" class="form-control input-sm"  placeholder="内部终端号" ng-model="getexternalDataForm.externalterminalcode" />
+        </div>
+        <label class=" col-md-1 col-sm-2 h_mb5 control-label">
+       外部商户名称
+        </label>
+		<div class=" col-md-3 col-sm-4 h_mb5">
+			 <input type="text" class="form-control input-sm"  placeholder="内部商户名称" ng-model="getexternalDataForm.externalmername" />
+		</div>
+		<label class=" col-md-1 col-sm-2 h_mb5 control-label">
+       外部组
+        </label>
+		<div class=" col-md-2 col-sm-4 h_mb5">
+			<select class="form-control input-sm" ng-model="getexternalDataForm.exterterminalgroupsname">
+                <option value="">--请选择--</option>
+                            <option ng-repeat="item in exterterminalgroupsnameData">{{item.exterterminalgroupsname}}</option>
+            </select>
+		</div>
+        <div class=" col-md-1 col-sm-2 col-md-offset-0 col-sm-offset-2 h_mb5">
+            <button id="btn_search" type="button" style="width:70px;" class="btn btn-primary btn-block btn-sm" ng-click="getExterData()"><span class="glyphicon glyphicon-search"></span>&nbsp;查询</button>
+        </div>
+
+     </div>
+    </form>
+    <!--end form  -->
+	<!--start-->
+		<div ui-grid="gridOptions" ui-grid-pagination  ui-grid-tree-view class="grid"></div>
+	<!--start-->
+</div>
+

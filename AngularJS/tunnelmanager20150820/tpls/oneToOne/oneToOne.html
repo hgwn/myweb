@@ -1,0 +1,55 @@
+<div class="row" ng-controller="oneToOneController" style="padding: 0px;margin: 0px">
+	<h3 style="margin:0 auto 15px; text-align:center;">一对一绑定管理</h3>
+	<!--start form  -->
+		<form class="form-horizontal h_tunnelmanagerForm" role="form" data-ng-init="queryloadData()">
+     <div class="form-group">
+     	<label class=" col-md-1 col-sm-2 control-label">
+        内部终端号
+        </label>
+        <div class=" col-md-2 col-sm-4  h_mb5">
+            <input type="text" class="form-control input-sm"  placeholder="内部终端号" ng-model="getOneToOneDataForm.internalterminalcode" />
+        </div>
+        <label class=" col-md-1 col-sm-2 control-label h_mb5">
+        外部终端号
+        </label>
+        <div class=" col-md-2 col-sm-4 h_mb5">
+            <input type="text" class="form-control input-sm"  placeholder="外部终端号" ng-model="getOneToOneDataForm.externalmercode" />
+        </div>
+        <!-- <div class="clearfix visible-sm-block"></div> -->
+        <label class=" col-md-1 col-sm-2 control-label h_mb5">
+        支付通道名称
+        </label>
+        <div class=" col-md-2 col-sm-4 h_mb5">
+            <input type="text" class="form-control input-sm"  placeholder="支付通道名称" ng-model="getOneToOneDataForm.paymentchannelname" />
+        </div>
+        <div class=" col-md-1 col-sm-2 h_mb5 col-md-offset-0 col-sm-offset-2">
+            <button id="btn_search" type="button" style="min-width:70px;" class="btn btn-primary btn-block btn-sm" ng-click="getOneToOneData()"><span class="glyphicon glyphicon-search"></span>&nbsp;查 询</button>
+        </div>
+
+        <!-- <div class=" col-md-1 col-sm-2 h_mb5">
+            <button id="btn_search" type="button" style="min-width:70px;" class="btn btn-primary btn-block btn-sm" ng-click="goToOneToOneTab()"><span class="glyphicon glyphicon-plus"></span>&nbsp;绑 定</button>
+        </div> -->
+
+     </div>
+    </form>
+    <!--end form  -->
+     <div class="h_uigrid_actionBar" style="border:1px solid #ddd; padding:5px; background: #f5f5f5; clear: both; overflow: hidden;">
+        <button type="button" style="width:70px; float: left; margin-right:10px;" class="btn btn-block btn-info btn-xs" ng-click="oneToOne_del()"><span class="glyphicon glyphicon-trash"></span>&nbsp;删除</button>
+        <button type="button" style="width:70px; float: left; margin-top:0;" class="btn btn-block btn-info btn-xs" ng-click="goToOneToOneTab()"><span class="glyphicon glyphicon-plus"></span>&nbsp;绑定</button>
+    </div>
+    <!--start table-responsive-->
+        <!-- <div ui-view="oneToOneListgrid"></div> -->
+        <div class="table-responsive">
+            <div ui-grid="gridOptions" ui-grid-pagination ui-grid-resize-columns ui-grid-selection class="grid" style="height:450px;"></div>
+        </div>
+    <!--end table-responsive-->
+    <!-- start 分页 -->
+     <!-- <div class="col-md-12 column">
+        <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" style="height: 40px; padding-top:5px;">
+            <pagination recordcount="{{oneToOneData.data.total}}" pagenum="getOneToOneDataForm.pagenum" pagesize="getOneToOneDataForm.pagesize" onselect="getOneToOneData();"></pagination>
+        </nav>
+         </div> -->
+    <!-- end 分页 -->
+
+</div>
+

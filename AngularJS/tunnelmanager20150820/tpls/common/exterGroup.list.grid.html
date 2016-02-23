@@ -1,0 +1,46 @@
+<!--start table-responsive-->
+     <div class="table-responsive" style="overflow:auto;">
+        <table class="table h_table table-bordered table-hover  table-condensed" style="overflow:auto;">
+            <thead>
+                <tr class="info">
+                	<th>序号</th>
+                    <th>操作</th>
+                    <th>外组名称</th>
+                    <th>描述</th>
+                    <!-- <th>优先级&nbsp;<span class="glyphicon glyphicon-question-sign" style="color:#999;" data-toggle="tooltip" data-placement="bottom" title="优先级的值只能是非负整数，值越大优先级越高。"></span></th> -->
+                    <th>优先级&nbsp;<span class="glyphicon glyphicon-question-sign" style="color:#999;" data-trigger="hover" data-placement="bottom" data-html="true" data-title="<div style='padding:5px;'>优先级的值越大优先级越高。</div>" bs-tooltip></span></th>
+                    <th>状态</th>
+                    <th>生效开始时间</th>
+                    <th>生效结束时间</th>
+                    <th>创建人</th>
+                    <th>创建时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in tunnelmanagers.data.rows">
+                	<td class="h_bgf5" ng-bind="$index+1" align="center">1</td>
+                    <td class="h_bgf5" ng-if="exterGroup_showflag">
+                    	<a href="#exterTointerGroup" class="h_tunnelmanager_action" ng-click="tunnelInterGroup(item)" title="关联组"><span class="glyphicon glyphicon-random burlywood"></span></a>
+                    	<a href="#exterGroupTunnel" class="h_tunnelmanager_action" ng-click="tunnelmanagerGroup(item)"  title="绑定终端号"><span class="glyphicon glyphicon-log-in green"></span></a>
+                        <a href="#exterGroup" class="h_tunnelmanager_action" ng-click="tunnelmanager_edit(item)"  title="编辑"><span class="glyphicon  glyphicon-pencil blue"></span></a>
+                        <a href="#exterGroup" class="h_tunnelmanager_action" ng-click="tunnelmanagerStatus_e(item)" ng-show="{{item.status=='D'}}" title="启用"><span class="glyphicon glyphicon-saved green"></span></a>
+                        <a href="#exterGroup" class="h_tunnelmanager_action" ng-click="tunnelmanagerStatus_d(item)" ng-show="{{item.status=='E'}}" title="停用"><span class="glyphicon glyphicon-ban-circle yellow"></span></a>
+                        <a href="#exterGroup" class="h_tunnelmanager_action" ng-click="tunnelmanager_del(item)" title="删除"><span class="glyphicon glyphicon glyphicon-trash red"></span></a>
+                    </td>
+                    <td class="h_bgf5" ng-if="interGroup_delBtn_showflag">
+                    	 <a href="#interToexterGroup" class="h_tunnelmanager_action" ng-click="tunnelmanager_del(item)" title="删除"><span class="glyphicon glyphicon glyphicon-trash red"></span></a>
+                    </td>
+                    <td>{{item.exterterminalgroupsname}}</td>
+                    <td>{{item.remark}}</td>
+                    <td>{{item.priority}}</td>
+                    <td>{{item.status=='E'?'启用':'停用'}}</td>
+                    <td>{{item.effectivetime}}</td>
+                    <td>{{item.expiretime}}</td>
+                    <td>{{item.createdby}}</td>
+                    <td>{{item.createdtime}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+<!--end table-responsive-->

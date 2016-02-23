@@ -1,0 +1,45 @@
+<div class="row" ng-controller="internalmercodeController" style="padding: 0px;margin: 0px">
+	<h3 style="margin:0 auto 15px; text-align:center;">内部商户号管理</h3>
+	<!--start form  -->
+		<form class="form-horizontal h_tunnelmanagerForm" role="form" >
+     <div class="form-group">
+        <label class=" col-md-1 h_mb5 col-sm-2 control-label">
+        内部商户号
+        </label>
+        <div class=" col-md-2 h_mb5 col-sm-4">
+            <input type="text" class="form-control input-sm"  placeholder="内部终端号" ng-model="getinternalDataForm.internalmercode" />
+        </div>
+     	<label class=" col-md-1 h_mb5 col-sm-2 control-label">
+        内部商户名称
+        </label>
+        <div class=" col-md-3 h_mb5 col-sm-4">
+            <input type="text" class="form-control input-sm"  placeholder="内部商户名称" ng-model="getinternalDataForm.internalmernamename" />
+        </div>
+        <label class=" col-md-1 h_mb5 col-sm-2 control-label">
+       状态
+        </label>
+		<div class=" col-md-2 h_mb5 col-sm-4">
+			<select class="form-control input-sm" ng-model="getinternalDataForm.internalmernamestatus">
+                <option value="">--请选择--</option>
+                <option ng-repeat="o in internalmernamestatus" value="{{o.value}}">{{o.name}}</option>
+            </select>
+		</div>
+            <div class=" col-md-1 h_mb5 col-sm-2 col-md-offset-0 col-sm-offset-2">
+                <button id="btn_search" type="button" style="min-width:70px;" class="btn btn-primary btn-block btn-sm" ng-click="getinternalData()"><span class="glyphicon glyphicon-search"></span>&nbsp;查 询</button>
+            </div>
+
+     </div>
+    </form>
+    <!--end form  -->
+    <div class="h_uigrid_actionBar" style="border:1px solid #ddd; padding:5px; background: #f5f5f5; clear: both; overflow: hidden;">
+        <button type="button" style="width:70px; float: left; margin-right:10px;" class="btn btn-block btn-info btn-xs" ng-click="setInterState_E()"><span class="glyphicon glyphicon-saved"></span>&nbsp;启用</button>
+        <button type="button" style="width:70px; float: left; margin-top:0;" class="btn btn-block btn-info btn-xs" ng-click="setInterState_D()"><span class="glyphicon glyphicon-ban-circle"></span>&nbsp;停用</button>
+    </div>
+    <!--start table-responsive-->
+    	<div class="table-responsive">
+            <div ui-grid="gridOptions" ui-grid-pagination  ui-grid-resize-columns ui-grid-selection class="grid" ></div>
+        </div>
+    <!--end table-responsive-->
+
+</div>
+

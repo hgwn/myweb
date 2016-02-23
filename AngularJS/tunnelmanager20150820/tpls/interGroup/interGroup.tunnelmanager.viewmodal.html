@@ -1,0 +1,53 @@
+<div class="modal fade" id="internalGroup_viewModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:1100px">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true" title="关闭">
+                    &times;
+                </button>
+                <h4 class="modal-title">
+                    内部终端号
+                </h4>
+            </div>
+            <form name="modeleditForm" class="form-horizontal h_tunnelmanagerForm" role="form" novalidate>
+            <!--start modal-body  -->
+            <div class="modal-body">
+                 <div class="container-fluid well" style=" border: 0px;border-radius: 0px;margin: -15px;">
+                 
+                 	 <div class="form-group">
+                 	 	<label class="control-label" style="float:left; display:block; margin-left:15px;">
+				           内部终端号
+				        </label>
+				        <div class="col-sm-3">
+				           <input class="form-control input-sm" type="text" ng-model="getInternalDataForm.internalterminalcode" placeholder="内部终端号"/>
+				        </div>
+				        <label class="control-label" style="float:left; display:block; margin-left:15px;">
+				         内部商户名称
+				        </label>
+				        <div class="col-sm-4">
+				            <input class="form-control input-sm" type="text" ng-model="getInternalDataForm.internalmernamename" placeholder="内部商户名称"/>
+				        </div>
+				
+				        <div style="float:left; display:block; margin-left:15px; width:70px;">
+				        	 <button id="btn_search" type="button" class="btn btn-primary btn-block btn-sm" ng-click="getInternalData()"><span class="glyphicon glyphicon-search"></span>&nbsp;查 询</button>
+				        </div>
+				    </div> <!-- end form-group  -->
+                 
+                 	<!--start table-responsive -->
+                 	<div class="table-responsive">
+                 		<div ui-grid="gridOptions" ui-grid-pagination  ui-grid-auto-resize ui-grid-edit ui-grid-cellnav ui-grid-selection class="grid"></div>
+                 	</div>
+                 	<!--end table-responsive -->
+                 </div>
+            </div>
+            <!--end modal-body  -->
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary btn-sm"  ng-click="onClickToSave_internal()" ><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;保 存</button>
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>&nbsp;取 消</button>
+            </div>
+            </form>
+        </div><!-- end modal-content -->
+    </div><!-- end modal-dialog -->
+</div><!-- end modal  -->

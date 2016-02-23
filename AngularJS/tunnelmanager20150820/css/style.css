@@ -1,0 +1,14 @@
+.isnoquery{height:400px; background:#fff url(../img/no_query.png) no-repeat 200px 100px;}
+.innoquery{background-image:none;}
+/* .container-fluid.well{height:98%; width:98%;  margin: 8px auto 0; position:relative; border:1px solid #ddd; } */
+
+.h_tunnelmanagerForm .form-group label.col-sm-1.control-label,.table-responsive .info th{font-weight:normal;}
+.datepicker .btn-default {border: 0px !important; }
+a.h_tunnelmanager_action{display:inline-block;margin:0 3px;outline:none;}
+.control-label{font-size: 14px;padding:0 5px;font-weight: normal;}
+.h_padding0{padding:0!important;}
+.h_required{position:absolute;right:5px; top:3px; font-size:20px; color:red;}
+.burlywood{color:burlywood;}
+.h_mb5{margin-bottom: 5px;}
+.h_Tip{z-index:9; width:180px; background-color:#fffde4; border:1px #dfb86d solid; 
+	left:0px;top:16px;text-align:left; padding:5px 10px;line-height:18px; color:#dc9632;display:none;border-radius: 4px}

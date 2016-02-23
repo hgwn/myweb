@@ -1,0 +1,28 @@
+<!--start form  -->
+	<form class="form-horizontal h_tunnelmanagerForm" role="form" data-ng-init="queryloadData()">
+     <div class="form-group">
+     	<label class=" col-sm-1 control-label">
+        组名称
+        </label>
+        <div class=" col-sm-3">
+            <input type="text" class="form-control input-sm"  placeholder="组名称" ng-model="queryDataForm.interterminalgroupsname" />
+        </div>
+        <label class=" col-sm-1 control-label">
+       状态
+        </label>
+		<div class=" col-sm-3">
+			<select class="form-control input-sm" ng-model="queryDataForm.status">
+                <option value="">--请选择--</option>
+                <option ng-repeat="o in status" value="{{o.value}}">{{o.name}}</option>
+            </select>
+		</div>
+        
+            <div class=" col-sm-1 col-sm-offset-1">
+                <button id="btn_search" type="button" style="min-width:70px;" class="btn btn-primary btn-block btn-sm" ng-click="queryForm()"><span class="glyphicon glyphicon-search"></span>&nbsp;查 询</button>
+            </div>
+            <div class="col-xs-12 col-sm-1">
+               <button id="btn_add" type="button" style="min-width:70px;" ng-click="addGroup()" class="btn btn-primary btn-block btn-sm"><span class="glyphicon glyphicon-plus"></span>&nbsp;新增</button>
+            </div>
+     </div>   
+    </form>
+<!--end form  -->

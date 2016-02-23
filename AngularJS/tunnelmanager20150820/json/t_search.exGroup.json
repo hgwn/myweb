@@ -1,0 +1,15 @@
+{
+"ret":0,
+"message":"测试数据根据内部组id查询关联外部组！",
+"total":2,
+"rows":[
+{
+"exterterminalgroupsid":12,
+"exterterminalgroupsname":"外部组名称1"
+},
+{
+"exterterminalgroupsid":13,
+"exterterminalgroupsname":"外部组名称2"
+}
+]
+}

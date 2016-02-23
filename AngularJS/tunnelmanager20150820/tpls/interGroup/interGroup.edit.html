@@ -1,0 +1,68 @@
+<div class="modal fade" id="editGroupModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:800px">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true" title="关闭">
+                    &times;
+                </button>
+                <h4 class="modal-title">
+                    编辑组:{{tempitem.interterminalgroupsname}}  
+                </h4>
+            </div>
+            <form name="TunnelmanagerEditForm" class="form-horizontal h_tunnelmanagerForm" role="form" data-ng-init="editloadData()"  novalidate>
+            <!--start modal-body  -->
+            <div class="modal-body">
+                 <div class="container-fluid well" style=" border: 0px;border-radius: 0px;margin: -15px;">
+                   	    <div class="form-group">
+					    	<label class="col-sm-2 control-label">组名称</label>
+					        <div class="col-sm-4">
+					            <input type="text" class="form-control input-sm"  name="terminalgroupsname" ng-class="{haserror:TunnelmanagerEditForm.interterminalgroupsname.$invalid&&editDataForm.isCommitted}" placeholder="请输入组名称" ng-model="editDataForm.interterminalgroupsname" required />
+					            <div class="ng-messages-error" ng-messages="TunnelmanagerEditForm.interterminalgroupsname.$error" ng-show="TunnelmanagerEditForm.interterminalgroupsname.$invalid&&editDataForm.isCommitted" >
+									<span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>组名称不能为空!</span>
+							  	</div>
+					        </div>
+					     </div>
+					     
+					      <div class="form-group">
+					    	<label class="col-sm-2 control-label">创建人</label>
+					        <div class="col-sm-4">
+					            <input type="text" class="form-control input-sm"  placeholder="创建人" ng-model="editDataForm.createdby" disabled />
+					        </div>
+					        <label class="col-sm-2 control-label">创建时间</label>
+					        <div class="col-sm-4">
+					        	<input type="text" class="form-control input-sm"  placeholder="创建时间" ng-model="editDataForm.createdtime" disabled />
+					        </div>
+					     </div>
+					     <div class="form-group">
+					    	<label class="col-sm-2 control-label">描述</label>
+					        <div class="col-sm-10">
+					        	<textarea class="form-control" ng-model="editDataForm.remark" rows="3" name="remark" ng-class="{haserror:TunnelmanagerEditForm.remark.$invalid&&editDataForm.isCommitted}" placeholder="请输入对组名称的描述" required></textarea>
+					        	<div class="ng-messages-error" ng-messages="TunnelmanagerEditForm.remark.$error" ng-show="TunnelmanagerEditForm.remark.$invalid&&editDataForm.isCommitted">
+					        		<span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>描述不能为空!</span>
+					        	</div>
+					        </div>
+					     </div>
+					     <div class="form-group">
+					    	<label class="col-sm-2 control-label">状态</label>
+					        <div class="col-sm-4">
+					        	<div class="radio">
+					        	<label style="padding-right:20px;"><input type="radio" name="relationstatus" ng-model="editDataForm.status" value="E"/>启用</label>
+					        	<label><input type="radio" name="relationstatus" ng-model="editDataForm.status" value="D"/>停用</label>
+					        	</div>
+					        </div>
+					     </div>
+					     
+					    
+                 </div>
+            </div>
+             <!--end modal-body  -->
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary btn-sm"  ng-click="onClickToSave(TunnelmanagerEditForm.$invalid)">保存</button>
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">取消</button>
+            </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>

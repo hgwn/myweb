@@ -1,0 +1,38 @@
+<!--start table-responsive-->
+    <div class="table-responsive">
+        <table class="table h_table table-bordered table-hover  table-condensed">
+            <thead>
+                <tr class="info">
+                	<th width="50">序号</th>
+                    <th width="150">操作</th>
+                    <th width="250">内组名称</th>
+                    <th>描述</th>
+                    <th width="80">状态</th>
+                    <th width="120">创建人</th>
+                    <th width="150">创建时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in tunnelmanagers.data.rows">
+                	<td class="h_bgf5" ng-bind="$index+1" align="center">1</td>
+                    <td class="h_bgf5" ng-if="interGroup_showflag">
+                    	<a href="#interToexterGroup" class="h_tunnelmanager_action" ng-click="tunnelInterGroup(item)" title="关联组"><span class="glyphicon glyphicon-random burlywood"></span></a>
+                    	<a href="#interGroupTunnel" class="h_tunnelmanager_action" ng-click="tunnelmanagerGroup(item)"  title="绑定终端号"><span class="glyphicon glyphicon-log-in green"></span></a>
+                        <a href="#interGroup" class="h_tunnelmanager_action" ng-click="tunnelmanager_edit(item)"  title="编辑"><span class="glyphicon  glyphicon-pencil blue"></span></a>
+                        <a href="#interGroup" class="h_tunnelmanager_action" ng-click="tunnelmanagerStatus_e(item)" ng-show="{{item.status=='D'}}" title="启用"><span class="glyphicon glyphicon-saved green"></span></a>
+                        <a href="#interGroup" class="h_tunnelmanager_action" ng-click="tunnelmanagerStatus_d(item)" ng-show="{{item.status=='E'}}" title="停用"><span class="glyphicon glyphicon-ban-circle yellow"></span></a>
+                        <a href="#interGroup" class="h_tunnelmanager_action" ng-click="tunnelmanager_del(item)" title="删除"><span class="glyphicon glyphicon glyphicon-trash red"></span></a>
+                    </td>
+                    <td class="h_bgf5" ng-if="exterGroup_delBtn_showflag">
+                    	<a href="#exterTointerGroup" class="h_tunnelmanager_action" ng-click="tunnelmanager_del(item)" title="删除"><span class="glyphicon glyphicon glyphicon-trash red"></span></a>
+                    </td>
+                    <td>{{item.interterminalgroupsname}}</td>
+                    <td>{{item.remark}}</td>
+                    <td>{{item.status=='E'?'启用':'停用'}}</td>
+                    <td>{{item.createdby}}</td>
+                    <td>{{item.createdtime}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<!--end table-responsive-->

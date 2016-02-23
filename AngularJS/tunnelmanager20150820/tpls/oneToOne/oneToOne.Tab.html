@@ -1,0 +1,14 @@
+<div class="row" ng-controller="oneToOneTabController" >
+<!--start myTab  -->
+<ul id="myTab" class="nav nav-tabs">
+   <li class="active" active-class="active"><a ui-sref=".Page1">内部终端号</a></li>
+   <li active-class="active"><a ui-sref=".Page2">外部终端号</a></li>
+</ul>
+<!--end myTab  -->
+<!-- starat myTabContent -->
+<div id="myTabContent" class="tab-content">
+   <div ui-view></div>
+</div>
+<!-- end myTabContent -->
+</div>
+<a class="btn btn-default btn-sm" ui-sref="oneToOne" style="position:fixed; right:20px; top:27px;"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;返回</a>

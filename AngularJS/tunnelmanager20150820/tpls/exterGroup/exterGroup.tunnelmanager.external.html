@@ -1,0 +1,79 @@
+<div class="row">
+<form class="form-horizontal h_tunnelmanagerForm" style="padding-top: 10px;" role="form">
+    <div class="form-group">
+    	  <label class="col-md-1 col-sm-2 h_mb5 control-label">
+           外部终端号
+        </label>
+        <div class="col-md-2 col-sm-4 h_mb5">
+           <input class="form-control input-sm" type="text" ng-model="external_queryDataForm.externalterminalcode" placeholder="外部终端号"/>
+        </div>
+        <label class="col-md-1 col-sm-2 h_mb5 control-label">
+           外部商户号
+        </label>
+        <div class="col-md-2 col-sm-4 h_mb5">
+           <input class="form-control input-sm" type="text" ng-model="external_queryDataForm.externalmercode" placeholder="外部商户号"/>
+        </div>
+        <label class="col-md-1 col-sm-2 h_mb5 control-label">
+           外部商户名称
+        </label>
+        <div class="col-md-3 col-sm-4 h_mb5">
+           <input class="form-control input-sm" type="text" ng-model="external_queryDataForm.externalmername" placeholder="外部商户名称"/>
+        </div>
+        <div class="col-md-1 col-sm-2 col-md-offset-0 col-sm-offset-2 h_mb5">
+             <button id="btn_search" type="button" class="btn btn-primary btn-block btn-sm" ng-click="externalQueryForm()">查询</button>
+        </div>
+		<div class="col-md-1 col-sm-2 h_mb5">
+                <button id="btn_save" type="button" class="btn btn-primary btn-block btn-sm" ng-click="externalGroupShow()">绑定</button>
+        </div>
+    </div>
+
+</form>
+
+<div class="col-sm-12">
+    <div class="table-responsive">
+    <table class="table h_table table-bordered table-hover table-striped table-condensed">
+        <thead>
+        <tr class="info">
+        	<th width="50">序号</th>
+            <th width="60">操作</th>
+            <th>外部终端号</th>
+            <th>外部商户号</th>
+            <th>外部商户名称</th>
+            <th>外部终端号优先级</th>
+            <th>支付通道号</th>
+            <th>支付通道名称</th>
+            <th>生效开始时间</th>
+            <th>生效结束时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in externalData.rows">
+        	<td ng-bind="$index+1" align="center" class="h_bgf3">1</td>
+            <td align="center" class="h_bgf3">
+                  <a href="#exterGroupTunnel" class="btn_audit green" title="删除" ng-click="externalDel(item)"><span class="glyphicon glyphicon-trash red"></span></a>
+            </td>
+            <td>{{item.externalterminalcode}}</td>
+            <td>{{item.externalmercode}}</td>
+            <td>{{item.externalmername}}</td>
+            <td>{{item.priority}}</td>
+            <td>{{item.paymentchannelcode}}</td>
+            <td>{{item.paymentchannelname}}</td>
+            <td>{{item.effectivetime}}</td>
+            <td>{{item.expiretime}}</td>
+        </tr>
+
+        </tbody>
+    </table>
+    <p style="position:fixed; top:45%; left:30%; color:#999;" ng-show="externalData_showFlag"><span class="glyphicon glyphicon-info-sign" style="vertical-align:middle; padding-right:5px; font-size:20px;"></span>外部终端号数据为空，单击【绑定】按钮可添加到当前组</p>
+</div>   
+</div>
+
+<div class="col-sm-12 column">
+        <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" style="height: 40px; padding-top: 5px;">
+            <pagination recordcount="{{externalData.total}}" pagenum="external_queryDataForm.pagenum" pagesize="external_queryDataForm.pagesize" onselect="externalQueryForm();"></pagination>
+        </nav>
+</div> 
+<div class="col-sm-12">
+	<div ui-view="externalGroupModal"></div>
+</div>
+</div>

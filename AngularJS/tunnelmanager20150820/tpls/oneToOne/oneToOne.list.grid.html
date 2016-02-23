@@ -1,0 +1,42 @@
+<!--start table-responsive-->
+    <div class="table-responsive">
+        <table class="table h_table table-bordered table-hover  table-condensed">
+            <thead>
+                <tr class="info">
+                	<th>序号</th>
+                    <th>操作</th>
+                    <th>内部商户号</th>
+                    <th>内部商户名称</th>
+                    <th>内部终端号</th>
+                    <th>外部商户号</th>
+                    <th>外部商户名称</th>
+                    <th>外部终端号</th>
+                    <th>支付通道代码</th>
+                    <th>支付通道名称</th>
+                    <th>创建时间</th>
+                    <th>创建人</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in oneToOneData.data.rows">
+                	<td class="h_bgf5" ng-bind="$index+1" align="center">1</td>
+                    <td class="h_bgf5">
+                        <!-- <a href="#interGroup" class="h_tunnelmanager_action" ng-click="tunnelmanagerStatus_e(item)" ng-show="{{item.status=='D'}}" title="启用"><span class="glyphicon glyphicon-saved green"></span></a>
+                        <a href="#interGroup" class="h_tunnelmanager_action" ng-click="tunnelmanagerStatus_d(item)" ng-show="{{item.status=='E'}}" title="停用"><span class="glyphicon glyphicon-ban-circle yellow"></span></a> -->
+                        <a href="#oneToOne" class="h_tunnelmanager_action" ng-click="oneToOne_del(item)" title="删除"><span class="glyphicon glyphicon glyphicon-trash red"></span></a>
+                    </td>
+                    <td>{{item.internalmercode}}</td>
+                    <td>{{item.internalmernamename}}</td>
+                    <td>{{item.internalterminalcode}}</td>
+                    <td>{{item.externalmercode}}</td>
+                    <td>{{item.externalmername}}</td>
+                    <td>{{item.externalterminalcode}}</td>
+                    <td>{{item.paymentchannelcode}}</td>
+                    <td>{{item.paymentchannelname}}</td>
+                    <td>{{item.createdtime}}</td>
+                    <td>{{item.createdby}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<!--end table-responsive-->

@@ -1,0 +1,69 @@
+
+/*ng-message验证错误样式*/
+.haserror.form-control { border-color: #a94442; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075); box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075); }
+.haserror.form-control:focus { border-color: #843534; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483; box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483; }
+.ng-messages-error { font-size: 12px; color: red; margin-top:3px; }
+
+/* 2015-07-13  bootstrap */
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #f9f9f9
+}
+
+/* .table-hover>tbody>tr:hover {
+    background-color: #f5f5f5
+} */
+table.h_table>thead>tr.info>th{background-color:#f3f3f3; color:#555; font-weight:bold; font-size:12px; text-align:center; padding:10px 5px; border-bottom:0 none;}
+table.h_table.table-bordered>tbody>tr>td{font-size:12px; color:#555; padding:6px 5px;}
+table.h_table.table-hover>tbody>tr:hover{background-color:#e6f3f8;}
+.h_bgf5{background-color:#f5f5f5;}
+.h_bgf3{background-color:#f3f3f3;}
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th
+{border-color:#D6DEE3;}   
+
+/*ui-grid*/
+.ui-grid-header-cell-wrapper {
+    position: relative;
+    display: table;
+    box-sizing: border-box;
+    height: 100%
+}
+
+.ui-grid-header-cell-row {
+    display: table-row;
+    position: relative
+}
+
+.ui-grid-header-cell {
+    background-color: #F3F3F3;
+    font-size:12px;
+    color:#555;
+    padding:5px;
+    border-right: 1px solid #D6DEE3;
+    text-align:center;
+}
+
+/*table-striped*/
+.ui-grid-row:nth-child(odd) .ui-grid-cell{background-color:#f9f9f9; border-bottom:1px solid #D6DEE3!important;}
+.ui-grid-row:nth-child(even) .ui-grid-cell{background-color:#fff; border-bottom:1px solid #D6DEE3!important;}
+.ui-grid-canvas{padding-top:0;}
+.ui-grid-cell-contents{font-size:12px; color:#555;}
+.ui-grid-canvas div.ui-grid-row.ng-scope{height:30px!important;}
+.ui-grid-canvas div.ui-grid-row.ng-scope:hover{ background-color:#e6f3f8!important;}
+.ui-grid-row.ui-grid-row-selected > [ui-grid-row] > .ui-grid-cell{
+  /* background-color: #c9dde1; */
+  background-color:#e6f3f8;
+}
+.ui-grid-canvas .ng-scope{height:30px;}
+.ui-grid-cell-focus{height:100%; width:100%; background-color:#e6f3f8;}
+
+/*模态框*/
+.modal-content{
+	background-color:#f5f5f5;
+	background: -moz-linear-gradient(top, #f1f1f1 0%, #f5f5f5 100%); 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f1f1f1), color-stop(100%,#f5f5f5)); 
+	background: -webkit-linear-gradient(top, #f1f1f1 0%,#f5f5f5 100%);
+	background: -o-linear-gradient(top, #f1f1f1 0%,#f5f5f5 100%);  
+	background: -ms-linear-gradient(top, #f1f1f1 0%,#f5f5f5 100%); 
+	background: linear-gradient(to bottom, #f1f1f1 0%,#f5f5f5 100%); 
+}
+.modal-body{background-color:#fff;}
