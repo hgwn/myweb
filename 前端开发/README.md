@@ -6,6 +6,11 @@
 ## 序言
 
 ### 开始啰嗦吧~
+![](https://github.com/hgwn/myweb/blob/master/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/20160224124056.jpg?raw=true)<br>
+*qq截图--来源AngularJS中文社区*<br>
+
+![](https://github.com/hgwn/myweb/blob/master/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/20160224124017.jpg?raw=true)
+*前端体系图--来源AngularJS中文社区*<br>
 **以下内容省略一万字...**
 
 了解一个项目，恐怕首先都是通过其Readme文件了解信息。如果你以为Readme文件都是随便写写的那你就错了。github，oschina git gitcafe的代码托管平台上的项目的Readme.MD文件都是有其特有的语法的。称之为Markdown语法。基本规则如下：
