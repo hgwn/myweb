@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td { padding:0; margin:0; font-size:12px; line-height:100%; font-family:Arial, sans-serif;}
+
+ul, ol { list-style:none;}
+img { border:0;}
+html,body{ margin: 0; padding: 0; height: 100%; width: 100%;}
+body { margin:0; text-align:center; height: 100%; background:#FFF url(../default/images/login/login_bg.png) repeat-x top;}
+
+#login { display:block; width:950px; margin:0 auto; height: 100%; text-align:left; position: relative; }
+.login_logo { left: 30px; position: relative; top: 30px;}
+#login_content { display:block; position:absolute; width:648px; height: 400px; left: 50%; top: 45%; margin: -200px 0 0 -324px; background:url(../default/images/login/loginBox_bg.png) no-repeat center center; z-index:9999; }
+.login_title { display:block; padding:25px 0 0 38px;}
+.loginForm { display:block; width:390px; position:absolute; left:240px; bottom: 30px;}
+.loginForm p { margin:5px 0;}
+.loginForm label { float:left; width:70px; padding:0 0 0 10px; line-height:25px; color:#21A2A4; font-size:14px;}
+.loginForm input { padding:3px 2px; border: 1px solid #21A2A4;}
+.loginForm .login_input {}
+.loginForm .code { float:left; margin-right:5px;}
+.login_bar { position: absolute; right: 50px; top: 20px;}
+.login_bar .sub { display:block; width:62px; height:52px; border:none; background:url(../default/images/login/login_btn.png) no-repeat; cursor:pointer;}
+
+.login_inner { display:block; width:560px; padding:30px 20px 0 20px;}
+.login_inner p { margin:10px 0; line-height:150%; font-size:14px; color:#666;}
+
+#login_footer {  display:block; width: 648px; height:30px; margin: 0 auto;  color:#666; text-align:center; position: relative; top: 90%; z-index:0;}
+#rememberMe{ padding:0; border:1px solid #80a5c4;}
+.login_captcha{ display: inline-block; margin-left: 3px; border: 1px solid #ddd;}
+.login_captcha img{ cursor:pointer;}

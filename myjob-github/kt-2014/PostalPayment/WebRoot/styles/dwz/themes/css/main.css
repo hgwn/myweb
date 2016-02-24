@@ -1,0 +1,147 @@
+@charset "utf-8";
+body, #splitBar{ background:#f4f4f4;}
+#header, #header .headerNav{ background:url(../default/images/yz/header_bg.png) repeat-x;}
+#header .logo {background: url(../default/images/yz/logo.png) no-repeat; width:354px;}
+#header .nav{ top:34px; right:10px;}
+#header .nav li a{ color:#fff;}
+
+/*sidebar2014/7/31*/
+.toggleCollapse,.accordion .accordionContent,.accordion,#sidebar_s .collapse,.tabsPage .tabsPageContent,.tabs .tabsContent,
+.panelBar,.page .pageHeader, .formBar
+{ border-color:#cdcdcd;}
+.accordion .accordionHeader{ background:url(../default/images/yz/yz_sprite.png) no-repeat; }
+.toggleCollapse{ height:40px; line-height:40px; background:url(../default/images/yz/toggleCollapse_menu_02.png) 0 0 repeat-x;}
+.toggleCollapse div{ background:url(../default/images/yz/yz_accordion.png) no-repeat;}
+.tree .node{ display:none;}
+.toggleCollapse h2{ line-height:40px; width:89px; height:40px; color:#fff; font-size:14px; text-indent:22px; background:url(../default/images/yz/toggleCollapse_menu_01.png) 0 0 no-repeat;}
+.toggleCollapse div{ background-position:100% 9px; height:37px;}
+.toggleCollapse div:hover{ background-position:100% -31px;}
+.accordion .accordionHeader{ background-position:0 -126px; background-repeat:repeat-x; height:36px; }
+.accordion .accordionHeader h2{ line-height:36px; height:36px; color:#02837e; margin-right:5px;}
+.accordion .accordionHeader.hover { background-position:0 -126px;}
+.tree div, .tree a, .tree span{ height:30px; line-height:30px;}
+#sidebar .tree div,#sidebar .tree li a{ transition:0.5s all; -webkit-transition:0.5s all;} 
+.tree .selected{ background-color:#f3ed46; }
+.tree .selected a{ color:#02837e;}
+.tree li a, .tree li span{ color:#333; outline:none;}
+.accordion .accordionHeader h2 span.icon_Order {background-position: 100% -313px;}
+.accordion .accordionHeader h2 span.icon_Security {background-position: 100% -352px;}
+.accordion .accordionHeader h2 span.icon_System {background-position: 100% -393px;}
+.accordion .accordionHeader h2 span.icon_Report {background-position: 100% -431px;}
+.accordion .accordionHeader h2 span.icon_Risk {background-position: 100% -914px;}
+.accordion .accordionHeader h2 span.icon_Accounting {background-position: 100% -686px;}
+.tree .file {background-position: 0 -97px;}
+/*container*/
+.accountInfo,.page .pageHeader, .formBar{ background:none;}
+.tabs .tabsContent{ background-color:#fff;}
+
+.tabsPage .tabsPageHeader,.tabsPage .tabsPageHeader ul{ height:34px; border-bottom: 1px solid #ccc;}
+.tabsPage .tabsPageHeaderContent{ height:35px; overflow:hidden;}
+.tabsPage .tabsPageHeader, .tabsPage .tabsPageHeader li, .tabsPage .tabsPageHeader li a, .tabsPage .tabsPageHeader li span
+{ background:none;}
+.tabsPage .tabsPageHeader li,.tabsPageHeader li, .tabsPage .tabsPageHeader li a, .tabsPage .tabsPageHeader li span{ height:35px; }
+.tabsPage .tabsPageHeader
+{ background:url(../default/images/yz/yz_sprite.png) 0 -182px repeat-x; border:1px solid #cdcdcd; border-bottom: none;}
+.tabsPage .tabsPageHeader li{ position: relative;  border-right:1px solid #cdcdcd; padding-right:10px;}
+.tabsPage .tabsPageHeader li.selected{  background:#fff; border-bottom:1px solid #fff; height:35px;}
+.tabsPage .tabsPageHeader li.main span{ padding-right:8px;}
+.tabsPage .tabsPageHeader li span{ width:auto;}
+.tabsPage .tabsPageHeader li.selected a{ color:#02837e;}
+.tabsPage .tabsPageHeader li .close{ right:5px; top:6px;}
+
+.panelBar{ background:url(../default/images/yz/yz_sprite_bg.png) no-repeat;}
+.panelBar{ height:26px; background-position:0 0; background-repeat:repeat-x;}
+/*footer*/
+#footer{ color:#666;}
+
+/*index*/
+.pageFormContent dl{ width:48%;}
+.Myuser_info{ width:98%; position:relative; overflow:hidden; margin:0 auto;}
+.Myuser_info h3{ height:30px;  border-bottom:3px solid #cbcaca; position:relative; margin-bottom:10px;}
+span.userInfo_tittle{ display: block; width:70px;  height:30px; line-height:30px; border-bottom:3px solid #037873; color:#333; letter-spacing:1px; font-size:14px; }
+
+/*search buttoon*/
+.button,.button4,.button8{ background:none; height:30px;}
+.button .buttonContent button,.button span,.button .repoar_buttonContent,.button .repoar_buttonContent button,
+.button4 .buttonContent button,.button8 .buttonContent button
+{ background:url(../default/images/yz/yz_btn.png) no-repeat;}
+.button4 .buttonContent button{ background-position:0 -72px;}
+.button8 .buttonContent button{ background-position:0 -106px;}
+.button .buttonContent,.button span{ background-position:0 0; height:30px; width:62px;}
+.button4 .buttonContent{ height:30px; width:92px;}
+.button8 .buttonContent{ height:30px; width:126px;}
+.button .buttonContent button,.button4 .buttonContent button,.button8 .buttonContent button{  text-align:center; width:100%; display:block; height:27px; color:#fff;}
+.searchBar{ position:relative;  width:100%; clear:both; min-height:30px;}
+.searchBar .searchContent{ /*width:auto; min-width:750px;  float:left;*/ margin-right:80px;}
+.searchBar .subBar{ width:80px; height:30px; position:absolute; top:2px; right:0;}
+
+/*repeatsrach*/
+.button .repoar_buttonContent{ background-position:0 -35px; padding-left: 5px; height: 30px; width:75px;}
+.button .repoar_buttonContent button{background-position:100% -35px; height: 27px; width: 80px; color:#fff;}
+.searchBar ul.searchContent.repeat_searchContent{ height:auto;}
+.searchBar .subBar.repeat_subBar .button div{ float:left; margin-left:8px;}
+ul.searchContent.repeat_searchContent li{ width:250px;}
+
+/*table*/
+.grid .gridTbody .selected{ background:#EDF0E9 !important;}
+.grid .gridHeader th.hover, .grid .gridHeader th.thSelected{ /* background:none;  */border-color:#d0d0d0;}
+.grid .gridTbody .selected2{ background:#98d5bf !important; }
+.grid .gridTbody .back1{ background:#F8F8F8;}
+.grid .gridTbody .hover { background:#FDFCF4;}
+
+/*dialog*/
+.dialog .dialogHeader{ background:url(../default/images/yz/yz_sprite.png) no-repeat;}
+.dialog .dialogHeader{ background-position:0 -5px; background-repeat:repeat-x;}
+.dialog .dialogContent,.resizable_f_c{ background:#f5f5f5;}
+.dialog .dialogContent{ border-color:#f5f5f5;}
+.dialog .pageContent,.dialog .pageContent .pageFormContent{ border-color:#ccc;}
+.dialog .dialogHeader h1{ color:#fff;}
+.formBar ul{ margin-top:-2px;}
+/*alertMsgBox*/
+.alert .alertContent{ border-color:#ccc; border-width:1px; background:#f5f5f5;}
+.alert .alertFooter{ background:none; display:none;}
+.alert .toolBar{ height:auto; padding-top:2px;}
+.button span{ width:62px; text-align:center; padding:0; line-height:27px; color:#fff;}
+
+/*重置报表样式2014/8/8*/
+.tabs .re_tabsContent{ padding:0; background-color:#fff;}
+.tabs .re_pageHeader{ background-color:#fff;}
+
+/**/
+.errorcontent{ width:200px; height:200px; margin:-100px 0 0 -100px; position:fixed; *position:absolute; text-align:center; bottom:25%; left:55%;}
+.errorcontent h1{ font-size:14px; line-height:50px; color:#f38724;}
+.errorcontent a{ color:#3fa7b0;}
+/*base*/
+.padding0{ padding:0;}
+.re_select{ width:134px; height:22px;}
+.re_select166{ width:166px; height:22px;}
+.re_select170{ width:170px; height:22px;}
+.re_select196{ width:196px; height:22px;}
+.w190,.pageFormContent textarea{ width:190px!important;}
+.pageFormContent textarea#paymentError_viewT{ width:98%!important;}
+input.date{ width:112px;}
+.bordernone{ border:none;}
+.mt1{ margin-top:1px;}
+.block{ display:block; margin-right:10px; color:#fff;}
+.clear{ clear:both;}
+.widthcols3{ width:33%!important;}
+.paymentError_view{border-collapse: collapse; width:95%; margin:0 auto;}
+.paymentError_view tr{ border-bottom:1px solid #eee; height:21px; }
+.paymentError_view tr input.w190.textInput{ /*border-color:#98d5bf;*/}
+.paymentError_view tr:nth-child(odd){ background:#f8f8f8;}
+.paymentError_view td,.paymentError_view th{ line-height:21px; border:1px solid #ddd; color:#999;}
+.paymentError_view th{ color:#000; background:#f5f5f5;}
+.paymentError_view label{ color:#333; text-align:right;}
+
+.re_tips{ position:absolute; top:40%; left:40%; color:red; font-size:14px;}
+a.h-cleanBtn{ position:absolute; display:block; height:15px; width:15px; right:5px; top:5px; font-weight:bold; font-size:14px; text-decoration:none; text-align:center; color:red; cursor:pointer;}
+img#captcha{ cursor:pointer;}
+/**/
+#whatTip,#item_bizMoney_tip,#item_money_tip{z-index: 9; position:absolute;width: 156px;background-color: #fffde4;border: 1px #dfb86d solid;left: 40px;top: 25px;
+text-align: left;padding: 5px 10px;line-height: 18px;color: #dc9632;display: none;border-radius: 4px;}
+#item_bizMoney,#item_money{ position:relative;}
+/*分配终端到网点*/
+#Hterminalno-list-searchBox p{ margin-bottom:8px;}
+#Hterminalno-list-searchBox label{ width:86px; text-align:right; display:inline-block;}
+#Hterminalno-list-searchBox input{ width:180px; border:1px solid #ddd; height:16px; padding-left:3px; margin-left:3px;}
+#Hterminalno-list-searchBox select{width:186px; height:22px; border:1px solid #ddd;}
