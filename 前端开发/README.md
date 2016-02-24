@@ -38,9 +38,9 @@ Markdown 语法速查表
    * 项目2
 3 其它
 图片
-![图片名称](http://gitcafe.com/image.png)
+![图片名称](https://github.com/hgwn/myweb/blob/master/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/20160224132907.png?raw=true)<br>
 链接
-[链接名称](http://gitcafe.com)
+[链接名称](http://github.com)
 引用
 > 第一行引用文字
 > 第二行引用文字
