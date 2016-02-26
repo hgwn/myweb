@@ -1,0 +1,98 @@
+<div class="container masget-clear" on-finish-render-filters="leftBar_buzcircle">
+    <div id="buzcircleLeftBar" class="pull-left masget-leftbar-inner"
+         style="border-right: 1px solid rgb(178, 178, 178); width: 180px; overflow-y: auto; overflow-x: hidden;">
+        <div class="row clearfix">
+            <div class="col-md-12 column" style="height:55px;">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="input-group" style="margin-top:8px;width: 90%;margin-left:5%;">
+                        <span class="input-group-btn">
+                            <button id="buzcircleSearchBtn" class="btn btn-default glyphicon glyphicon-search"
+                                    style="top: 0px;" ng-click="search();"></button>
+                        </span>
+                        <input id="buzcircleSearchInput" type="text" class="form-control" placeholder="商圈名/好友"
+                               ng-model="searchInput" style="z-index:0;">
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div id="contactsPanel_buzcircle" class="masget-contactsPanel"
+             style="width:180px;overflow-y: auto;overflow-x:hidden;" ng-scrollbar scrollbar-x="false" scrollbar-y="true"
+             scrollbar-config="{autoResize:true,show:true}">
+            <div class="list-group" style="width:100%;margin-bottom: 5px;">
+                <a role="button" ng-click="addBuzCircle();" class="list-group-item"
+                   style=" font-weight: bold;text-align: center;">创建商圈</a>
+                <a role="button" ui-sref="home.schedule" class="list-group-item"
+                   style="font-weight: bold;text-align: center;">我的任务</a>
+                <a role="button" ui-sref="home.notice" class="list-group-item"
+                   style="font-weight: bold;text-align: center;">通知公告</a>
+            </div>
+            <div id="creatorBuzCircle" class="list-group" style="width:100%;margin-bottom: 5px;">
+                <div class="list-group-item"
+                   style="color: rgb(234, 122, 122);height:30px;padding-top:5px;font-size: 10px;font-weight: bold;">
+                    我创建的商圈
+                </div>
+                <a role="button"
+                   ng-class="{true:'masget-active',false:''}[item.isActive]" class="list-group-item repeat"
+                   ng-repeat="item in buzcircle track by $index" ng-id="{{item.commercialcircleid}}"
+                   ng-if="item.isGrouper" data-toggle="buttons"
+                    title="{{item.commercialcirclename||item.contactname}}"
+                    data-toggle="button" aria-pressed="false" autocomplete="off"
+                    ng-click="group(item,$index);"><span
+                        style="width:120px;display:inline-block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{item.commercialcirclename||item.contactname}}</span><span
+                        class="badge pull-right" style="position: absolute;"
+                        data-ng-hide="item.msgNum == 0">{{item.msgNum}}</span>
+                    <span class="glyphicon glyphicon-menu-hamburger buzCirceMenuBtn  masget-rightButtons" style="font-size: 18px;background-color: transparent;z-index:1000;"
+                            data-ng-show="item.isGrouper"
+                            data-html="1" data-trigger="hover" data-container="body" data-delay="200"
+                            data-content-Template="popover/buzCircle.rightMenu.tpl.html"
+                            bs-popover>
+                    </span>
+                </a>
+            </div>
+
+            <div class="list-group" style="width:100%;margin-bottom: 5px;">
+                <div class="list-group-item"
+                   style="color: rgb(234, 122, 122);height:30px;padding-top:5px;font-size: 10px;font-weight: bold;">
+                    我加入的商圈
+                </div>
+                <a role="button" ng-class="{true:'masget-active',false:''}[item.isActive]"
+                   class="list-group-item repeat"
+                   ng-repeat="item in buzcircle track by $index" ng-id="{{item.commercialcircleid}}"
+                   ng-if="!item.isGrouper"
+                   title="{{item.commercialcirclename||item.contactname}}"
+                   ng-click="group(item,$index);"><span
+                        style="width: 120px;display:inline-block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{item.commercialcirclename||item.contactname}}</span><span
+                        class="badge pull-right" style="position: absolute;"
+                        data-ng-hide="item.msgNum == 0">{{item.msgNum}}</span>
+                    <span class="glyphicon glyphicon-menu-hamburger buzCirceMenuBtn  masget-rightButtons" style="font-size: 18px;background-color: transparent;z-index:1000;"
+                            data-ng-show="item.isGrouper"
+                            data-html="1" data-trigger="hover" data-delay="200" data-container="body"
+                            data-content-Template="popover/buzCircle.rightMenu.tpl.html"
+                            bs-popover>
+                    </span>
+                </a>
+            </div>
+
+            <div class="list-group" style="width:100%;margin-bottom: 5px;">
+                <a role="button" ng-class="{true:'masget-active',false:''}[item.isActive]"
+                   ng-repeat="item in chatItems track by $index" ng-id="{{item.contactid}}"
+                   style="height:40px;width:100%;padding: 0 0;"
+                   class="list-group-item repeat"
+                   aria-pressed="false" autocomplete="off"
+                   ng-click="group(item,$index);"><span
+                        style="width:90px;display:inline-block;margin-left:-35px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{item.commercialcirclename||item.contactname}}</span><span
+                        class="badge pull-right" style="position: absolute;"
+                        data-ng-hide="item.msgNum == 0">{{item.msgNum}}</span><span
+                        class="glyphicon glyphicon-remove-sign"
+                        style="position: absolute;right: 3px;font-size: 18px;" ng-show="item.isChat"
+                        ng-click="removeChat(item);"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="contentPanelInner_buzcircle" class="masget-contentPanel-inner" style="margin-left:180px;">
+        <div class="am-fade-and-scale" ui-view="contentPanel_buzcircle" belongto="buzcircle"
+             style="height: 100%;position: relative;"></div>
+    </div>
+</div>
+

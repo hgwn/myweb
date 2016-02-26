@@ -1,0 +1,18 @@
+<div class="col-md-12 column"  style="padding: 0;margin: 0px"  on-finish-render-filters="check">
+	<div class="col-md-12 column marginBottom10" style="padding-left: 0">
+		<form class="form-inline" id="fundAccountForm" name="fundAccountForm">
+			<label>经销商名称:</label>
+			<input type="text" name="objectname" ng-model="fundForm.objectname"  placeholder="输入经销商名称" class="form-control input-sm" style="height: 31px;width: 150px;margin-right: 5px;">
+			<button type="button" class="btn btn-success btn-sm" style="width: 100px" ng-click="providerget()">查询</button>
+			<button type="button" class="btn btn-success btn-sm" style="width: 100px" ng-click="addModel()">新增钱包</button>
+			<span style="float: right;margin-right: 20px;font-size: 22px">余额总计:<span style="color: red;">{{sumData.usablebalance }}</span>元</span>
+		</form>
+	</div>
+	<div ui-grid="gridOptions" ui-grid-pagination ui-grid-resize-columns id="listModel" class="grid" style="clear: both"></div>
+</div>
+<div ng-if="iconFlag == 'add'" style="width:99%;height:99%;position: absolute;background: #D5D5D5;opacity:0.5;z-index:1132;  margin-left: -10px;">
+</div>
+<div ng-if="iconFlag == 'add'" style="width:100px;height:100px;z-index:1133;  position: fixed;top: 40%;left: 50%;">
+	<span class="icon-spinner icon-spin" style="font-size:50px;opacity:1"></span>
+	<div style="margin-left: -16px;">{{context}}</div>
+</div>

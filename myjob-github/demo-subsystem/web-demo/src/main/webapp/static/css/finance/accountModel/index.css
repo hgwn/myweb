@@ -1,0 +1,138 @@
+#main {
+    padding:10px 15px ;
+	width: auto;
+	font-size: 14px;
+	
+}
+.innerCell {
+	display: block;
+	margin: 0px -10px -1px;
+	padding: 7px 5px;
+	border-bottom: 1px solid #ddd;
+	text-align: center;
+	line-height: 20px;
+}
+
+.innerCell.l2 {
+	padding: 14px 5px;
+	line-height: 40px;
+}
+
+#accountModel td {
+	vertical-align: middle;
+	text-align: center;
+}
+.datepicker .btn-default {
+	border: 0px !important;
+}
+#accountModel th {
+	text-align: center;
+}
+
+label.control-label {
+	padding-left: 0;
+	padding-right: 0
+}
+
+.bottom-left-static {
+	bottom: 0;
+}
+
+.modal textarea .ng-dirty.ng-invalid, .modal select.ng-dirty.ng-invalid,
+	.modal input.ng-dirty.ng-invalid {
+	border-color: #e9322d;
+	-webkit-box-shadow: 0 0 6px #f8b9b7;
+	-moz-box-shadow: 0 0 6px #f8b9b7;
+	box-shadow: 0 0 6px #f8b9b7;
+}
+
+.from-table {
+	padding: 0 15px 0 15px;
+}
+
+.from-table .table {
+	margin-top: -10px;
+}
+
+.from-table .table th {
+	text-align: center;
+	border-top: none;
+	border-bottom: 1px solid #ddd;
+}
+
+.from-table .table td {
+	text-align: center;
+	border-top: none;
+}
+
+.from-table .table td {
+	position: relative;
+}
+
+.tabledel {
+	position: absolute;
+	color: red;
+	cursor: pointer;
+	top: 15px;
+	right: -15px;
+}
+
+.ptitle {
+	padding: 10px 15px;
+	background-image: linear-gradient(to bottom, #fff 0%, #f2f2f2 100%);
+	color: #333;
+	border: 1px solid #ddd;
+	border-bottom: 0;
+}
+
+.pSearch {
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-top: 0;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#fefefe),
+		to(#f0f0f0));
+}
+
+.pSearch input {
+	border-radius: 0;
+	padding-right: 25px;
+}
+
+.pSearch .glyphicon-search {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	color: #337AB7;
+}
+
+.panel-default .commobox-container input {
+	background-color: #fff
+}
+
+.accountTitle {
+	padding-right: 16px;
+	background-color: #F5F5F5;
+	border: 1px solid #ddd;
+	border-left: none;
+}
+
+#accountModel .accountTitle th {
+	border-right: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+	border-top: none;
+}
+@media (max-width: 992px){
+	body{
+		font-size:12px;
+	}
+	.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th{
+		padding:5px;
+	}
+	.rightBox{
+		display:none
+	}
+	.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12{
+		padding-right: 0px;
+   		padding-left: 0px;
+	}
+}

@@ -1,0 +1,13 @@
+<div class="col-md-12 column" ng-controller="goodsstockcheckController" style="padding: 0px;margin: 0px">
+    <div class="col-md-12 column h_main" style="min-height:450px;">
+        <div ui-view="query"></div>
+    </div>
+	 <!-- <div class="col-md-12 column padding0px margin0px">
+        <div ui-view="add"></div>
+    </div> -->
+    <div class="col-md-12 column">
+        <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" style="height: 40px; padding-top:5px;">
+            <pagination recordcount="{{changewarehouses.data.total}}" pagenum="formData.pagenum" pagesize="formData.pagesize" onselect="queryForm()"></pagination>
+        </nav> 
+    </div>
+</div>

@@ -1,0 +1,6 @@
+<a role="menuitem" tabindex="-1" class="list-group-item" title="{{node.stationname}}"
+   ng-if="!node.divider" ng-click="stationChanged(node);" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;height: 30px;padding: 5px;"
+        ><span class="indent" repeat-times="{{node.level}}">&nbsp;&nbsp;&nbsp;</span>{{node.text}}<span ng-if="stationDatum.pstationid == node.id" ng-init="stationDatum.pstationname=node.text;" class="glyphicon glyphicon-ok pull-right"></span></span></a>
+<div class="stationItem" role="presentation"
+     ng-repeat="node in node.children" ng-include="'base/app/home/stationsListRender.html'">
+</div>

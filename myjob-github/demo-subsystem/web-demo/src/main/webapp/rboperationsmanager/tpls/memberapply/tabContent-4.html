@@ -1,0 +1,23 @@
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th class="center">审核时间</th>
+            <th class="center">审核公司</th>
+            <th class="center">审核人</th>
+            <th class="center">审核状态</th>
+            <th class="center">审核意见</th>
+        </tr>
+        </thead>
+
+        <tbody id="audit-body">
+        <tr ng-repeat="item in queryData.mgbase_companyinfoauditlog">
+            <td width="180">{{item.audittime}}</td>
+            <td>{{item.companyname}}</td>
+            <td width="160">{{item.auditstaffname}}</td>
+            <td width="120">{{changetoName(item.auditstate)}}</td>
+            <td>{{item.remark}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

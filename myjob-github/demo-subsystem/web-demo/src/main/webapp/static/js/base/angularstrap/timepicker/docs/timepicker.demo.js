@@ -1,0 +1,1 @@
+"use strict";angular.module("mgcrea.ngStrapDocs").controller("TimepickerDemoCtrl",function(e,t){e.time=new Date(1970,0,1,10,30,40),e.selectedTimeAsNumber=3784e4,e.selectedTimeAsString="10:00",e.sharedDate=new Date((new Date).setMinutes(0,0))});

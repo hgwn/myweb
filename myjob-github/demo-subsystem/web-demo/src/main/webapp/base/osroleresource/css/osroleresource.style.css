@@ -1,0 +1,171 @@
+@CHARSET "UTF-8";
+.well {
+	padding-left: 15px;
+	padding-right: 15px;
+	width: auto;
+}
+
+form label {
+	font-weight: normal;
+}
+
+
+table.treetable tbody tr td {
+  	cursor: default;
+  	padding: 0.5em 1em !important;
+  	text-align: center;
+}
+
+table.treetable{
+	  border: 1px solid #ddd !important;
+}
+
+table.treetable thead tr th {
+	  cursor: default;
+  	  padding: 0.5em 1em !important;
+ 	  background-color: #f3f3f3 !important;
+	  color: #555 !important;
+	  font-weight: bold !important;
+	  font-size: 12px !important;
+	  text-align: center !important;
+	  padding: 10px 5px !important;
+	    border: 1px solid #ddd !important;
+}
+
+.pagination li a{
+	color: black;
+}
+
+.pagination .page-info a:HOVER{
+	color: black;
+	background-color: white;
+}
+
+.jbox-button-panel {
+	box-sizing: content-box;
+}
+
+.ng-messages-error{
+	margin-left: 110px;
+}
+.ng-messages-error div {
+	position: absolute;
+	z-index: 100;
+	font-size: 12px;
+	color: red
+}
+
+.haserror .form-control {
+  border-color: #a94442;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+.haserror .form-control:focus {
+  border-color: #843534;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+}
+
+.queryForm .Wdate{
+	height: 30px;
+}
+
+.form_station .modal-footer{
+	text-align: center;
+}
+
+.form_station .form-control{
+	width: 180px;
+}
+
+.marginTop{
+	margin-top: 18px;
+}
+
+.textbox-invalid {
+  border-color: #ccc !important;
+  background-color: #fff !important;
+}
+.validatebox-invalid {
+  border-color: #ccc !important;
+  background-color: #fff !important;
+}
+
+.masget-top{
+    position: absolute;
+    top:40%;
+    left:40%;
+    z-index:999999 !important;
+}
+
+.width330{
+	width:330px;
+}
+
+.waystationlist-container {
+	font: 13px/24px "瀹嬩綋";
+	color: #333;
+	position: absolute;
+	display: inline-block;
+}
+
+.waystationlist-container .waystationText{
+	box-shadow: 2px 3px 10px #ececec;
+	height: 30px;
+	font-size: 13px;
+	cursor: default;
+	background-color: inherit;
+}
+
+.waystationlist-container-icon {
+	background: url(../../../static/img/logistic/log-stowageLoading-input_icon.png) no-repeat center right;
+	width: 18px;
+  	height: 98px;
+	cursor: pointer;
+	position: absolute;
+	top: 1px;
+	right: 1px;
+	border-radius: 0 4px 4px 0;
+	background-color: #F2F2F2;
+}
+
+.waystationlist-container-icon:hover{
+  background-color: #e6e6e6;
+  }
+.waystationlist-list {
+	width:  100%;
+	height: 335px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #fff;
+	border: 1px solid #D4D4D4;
+	padding-right: 0px;
+}
+.waystationlist-list a,
+.waystationlist-list a:HOVER{
+	cursor: pointer;
+}
+.waystationlist-table {
+	border-collapse: collapse;
+	width: 100%;
+}
+.waystationlist-table thead th {
+	white-space: nowrap;
+	border: 1px solid #D6D6D6;
+	border-right: 0px;
+	font-weight: normal;
+	text-align: center;
+}
+
+.waystationlist-table tbody tr td {
+	border: 1px solid #d6d6d6;
+	white-space: nowrap;
+}
+
+
+.waystationlist-table tbody tr:hover, .bgColor {
+	background-color: #E5E4E4;
+	color: #2d7eb7;
+	cursor: pointer
+}

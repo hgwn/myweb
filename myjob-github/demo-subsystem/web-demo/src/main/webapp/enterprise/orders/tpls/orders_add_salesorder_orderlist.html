@@ -1,0 +1,111 @@
+<!--<div ng-controller="ordersAddSalesOrderOrderListController" >-->
+    <div ng-controller="ordersAddSalesOrderOrderListController" >
+        <table class="table table-bordered table-hover table-striped table-condensed" style="margin: 0;">
+            <thead>
+            <tr class="info">
+                <th style="width: 40px;">操作</th>
+                <th>商品编码</th>
+                <th>商品名称</th>
+                <th>商品条码</th>
+                <th>规格</th>
+                <th>数量</th>
+                <th>原始单价(￥)</th>
+    <!--             <th>折扣率(%)</th> -->
+                <th>单价(￥)</th>
+                <th>合计</th>
+                <th style="width: 40px;">赠品</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in orders.orderlist">
+                <td >
+                    <a href="javascript:void(0);" class="btn_del" ng-click="delrecord($index)" title="删除">
+                        <span class="glyphicon glyphicon glyphicon-trash red"></span>
+                    </a>
+                </td>
+                <td><input type="text" class="form-control"  ng-model="item.goodssn" readonly /></td>
+                <td>
+                    <comboxtable  ng-model="item.selected"  column-names="['商品编码','商品','商品条码','商品规格','价格']" column-fields="['goodssn','goodsname','barcode','goodsspec','shopprice']"
+                                  text-field="goodsname" datas="goodsskus.data.rows" on-change="querygoodssku(item)" key-word="item.goodsname" is-required="true" is-show-index="true"
+                                  content-style="width: 200px;" input-style="font-size:13px" input-class="form-control" input-placeholder="请选择商品"
+                                  is-show-pagination="true" recordcount="{{goodsskus.data.total}}" pagenum="item.pagenum" pagesize="item.pagesize">
+                    </comboxtable>
+                </td>
+                 <td><input type="text" class="form-control"  ng-model="item.goodsbarcode" readonly /></td>
+                <td><input type="text" class="form-control"  ng-model="item.goodsspec" readonly /></td>
+                <td><input type="number" min="1" class="form-control"  ng-model="item.goodsqty"  /></td>
+                <td><input type="text" class="form-control"  ng-model="item.goodsunitprice"  readonly/></td>
+ <!--                <td><input type="number" class="form-control"  ng-model="item.discount"  /></td> -->
+                <td><input type="number" class="form-control"  ng-model="item.dealingprice"  /></td>
+                <td><input type="number" class="form-control" ng-model="item.goodsmoney" readonly /></td>
+                <td><input type="checkbox" ng-model="item.isgiftflag" ></td>
+            </tr>
+
+            </tbody>
+            <tfoot>
+            <tr>
+                <td></td>
+                <td colspan="10">
+                    <a href="javascript:void(0);" class="btn-link" ng-click="addNewRow()" title="添加记录">
+                        <span class="glyphicon glyphicon-plus"></span>&nbsp;添加记录
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                </td>
+                <td><label>合计</label></td>
+                <td>{{sumGoodsQty()}}</td>
+                <td colspan="3"></td>
+                <td><strong style="color: red;">{{sumGoodsMoney() | currency:"￥"}}</strong></td>
+                <td></td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+    <!--<div  ui-grid="gridOptions" ui-grid-edit ui-grid-row-edit  ui-grid-cellnav  class="grid"></div>-->
+    <!--<div ui-grid="gridOptions" ui-grid-edit ui-grid-row-edit ui-grid-cellNav class="grid"></div>-->
+
+    <!--<table class="table table-bordered">-->
+        <!--<thead>-->
+        <!--<tr class="success">-->
+            <!--<th>货号</th>-->
+            <!--<th>商品名称</th>-->
+            <!--<th>销售价</th>-->
+            <!--<th>成交价</th>-->
+            <!--<th>数量</th>-->
+            <!--<th>折扣金额</th>-->
+            <!--<th>合计</th>-->
+            <!--<th>操作</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+        <!--<tr ng-repeat="cart in orders.orderlist"-->
+            <!--ng-click="editCommodity(cart)">-->
+            <!--<td>{{cart.barcode}}</td>-->
+            <!--<td>{{cart.goodsname}}</td>-->
+            <!--<td>{{cart.goodsunitprice | currency:"￥  "}}</span></td>-->
+            <!--<td>￥ <input type="text" ng-model="cart.dealingprice"-->
+                         <!--style="width: 80px;">-->
+            <!--</td>-->
+            <!--<td><input type="number" min="1" ng-model="cart.goodsqty"-->
+                       <!--class="ng-valid ng-valid-min ng-dirty ng-valid-number ng-touched" style="width:80px;">-->
+            <!--<td> {{cart.goodsunitprice*cart.goodsqty-cart.dealingprice*cart.goodsqty | currency:"￥  "}}</td>-->
+            <!--<td>{{cart.dealingprice*cart.goodsqty | currency:"￥  "}}</td>-->
+            <!--<td><a href="" class="link_delete" ng-click="deletecart(cart)">删除</a>-->
+            <!--</td>-->
+        <!--</tr>-->
+        <!--<tr class="warning">-->
+            <!--<td></td>-->
+            <!--<td></td>-->
+            <!--<td></td>-->
+            <!--<td>合计</td>-->
+            <!--<td>{{orders.totgoodsqty}}</td>-->
+            <!--<td>{{orders.totdiscountmoney | currency:"￥  "}}</td>-->
+            <!--<td><span style="color: red;">{{orders.totgoodsmoney |currency:"￥  " }}</span></span></td>-->
+            <!--<td></td>-->
+        <!--</tr>-->
+        <!--</tbody>-->
+    <!--</table>-->
+
+<!--</div>-->

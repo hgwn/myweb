@@ -1,0 +1,101 @@
+<!-- <div ng-controller="printHtmlController"> -->
+	<div style="margin-top:45px;" class="modal fade" id="modal-container-printhtml" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width:100%;">
+			<div class="modal-content">
+				
+				<style id="style1">
+				body {
+				    color: #333;
+				    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+				    font-size: 14px;
+				    line-height: 1.42857;
+				}
+				.text-center {
+				    text-align: center;
+				}
+				.table-bordered {
+				    border: 2px solid #ddd;
+				}
+				.table-bordered tbody tr td, .table-bordered  tbody tr th,.table-bordered thead tr td, .table-bordered thead tr th {
+				    border: 1px solid #ddd;
+				    text-align: center;
+				}
+				.table {
+				    margin-bottom: 20px;
+				    max-width: 100%;
+				    width: 100%;
+				}
+				table {
+				    background-color: transparent;
+				    border-collapse: collapse;
+				    border-spacing: 0;
+				}
+				table tbody tr td{
+				    text-align: center;
+				}
+				b, strong {
+				    font-weight: 700;
+				}
+				.col-md-12 {
+				    width: 100%;
+				}
+				.col-md-12, .col-md-3, .col-md-4{
+				    float: left;
+				}
+				.col-md-4 {
+				    width: 33.3333%;
+				}
+				.col-md-3 {
+				    width: 23%;
+				}
+				
+				</style>
+					<div class="col-md-12 column"  style="padding: 0px;margin: 0px">
+						<div id="form1">
+							<div class="text-center">
+							    <strong><span  style="font-size:24px;">入库单</span></strong>
+							</div>
+							<div class="col-md-12 column" style="padding:0px;">
+							    <div class="col-md-4 column" style="padding:0px;font-size:15px;"><strong>仓库：{{warehousein.stationname}}</srtong></div>
+							    <div class="col-md-4 column" style="padding:0px;font-size:15px;"><strong>入库单号：{{warehousein.warehouseinnum}}</strong></div>
+							    <div class="col-md-4 column" style="padding:0px;font-size:15px;"><strong>日期：{{warehousein.createdtime}}</strong></div>
+							</div>
+							<div class="col-md-12 column" style="padding:0px;">
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+										<th>入库单号</th>
+	                                    <th>商品</th>
+	                                    <th>商品货号</th>
+	                                    <th>商品条码</th>
+	                                    <th>重量</th>
+	                                    <th>进货单价</th>
+	                                    <th>完好货物数量</th>
+	                                    <th>损坏货物数量</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="warehouseinlist in warehouseinlists.data.rows">
+											<td>{{warehouseinlist.warehouseinnum}}</td>
+		                                    <td>{{warehouseinlist.goodsname}}</td>
+		                                    <td>{{warehouseinlist.goodssn}}</td>
+		                                    <td>{{warehouseinlist.barcode}}</td>
+		                                    <td>{{warehouseinlist.weight}}</td>
+		                                    <td>{{warehouseinlist.goodsunitprice}}</td>
+		                                    <td>{{warehouseinlist.goodssoundqty}}</td>
+		                                    <td>{{warehouseinlist.goodsdamageqty}}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				
+				<div class="modal-footer">
+				     <a class="btn btn-primary" href="javascript:void(0);" ng-click="myPreview()">打印</a>
+					 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- </div> -->

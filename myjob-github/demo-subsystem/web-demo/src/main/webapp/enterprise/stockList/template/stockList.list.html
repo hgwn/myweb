@@ -1,0 +1,59 @@
+<div class="container well well-lg">
+	<div class="row clearfix">
+	    <div class="col-md-12 column" style="margin-top: 20px;padding-right: 0px;">
+   		    <form class="form-inline" role="form">
+			    <div class="form-group">
+				    <div class="column col-md-4" style="padding:5px;padding-left: 20px;">
+				        <label>商品名称:</label>
+				    </div>
+					<div class="column col-md-4">
+						<input class="form-control" type="text" ng-model="formData.goodsname" placeholder="输入商品名称..."/>
+					</div>
+				</div>&nbsp;
+			    <div class="form-group">
+				    <div class="column  col-md-4" style="padding:5px;padding-left: 20px;">
+				        <label>商品编码:</label>
+				    </div>
+					<div class="column col-md-4">
+						<input class="form-control" type="text" ng-model="formData.goodssn" placeholder="输入商品货号..."/>
+					</div>
+				</div>&nbsp;
+				<div class="form-group">
+				    <div class="column  col-md-4" style="padding:5px;padding-left: 20px;">
+				        <label>商品条码:</label>
+				    </div>
+					<div class="column col-md-4">
+						<input class="form-control" type="text" ng-model="formData.barcode" placeholder="输入商品条码..."/>
+					</div>
+				</div>&nbsp;
+<!-- 				<div class="form-group">
+				    <div class="column col-md-4" style="padding:5px;padding-left: 20px;">
+				        <label>商品批次:</label>
+				    </div>
+					<div class="column col-md-4">
+						<input class="form-control" type="text" ng-model="formData.batchcode" placeholder="输入商品批次..."/>
+					</div>
+				</div> -->
+				<div class="form-group" >
+					<div class="column col-md-4" style="margin-left: 10px;">
+						<button class="btn btn-primary" ng-click="selectGoodsStock()">查询</button>
+					</div>
+				</div>
+			</form>
+	    </div>
+        
+        <div ui-view="stationAdbTreeContent"></div>
+        
+		<div class="col-md-10 column"  style="margin-top:10px">
+			<div ui-grid="gridOption" ui-grid-cellNav ui-grid-resize-columns ui-grid-move-columns ui-grid-pagination class="grid" style="margin-top:10px;"></div>
+		</div>
+		
+		<div ui-view="stockListModal"></div>
+	</div>
+</div>
+<style type="text/css">
+	.col-md-4{
+	    padding-left:0px;
+	    padding-right:0px;
+	}
+</style>

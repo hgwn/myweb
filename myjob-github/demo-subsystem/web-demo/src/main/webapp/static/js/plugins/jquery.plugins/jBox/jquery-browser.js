@@ -1,0 +1,1 @@
+function uaMatch(e){e=e.toLowerCase();var r=rwebkit.exec(e)||ropera.exec(e)||rmsie.exec(e)||e.indexOf("compatible")<0&&rmozilla.exec(e)||[];return{browser:r[1]||"",version:r[2]||"0"}}jQuery.extend({browser:function(){var e={},r=window.navigator.userAgent,o=uaMatch(r);return o.browser&&(e[o.browser]=!0,e.version=o.version),{browser:e}}});

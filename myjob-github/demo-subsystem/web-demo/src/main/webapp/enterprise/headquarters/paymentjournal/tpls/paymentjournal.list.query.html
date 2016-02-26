@@ -1,0 +1,55 @@
+<form class="form-inline">
+	<div class="col-sm-12 clearfix" style="margin-bottom:10px;">
+		<div class="col-sm-1 text-right" style="padding: 5px 0px 0px 0px;">
+			<label>经销商：</label>
+		</div>
+		<div class="col-sm-2 text-left" style="padding: 0px;">
+			<!-- <input name="membername" type="text" ng-model="formData.membername" class="form-control" style="height:30px;width:100%;"> -->
+			<select class="form-control col-sm-2" style="width: 180px;"  ng-model="formData.subcompanyid" ng-options="item.subcompanyid as item.subcompanyname for item in formData.subCompanyList">
+							
+			</select>
+		</div>
+		
+		<div class="col-sm-1 text-right" style="padding: 5px 0px 0px 0px;">
+			<label>单号：</label>
+		</div>
+		<div class="col-sm-2 text-left" style="padding: 0px;">
+			<input name="consignnotenum" placeholder="采购单号/销售单号" type="text" ng-model="formData.consignnotenum" class="form-control" style="height:30px;width:100%;">
+		</div>
+		<div class="col-sm-1 text-right" style="padding: 5px 0px 0px 0px;">
+			<label>终端号：</label>
+		</div>
+		<div class="col-sm-2 text-left" style="padding: 0px;">
+			<input name="terminalnumber" type="text" ng-model="formData.terminalnumber" class="form-control" style="height:30px;width:100%;">	
+		</div>
+		<div class="col-sm-2">
+			<button type="button" class="btn btn-success btn-sm" style="width: 100px" ng-click="queryForm(1)">查询</button>
+		</div>
+		</div>
+	<div class="col-sm-12 clearfix" style="margin-bottom:10px;">
+		<div class="col-sm-1 text-right" style="padding: 5px 0px 0px 0px;">
+			<label>交易时间：</label>
+		</div>
+		<div class="col-sm-2 text-left" style="padding: 0px;">
+			<input name="businesstimebegin" type="text" data-container="body" ng-model="formData.businesstimebegin"  required class="form-control" data-max-date="{{formData.businesstimeend}}"  data-date-format="yyyy-MM-dd" data-date-type="string" data-autoclose="1"  bs-datepicker style="height:30px;width:100%;cursor: default;">
+		</div>
+		
+		<div class="col-sm-1 text-right" style="padding: 5px 0px 0px 0px;">
+			<label>至：</label>
+		</div>
+		<div class="col-sm-2 text-left" style="padding: 0px;">
+			<input name="businesstimeend" type="text" data-container="body" ng-model="formData.businesstimeend"  required class="form-control" data-min-date="{{formData.businesstimebegin}}"  data-date-format="yyyy-MM-dd" data-date-type="string" data-autoclose="1"  bs-datepicker style="height:30px;width:100%;cursor: default;">
+		</div>
+		<div class="col-sm-1 text-right" style="padding: 5px 0px 0px 0px;">
+			<label>支付方式：</label>
+		</div>
+		<div class="col-sm-2 text-left" style="padding: 0px;">
+			<select name="paymenttype" ng-model="formData.paymenttype" ng-options="paymenttype.paymenttypeid as paymenttype.paymenttypename for paymenttype in paymenttypes.data.rows" style="width:100%;height: 30px;padding: 0px;padding-left: 10px;" class="form-control">
+				<option value="" >全部</option>
+			</select>		
+		</div>
+		<div class="col-sm-2">
+			<button type="submit" ng-click="privewToPdf()" class="btn btn-success btn-sm" style="width: 100px">打印</button>
+		</div>
+	</div>
+</form>			

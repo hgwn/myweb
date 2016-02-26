@@ -1,0 +1,16 @@
+.smalltip{color:#ADADAD;font-size: 12px;}
+.ztree li span.button.ico_open{background:url('/masgetweb/static/img/base/clipp/iconfont-iconfontcolor52.png')}
+.ztree li span.button.ico_close {background:url('/masgetweb/static/img/base/clipp/iconfont-iconfontcolor51.png')}
+.ztree li span.button.ico_docu{background:url('/masgetweb/static/img/base/clipp/iconfont-ziyuan.png')}
+.zTreeDemoBackground.left{position:absolute;left:0;width:300px;}
+.zTreeDemoBackground.right{margin-left:310px}
+.treehead{background:#f3f3f3;   border: 1px solid #DDDDDD;border-bottom:0;padding:5px}
+.content_wrap{ margin-top:20px;  position: relative;}
+ul.ztree {border: 1px solid #DDDDDD;height:360px;overflow-y:auto;overflow-x:auto;}
+ul.log {border: 1px solid #617775;background: #f0f6e4;width:300px;height:170px;overflow: hidden;}
+ul.log.small {height:45px;}
+ul.log li {color: #666666;list-style: none;padding-left: 10px;}
+ul.log li.dark {background-color: #E3E3E3;}
+/* ruler */
+div.ruler {height:20px; width:220px; background-color:#f0f6e4;border: 1px solid #333; margin-bottom: 5px; cursor: pointer}
+div.ruler div.cursor {height:20px; width:30px; background-color:#3C6E31; color:white; text-align: right; padding-right: 5px; cursor: pointer}

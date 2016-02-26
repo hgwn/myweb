@@ -1,0 +1,40 @@
+<div class="panel panel-default" style="overflow:auto;height:100%;" on-finish-render-filters="buzcircle_find" ng-scrollbar scrollbar-x="false" scrollbar-y="true" scrollbar-config="{autoResize:true,show:true}">
+    <div class="panel-heading" align="center" style="height: 50px;">
+        <form class="form-inline">
+            <div class="form-group">
+                <label class="sr-only" for="exampleInputAmount"></label>
+                <div class="input-group">
+                    <div class="input-group-addon">找商圈</div>
+                    <input type="text" class="form-control" id="exampleInputAmount" placeholder="搜索...">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary masget-btn-primary" ng-click="searchBuzCircle();">发现</button>
+        </form>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-6 col-md-4" ng-repeat="item in items">
+                <div class="thumbnail" style="margin-bottom:10px;">
+                    <img src="static/img/ui/buzcircle2.png" alt="..." class="masget-floatImg" style="">
+
+                    <p style="margin-top:20px;">商圈名：物流测试平台</p>
+
+                    <p>商圈类型：供应商</p>
+
+                    <p> 成员数：100</p>
+
+                    <div class="caption">
+                        <p>商圈简介</p>
+
+                        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                    </div>
+                    <div class="panel-footer" align="right">
+                        <a href="#" class="btn btn-sm btn-primary masget-btn-primary" role="button">加入商圈</a></div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <ul class="pagination" style="cursor:pointer;"></ul>
+        </nav>
+    </div>
+</div>

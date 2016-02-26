@@ -1,0 +1,17 @@
+<link href="/masgetweb/static/js/plugins/angular.plugins/commobox/css/style.css" rel="stylesheet">
+<div class="commobox-container">
+    <input  type="text" ng-model="keyWord" ng-disabled="{{isDisabled}}"  ng-click="showList()"  ng-keyup="query($event)" ng-keydown="selectNext($event)" placeholder="{{inputPlaceholder==null?'请选择':inputPlaceholder}}" style="width:100%;">
+    <div class="commobox-container-icon" ng-click="showList()"></div>
+
+    <div class="commobox-list" ng-show="isShowList">
+        <div class="content">
+            <ul>
+                <li ng-repeat="obj in datas" ng-click="onSelect(obj)" ng-mouseenter="changeBgColor(obj)" ng-class="{commobox_list_ul_li_bgcolor:obj.isSelected}"><span ng-bind="obj.{{textField}}"></span></li>
+            </ul>
+        </div>
+        <footer ng-show="{{hasLink}}">
+            <a ng-click="linkAction()">{{linkText==null?"新增":linkText}}</a>
+        </footer>
+    </div>
+
+</div>

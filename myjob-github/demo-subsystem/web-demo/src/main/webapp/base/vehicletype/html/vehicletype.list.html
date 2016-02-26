@@ -1,0 +1,16 @@
+<div class="container well" on-finish-render-filters="list" style="  background-color: #fff;border:none;overflow: auto;margin-bottom:0">
+    <div class="row clearfix" >
+        <div class="col-md-12 column">
+            <form class="form-inline queryForm" id="stationForm" >
+                <div style="  width: 280px;  display: inline-block;  float: left;">
+	                <label>车辆类型名称：</label>
+			        <input placeholder="请输入车辆类型名称"  type="text" name="vehicletypename" ng-model="vehicle.vehicletypename"   class="form-control input-sm"   style="height:30px;width:175px ; display: inline-block;"/>
+                </div>
+                <button type="button" class="btn btn-success btn-sm"  style="width: 80px;" ng-click="check()">查询</button>
+                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#contractModal"  style="width: 80px" ng-click="add()">新增</button>
+                <br><br>
+            </form>
+            <div ui-grid="gridOptions" ui-grid-pinning ui-grid-resize-columns ui-grid-selection ui-grid-pagination id="vehicleModel" class="grid" style="margin:0;clear: both"></div>
+        </div>
+    </div>
+</div>

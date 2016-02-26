@@ -1,0 +1,44 @@
+<div style="height: 250px;margin:0 auto;" on-finish-render-filters="edit">
+	<h1 class="text-center" style="  margin: 0 0 10px 0;">申请信息</h1>
+	<form class="form-inline form_station" novalidate id="form_leagueapply" name="form_leagueapply"  >
+	    <div class="form-group col-sm-5 width330  " style="height: 30px;" ng-class="{haserror:form_leagueapply.platformid.$invalid&&form_leagueapply.submitted}">
+	        <label class="text-left" style="width: 112px;">申请加入的平台：</label>
+			<button ng-class="{true:'error-btn-default'}[form_leagueapply.platformid.$invalid&&form_leagueapply.submitted]" required style="padding: 4px 12px; width: 166px;" name="platformid" type="button" class="btn btn-default masget-btn-default" ng-model="leagueapply.platformid" data-trigger="focus"
+					bs-options="item.platformid as item.platformname for item in platformData" bs-select>
+				未选择 <span class="caret"></span>
+			</button>
+			<span title="必填项" ng-messages="form_leagueapply.platformid.$error" ng-show="form_leagueapply.platformid.$invalid&&form_leagueapply.submitted" >
+				<span ng-message="required" class="icon-exclamation-sign" style="  color: #a94442; font-size: 16px;"></span>
+			</span>
+	    </div>
+	    <div class="form-group col-sm-5  width290  pull-right" style="height: 30px;" >
+	        <label class="text-left" style="width: 70px;">申请公司：</label>
+			<input readonly type="text" name="appcompanyname" ng-model="leagueapply.appcompanyname" class="form-control input-sm" style="width: 166px;">
+	    </div>
+	    <div class="form-group col-sm-5 marginTop width330  "  ng-class="{haserror:form_leagueapply.stationid.$invalid&&form_leagueapply.submitted}">
+	        <label class="text-left" style="width: 112px;">申请站点：</label>
+			<button ng-class="{true:'error-btn-default'}[form_leagueapply.stationid.$invalid&&form_leagueapply.submitted]" ng-disabled="appstationidModel" required style="padding: 4px 12px; width: 166px;" name="stationid" type="button" class="btn btn-default masget-btn-default" ng-model="leagueapply.stationid" data-trigger="focus"
+					bs-options="item.stationid as item.stationname for item in stationData" bs-select>
+				未选择 <span class="caret"></span>
+			</button>
+			<span title="必填项" ng-messages="form_leagueapply.stationid.$error" ng-show="form_leagueapply.stationid.$invalid&&form_leagueapply.submitted" >
+				<span ng-message="required" class="icon-exclamation-sign" style="  color: #a94442; font-size: 16px;"></span>
+			</span>
+	    </div>
+	    <div class="form-group col-sm-5 marginTop width290  pull-right" ng-class="{haserror:form_leagueapply.staffid.$invalid&&form_leagueapply.submitted}">
+	        <label class="text-left" style="width: 70px;">申请人：</label>
+			<button ng-class="{true:'error-btn-default'}[form_leagueapply.staffid.$invalid&&form_leagueapply.submitted]"  required style="padding: 4px 12px; width: 166px;" name="staffid" type="button" class="btn btn-default masget-btn-default" ng-model="leagueapply.staffid" data-trigger="focus"
+					bs-options="item.staffid as item.staffname for item in StaffSData" bs-select>
+				未选择 <span class="caret"></span>
+			</button>
+			<span title="必填项" ng-messages="form_leagueapply.staffid.$error" ng-show="form_leagueapply.staffid.$invalid&&form_leagueapply.submitted" >
+				<span ng-message="required" class="icon-exclamation-sign" style="  color: #a94442; font-size: 16px;"></span>
+			</span>
+
+	    </div>
+		<div class="form-group col-sm-12 marginTop  " >
+			<label class="text-left" style="width: 112px;">申请意向：</label>
+			<textarea rows="5" style="resize: none;height: 100px;width: 77%;" class="form-control input-sm" name="remark" ng-model="leagueapply.remark"></textarea>
+		</div>
+	</form>
+</div>

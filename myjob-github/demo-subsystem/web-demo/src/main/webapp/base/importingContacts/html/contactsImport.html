@@ -1,0 +1,14 @@
+<div class="col-md-12 column"  style="padding: 0 15px;margin: 10px 0 0 0 "  on-finish-render-filters="import">
+	<div style="height: 45px;width: 100%">
+		<button type="button" class="btn btn-success btn-sm" style="width: 80px" ng-click="submit()" >提交</button>
+		<button type="button" class="btn btn-success btn-sm" data-target="#goodsstockcheck-save" data-toggle="modal" style="width: 80px">导入</button>
+		<button  type="button" class="btn btn-success btn-sm" ng-click="Export()">下载参考样例</button>
+	</div>
+
+	<div ui-grid="gridOptions" ui-grid-selection  id="ImportModel" class="grid" style="margin:0;clear: both"></div>
+
+	<div class="col-md-12 column padding0px margin0px" >
+		<div ui-view="selectFile"></div>
+	</div>
+
+</div>

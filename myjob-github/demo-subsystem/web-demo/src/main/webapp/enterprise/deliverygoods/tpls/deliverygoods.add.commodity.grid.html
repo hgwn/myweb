@@ -1,0 +1,55 @@
+<table class="table table-bordered table-hover table-striped table-condensed commodityTable">
+	<thead>
+		<tr class="info">
+			<th style="width: 50px"></th>
+			<th style="width: 150px">货物名称</th>
+			<th style="width: 130px">打包数量（件）</th>
+			<th style="width: 100px">重量（KG）</th>
+			<th style="width: 100px">体积（m3）</th>
+			<th style="width: 100px">货物金额</th>
+			<th style="width: 100px">备注</th>
+			<th style="width: 80px">操作</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="commodity in commodities|filter:search.action" ng-click="editCommodity(commodity)">
+			<td ng-bind="$index+1" class="h_bgf3"  style="text-align: center;"></td>
+			<td ng-class="{tderror:commodity.isGoodNameRepetitive}">
+			    <input type="text" ng-model="commodity.goodsName" placeholder="请点击输入货物信息" onfocus="this.blur();"  readonly="readonly" ng-show="!commodity.isGoodsNameEditable"  style="width: 100%;border: 0px;background-color: inherit;text-align: center;font-size:13px">
+				<input type="text" ng-model="commodity.goodsName" placeholder="请点击输入货物信息" class="form-control input-sm" style="width: 100%;" ng-show="commodity.isGoodsNameEditable">
+			</td>
+			<td  ng-class="{tderror:!commodity.isPackageQtyCorrect&&formData.isCommitted}">
+				<label ng-bind="commodity.packageQty"  ng-show="!commodity.editSwitch"></label>
+				<input type="text" ng-model="commodity.packageQty" placeholder="0" class="form-control input-sm" style="width: 100%;" ng-show="commodity.editSwitch">
+			</td>
+			<td ng-class="{tderror:!commodity.isTotalWeightCorrect&&formData.isCommitted}">
+				<label ng-bind="commodity.totalWeight"  ng-show="!commodity.editSwitch"></label>
+				<input type="text" ng-model="commodity.totalWeight" decimal placeholder="0.0" class="form-control input-sm" style="width: 100%;" ng-show="commodity.editSwitch">
+			</td>
+			<td ng-class="{tderror:!commodity.isTotalVolumeCorrect&&formData.isCommitted}">
+				<label ng-bind="commodity.totalVolume"  ng-show="!commodity.editSwitch"></label>
+				<input type="text" ng-model="commodity.totalVolume" decimal placeholder="0.0" class="form-control input-sm" style="width: 100%;" ng-show="commodity.editSwitch">
+			</td>
+			<td ng-class="{tderror:!commodity.isTotGoodsMoneyCorrect&&formData.isCommitted}">
+				<label ng-bind="commodity.totGoodsMoney"  ng-show="!commodity.isTotGoodsMoneyEditable"></label>
+				<input type="text" ng-model="commodity.totGoodsMoney" decimal placeholder="￥0.0"  class="form-control input-sm" style="width: 100%;" ng-show="commodity.isTotGoodsMoneyEditable">
+			</td>
+			<td>
+				<label ng-bind="commodity.remark" ng-show="!commodity.editSwitch"></label>
+				<input type="text" ng-model="commodity.remark" placeholder="请输入备注说明" class="form-control input-sm" style="width: 100%;" ng-show="commodity.editSwitch">
+			</td>
+			<td>
+				<a href="javascript:;" ng-click="removeCommodity(commodity,formData.datasource)" ng-if="!isView">删除</a>
+				<span ng-if="isView">--</span>
+			</td>
+		<tr>
+	</tbody>
+	<tfoot ng-if="!isView">
+		<tr ng-show="isShowAddCommodityLink==true">
+			<td></td>
+			<td colspan="1" class="text-center"><a href="javascript:;" ng-click="newCommodity()" ng-if="isShowAddCommodityLink">新增货物明细</a></td>
+			<td colspan="4"  ng-click="editCommodity()"></td>
+			<td colspan="2"  ng-click="editCommodity()" class="text-center"></td>
+		</tr>
+	</tfoot>
+</table>

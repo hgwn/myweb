@@ -1,0 +1,112 @@
+<form class=" clearfix" style="padding:0 50px" name="contactForm" novalidator>
+
+    <div class="form-group clearfix" style="margin-bottom:10px;">
+        <div class=" col-md-3" style="padding: 3px 0px 0px 0px;  width: 75px;">
+            <label>公司名称：</label>
+        </div>
+        <div class="col-md-9">
+            <input type="text" class="form-control" ng-model="addContactModel.companyname" name="companyname" placeholder="请输入客户公司名称" required/>
+            <div style="display: inline-block;position: absolute;right: -45px;top: 5px;" ng-messages="contactForm.companyname.$error">
+                <div class="text-danger" ng-message="required">*必填项</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group clearfix" style="margin-bottom:10px;">
+        <div class=" col-md-3" style="padding: 3px 0px 0px 0px;  width: 75px;">
+            <label>公司简介：</label>
+        </div>
+        <div class="col-md-9">
+            <textarea type="text" class="form-control" ng-model="addContactModel.profile" rows="3" name="profile" placeholder="公司简介"/>
+        </div>
+    </div>
+    <div class="form-group clearfix"  style="margin-bottom:10px;">
+        <div class=" col-md-3" style="padding: 3px 0px 0px 0px;  width: 75px;">
+            <label>联系人：</label>
+        </div>
+        <div class="col-md-9">
+            <input type="text" class="form-control" ng-model="addContactModel.contactname" name="contactname" placeholder="请输入联系人名称" required/>
+            <div style="display: inline-block;position: absolute;right: -45px;top: 5px;" ng-messages="contactForm.contactname.$error">
+                <div class="text-danger" ng-message="required">*必填项</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group clearfix"  style="margin-bottom:10px;">
+        <div class=" col-md-3" style="padding: 3px 0px 0px 0px;  width: 75px;">
+            <label>联系电话：</label>
+        </div>
+        <div class="col-md-9">
+            <input type="text" class="form-control" ng-model="addContactModel.mobilephone" name="mobilephone" placeholder="请输入联系电话,如020-1234567/13212311231" required ng-pattern="/^(0[0-9]{2,3}\-)?([0-9][0-9]{6,9})+(\-[0-9]{1,4})?$|(^(1([0-9][0-9]))\d{8}$)/"/>
+            <div style="display: inline-block;position: absolute;right: -45px;top: 5px;" ng-messages="contactForm.mobilephone.$error">
+                <div class="text-danger" ng-message="required">*必填项</div>
+                <div class="text-danger" ng-message="pattern">格式不对</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group clearfix "  style="margin-bottom:10px;">
+        <div class="col-md-3" style="padding: 3px 0px 0px 0px;  width: 75px;">
+            <label>传真号：</label>
+        </div>
+        <div class="col-md-9">
+            <input type="text" name="faxnumber" class="form-control" ng-model="addContactModel.faxnumber" placeholder="请输入传真号,如020-1234567" ng-pattern="/^[+]{0,1}(\d){1,3}[ ]?([-]?((\d)|[ ]){1,12})+$/"/>
+            <div style="display: inline-block;position: absolute;right: -45px;top: 5px;" ng-messages="contactForm.faxnumber.$error">
+                <div class="text-danger" ng-message="pattern">格式不对</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group clearfix" style="margin-bottom:20px;">
+        <div class=" col-md-3" style="padding: 3px 0px 0px 0px;  width: 75px;">
+            <label>客户类型：</label>
+        </div>
+        <div class="col-md-3">
+            <button type="button" name="scenetypeid" class="btn btn-default masget-btn-default" required ng-model="addContactModel.scenetypeid" data-trigger="focus" ng-disabled="addnewfriend"
+                    bs-options="item.id as item.name for item in scenetype" bs-select>
+                未选择<span class="caret"></span>
+            </button>
+            <div style="display: inline-block;position: absolute;  left: 15px;top: 33px;" ng-messages="contactForm.scenetypeid.$error">
+                <div class="text-danger" ng-message="required">*必填项</div>
+            </div>
+        </div>
+        <div class=" col-md-3" style="padding: 3px 0px 0px 0px;  width: 75px;">
+            <label>可选分组：</label>
+        </div>
+        <div class="col-md-3">
+            <button type="button" required name="addressgroupid" class="btn btn-default masget-btn-default" ng-model="addContactModel.addressgroupid" data-trigger="focus" ng-disabled="addressgroupModel"
+                    bs-options="item.addressgroupid as item.addressgroupname for item in addContactModel.optionGroups" bs-select>
+                无<span class="caret"></span>
+            </button>
+            <div style="display: inline-block;position: absolute;  left: 15px;top: 33px;" ng-messages="contactForm.addressgroupid.$error">
+                <div class="text-danger" ng-message="required">*必填项</div>
+            </div>
+        </div>
+        <span ng-if="subgroupAddFlag" class=" glyphicon glyphicon-plus" ng-click="subgroupAdd()" style="  cursor: pointer;  width: 80px;  display: block;  position: absolute;  height: 20px;  top: 284px;  right: 28px;">(添加分组)</span>
+    </div>
+
+    <div class="form-group clearfix" style="margin-bottom:10px;">
+        <div class="col-md-3" style="padding: 3px 0px 0px 0px;  width: 75px;">
+            <label>地址：</label>
+        </div>
+        <div class="col-md-9">
+            <input select-address ng-model="addContactModel.pca" name="pca" pca-ids="addContactModel.addressids"  required placeholder="点击选择地区信息" class="form-control input-sm" type="text"  />
+            <div style="display: inline-block;position: absolute;right: -45px;top: 5px;" ng-messages="contactForm.pca.$error">
+                <div class="text-danger" ng-message="required">*必填项</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group clearfix" style="margin-bottom:10px;  position: relative;">
+    	<div class=" col-md-3" style="padding: 3px 0px 0px 0px;  width: 75px;">
+        </div>
+        <div class="col-md-9">
+	        <input name="address" required ng-model="addContactModel.address" placeholder="请输入详细地址"  class="form-control input-sm" type="text" />
+	        <div style="display: inline-block;position: absolute;right: -45px;top: 3px;" ng-messages="contactForm.address.$error">
+	            <div class="text-danger" ng-message="required">*必填项</div>
+	        </div>
+        </div>
+    </div>
+
+    <div class="form-group clearfix" style="margin:30px 0 10px 0;text-align:center;">
+        <button class="btn btn-primary masget-btn-primary" ng-click="$modalButtonClick();" ng-disabled="contactForm.$invalid">保存</button>
+        <button class="btn btn-default masget-btn-default" ng-click="$hide();">取消</button>
+    </div>
+</form>

@@ -1,0 +1,33 @@
+<div class="container well pull-left" on-finish-render-filters="list" style="background-color: #fff;border:none;overflow: auto;  width: 100%;margin-bottom:0;padding-top:15px;padding-bottom:0;">
+    <div class="row clearfix" >
+        <div class="col-md-12 column">
+            <form class="form-inline queryForm" id="stationForm" style="  min-height: 40px;" >
+                <div class="form-group col-sm-4 " style="width:250px;margin-bottom: 10px;float: left;" >
+                    <label>商户类型：</label>
+                    <select name="scenetypeid" ng-model="contactsfind.scenetypeid" class="form-control input-sm" style="width: 120px;display: inline-block">
+						<option value="">--请选择--</option>
+                    	<option value="2">供应商</option>
+                    	<option value="3">客户</option>
+                    	<option value="4">渠道商</option>
+                    </select>
+                </div>
+                <div class="form-group col-sm-4 " style="width:250px;margin-bottom: 10px;float: left;" >
+                    <label>公司名称：</label>
+                    <input type="text" name="companyname" ng-model="contactsfind.companyname" class="form-control input-sm" style="width: 120px;display: inline-block"/>
+                </div>
+				<div class="form-group col-sm-4 " style="width:280px;margin-bottom: 10px;" >
+					<button type="button" class="btn btn-success btn-sm"  style="width: 80px;" ng-click="check()" >查询</button>
+					<button type="button" class="btn btn-success btn-sm" data-toggle="modal" style="width: 80px" ng-click="addFriends()" >新增</button>
+					<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#contractModal"  style="width: 80px" ng-click="contactsExport()">导出</button>
+				</div>
+			</form>
+			<div ui-grid="gridOptions" ui-grid-pinning ui-grid-cellNav ui-grid-resize-columns ui-grid-move-columns ui-grid-pagination id="LchargeModel" class="grid" style="margin:0;clear: both"></div>
+        </div>
+    </div>
+</div>
+<div ng-if="iconFlag == 'add'" style="width:100%;height:100%;position: absolute;background: #D5D5D5;opacity:0.5;z-index:1000;">
+</div>
+<div ng-if="iconFlag == 'add'" style="width:100px;height:100px;position: absolute;z-index:1001;  position: fixed;top: 40%;left: 50%;">
+	<span class="icon-spinner icon-spin" style="font-size:50px;opacity:1"></span>
+	<div style="margin-left: -16px;">{{context}}</div>
+</div>

@@ -1,0 +1,38 @@
+<!--start register-content  -->
+<div class="register-content">
+    <h3 class="title">找回密码</h3>
+    <div class="findpwd-message">
+        <p>请输入您注册时登记的邮箱,重新获取您的密码.</p>
+    </div>
+    <!-- BEGIN LOGIN -->
+    <div class="content">
+        <!-- BEGIN FORGOT PASSWORD FORM -->
+
+        <form class="form-vertical" name="fetchPwdForm">
+            <div class="control-group">
+                <label class="control-label visible-ie8 visible-ie9">注册邮箱:</label>
+                <div class="controls">
+                    <div class="input-icon left">
+                        <input class="placeholder-no-fix" type="text" ng-model="email" name="email" ng-pattern="/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/"required/>
+                                <div style="display: inline-block;" ng-messages="fetchPwdForm.email.$error">
+                                    <div class="text-danger" ng-message="required">*必填项</div>
+                                    <div class="text-danger" ng-message="pattern">*邮箱格式不对</div>
+                                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="button" ui-sref="login" id="back-btn" class="btn btn-default masget-btn-default">
+                    返回
+                </button>
+                <button class="btn btn-warning" ng-click="sendMail();">
+                    发送
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    //找回密码
+    </script>

@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/angular.min.js"></script>
+    <script src="../pagination.js"></script>
+    <script src="controller.js"></script>
+</head>
+<body ng-controller="paginationController">
+    <div class="container" style="width:100%;margin: 10px 0px">
+
+        <label>条目数：</label><input type="text" ng-model="recordCount"><br>
+        <label>pagenum：</label>{{formData.pagenum}}<br>
+        <label>pagesize：</label>{{formData.pagesize}}<br>
+
+        <!--recordcount 记录数--必填项 -->
+        <!--pagenum 当前显示页码，跟指令内部的页码进行双向绑定--必填项-->
+        <!--pagesize 每页显示记录数，跟指令内部的显示记录数进行双向绑定--必填项-->
+        <!--onselect 查询方法，传入到指令内部进行调用--必填项-->
+        <!--max-size 页数选择列表显示的最大条目数--可选项，默认值为7-->
+        <!--is-hide-pagesize-list 是否隐藏每页记录数选择下拉框--可选项，默认为不隐藏-->
+        <!--is-hide-pagenum-input 是否隐藏页码输入框--可选项，默认为不隐藏-->
+        <!--is-hide-summary-info 是否隐藏分页汇总信息--可选项，默认为不隐藏-->
+        <!--is-hide-pre-page-link 是否隐藏上一页链接--可选项，默认为不隐藏-->
+        <!--is-hide-next-page-link 是否隐藏下一页链接--可选项，默认为不隐藏-->
+        <!--pagesize-select-style 每页显示记录数select样式--可选项，格式为json对象格式，如：{height:'34px'} -->
+        <pagination recordcount="{{recordCount}}" pagenum="formData.pagenum" pagesize="formData.pagesize" onselect="query()" max-size="5" is-hide-pagesize-list="false" is-hide-pagenum-input="true" is-hide-summary-info="false" is-hide-pre-page-link="false" is-hide-next-page-link="false" pagesize-select-style="{height:'34px'}"></pagination>
+    </div>
+</body>
+</html>

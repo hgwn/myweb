@@ -1,0 +1,19 @@
+<div class="input-group">
+    <span class="input-group-addon">客户类型：</span>
+    <button type="button" ng-change="change(subgroupAddModel.id,scenetype)" name="id" class="btn btn-default " required ng-model="subgroupAddModel.id" data-trigger="focus" ng-disabled="addnewfriend" bs-options="item.id as item.name for item in scenetype" bs-select="">
+        未选择&nbsp;
+        <span class="caret"></span>
+    </button>
+    <span style="color: red">(注：新增分组属于选择的客户类型分组下)</span>
+</div>
+<div class="input-group" style="margin-top: 10px;">
+    <span class="input-group-addon" >分组名称：</span>
+    <input type="text" ng-model="node.addressgroupname" class="form-control" aria-describedby="basic-addon2">
+</div>
+<div class="input-group" style="margin-top: 10px;">
+    <span class="input-group-addon" id="basic-addon3">分组类型：</span>
+    <button type="button" class="btn btn-default " ng-model="node.saasgrouptypeid" data-trigger="focus" aria-describedby="basic-addon3" bs-options="item.saasgrouptypeid as item.saasgrouptypename for item in addressgrouptypes" bs-select="">
+        未选择&nbsp;
+        <span class="caret"></span>
+    </button>
+</div>

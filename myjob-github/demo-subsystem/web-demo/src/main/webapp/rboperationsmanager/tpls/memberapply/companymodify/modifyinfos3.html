@@ -1,0 +1,22 @@
+<div class="row" ng-controller="modifyinfos3Ctrl">
+    <h4 style="position:relative; color:#478fca; border-bottom: 1px solid #d5e3ef; padding-bottom: 8px;">商户名称：{{queryData.companyname}}
+        <a style="position: absolute; right: 10px; top:-6px;" class="btn btn-info btn-sm" ui-sref="auditcompany_query">返 回</a>
+    </h4>
+    <div class="h-tabBox">
+        <ul class="h-tabNav hclearfix">
+            <li ng-repeat="item in stepTabs" ng-class="{htabNavActive:item.isActive}" ng-click="stepTab(item);"><span>{{item.title}}</span></li>
+        </ul>
+        <div class="h-tabContent">
+            <div ng-include="currentTab"></div>
+            <br style="clear: both"/>
+        </div>
+    </div>
+    <div class="hr hr-double"></div>
+    <div class="col-sm-12 h-center">
+        <button class="btn btn-sm btn-info" ng-click="submit_btn();">
+            <i class="ace-icon glyphicon glyphicon-ok"></i>
+            提交
+        </button>
+    </div>
+</div>
+

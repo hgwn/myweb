@@ -1,0 +1,753 @@
+#billList {
+	background: #F4F4F4;
+	min-width: 900px;
+	margin-bottom: 0
+}
+
+#billList .btn {
+	margin: 0 2px;
+}
+
+#billList .panel-heading {
+	padding-top: 20px;
+	padding-bottom: 0px;
+}
+
+#billList table, #billDeal table {
+	background: #fff;
+	text-align: center;
+}
+
+#billList table th, #billDeal table th {
+	text-align: center
+}
+.datepicker .btn-default {
+	border: 0px !important;
+}
+#billList .innerCell {
+	margin: 0px -10px -1px;
+	padding: 7px 5px;
+	border-bottom: 1px solid #ddd;
+	text-align: center
+}
+.ui-grid-cell-contents{
+	text-align:center;
+}
+.ui-grid-viewport{
+	width: auto  !important;
+}
+#billList .listScrool td {
+	vertical-align: middle;
+	padding: 0 10px;
+	min-height: 28px;
+}
+
+#billDeal table {
+	margin-bottom: 0;
+}
+
+#billList .billTitle table, #billDeal .billTitle table {
+	margin-bottom: 0;
+	border-bottom: 0 none;
+}
+
+#billList .billContent table, #billDeal .billContent table {
+	border-top: 0 none;
+}
+
+#billList .billTitle th {
+	background: fff;
+	padding: 5px;
+	border: 0 none;
+	color: #333;
+}
+.dateMenu {
+	position: relative;
+	display: inline-block
+}
+
+.glyphicon-triangle-bottom, .glyphicon-refresh {
+	transition: transform 0.5s;
+}
+
+.turn:hover .glyphicon-refresh {
+	transform: rotate(360deg);
+}
+
+.reverse {
+	position: relative;
+}
+
+.reverse:hover .glyphicon-triangle-bottom, .reverse.active .glyphicon-triangle-bottom
+	{
+	transform: rotate(180deg);
+}
+
+.active .con {
+	display: block
+}
+
+.con-footer {
+	text-align: left
+}
+
+#billList nav, #billDeal nav {
+	text-align: center;
+	display: inline-block;
+}
+
+.con {
+	display: none;
+	position: absolute;
+	left: 0;
+	z-index: 8;
+	top: 35px;
+	padding: 10px;
+	font-size: 14px;
+	background: #fff;;
+	border: 1px solid #ccc;
+	border-radius: 4px;;
+	width: 450px;
+	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+.con ul {
+	list-style: none;
+	text-align: left;
+	padding: 0;
+	margin: 0;
+	padding: 0 10px;
+}
+
+.con select.input-sm {
+	padding-right: 0;
+	padding-left: 5px;
+}
+
+.listWarp {
+	position: absolute;
+	width: 100%;
+	padding: 0 15px;
+	max-height: 150px;
+	left: 0;
+	z-index: 9
+}
+
+.con .donwList {
+	overflow: auto;
+	background: #fff;
+	max-height: 150px;
+	border: 1px solid #ccc;
+	margin-top: -3px;
+	padding: 0;
+}
+
+.donwList li {
+	padding: 0 2px 0 10px;
+}
+
+.donwList li:hover {
+	background: #ddd;
+}
+
+.ptitle {
+	padding: 8px 15px;
+	background-image: linear-gradient(to bottom, #fff 0%, #f2f2f2 100%);
+	color: #333;
+	border: 1px solid #ddd;
+	border-bottom: 0;
+}
+
+.pSearch {
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-top: 0;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#fefefe),
+		to(#f0f0f0));
+}
+
+.voucher a {
+	
+}
+
+.voucher .col_operate a {
+	display: block;
+	width: 16px;
+	height: 16px;
+	background: url('img/page_spr_icons.png') no-repeat -112px -96px;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.treeSubject {
+	background: #fff;
+}
+
+#billList .list-group {
+	margin-bottom: 0;
+}
+
+#billList .commobox-container input {
+	background: url(../image/input_icon.png) #fff no-repeat center right;
+}
+
+.voucher {
+	width: 1176px;
+	margin: 0 auto;
+	margin-bottom: 0
+}
+
+#voucher .panel-footer button {
+	float: right;
+	margin-left: 5px;;
+}
+
+#voucher .panel-footer {
+	border: none;;
+}
+
+.voucher-warp {
+	padding: 15px 45px;
+	border: 1px solid #cfcfcf;
+	background: #fff;
+	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+	text-align: center;;
+	position:relative;
+}
+.has-checkout {
+    width: 250px;
+    height: 74px;
+    background: url(img/audit.png) 0 0 no-repeat;
+    position: absolute;
+    right: 170px;
+    top: 0px;
+}
+.tit_wrap {
+	position: relative;
+}
+
+.attach_wrap {
+	position: absolute;
+	right: 0;
+	bottom: 0
+}
+
+.mark_wrap {
+	position: absolute;
+	left: 0;
+	bottom: 0
+}
+
+#timeform {
+	display: inline-block;
+	margin-bottom: 0;
+	margin-left: 10px;
+	width: 90px;
+}
+
+#timeform .datepicker {
+	width: 350px;
+}
+
+.voucherTabel th {
+	height: 48px;
+	color: #555555;
+	font-size: 14px;
+	text-align: center;
+	font-weight: bold;
+	overflow: hidden;
+	padding: 0;
+}
+
+.col_option .option .selSub, .col_option .option .selSummary,
+	.col_option .option .balance {
+	display: block;
+	width: 24px;
+	height: 26px;
+	cursor: pointer;
+	color: #aaa;
+	text-align: center;
+	line-height: 26px;
+	margin: 0 auto;
+}
+
+.voucherTabel {
+	margin-top: 10px;
+	width: 1054px;
+	margin-left: -13px;
+}
+
+.voucherTabel th, .voucherTabel td {
+	border: 1px solid #666;
+}
+
+.voucherTabel .col_debite, .voucherTabel .col_credit, .voucherTabel .col_money
+	{
+	width: 220px;
+}
+
+.voucherTabel .money_unit span {
+	float: left;
+	display: inline;
+	width: 19px;
+	height: 100%;
+	margin-right: 1px;
+	background-color: #fff;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.col_operate {
+	width: 26px;
+}
+
+.voucherTabel td.col_debite, .voucherTabel td.col_credit, .voucherTabel td.col_money,
+	.money_unit {
+	background-image: url('../../../img/finance/money_rp.png');
+	background-repeat: repeat-y;
+}
+
+.voucherTabel .money_unit .last {
+	margin-right: 0;
+	width: 18px;
+}
+
+.col_option {
+	border-left: 0;
+	width: 30px;
+	text-align: center;
+}
+
+.option {
+	font-size: 12px;
+	width: 30px;
+	position: relative;
+}
+
+.voucher tbody .col_summary {
+	border-right: 0;
+}
+
+.voucher .col_option {
+	border-left: 0;
+}
+
+.edit_money {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 20px;
+	width: 219px;
+	text-align: right;
+	overflow: hidden;
+}
+
+.money_unit {
+	font-size: 12px;
+	height: 22px;
+	line-height: 22px;
+	font-weight: normal;
+	border-top: 1px solid #dadada;
+	text-align: center;
+}
+
+.voucherTabel .col_operate {
+	text-align: center;
+	width: 26px;
+	border: 1px solid #FFF;
+	border-right: 1px solid #ccc;
+}
+
+.voucher tbody .col_subject {
+	border-right: 0;
+}
+
+.voucherTabel td {
+	height: 60px;
+}
+
+.edit_summary {
+	width: 270px;
+	font-size: 14px;
+	margin-right: -30px;
+	padding-right: 30px;
+	position: relative;
+}
+
+.edit_subject {
+	width: 314px;
+	padding-right: 26px;
+	margin-right: -30px;
+	font-size: 14px;
+	position: relative;
+}
+
+.voucherTabel .col_debite .cell_val, .voucherTabel .col_credit .cell_val
+	{
+	overflow: hidden;
+	font-family: 'tahoma';
+	font-weight: bold;
+	font-size: 14px;
+	letter-spacing: 11px;
+	overflow: hidden;
+	position: relative;
+	right: -5px;
+	text-align: right;
+}
+
+.col_summary .cell_val {
+	width: 240px;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+
+.col_subject .cell_val {
+	width: 285px;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+
+.voucher .col_summary .cell_val, .voucher .col_subject .cell_val {
+	padding: 0 5px;
+	font-size: 14px;
+}
+
+.voucher .col_summary, .voucher .col_total {
+	border-left-width: 2px;
+}
+
+.voucher thead th {
+	border-top-width: 2px;
+}
+
+.edit_summary, .edit_money, .edit_subject {
+	float: left;
+	outline: none;
+	resize: none;
+	border: 1px solid #999;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 3px
+		rgba(0, 0, 0, .6);
+	height: 59px;
+	padding: 4px;
+	overflow: hidden;
+	line-height: 50px\9;
+}
+
+.col_option .option .balance {
+	display: none;
+	border-top: 1px solid #cbe1ed;
+}
+
+.col_option .show .balance {
+	display: block;
+}
+
+.top-static {
+	position: fixed;
+	top: 10px;
+	z-index: 99999;
+}
+
+.alert-sm-center {
+	width: 200px;
+	margin-left: -200px;
+	padding: 5px;
+	left: 50%;
+}
+
+.addFormData textarea .ng-dirty.ng-invalid, .addFormData select.ng-dirty.ng-invalid,
+	.addFormData input.ng-dirty.ng-invalid {
+	border-color: #e9322d;
+	-webkit-box-shadow: 0 0 6px #f8b9b7;
+	-moz-box-shadow: 0 0 6px #f8b9b7;
+	box-shadow: 0 0 6px #f8b9b7;
+}
+
+#voucher .help-block {
+	position: absolute;
+	top: 2px;
+	margin-left: 10px;
+}
+
+#voucher .tooltip {
+	width: 130px;
+}
+
+#voucher .tooltip.bottom .tooltip-arrow {
+	left: 15px;
+}
+
+.voucherMore {
+	position: absolute;
+	left: 0;
+	z-index: 8;
+	top: 35px;
+	width: 170px;
+	display: none;
+}
+
+.voucherTabel .tdTips {
+	position: absolute;
+	background: #D7E2EC;
+	margin-top: -40px;
+	margin-left: 5px;
+	z-index: 3;
+	padding: 5px;
+}
+
+.active .voucherMore {
+	display: block;
+}
+
+button.list-group-item {
+	width: 100%;
+	text-align: left;
+}
+
+a.list-group-item:focus, a.list-group-item:hover, button.list-group-item:focus,
+	button.list-group-item:hover {
+	color: #555;
+	text-decoration: none;
+	background-color: #f5f5f5;
+}
+
+.form-group .col-sm-4 {
+	padding-left: 0;
+}
+
+.col-sm-8 .checkbox input {
+	margin-left: 0;
+}
+
+.fixedfooter {
+	text-align: right;
+	background-color: #F1F1F1;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	padding: 5px 15px;
+}
+
+#con .form-group {
+	margin-bottom: 0;
+	padding-bottom: 15px;
+}
+
+.balance tr {
+	background-color: #f5f5f5;
+}
+
+.balance .subjectRow {
+	background-color: #fff;
+}
+
+.subjectRow td.pl25 {
+	padding-left: 30px;
+	text-align: left;
+}
+
+.table .subjectRow  td {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.panel strong {
+	font-size: 18px;
+	margin-right: 5px;
+}
+
+.pSearch input {
+	border-radius: 0;
+}
+
+.panel-default .commobox-container input {
+	background-color: #fff;
+	box-shadow: none;
+}
+
+.dressing a {
+	font-size: 13px;
+	margin-left: 4px;
+}
+
+.dressing2 tr, .dressing2 tr th {
+	text-align: center;
+}
+
+.well  a.active {
+	color: red;
+}
+
+.vouchSearch {
+	position: relative;
+}
+
+.vouchSearch .glyphicon {
+	position: absolute;
+	right: 10px;
+	z-index: 2;
+	top: 10px;
+}
+
+.listScrool {
+	border: 2px solid #ddd;
+	word-break: break-all;
+}
+.listScrool table.table thead tr th,.listScrool table.table tbody tr td{
+	    white-space: normal;
+}
+.listScrool .billTitle {
+	padding-right: 17px;
+	background: #fff;
+	color: #333;
+}
+
+.billTitle table {
+	margin-bottom: 0;
+	width: 100%;
+	border: 0;
+}
+
+.billTitle table tr>th {
+	vertical-align: middle;
+	text-align: center;
+	padding: 5px;
+	line-height: 1.42857143;
+	border-top: 0;
+}
+
+.listScrool .billContent {
+	overflow-y: scroll;
+	min-height: 300px;
+}
+
+.billContent table {
+	border-bottom: 1px solid #ddd;
+	overflow-y: scroll;
+	margin-bottom: 0;
+	
+}	
+
+.billContent table td {
+	border-right: 1px solid #ddd;
+	vertical-align: middle;
+	text-align: center;
+	
+}
+
+.billFooter {
+	text-align: right;
+	background-image: linear-gradient(to bottom, #fff 0%, #f2f2f2 100%);
+	padding: 5px 16px 0 15px;
+	border-top: 1px solid #ddd;
+}
+
+.orderGroup {
+	display: inline-block;
+	border-radius: 5px;
+	background: #f5f5f5;
+	padding: 2px 5px;
+	border: 1px solid #e3e3e3;
+	margin: 2px;
+}
+
+.orderGroup a {
+	color: red;
+}
+.con .row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+.con .row div {
+  padding: 0;
+  text-align: center;
+}
+.table .th{
+	font-weight: bold;
+}
+#orderSearch{
+	  cursor: pointer;
+}
+.trretitle{
+	margin-top:5px;
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-image: linear-gradient(to bottom, #fff 0%, #f2f2f2 100%);
+  border: 1px solid #ddd;
+}
+.ui-btn-menu {
+position: relative;
+display: inline-block;
+margin-right: 10px;
+vertical-align: middle;
+zoom: 1;
+z-index: 100;
+}
+.ui-btn-menu .menu-btn {
+position: relative;
+margin-right: 0;
+padding-right: 20px;
+z-index: 100;
+}
+
+.menu-btn, .ui-btn-menu-cur .menu-btn:active, .ui-btn-menu-cur .menu-btn:hover {
+padding-bottom: 1px;
+filter: progid:DXImageTransform.Microsoft.Gradient(enabled=false);
+background: #fff;
+border-bottom: none;
+border-bottom-left-radius: 0;
+border-bottom-right-radius: 0;
+box-shadow: none;
+}
+
+.ui-btn {
+display: inline-block;
+margin-right: 10px;
+padding: 0 13px;
+height: 28px;
+border: 1px solid #c1c1c1;
+border-radius: 2px;
+box-shadow: 0 1px 1px rgba(0,0,0,.15);
+background: #fff;
+background: -moz-linear-gradient(top,#fff,#f4f4f4);
+background: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#f4f4f4));
+background: -o-linear-gradient(top,#fff,#f4f4f4);
+background: -ms-linear-gradient(top,#fff 0,#f4f4f4 100%);
+background: linear-gradient(top,#fff,#f4f4f4);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f4f4f4');
+font: 14px/2 \5b8b\4f53;
+color: #555;
+vertical-align: middle;
+cursor: pointer;
+}
+
+.ui-btn-menu .list-group {
+position: absolute;
+top: 30px;
+z-index: 99;
+width:90px;
+right: 0;
+display:none;
+}
+#countview .icon{
+	display:none
+}
+#countview .list-group li{
+	padding-left:25px;
+}
+
+@media (max-width: 992px){
+	.listScrool{
+		font-size:12px;
+	}
+	.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th{
+		padding:5px;
+	}
+	.rightBox{
+		display:none
+	}
+	.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12{
+		padding-right: 0px;
+   		padding-left: 0px;
+	}
+}

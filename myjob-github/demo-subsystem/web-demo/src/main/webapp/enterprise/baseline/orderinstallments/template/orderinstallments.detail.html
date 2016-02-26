@@ -1,0 +1,150 @@
+<div class="container well well-lg"	>
+   	<div class="row clearfix">
+		<div class="column col-md-12"  style="margin-top:10px;">
+			<form class="form-horizontal" role="form">
+			    <div class="form-group">
+			        <label class="col-md-2 col-sm-2 control-label">
+			            <span style="padding-right:35px;font-size:23px;">分期信息</span>
+			        </label>
+			        <div class="col-md-7 col-sm-7">
+			        </div>
+			    </div>
+				<div class="form-group">
+				    <label for="" class="col-md-2 col-sm-2 control-label">订单号</label>
+					<div class="col-md-2 col-sm-2">
+						<span class="form-control" >{{viewData.ordernum}}</span>	
+					</div>
+					<label for="" class="col-md-2 col-sm-2 control-label">订单类型</label>
+					<div class="col-md-2 col-sm-2">
+						<span class="form-control" >{{viewData.ordertypename}}</span>	
+					</div>
+					<label for="" class="col-md-2 col-sm-2 control-label">商品信息</label>
+					<div class="col-md-2 col-sm-2">
+						<span class="form-control" >{{viewData.goodsname}}</span>	
+					</div>
+				</div>	
+				<div class="form-group">
+				    <label for="" class="col-md-2 col-sm-2 control-label">分期数</label>
+					<div class="col-md-2 col-sm-2">
+						<span class="form-control" >{{viewData.options}}</span>	
+					</div>
+					<label for="" class="col-md-2 col-sm-2 control-label">分期费率</label>
+					<div class="col-md-2 col-sm-2">
+						<span class="form-control" >{{viewData.fee}}</span>	
+					</div>
+				    <label for="" class="col-md-2 col-sm-2 control-label">分期首付款</label>
+					<div class="col-md-2 col-sm-2">
+						<span class="form-control" >{{viewData.prepayamount}}</span>	
+					</div>
+				</div>
+				<div class="form-group">
+				    <label for="" class="col-md-2 col-sm-2 control-label">本金</label>
+					<div class="col-md-2 col-sm-2">
+						<span class="form-control" >{{viewData.amount}}</span>	
+					</div>
+				    <label for="" class="col-md-2 col-sm-2 control-label">分期服务费</label>
+					<div class="col-md-2 col-sm-2">
+						<span class="form-control" >{{viewData.installmentsamount}}</span>	
+					</div>
+				    <label for="" class="col-md-2 col-sm-2 control-label">合计应还金额</label>
+					<div class="col-md-2 col-sm-2">
+						<span class="form-control" >{{viewData.totamount}}</span>	
+					</div>					
+				</div>
+				<div class="form-group">
+				    <label for="" class="col-md-2 col-sm-2 control-label">已还分期数</label>
+					<div class="col-md-2 col-sm-2">
+						<span class="form-control" >{{viewData.paidoptions}}</span>	
+					</div>
+				    <label for="" class="col-md-2 col-sm-2 control-label">已还金额</label>
+					<div class="col-md-2 col-sm-2">
+						<span class="form-control" >{{viewData.paidamount}}</span>	
+					</div>
+					<label for="" class="col-md-2 col-sm-2 control-label">状态</label>
+					<div class="col-md-2 col-sm-2">
+						<span class="form-control" >{{viewData.stateName}}</span>	
+					</div>
+				</div>	
+				<div class="form-group">
+				    <label for="" class="col-md-2 col-sm-2 control-label">备注</label>
+					<div class="col-md-2 col-sm-2">
+						<span class="form-control" >{{viewData.remark}}</span>	
+					</div>
+				</div>
+			    <div class="form-group">
+			        <label class="col-md-2 col-sm-2 control-label">
+			            <span style="padding-right:35px;font-size:23px;">分期账号</span>
+			        </label>
+			        <div class="col-md-7 col-sm-7">
+			        </div>
+			    </div>
+   				<div class="form-group">
+				    <!-- ui-grid of Tree View  -->
+					<div id="gridInfo" ui-grid="gridOptionInfo"  ui-grid-resize-columns ui-grid-move-columns ui-grid-auto-resize class="grid" style="margin-top:5px;width:92%;height:120px;margin-left:8%;"></div>
+				</div>					
+			    <div class="form-group">
+			        <label class="col-md-2 col-sm-2 control-label">
+			            <span style="padding-right:35px;font-size:23px;">分期明细</span>
+			        </label>
+			        <div class="col-md-7 col-sm-7">
+			        </div>
+			    </div>
+   				<div class="form-group">
+				    <!-- ui-grid of Tree View  -->
+					<div id="gridDetail" ui-grid="gridOptionDetail"  ui-grid-resize-columns ui-grid-move-columns ui-grid-auto-resize class="grid" style="margin-top:5px;width:92%;height:300px;margin-left:8%;"></div>
+				</div>		
+				<div class="form-group" style="margin-top:10px;">
+				    <label for="" class="col-md-5 col-sm-5 control-label"></label>
+					<div class="col-md-1 col-sm-1">
+					    <Button class="btn btn-primary" style="width:100%;background-color:#1596ad !important;border-color:#1596ad;border-radius:0px;" ng-click="returnToList()">
+					        返回
+					    </Button>
+					</div>
+					<div class="col-md-1 col-sm-1" ng-show="viewData.state == 1">
+					    <button class="btn btn-default" style="width:100%;background-color:#E4E9EB !important;border-color:#E4E9EB;border-radius:0px;" ng-click="auditModal()">
+					        审核
+					    </button>
+					</div>
+				</div>																				
+			</form>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="auditModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h4 class="modal-title" id="myModalLabel">
+					审核
+				</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" role="form">
+				    <div class="form-group">
+						 <label class="col-md-3 col-sm-3 control-label" >状态：</label>
+						 <div class="col-md-6 col-sm-6">
+						     <span  class="nullable">
+								 <select name="state" class="form-control" ng-model="auditState" ng-options="item.id as item.value for item in auditStateList">     
+								 </select>
+						     </span> 
+						 </div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> 
+				 <button type="button" class="btn btn-primary" ng-click="audit()">确认审核</button>
+			</div>
+		</div>
+	</div>
+</div>
+<style type="text/css">
+.well{
+    padding-left:20px;
+    padding-right:20px;
+}
+.form-control{
+    border: 0px solid #ccc;
+}
+</style>

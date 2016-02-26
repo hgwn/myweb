@@ -1,0 +1,74 @@
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true" on-finish-render-filters>
+    <div class="modal-dialog" style="width:700px">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true" title="关闭">
+                    &times;
+                </button>
+                <h4 class="modal-title">
+                    编辑菜单
+                </h4>
+            </div>
+            <form name="resourceForm" class="form-horizontal " role="form"  novalidate>
+                <!--start modal-body  -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class=" col-md-3 control-label">
+                                    菜单名称
+                                </label>
+                                <div class=" col-md-9 ">
+                                    <input type="text" class="form-control input-sm" name="resourcename" ng-model="editFormData.resourcename" required>
+                                    <div class="ng-messages-error" ng-messages="resourceForm.resourcename.$error" ng-show="resourceForm.resourcename.$invalid" >
+                                        <span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class=" col-md-3 control-label">
+                                    权限
+                                </label>
+                                <div class=" col-md-9 " style="position:relative;">
+                                   <!-- <button type="button" class="btn btn-default" ng-model="editFormData.selectedAuthen" data-html="1"
+                                            data-multiple="1" data-animation="am-flip-x" bs-options="icon.value as icon.label for icon in icons"
+                                            data-max-length="4" bs-select required name="authen">
+                                        无<span class="caret"></span>
+                                    </button>-->
+                                    <button style="width:100%;" type="button" class="btn btn-default" ng-model="editFormData.authen" data-html="1" data-multiple="1" data-animation="am-flip-x" bs-options="icon.value as icon.label for icon in icons" bs-select>
+                                        无<span class="caret"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <label class="col-md-2 control-label" style="  line-height: 90px;">图&nbsp;&nbsp;&nbsp;&nbsp;标</label>
+                        <div class="col-md-4">
+                            <ul id="goodsAdd-imgUl">
+                                <li class="goodsAdd-imgLi" ng-show="file">
+                                    <div class="goodsAdd-img">
+                                        <img src="{{editFormData.icon}}" >
+                                        <div class="goodsAdd-imgaction">
+                                            <a class="imgaction-item h-img-del" href="#osroleresource_modify" ng-click="deletePic(editFormData.icon)" style="margin-left:25px;">删除</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li title="单击上传图片"   style="  cursor: context-menu;" class="button goodsAdd-imgLi" ngf-select ng-model="files" accept="image/*"  ng-hide="file">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                    <em>单击上传图片</em>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <!--end modal-body  -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-warning btn-sm" ng-disabled="resourceForm.$invalid"  ng-click="onClickToSave()">保存</button>
+                    <button type="button" class="btn btn-warning btn-sm" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>

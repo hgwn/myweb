@@ -1,0 +1,90 @@
+@CHARSET "UTF-8";
+
+.ui-grid-tree-header-row{
+  font: 15px/1.5 arial, \5b8b\4f53;
+  color: #555;
+  font-weight: 100 !important;
+}
+.well {
+	padding-left: 15px;
+	padding-right: 15px;
+	width: auto;
+}
+form label {
+	font-weight: normal;
+}
+
+.table, .table thead tr th, .table tbody tr td {
+	border-collapse: collapse;
+	border: 1px solid #6E6E6E;
+}
+.table, .table thead tr th{
+	text-align: center;
+}
+.table tbody tr:HOVER{
+	background-color:#E5E5E5;
+} 
+.table thead tr th {
+	font-weight: normal;
+	background-color: #C6C6C6;
+	border: 1px solid #6E6E6E;
+}
+.table tfoot tr,.table tfoot tr td {
+	font-weight: normal;
+	border: 1px solid #6E6E6E;
+}
+
+
+#sidepanel a:link, #sidepanel a:visited {
+  background-position: -85px -149px;
+}
+#sidepanel a {
+  display: block;
+  overflow:hidden;
+  position: fixed;
+  bottom: 250px;
+  width: 22px;
+  height: 86px;
+  padding: 28px 0 0 2px;
+  right: 5px; 
+  text-align: center;
+  line-height: 14px;
+  text-decoration: none;
+  color:#666;
+  cursor:pointer;
+  font-family:Arial,​Verdana,​"宋体";
+  font-size:12px;
+  font-weight:400;
+}
+.masget-top{
+    overflow:hidden;
+    position: fixed;
+    top:60%;
+    left:43%;
+    z-index:1151;
+}
+.grid{
+  width: 100%;
+  height: 580px;
+}
+.ordersForm div.form-group label {
+    font-weight: normal;
+    color: #666;
+    width: 120px;
+    text-align: right;
+}
+.ng-messages-error{
+	margin-left: 100px;
+	margin-top:-12px;
+	color:red;
+}
+.haserror .form-control {
+  border-color: #a94442;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+.haserror .form-control:focus {
+  border-color: #843534;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+}

@@ -1,0 +1,119 @@
+<div class="container-fluid h_billingConten">
+	<div class="row clearfix">
+	    <div class="col-md-1 column">
+        </div>
+        <div class="col-md-10 col-xs-12 column" style="padding:0;margin:0 auto 0 auto;">
+            <div class="panel panel-default" style="margin-bottom:-5px;">
+                <div class="panel-body" style="padding:0;">
+                    <div class="col-md-12 col-xs-12"><h2 style="text-align:center;"><strong>采购开单</strong></h2></div>
+					<!-- start  -->
+					<form class="form-inline">
+					        <div class="col-md-12 col-xs-12 text-right">
+					            <span style="font-size:11px;color:#888;">日期:<span ng-bind="dataTime"></span></span>
+					            <span style="font-size:11px;color:#888;">单号:<span ng-bind="ordernum"></span></span>
+					        </div>
+					        <div class="col-md-12 col-xs-12"><strong style="font-size:15px;margin-left:15px;">收货人信息</strong></div>
+							<div class="col-md-12 col-xs-12 form-group">
+								<label>收货人:</label> 
+								<input type="text" class="form-control" style="height:34px;width:90%;max-width:150px;" ng-model="buyername"/>
+								<label>联系电话:</label> <input type="text" ng-model="buyerphone" class="form-control" style="height:34px;width:90%;max-width:150px;"/>
+							</div>
+					        
+							<div class="col-md-12 col-xs-12 form-group" id="h_billing_address">
+								<label>送货地址:</label> 
+								<select class="form-control" ng-change="getArea()" ng-model="buyerprovinceid">
+								    <option  value="">--请选择省份--</option>
+								    <option ng-repeat="provinces in provinceList" value="{{provinces.provinceid}}">
+								        {{provinces.provincename}}
+								    </option>
+								</select>
+								<select class="form-control" ng-change="getDistrict()" ng-model="buyercityid">
+								    <option  value="">--请选择市--</option>
+								    <option ng-repeat="areas in areaList" value="{{areas.cityid}}" >
+								        {{areas.cityname}}
+								    </option>								    
+								</select>
+								<select class="form-control" ng-model="buyerareaid">
+								    <option  value="">--请选择区/县--</option>
+								    <option ng-repeat="districts in districtList" value="{{districts.areaid}}" >
+								        {{districts.areaname}}
+								    </option>								    
+								</select>
+								<input type="text" class="form-control"  placeholder="请输入详细地址" ng-model="buyeraddress"/>
+						    </div>
+						    <div class="col-md-12 col-xs-12"><strong style="font-size:15px;margin-left:15px;">结算信息</strong></div>
+					        <div class="col-md-12 col-xs-12 form-group">
+					            <label>预付款:</label>
+					            <input type="number" ng-model="goodsdeposit" ng-blur="depositBlur()" class="form-control" style="height:34px;width:90%;max-width:150px;"/>
+					            <label>尾款:</label>
+					            <input type="text" ng-model="balancePayment" ng-disabled="true" class="form-control" style="height:34px;width:90%;max-width:150px;"/>
+					        </div>
+							<div class="col-md-12 col-xs-12 form-group">
+								<label>结算方式:</label>
+								<select class="form-control" ng-model="settlementtypeid">
+								    <option ng-repeat="settlementTypes in settlementTypeList" value="{{settlementTypes.id}}" >
+								        {{settlementTypes.name}}
+								    </option>									
+								</select>
+						    </div>
+					
+							<div class="col-md-12 col-xs-12 form-group">
+								<label>交货方式:</label>
+								<select class="form-control" ng-model="deliveryflag">
+									<option value="1">送货上门</option>
+									<option value="2">自提</option>
+								</select>
+							</div>
+							<div class="col-md-12 col-xs-12 form-group" ng-show="paymenttypeShowFlag">
+								<label>支付方式:</label> 
+								<select class="form-control" ng-model="paymenttype">
+								    <option value="1">现金</option>
+								    <option value="2">POS刷卡</option>
+								    <option value="4">银联在线</option>
+							    </select>
+							</div>
+							<div class="col-md-12 col-xs-12 form-group">
+							    <label>备注:</label> 
+								<textarea class="form-control" rows="3" cols="20" ng-model="remark">
+								
+								</textarea>							
+							</div>
+							<div class="col-md-12 col-xs-12 form-group">
+							</div>
+					</form>
+					<!-- end -->
+					<table class="table table-striped text-center" >
+	                       <caption style="" class="text-center">
+	                          <strong style="font-size:20px;">选购商品</strong>  
+	                       </caption>	                
+	                    <thead>
+	                        <tr style="border:1px solid #ccc;" >
+	                            <th style="text-align:center;">商品名</th>
+	                            <th style="text-align:center;">商品价格</th>
+	                            <th style="text-align:center;">商品规格</th>
+	                            <th style="text-align:center;">购买数量</th>
+	                        </tr>
+	                    </thead>
+	                    <tbody>
+	                        <tr ng-repeat="items in goodscart"  style="border:1px solid #ccc;">
+	                            <td style="color:#888;">{{items.goodsname}}</td>
+	                            <td style="color:#888;">{{items.dealprice}}</td>
+	                            <td style="color:#888;"><div ng-repeat="item in items.goodsskuattrib">{{item.attribname}}:{{item.attribproperties}}</div></td>
+	                            <td style="color:#888;">{{items.numbers}}</td>
+	                        </tr>
+	                        <tr style="margin-top:25px;">
+	                        	<td colspan="4" class="text-center">
+	                                <span>应付总额:<strong style="color:#e4393c">{{countPrice}}</strong></span>
+				                    <Button class="btn btn-success" ng-click="submitOrders()">提交订单</Button>
+				                    <Button class="btn btn-danger" onClick="javascript:window.history.go(-2);">返回</Button>
+	                            </td>
+	                        </tr>
+	                    </tbody>
+	                </table>
+                </div>
+            </div>  
+        </div>
+	    <div class="col-md-1 column">
+        </div>
+	</div>
+</div> 

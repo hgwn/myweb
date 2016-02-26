@@ -1,0 +1,56 @@
+<div class="clearfix well" style="padding:0;  margin: -15px;height:100%;overflow: auto;position: relative;" on-finish-render-filters="edit">
+	<div style="height: 350px;margin:1% auto;width: 610px;">
+		<h1 class="text-center"  style="  margin-top: 10px;">资源信息</h1>
+		<form style="height: 75%;" class="form-inline "  novalidate id="form_resource" name="form_resource">
+			<div class="form-group col-sm-5 width300" style="  height: 100px;">
+		        <label class="pull-left" style="  line-height: 90px;">图&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标：</label>
+		        <ul id="goodsAdd-imgUl">
+					<li class="goodsAdd-imgLi" ng-show="file">
+							<div class="goodsAdd-img">
+							<img src="{{resource.icon}}" >
+							<div class="goodsAdd-imgaction">
+<!-- 								<a class="imgaction-item h-img-update" href="#" ngf-select  ngf-accept="'image/*'">替换</a> -->
+								<a class="imgaction-item h-img-del" href="#" ng-click="deletePic(resource.pictUrl)" style="margin-left:25px;">删除</a>
+							</div>
+							</div>
+					</li>
+					<li class="button goodsAdd-imgLi" ngf-select ng-model="files" ngf-accept="'image/*'"  ng-hide="file">
+						<span class="glyphicon glyphicon-plus"></span>
+						<em>单击上传图片</em>
+					</li>
+				</ul>
+		    </div>
+		    <div class="form-group col-sm-5 width300 pull-right" style="margin-top: 12px;" ng-class="{haserror:form_resource.resourceid.$invalid&&form_resource.submitted}">
+		        <label>资源主码：</label>
+		        <input type="text" ng-disabled="resourceidModel" required placeholder="输入资源主码" name="resourceid" ng-model="resource.resourceid"  class="form-control input-sm" >
+		        <div ng-messages="form_resource.resourceid.$error" ng-show="form_resource.resourceid.$invalid&&form_resource.submitted" class="ng-messages-error">
+            		<div ng-message="required">资源主码为必填项</div>
+       			</div>
+		    </div>
+		    
+		    <div class="form-group col-sm-5 width300 marginTop pull-right" style="margin-bottom: 10px;" ng-class="{haserror:form_resource.resourcename.$invalid&&form_resource.submitted}">
+		        <label>资源名称：</label>
+		        <input  type="text" name="resourcename" required placeholder="输入资源名称" ng-model="resource.resourcename"  class="form-control input-sm">
+		        <div ng-messages="form_resource.resourcename.$error" ng-show="form_resource.resourcename.$invalid&&form_resource.submitted" class="ng-messages-error">
+            		<div ng-message="required">资源名称为必填项</div>
+       			</div>
+		    </div>
+		    <div class="form-group col-xs-12 marginTop" >
+		        <label>资源提示：</label>
+		        <input  type="text" name="resourcetip"  ng-model="resource.resourcetip" placeholder="输入资源提示" class="form-control input-sm" style="width: 82%;">
+		    </div>
+		   	<div class="form-group col-xs-12 marginTop" >
+		   		<label>资源链接：</label>
+		    	<input  type="text" name="weburl"  ng-model="resource.weburl"  class="form-control input-sm" placeholder="输入资源链接" style="width: 82%;">
+		    </div>
+		    <div class="form-group col-xs-12 marginTop">
+		    	<label>资源描述：</label>
+		        <input  type="text" name="description"  ng-model="resource.description" placeholder="输入资源描述,限制25个中文，50个字母" class="form-control input-sm" style="width: 82%;"> 
+		    </div>
+		    <div class="form-group col-xs-12 marginTop">
+		    	<label>资源权限：</label>
+		        <input id="authenModel" value="" class="easyui-combobox" name="state" data-options="multiple:true,multiline:true" style="height:34px;width: 82%;"> 
+		    </div>
+		</form>
+	</div>
+</div>

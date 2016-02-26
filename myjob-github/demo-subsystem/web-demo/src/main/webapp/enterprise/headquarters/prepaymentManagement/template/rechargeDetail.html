@@ -1,0 +1,17 @@
+<div class="col-md-12 column"  style="padding: 10px 0 0 0;margin: 0px"  on-finish-render-filters="check">
+    <div class="col-md-12 column" style="padding: 0">
+        <form class="form-inline" id="arrivalCheck" name="arrivalCheck">
+            <div class="col-md-12 column" style="width: 100%; margin-bottom: 10px;">
+                <label>时段选择:</label>
+                <input name="begincreatedtime" data-container="body" type="text"  required class="form-control" data-max-date="{{watergetData.endcreatedtime}}" ng-model="watergetData.begincreatedtime" data-date-format="yyyy-MM-dd" data-date-type="string" data-autoclose="1"  bs-datepicker style="height:31px;  width: 150px;" >
+                <label>至</label>
+                <input name="endcreatedtime" data-container="body" type="text"  required class="form-control" data-min-date="{{watergetData.begincreatedtime}}" ng-model="watergetData.endcreatedtime" data-date-format="yyyy-MM-dd" data-date-type="string" data-autoclose="1"  bs-datepicker style="height:31px;  width: 150px;">
+                <button type="button" class="btn btn-success btn-sm" style="width: 100px" ng-click="rechargeDeCheck()">查询</button>
+            </div>
+        </form>
+    </div>
+    <div ui-grid="gridrechargeDetail" ui-grid-pagination ui-grid-selection ui-grid-resize-columns id="redetailtModel" class="grid" style="clear: both"></div>
+</div>
+<div style="position: absolute;right:10px;top:10px">
+    <a  class="btn btn-success btn-sm"  ng-click="reset()" >返回</a>
+</div>

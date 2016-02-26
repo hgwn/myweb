@@ -1,0 +1,38 @@
+<div class="container well well-lg">
+	<div class="row clearfix">
+		<div class="column col-md-12" style="margin-top:10px">
+			<form class="form-inline" role="form">
+				<div class="column col-md-12 col-sm-12">
+					<div class="form-group column col-md-2 col-sm-2">		
+						<nested-combo-box control-disabled="false" change-event="changeItem"  collection="classifycombotree" current-member="activeCategoryItem"  />
+					</div>
+					<div class="form-group column col-md-3 col-sm-3">		
+						<label for=""><strong>商品名称</strong></label>
+						 <input 	name="orderstate" class="form-control"
+							ng-model="formData.goodsname" placeholder="请输入商品名称..."></input>
+					</div>
+					<div class="form-group column col-md-2 col-sm-2">
+					     <input type="checkbox"   ng-model="issernum"  value=""></input>
+					     <label for=""><strong>序列号商品</strong></label>
+					</div>
+					<div class="input-group column col-md-4 col-sm-4">
+						<Button class="btn btn-primary" ng-click="queryGoodsStockList()"
+							style="margin-left:10px;">查询</Button>
+						<Button class="btn btn-primary" ng-click="saveCheckDatas()"
+							style="margin-left:10px;">生成盘点单据</Button>
+					</div>
+	<!-- 			<div class="form-group column col-md-3 col-sm-3"  style="font-size:15px;height:34px;line-height:34px;">
+                    		   <label for=""><strong>单号:{{formData.goodsstockchecknum}}</strong></label>
+                    </div> -->
+				</div>
+			</form>
+			<!-- ui-grid of Tree View  -->
+			<div id="grid" ui-grid="gridOption" ui-grid-cellNav
+				ui-grid-resize-columns ui-grid-move-columns ui-grid-pagination
+				ui-grid-auto-resize ui-grid-edit class="grid"
+				style="margin-top:100px;"></div>
+			<!-- 查看采购单详情  模态窗口 -->
+			<!--  <div ui-view="goodsStockViewModal"></div> -->
+		</div>
+	</div>
+</div>

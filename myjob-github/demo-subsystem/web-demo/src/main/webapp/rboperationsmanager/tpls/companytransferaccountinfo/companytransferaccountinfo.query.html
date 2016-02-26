@@ -1,0 +1,125 @@
+<div class="row"  style="padding: 0px;margin: 0px" ng-controller="transferaccountinfoController">
+    <!--start form  -->
+    <form class="form-horizontal h_tunnelmanagerForm" style="padding-right:160px; position:relative;" role="form" data-ng-init="loadDataTime();">
+        <!-- line1-->
+        <div class="form-group">
+            <label class=" col-md-1 h_mb5 col-sm-2 control-label">
+                银联公司
+            </label>
+            <div class=" col-md-3 h_mb5 col-sm-4">
+                <select class="form-control input-sm" ng-model="formData.i_awardcompanyid" ng-options="item.companyid as item.companyname for item in awardcompanyData" ng-change="awardcompanySelect(formData.i_awardcompanyid)">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+            <label class=" col-md-1 h_mb5 col-sm-2 control-label">
+                收单行
+            </label>
+            <div class=" col-md-3 h_mb5 col-sm-4">
+                <select id="awardcompanyid"  disabled="disabled" class="form-control input-sm" ng-model="formData.i_acquirebankid" ng-options="item.acquirerinfoid as item.acquirebank for item in acquirebankData"></select>
+            </div>
+            <label class=" col-md-1 h_mb5 col-sm-2 control-label">
+                账户类型
+            </label>
+            <div class=" col-md-3 h_mb5 col-sm-4">
+                <label class="checkbox-inline" ng-repeat="item in i_accounttype"><input type="checkbox" ng-model="item.selected" value="{{item.id}}"  name="accounttypes">{{item.name}}</label>
+            </div>
+        </div>
+        <!--line2 -->
+        <div class="form-group">
+            <label class=" col-md-1 h_mb5 col-sm-2 control-label">
+               划账目标公司
+            </label>
+            <div class=" col-md-3 h_mb5 col-sm-4">
+                <!-- <input type="text" class="form-control input-sm"  placeholder="" ng-model="formData.i_targetcompanyid" /> -->
+                 <!-- <input type="text" class="form-control  input-sm" ng-model="selectedState" ng-options="state for state in states" placeholder="Enter state" bs-typeahead> -->
+                <comboxtable name="station" ng-model="companyinfo"
+                     column-names="['公司id','公司']" column-fields="['companyid','companyname']"
+                     text-field="companyname" datas="companydatas.rows" on-change="fingcompanyinfo()" key-word="companyinfoFormData.companyname" is-required="true" is-show-index="true"  on-reset="onReset()"
+                     content-style="width: 100%;" input-style="font-size:13px" input-class="form-control" input-height="34px" input-placeholder="请选择"
+                     is-always-reps-click="false" is-show-pagination="true" recordcount="{{companydatas.total}}" pagenum="companyinfoFormData.pagenum" pagesize="companyinfoFormData.pagesize">
+                     </comboxtable>
+            </div>
+            <label class=" col-md-1 h_mb5 col-sm-2 control-label">
+                开户名称
+            </label>
+            <div class=" col-md-3 h_mb5 col-sm-4">
+                <input type="text" class="form-control input-sm"  placeholder="" ng-model="formData.i_accountname" />
+            </div>
+            <label class=" col-md-1 h_mb5 col-sm-2 control-label">
+                收款账号
+            </label>
+            <div class=" col-md-3 h_mb5 col-sm-4">
+                <input type="text" class="form-control input-sm"  placeholder="" ng-model="formData.i_bankaccount" />
+            </div>
+        </div>
+        <div class="form-group" ng-show="!showFlag"><button  type="button" style="width:160px; margin:0 auto;" class="btn btn-default btn-block btn-sm" ng-click="toshowMore()"><span class="glyphicon glyphicon-chevron-down"></span>&nbsp;单击展开更多查询条件</button></div>
+        <!--line3 -->
+        <div class="form-group" ng-show="showFlag">
+            <label class=" col-md-1 h_mb5 col-sm-2 control-label">
+                跨行标志
+            </label>
+            <div class=" col-md-3 h_mb5 col-sm-4">
+                <select  class="form-control input-sm" ng-model="formData.i_samebankflag" ng-options="item.id as item.name for item in samebankflag">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+            <label class=" col-md-1 h_mb5 col-sm-2 control-label">
+               重划标志
+            </label>
+            <div class=" col-md-3 h_mb5 col-sm-4">
+                <select  class="form-control input-sm" ng-model="formData.i_actualtransferflag" ng-options="item.id as item.value for item in actualtransferflag">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+           
+            <label class=" col-md-1 h_mb5 col-sm-2 control-label">
+                划账标志
+            </label>
+            <div class=" col-md-3 h_mb5 col-sm-4">
+                <select  class="form-control input-sm" ng-model="formData.i_unionpaytransferflag" ng-options="item.id as item.name for item in unionpaytransferflag">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+        </div>
+        <!--line4 -->
+        <div class="form-group" ng-show="showFlag">
+            <label class=" col-md-1 h_mb5 col-sm-2 control-label">
+                服务商标志
+            </label>
+            <div class=" col-md-3 h_mb5 col-sm-4">
+                <select  class="form-control input-sm" ng-model="formData.i_serviceflag" ng-options="item.id as item.name for item in serviceflag">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+            <label class=" col-md-1 h_mb5 col-sm-2 control-label">
+                划账起始时间
+            </label>
+            <div class=" col-md-3 h_mb5 col-sm-4">
+                <input type="text" class="form-control input-sm" id="beginTime"  placeholder="" ng-model="formData.i_begintransfertime" />
+            </div>
+            <label class=" col-md-1 h_mb5 col-sm-2 control-label">
+                结束时间
+            </label>
+            <div class=" col-md-3 h_mb5 col-sm-4">
+                <input type="text" class="form-control input-sm" id="endTime"  placeholder="" ng-model="formData.i_endtransfertime" />
+            </div>
+            <!-- <div class=" col-md-2 col-md-offset-1 h_mb5 col-sm-4">
+                <button id="btn_search" type="button" style="max-width:70px;" class="btn btn-info btn-block btn-sm" ng-click="getcompanytransferaccountinfo_sumData()"><span class="glyphicon glyphicon-search"></span>&nbsp;查 询</button>
+            </div> -->
+        </div>
+        <div class="form-group" ng-show="showFlag"><button  type="button" style="width:160px; margin:0 auto;" class="btn btn-default btn-block btn-sm" ng-click="toshowMore()"><span class="glyphicon glyphicon-chevron-up"></span>&nbsp;单击收起更多查询条件</button></div>
+        <!-- -->
+        <div style="position:absolute; top:0;right:0;">
+             <button id="btn_search" type="button" style="width:110px;" class="btn btn-info btn-block btn-sm" ng-click="getcompanytransferaccountinfo_sumData()"><span class="glyphicon glyphicon-search"></span>&nbsp;查 询</button>
+             <button  type="button" style="width:110px; margin-top:20px;" class="btn btn-info btn-block btn-sm" ng-click="makefile()"><span class="glyphicon glyphicon-file"></span>&nbsp;生成划账文件</button>
+        </div>
+    </form>
+    <!--end form  -->
+    <!--start table-responsive-->
+    <div class="table-responsive">
+        <div ui-grid="gridOptions" ui-grid-pagination ui-grid-resize-columns  class="grid" ></div>
+    </div>
+    <!--end table-responsive-->
+    <div id="h-accountinfoTotal"> <span class="h-searchTotal">总条数：<label ng-if="resulteFlag">0</label><label>{{getFormData.total}}</label>（条）</span><span class="h-searchAmount">总金额： <label ng-if="resulteFlag">0</label><label>{{getFormData.transferamount}}</label></span>（元）</div>
+</div>
+

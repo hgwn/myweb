@@ -1,0 +1,108 @@
+<div class="container well" on-finish-render-filters="list" style="padding-top: 10px;margin-bottom: 0;overflow: auto;border: none;  background-color: #fff;">
+    <div class="row clearfix" >
+        <div class="col-md-12 column">
+            <form class="form-inline queryForm" id="leagueapplyListForm" name="leagueapplyListForm">
+                <div class="form-group col-sm-6" style="margin-bottom:10px;">
+                    <label>申请状态：</label>
+                    <select class="form-control input-sm" ng-model="leagueapplyList.state" style="width: 60%;">
+                        <option value="">--请选择--</option>
+                        <option value="1">申请,待审核</option>
+                        <option value="2">审核通过</option>
+                        <option value="3">审核不通过</option>
+                    </select>
+                </div>
+                <div class="form-group col-sm-6" style="margin-bottom:10px;" ng-class="{haserror:leagueapplyListForm.screatedtime.$invalid&&leagueapplyListForm.submitted}">
+                    <label>开始时间：</label>
+                    <input name="screatedtime" type="text"  required class="form-control" data-max-date="{{leagueapplyList.ecreatedtime}}" ng-model="leagueapplyList.screatedtime" data-date-format="yyyy-MM-dd" data-date-type="string" data-autoclose="1"  bs-datepicker style="height:30px;width: 60%;" >
+                    <div ng-messages="leagueapplyListForm.screatedtime.$error" ng-show="leagueapplyListForm.screatedtime.$invalid&&leagueapplyListForm.submitted" class="ng-messages-error">
+                        <div >开始时间为必填项</div>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6" style="margin-bottom:10px;" ng-class="{haserror:leagueapplyListForm.ecreatedtime.$invalid&&leagueapplyListForm.submitted}">
+                    <label>结束时间：</label>
+                    <input name="ecreatedtime" type="text"  required class="form-control" data-min-date="{{leagueapplyList.screatedtime}}" ng-model="leagueapplyList.ecreatedtime" data-date-format="yyyy-MM-dd" data-date-type="string" data-autoclose="1"  bs-datepicker style="height:30px;width: 60%;" >
+                    <div ng-messages="leagueapplyListForm.ecreatedtime.$error" ng-show="leagueapplyListForm.ecreatedtime.$invalid&&leagueapplyListForm.submitted" class="ng-messages-error">
+                        <div>结束时间为必填项</div>
+                    </div>
+                    <span title="必填项" ng-messages="form_staff.validationnum.$error" ng-show="form_staff.validationnum.$invalid&&form_staff.submitted" >
+					<span ng-message="required" class="icon-exclamation-sign" style="    color: #a94442; font-size: 16px;"></span>
+            	</span>
+                </div>
+                <div class="form-group col-sm-6" style="margin-bottom:10px;">
+                    <button type="button" class="btn btn-success btn-sm"  style="width: 80px;" ng-click="Check()">查询</button>
+                    <button type="button" class="btn btn-success btn-sm"  style="width: 80px;" ng-click="add()" ng-if="listFlag">加盟</button>
+                    <button type="button" class="btn btn-success btn-sm"  style="width: 80px;" ng-click="auditAdd()"  ng-if="platFlag">审核</button>
+                </div>
+            </form>
+            <div id="auditModel" style="clear: both;  overflow: auto;" ng-if="auditFlag">
+                <table class="table table-bordered table-hover table-striped  table-condensed" >
+                    <thead>
+                    <tr class="text-center" class="info">
+                        <th style="width: 30px;"></th>
+                        <th style="width: 20px" ng-if="platFlag">
+                            <!--<input type="checkbox" ng-click="selectAll($event)" ng-checked="isSelectedAll()" style="  margin: 0;"/>-->
+                        </th>
+                        <th ng-if="platFlag">操作</th>
+                        <th style="width: 130px" ng-if="platFlag">人脉分组</th>
+                        <th>平台名称</th>
+                        <th>申请公司</th>
+                        <th>申请站点</th>
+                        <th>申请人</th>
+                        <th>申请状态</th>
+                        <th>审核人</th>
+                        <th>审核时间</th>
+                        <th style=" width: 100px;">备注</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in leagueapplyData | orderBy:'state'" class="text-center">
+                        <td class="h_bgf3">{{$index+1}}</td>
+                        <td ng-if="platFlag">
+                            <input ng-disabled="true" type="checkbox" name="selected" ng-checked="isSelected(item.leagueapplyid)" ng-click="updateSelection($event, item.leagueapplyid)" style="  margin: 0;"/>
+                        </td>
+                        <td ng-if="item.state == 1&&platFlag">
+                            <span ng-if="!item.hasAction">
+                                <a href="" ng-click="auditAgree(item)">通过</a>
+                                <a href="" ng-click="auditDelete(item)">不通过</a>
+                            </span>
+                            <span ng-if="item.hasAction" >无操作</span>
+                        </td>
+                        <td ng-if="item.state != 1&&platFlag">无操作</td>
+                        <td style="padding: 0;width: 130px" ng-class="{haserror:item.addressgroupid=='' || item.addressgroupid == undefined}" ng-if="platFlag">
+                            <select ng-if="item.state != 3 && item.state != 4 && item.hasSeFlag" data-ng-disabled="item.state != 1" style="padding: 3px 5px" required class="form-control input-sm" ng-model="item.addressgroupid" ng-change="selectAddresid(item,val.addressgroupid)" ng-options="val.addressgroupid as val.addressgroupname for val in sceneData">
+                                <option value="">--请选择--</option>
+                            </select>
+                            <span ng-if="item.state == 3 || item.state == 4 || item.hasDeau" style="line-height: 28px;">无分组信息</span>
+                            <span ng-if="item.state == 2 && !item.hasSeFlag" style="line-height: 28px;">{{item.addressgroupname}}</span>
+                        </td>
+                        <td>{{item.platformname}}</td>
+                        <td>{{item.appcompanyname}}</td>
+                        <td>{{item.appstationname}}</td>
+                        <td>{{item.appstaffname}}</td>
+                        <td>{{item.statename}}</td>
+                        <td>{{item.auditorname}}</td>
+                        <td>{{item.audittime | limitTo:10}}</td>
+                        <td>
+                            <div title="{{item.remark}}" style=" width: 100px; word-wrap: break-word;overflow: hidden;text-overflow: ellipsis;">
+                                {{item.remark}}
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div ng-if="!auditFlag" ui-grid="gridOptions" ui-grid-cellNav  ui-grid-pagination id="listModel" class="grid" style="margin:0;clear: both"></div>
+        </div>
+        <div ng-if="auditFlag" class="col-md-12 column">
+            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" style="height: 40px;">
+                <pagination recordcount="{{total}}" pagenum="leagueapplyList.pageNum" pagesize="leagueapplyList.pageSize" onselect="Check()"></pagination>
+            </nav>
+        </div>
+    </div>
+</div>
+<div ng-if="iconFlag == 'add'" style="width:100%;height:100%;position: absolute;background: #D5D5D5;opacity:0.5;z-index:10000;  top: 0;">
+</div>
+<div ng-if="iconFlag == 'add'" style="width:100px;height:100px;position: absolute;z-index:10001;  position: fixed;top: 40%;left: 50%;">
+    <span class="icon-spinner icon-spin" style="font-size:50px;opacity:1"></span>
+    <div style="margin-left: -16px;">{{context}}</div>
+</div>

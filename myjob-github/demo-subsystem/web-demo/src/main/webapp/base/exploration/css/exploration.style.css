@@ -1,0 +1,270 @@
+div, ol, ul, li{
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+}
+
+a {
+    color: #1f3a87;
+    text-decoration: none;
+}
+
+span {
+    margin: 0;
+    padding: 0;
+}
+
+ol, ul, li, img {
+    list-style: none;
+    list-style-type: none;
+}
+
+#main{
+    float: left;
+    width: 100%;
+    overflow: hidden;
+}
+
+#main .header{
+    float: left;
+    width: 100%;
+    height: 35px;
+    margin-top: 15px;
+    line-height: 35px;
+    border-bottom: 1px solid #E8E8E8;
+}
+
+#main .header .mle_1{
+    float: left;
+    height: 34px;
+    font-size: 20px;
+    color: #2872BA;
+    border-bottom: 2px solid #2872BA;
+}
+
+#main .Mulye{
+    float: left;
+    width: 100%;
+}
+
+#main .Mulye .muall{
+    float: left;
+    width: 100%;
+    margin-top: 15px;
+    display: inline;
+    overflow: hidden;
+}
+
+#main .Mulye .muall .liaue_1{
+    float: left;
+    width: 32%;
+    padding: 10px 0;
+    margin:0 0.5% 8px 0.5%;
+    border: 1px solid #ddd;
+    display: inline;
+    overflow: hidden;
+}
+
+#main .Mulye .muall .limg{
+    float: left;
+    width: 20%;
+    margin-left: 5%;
+}
+
+#main .Mulye .muall .liwod{
+    float: left;
+    width: 70%;
+    margin-left: 5%;
+}
+
+#main .Mulye .muall .liwod .lwt_1{
+    font-size: 25px;
+    font-weight: 500;
+    float: left;
+    width: 100%;
+    display: inline;
+    overflow: hidden;
+}
+
+#main .Mulye .muall .liwod .lwt_1 .mcing_1{
+    float: left;
+}
+
+#main .Mulye .muall .liwod .lwt_1 .mcing_2{
+    float: left;
+    margin: 5px 0 0 15px;
+    display: inline;
+}
+
+#main .Mulye .muall .liwod .lwt_2{
+    float: left;
+    width: 100%;
+    height: 80px;
+    margin-top: 8px;
+    line-height: 20px;
+    font-size: 14px;
+    color: #4c4c4c;
+    overflow: hidden;
+}
+
+#main .Mulye .muall .liwod .lwt_3{
+    float: left;
+    width: 100%;
+    margin-top: 5%;
+    display: inline;
+    overflow: hidden;
+}
+
+#main .Mulye .muall .liwod .lwt_3 .la_1 {
+    float: left;
+    padding: 3px 10px;
+    background: #F5FBFE;
+    font-size: 13px;
+    border: 1px solid #7ECEF4;
+    color: #2872BA;
+}
+
+#main .Mulye .muall .liwod .lwt_3 .la_2 {
+    float: left;
+    margin-left: 15px;
+    padding: 3px 10px;
+    background: #EFFBF3;
+    border: 1px solid #BAEBBA;
+    color: #20a135;
+    font-size: 13px;
+    display: inline;
+}
+
+#main .Mulye .muall .liwod .lwt_3 .la_1:hover {
+    border: 1px solid #3684fd;
+    color: #3684fd;
+    text-decoration: none;
+}
+
+#main .Mulye .muall .liwod .lwt_3 .la_2:hover {
+    border: 1px solid #5DC66A;
+    color: #20a135;
+    text-decoration: none;
+}
+
+.Mulye .muall .liaue_1:hover, .Mulye .muall .liaue_2:hover {
+    background: #f9f9f9;
+}
+
+.header_2{
+    float: left;
+    width: 100%;
+    height: 35px;
+    margin-top: 20px;
+    line-height: 35px;
+    border-bottom: 1px solid #E8E8E8;
+}
+
+.header_2 .mle_1 {
+    float: left;
+    height: 34px;
+    font-size: 20px;
+    color: #20a135;
+    border-bottom: 2px solid #20a135;
+}
+
+.Mulye_2 {
+    float: left;
+    width: 100%;
+}
+
+.Mulye_2 .muall {
+    float: left;
+    width: 100%;
+    background: #f4f4f4;
+    overflow: hidden;
+    display: inline;
+}
+
+.Mulye_2 .muall .liua_1 {
+    float: left;
+    width: 25%;
+    background: #f4f4f4;
+    border-right: 5px solid #fff;
+    padding: 25px 0 22px 0;
+    display: inline;
+    overflow: hidden;
+}
+
+.Mulye_2 .muall .liua_1:first-child{
+    border-left: 5px solid #fff;
+}
+
+.Mulye_3 {
+    float: left;
+    width: 1024px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.Mulye_3 .muft {
+    float: left;
+    width: 670px;
+    border: 1px solid #ddd;
+}
+
+.Mulye_3 .muft h1 {
+    float: left;
+    width: 630px;
+    height: 30px;
+    margin: 10px 0 0 15px;
+    _margin-left: 8px;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+.Mulye_3 .muft h1 span {
+    padding-bottom: 4px;
+    border-bottom: 2px solid #333;
+}
+
+.Mulye_3 .muft .perul {
+    float: left;
+    width: 630px;
+    margin-top: 15px;
+    margin-left: 15px;
+    _margin-left: 8px;
+}
+
+.state_show1 {
+    float: left;
+    width: 630px;
+    height: 120px;
+    text-align: left;
+    overflow: hidden;
+}
+
+.state_show1 .state_r_l {
+    float: left;
+    width: 630px;
+    height: 222px;
+    display: inline;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+.Mulye_3 .muft .perul li {
+    float: left;
+    width: 610px;
+    height: 35px;
+    line-height: 35px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.Mulye_3 .muft .perul .lr_a {
+    float: left;
+    width: 305px;
+    font-size: 14px;
+}
+
+.masget-top{
+    position: absolute;
+    top:40%;
+    left:40%;
+    z-index:2000;
+}

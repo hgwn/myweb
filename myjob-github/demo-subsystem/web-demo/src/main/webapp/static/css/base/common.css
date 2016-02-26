@@ -1,0 +1,1244 @@
+.masget-input {
+    width: 150px !important;
+    margin-left: 4px;
+}
+
+.masget-btn-default {
+    border: none;
+    border-radius: 2px;
+    box-shadow: rgba(0, 0, 0, 0.156863) 0px 2px 5px 0px, rgba(0, 0, 0, 0.117647) 0px 2px 10px 0px;
+    background-color: #ffffff;
+}
+
+.masget-btn-default:hover, .masget-btn-default.active, .masget-btn-default:focus, .masget-btn-default[disabled] {
+    background-color: #ffffff;
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+
+.masget-btn-primary {
+    border: none;
+    border-radius: 2px;
+    box-shadow: rgba(0, 0, 0, 0.156863) 0px 2px 5px 0px, rgba(0, 0, 0, 0.117647) 0px 2px 10px 0px;
+    background-color: #26a69a;
+}
+
+.masget-btn-primary:hover, .masget-btn-primary.active, .masget-btn-primary:focus, .masget-btn-primary[disabled] {
+    background-color: #26a69a;
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+
+.masget-btn-info {
+    border: none;
+    border-radius: 2px;
+    box-shadow: rgba(0, 0, 0, 0.156863) 0px 2px 5px 0px, rgba(0, 0, 0, 0.117647) 0px 2px 10px 0px;
+    background-color: #6FA036;
+}
+
+.masget-btn-info:hover, .masget-btn-info.active, .masget-btn-info:focus, .masget-btn-info[disabled] {
+    background-color: #6FA036;
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+
+.masget-btn-success {
+    border: none;
+    border-radius: 2px;
+    box-shadow: rgba(0, 0, 0, 0.156863) 0px 2px 5px 0px, rgba(0, 0, 0, 0.117647) 0px 2px 10px 0px;
+    background-color: #3E63C5;
+}
+
+.masget-btn-success:hover, .masget-btn-success.active, .masget-btn-success:focus, .masget-btn-success[disabled] {
+    background-color: #3E63C5;
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+
+.masget-panel {
+    border-radius: 3px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.masget-image {
+    padding: 0 0;
+}
+
+.masget-titleBar {
+    filter: alpha(opacity=100 finishopacity=50 style=1 startx=0, starty=0, finishx=0, finishy=150) progid : DXImageTransform . Microsoft . gradient(startcolorstr = red, endcolorstr = blue, gradientType = 0);
+    -ms-filter: alpha(opacity=100 finishopacity=50 style=1 startx=0, starty=0, finishx=0, finishy=150) progid : DXImageTransform . Microsoft . gradient(startcolorstr = red, endcolorstr = blue, gradientType = 0); /*IE8*/
+    background: red; /* 一些不支持背景渐变的浏览器 */
+    background: -moz-linear-gradient(top, #00a3d6, #0093c1);
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#00a3d6), to(#0093c1));
+    background: -o-linear-gradient(top, #00a3d6, #0093c1);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background-color: #10A4D4;
+    box-shadow: 0 1px 0px #504F4F;
+    z-index: 1000;
+}
+
+.masget-titleBar ul li a {
+    font-size: 20px;
+    padding: 8px 10px 2px 10px;
+    border-radius: 0px;
+    color: #ffffff;
+    -webkit-transition: background-color 0.3s;
+    -moz-transition: background-color 0.3s;
+    -o-transition: background-color 0.3s;
+    -ms-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+}
+
+.masget-titleBar ul li a:hover {
+    cursor: pointer;
+    color: #ffffff;
+    background-color: rgba(174, 255, 196, 0.48);
+}
+
+.masget-fullScreen {
+    position: absolute;
+    right: 10px;
+    font-size: 20px;
+    top: 15px;
+    cursor: pointer;
+}
+
+.masget-leftbar {
+    font-size: 12px;
+    width: 60px;
+    padding: 0 0;
+    box-shadow: rgba(0, 0, 0, 0.156863) 0px 2px 5px 0px inset, rgba(0, 0, 0, 0.117647) 0px 2px 10px 0px inset;
+}
+
+.masget-leftbar .buzcircle-icon {
+    background: url("../../img/base/home/buzcircle.png");
+    background-size: 100% 100%;
+}
+
+.masget-leftbar .contacts-icon {
+    background: url("../../img/base/home/contacts.png");
+    background-size: 100% 100%;
+}
+
+.masget-leftbar .find-icon {
+    background: url("../../img/base/home/find.png");
+    background-size: 100% 100%;
+}
+
+.masget-leftbar .my-icon {
+    background: url("../../img/base/home/my.png");
+    background-size: 100% 100%;
+}
+
+.masget-faceBtn {
+    background: url("../../img/base/home/face.png");
+    background-size: 100% 100%;
+}
+
+.masget-leftbar ul li a {
+    height: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    color: grey;
+    border-radius:0px;
+    -webkit-transition: background-color 0.3s;
+    -moz-transition: background-color 0.3s;
+    -o-transition: background-color 0.3s;
+    -ms-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+}
+
+.masget-leftbar ul li a:hover {
+    cursor: pointer;
+    color: #10A4D4;
+    background-color: rgba(169, 147, 147, 0.48);
+}
+
+.masget-leftbar ul li.active > a, .masget-leftbar ul li.active > a:hover, .masget-leftbar ul li.active > a:focus {
+    background-color: rgba(169, 147, 147, 0.48);
+    color: #10A4D4;
+}
+
+.masget-leftbar ul.nav-stacked > li {
+    border-bottom: 1px solid #8E988B;
+    margin-top: 0;
+}
+
+.masget-leftbar-inner {
+    padding: 0 0;
+    box-shadow: rgba(0, 0, 0, 0.156863) 0px 2px 5px 0px inset, rgba(0, 0, 0, 0.117647) 0px 2px 10px 0px inset;
+}
+
+.masget-leftbar-inner a.list-group-item {
+    line-height: 40px;
+    height: 40px;
+    border-radius: 0px;
+    border-left: 0px;
+    borer-right: 0px !important;
+    color: #000000;
+    font-weight: bold;
+    width: 100%;
+    padding: 0 0;
+    text-align: center;
+    -webkit-transition: background-color 0.3s;
+    -moz-transition: background-color 0.3s;
+    -o-transition: background-color 0.3s;
+    -ms-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+}
+
+.masget-leftbar-inner a.list-group-item:hover,.masget-leftbar-inner a.list-group-item.masget-active {
+    background: #e1f5fe;
+    border-left: 4px solid #29b6f6;
+    border-top: 0px;
+    border-bottom: 0px;
+}
+
+.masget-middlebar {
+    background-color: #3A3A3A;
+    width: 260px;
+    padding: 0 0;
+}
+
+.masget-middlebar .navbar-form {
+    padding: 0 0;
+}
+
+.masget-contentPanel {
+    overflow: hidden;
+    margin-left: 60px;
+    position: relative;
+}
+
+.masget-group {
+    padding: 0 0;
+}
+
+.masget-group-item {
+    height: 70px;
+    width: 240px;
+    padding: 0 0;
+}
+
+.masget-group-size {
+    padding-left: 30px;
+    font-size: 20px;
+    height: 35px;
+    background-color: darkgray;
+}
+
+.masget-clear {
+    padding: 0 0;
+    margin: 0 0;
+}
+
+.masget-menu {
+    list-style: none;
+}
+
+.masget-rightButtons {
+    top: 0px;
+    text-decoration: none;
+    width: 40px;
+    padding: 10px;
+    font-size: 20px;
+    position: absolute;
+    float: right;
+    background: inherit;
+    right: 0px;
+    color: inherit;
+}
+
+.masget-caption {
+    padding-top: 15px;
+}
+
+.masget-caption a {
+    width: 88px;
+    background-color: transparent;
+    font-weight: bolder;
+    border:1px solid #F7F7F7;
+    border-radius: 10px;
+    -webkit-transition: background-color 0.3s;
+    -moz-transition: background-color 0.3s;
+    -o-transition: background-color 0.3s;
+    -ms-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+}
+
+.masget-caption b:before{
+    content:"";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.masget-caption a:hover {
+    background-color: rgba(131, 131, 131, 0.1);
+    border: 1px solid white;
+    border-bottom: 1px inset #FFFFFF;
+}
+
+.masget-icon {
+    width: 100px;
+    heigth: 120px;
+    position: relative;
+    padding: 0 5px 5px 5px;
+    cursor: pointer;
+}
+
+.masget-icon .caption {
+    height: 25px;
+    padding: 3px 12px;
+    line-height: 25px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.masget-circle:first-letter {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    overflow: hidden;
+    left: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 25px;
+    background-color: #66BBC1;
+    font-weight: 300;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.masget-divider {
+    height: 2px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+}
+
+.masget-inputPanel {
+    height: 200px;
+    background-color: goldenrod;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+}
+
+#contentPanelBar_my ul li.active {
+    border-top: 3px solid #fa0000;
+    background-color: #f7f7f7;
+}
+
+/*选项卡*/
+#contentPanelBar_my {
+    background: #f5f5f5;
+    background: -moz-linear-gradient(top, #f5f5f5 0%, #eee 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #eee));
+    background: -webkit-linear-gradient(top, #f5f5f5 0%, #eee 100%);
+    background: -o-linear-gradient(top, #f5f5f5 0%, #eee 100%);
+    background: -ms-linear-gradient(top, #f5f5f5 0%, #eee 100%);
+    background: linear-gradient(to bottom, #f5f5f5 0%, #eee 100%);
+}
+
+#contentPanelBar_my .nav-tabs li > a {
+    display: block;
+    height: 36px;
+    border-right: 1px solid #fff;
+    border-left: 1px solid #ddd;
+    border-radius: 0;
+    margin-right: 0;
+}
+
+#contentPanelBar_my ul.nav.nav-tabs {
+    margin-top: 0 !important;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    background: none;
+}
+
+.nav-tabs > li > a {
+    color: #555;
+    cursor: pointer;
+}
+
+.nav-tabs > li > a:hover {
+    color: #337ab7;
+}
+
+#contentPanelBar_my .nav-tabs > li.active > a {
+    color: #337ab7 !important;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    border-bottom: none;
+}
+
+.nav-tabs > li > a, .nav-tabs > li > a:hover {
+    border: none;
+}
+
+/*bootstrap*/
+div.container-fluid.well {
+    border: 0;
+    border-radius: 0;
+}
+
+/*find.html*/
+#main {
+    float: left;
+    width: 100%;
+    overflow: hidden;
+    padding: 10px;
+    margin-top: 25px;
+}
+
+#main > .header {
+    width: 100%;
+    height: 31px;
+    line-height: 35px;
+    border-bottom: 1px solid #E8E8E8;
+}
+
+#main > .header .mle_1 {
+    height: 34px;
+    font-size: 20px;
+    color: #2872BA;
+    border-bottom: 2px solid #2872BA;
+}
+
+#main .Mulye {
+    width: 100%;
+}
+
+#main .Mulye .muall {
+    width: 100%;
+    margin-top: 15px;
+    display: block;
+    overflow: hidden;
+}
+
+#main .Mulye .muall .liaue_1 {
+    width: 32%;
+    height: 175px;
+    padding: 10px 0;
+    margin: 0 0.5% 8px 0.5%;
+    border: 1px solid #ddd;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+}
+
+#main .Mulye .muall .limg {
+    width: 18%;
+    left: 5%;
+    display: inline-block;
+    position: absolute;
+}
+
+#main .Mulye .muall .limg > a {
+    width: 100%;
+    display: block;
+}
+
+#main .Mulye .muall .limg > a img {
+    width: 100%;
+}
+
+#main .Mulye .muall .liwod {
+    width: 70%;
+    left: 28%;
+    display: inline-block;
+    position: absolute;
+}
+
+#main .Mulye .muall .liwod .lwt_1 {
+    font-size: 25px;
+    font-weight: 500;
+    width: 100%;
+    display: inline;
+    overflow: hidden;
+}
+
+#main .Mulye .muall .liwod .lwt_1 .mcing_1 {
+    display: inline;
+    color: #F2A024;
+    font-family: Microsoft YaHei;
+}
+
+#main .Mulye .muall .liwod .lwt_2 {
+    width: 100%;
+    height: 78px;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #4c4c4c;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+#main .Mulye .muall .liwod .lwt_2 > a {
+    color: #4c4c4c;
+    text-decoration: none;
+}
+
+#main .Mulye .muall .liwod .lwt_3 {
+    width: 100%;
+    margin-top: 2px;
+    display: block;
+    overflow: hidden;
+}
+
+#main .Mulye .muall .liwod .lwt_3 .la_1 {
+    padding: 3px 10px;
+    background: #F5FBFE;
+    font-size: 13px;
+    border: 1px solid #7ECEF4;
+    color: #2872BA;
+}
+
+#main .Mulye .muall .liwod .lwt_3 .la_2 {
+    margin-left: 15px;
+    padding: 3px 10px;
+    background: #EFFBF3;
+    border: 1px solid #BAEBBA;
+    color: #20a135;
+    font-size: 13px;
+    display: inline;
+}
+
+#main .Mulye .muall .liwod .lwt_3 .la_1:hover {
+    border: 1px solid #3684fd;
+    color: #3684fd;
+    text-decoration: none;
+}
+
+#main .Mulye .muall .liwod .lwt_3 .la_2:hover {
+    border: 1px solid #5DC66A;
+    color: #20a135;
+    text-decoration: none;
+}
+
+.Mulye .muall .liaue_1:hover, .Mulye .muall .liaue_2:hover {
+    background: #f9f9f9;
+}
+
+.header_2 {
+    width: 100%;
+    height: 35px;
+    margin-top: 20px;
+    line-height: 35px;
+    border-bottom: 1px solid #E8E8E8;
+}
+
+.header_2 .mle_1 {
+    height: 34px;
+    font-size: 20px;
+    color: #20a135;
+    border-bottom: 2px solid #20a135;
+}
+
+.Mulye_2 {
+    width: 100%;
+}
+
+.Mulye_2 .muall {
+    width: 100%;
+    background: #f4f4f4;
+    overflow: hidden;
+    display: inline;
+}
+
+.Mulye_2 .muall .liua_1 {
+    width: 25%;
+    background: #f4f4f4;
+    border-right: 5px solid #fff;
+    padding: 25px 0 22px 0;
+    display: inline;
+    overflow: hidden;
+}
+
+.Mulye_2 .muall .liua_1:first-child {
+    border-left: 5px solid #fff;
+}
+
+.Mulye_3 {
+    width: 1024px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.Mulye_3 .muft {
+    width: 670px;
+    border: 1px solid #ddd;
+}
+
+.Mulye_3 .muft h1 {
+    width: 630px;
+    height: 30px;
+    margin: 10px 0 0 15px;
+    _margin-left: 8px;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+.Mulye_3 .muft h1 span {
+    padding-bottom: 4px;
+    border-bottom: 2px solid #333;
+}
+
+.Mulye_3 .muft .perul {
+    width: 630px;
+    margin-top: 15px;
+    margin-left: 15px;
+    _margin-left: 8px;
+}
+
+.state_show1 {
+    width: 630px;
+    height: 120px;
+    text-align: left;
+    overflow: hidden;
+}
+
+.state_show1 .state_r_l {
+    width: 630px;
+    height: 222px;
+    display: inline;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+.Mulye_3 .muft .perul li {
+    width: 610px;
+    height: 35px;
+    line-height: 35px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.Mulye_3 .muft .perul .lr_a {
+    width: 305px;
+    font-size: 14px;
+}
+
+.searchBtn {
+    display: inline-block;
+    padding: 4px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: #f5f5f5;
+    background-image: -moz-linear-gradient(top, #fff, #e6e6e6);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#e6e6e6));
+    background-image: -webkit-linear-gradient(top, #fff, #e6e6e6);
+    background-image: -o-linear-gradient(top, #fff, #e6e6e6);
+    background-image: linear-gradient(to bottom, #fff, #e6e6e6);
+    background-repeat: repeat-x;
+    border: 1px solid #ccc;
+    border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border-bottom-color: #b3b3b3;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.searchBtn:hover {
+    background-color: #e6e6e6;
+    color: #333;
+    text-decoration: none;
+    background-position: 0 -15px;
+    -webkit-transition: background-position .1s linear;
+    -moz-transition: background-position .1s linear;
+    -o-transition: background-position .1s linear;
+    transition: background-position .1s linear;
+}
+
+/*针对webkit引擎（chrome）的写法*/
+body:nth-of-type(1) .masget-treeCheck {
+    float: right;
+    font-size: 20px;
+}
+
+/*针对firfox的写法*/
+@-moz-document url-prefix() {
+    .masget-treeCheck {
+        float: right;
+        font-size: 20px;
+        top: -20px;
+    }
+}
+
+.masget-circle-arrow {
+    font-size: 30px;
+    padding-top: 5px;
+    color: rgb(249, 241, 243);
+}
+
+.masget-arrow{
+    background-image:url('../../img/base/arrow.png');
+    width:20px;
+    height:20px;
+}
+
+.myNav{
+    background-image:url('../../img/base/myNav.png');
+    display:block;
+    width:38px;
+    height:38px;
+}
+
+.myNavTriangleLeft:hover{
+    background-image:url('../../img/base/myNavTriangleLeft.png');
+}
+
+.myNavTriangleRight:hover{
+    background-image:url('../../img/base/myNavTriangleRight.png');
+}
+
+.masget-menu-check {
+    float: right;
+    font-size: 20px;
+    color: rgb(140, 126, 126);
+}
+
+.masget-delete-icon {
+    float: right;
+    font-size: 25px;
+    color: rgb(236, 16, 16);
+}
+
+.masget-floatImg {
+    float: left;
+    width: 120px;
+    height: 100px !important;
+    margin: 15px !important;
+}
+
+.masget-addIcon {
+    font-size: 75px;
+    padding-top: 10px;
+    color: antiquewhite;
+    cursor: pointer;
+}
+
+.masget-removeTab {
+    cursor: pointer;
+    font-size: 13px;
+    color: rgb(205, 174, 174);
+    float: right;
+    margin-top: -34px;
+    margin-right: 4px;
+}
+
+.masget-removeTab:hover {
+    color: #fa0000;
+}
+
+.masget-title {
+    width: 128px;
+    margin: 0 0;
+    background-color: rgba(47, 82, 42, 0.32);
+}
+
+.masget-title-active {
+    background-color: #B6BA94;
+    background-image: none;
+    outline: 0;
+    color: rgb(66, 96, 142);
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+
+.rotate180 {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.masget-toggleLeftBarBtn {
+    cursor: pointer;
+    position: fixed;
+    font-size: 20px;
+    z-index: 1000;
+    margin-left: 180px;
+    margin-top: 20%;
+}
+
+.masget-toggleLeftBarBtn:hover {
+    font-size: 30px;
+    visibility: visible;
+}
+
+.alert-position {
+    position: relative;
+    max-width: 400px;
+    margin: 250px auto 0 auto;
+    text-align: center;
+}
+
+@-webkit-keyframes twinkling {
+    /*透明度由0到1*/
+    0% {
+        opacity: 0.1; /*透明度为0*/
+        background-color: #fff3d1;
+    }
+    100% {
+        opacity: 1; /*透明度为1*/
+        background-color: #000;
+    }
+}
+
+@keyframes twinkling {
+    /*透明度由0到1*/
+    0% {
+        opacity: 0.1; /*透明度为0*/
+        background-color: #fff3d1;
+    }
+    100% {
+        opacity: 1; /*透明度为1*/
+        background-color: #000;
+    }
+}
+
+.masget-twinkle {
+    -webkit-animation: "twinkling 2s infinite 0.9s ease-in-out alternate";
+    animation: "twinkling 2s infinite 0.9s ease-in-out alternate
+}
+
+.masget-read {
+    color: #808080;
+}
+
+.masget-keyOver {
+    background-color: #b1b5dc;
+}
+
+.masget-contentPanel-inner ul li.active {
+    background-color: #FAFEF7;
+}
+
+.masget-loadingClass {
+    background-color: red;
+}
+
+div.masget-focusActive:focus {
+    color: #fff;
+    background-color: #10A4D4;
+}
+
+.stationItem .list-group-item {
+    cursor: pointer;
+    border-radius: 0px;
+}
+
+.stationItem .list-group-item:last-child {
+    margin-bottom: -1px;
+}
+
+.stationItem .list-group-item:hover {
+    background-color: #10A4D4;
+    color: #ffffff;
+}
+
+.treeView div.list-group-item {
+    -webkit-transition: background-color 0.3s;
+    -moz-transition: background-color 0.3s;
+    -o-transition: background-color 0.3s;
+    -ms-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+}
+
+.treeView div.list-group-item:hover, {
+    background-color: #b1b5dc;
+}
+
+.wl_faces_main .emoji:hover {
+    cursor: pointer;
+    background-color: #d1bd9d;
+}
+
+/*!
+ * angular-loading-bar v0.8.0
+ * https://chieffancypants.github.io/angular-loading-bar
+ * Copyright (c) 2015 Wes Cruver
+ * License: MIT
+ */
+
+/* Make clicks pass-through */
+#loading-bar,
+#loading-bar-spinner {
+    pointer-events: none;
+    -webkit-pointer-events: none;
+    -webkit-transition: 350ms linear all;
+    -moz-transition: 350ms linear all;
+    -o-transition: 350ms linear all;
+    transition: 350ms linear all;
+}
+
+#loading-bar.ng-enter,
+#loading-bar.ng-leave.ng-leave-active,
+#loading-bar-spinner.ng-enter,
+#loading-bar-spinner.ng-leave.ng-leave-active {
+    opacity: 0;
+}
+
+#loading-bar.ng-enter.ng-enter-active,
+#loading-bar.ng-leave,
+#loading-bar-spinner.ng-enter.ng-enter-active,
+#loading-bar-spinner.ng-leave {
+    opacity: 1;
+}
+
+#loading-bar .bar {
+    -webkit-transition: width 350ms;
+    -moz-transition: width 350ms;
+    -o-transition: width 350ms;
+    transition: width 350ms;
+
+    background: #3a4235;
+    position: fixed;
+    z-index: 10002;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    border-bottom-right-radius: 1px;
+    border-top-right-radius: 1px;
+}
+
+/* Fancy blur effect */
+#loading-bar .peg {
+    position: absolute;
+    width: 70px;
+    right: 0;
+    top: 0;
+    height: 2px;
+    opacity: .45;
+    -moz-box-shadow: #0C3084 1px 0 6px 1px;
+    -ms-box-shadow: #0C3084 1px 0 6px 1px;
+    -webkit-box-shadow: #0C3084 1px 0 6px 1px;
+    box-shadow: #0C3084 1px 0 6px 1px;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    border-radius: 100%;
+}
+
+#loading-bar-spinner {
+    display: block;
+    position: fixed;
+    z-index: 10002;
+    top: 10px;
+    left: 20px;
+}
+
+#loading-bar-spinner .spinner-icon {
+    width: 14px;
+    height: 14px;
+
+    border: solid 2px transparent;
+    border-top-color: #0C3084;
+    border-left-color: #0C3084;
+    border-radius: 50%;
+
+    -webkit-animation: loading-bar-spinner 400ms linear infinite;
+    -moz-animation: loading-bar-spinner 400ms linear infinite;
+    -ms-animation: loading-bar-spinner 400ms linear infinite;
+    -o-animation: loading-bar-spinner 400ms linear infinite;
+    animation: loading-bar-spinner 400ms linear infinite;
+}
+
+@-webkit-keyframes loading-bar-spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes loading-bar-spinner {
+    0% {
+        -moz-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -moz-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-o-keyframes loading-bar-spinner {
+    0% {
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-ms-keyframes loading-bar-spinner {
+    0% {
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loading-bar-spinner {
+    0% {
+        transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.sender {
+    clear: both;
+}
+
+.sender div:nth-of-type(1) {
+    float: left;
+}
+
+.sender div:nth-of-type(2) {
+    background-color: aquamarine;
+    float: left;
+    margin: 0 0 0 10px;
+    padding: 10px 10px 10px 0px;
+    border-radius: 7px;
+}
+
+.receiver div:first-child img,
+.sender div:first-child img {
+    width: 50px;
+    height: 50px;
+}
+
+.receiver {
+    clear: both;
+}
+
+.receiver div:nth-child(1) {
+    float: right;
+}
+
+.receiver div:nth-of-type(2) {
+    float: right;
+    background-color: gold;
+    margin: 0 10px 0 0;
+    padding: 10px 0px 10px 10px;
+    border-radius: 7px;
+}
+
+.left_triangle {
+    height: 0px;
+    width: 0px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent aquamarine transparent transparent;
+    position: relative;
+    left: -16px;
+    top: 3px;
+}
+
+.right_triangle {
+    height: 0px;
+    width: 0px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent transparent gold;
+    position: relative;
+    right: -16px;
+    top: 3px;
+}
+
+.message {
+    border-bottom: 1px solid #EEE;
+    clear: both;
+    padding: 10px 10px 10px 0;
+    position: relative;
+    margin: 0px 10px;
+}
+
+.message .user-logo {
+    float: left;
+    width: 50px;
+    height: 50px;
+    resize: none;
+}
+
+.message .wrap-text {
+    float: left;
+    margin-left: 10px;
+    display: inline;
+    width: 360px;
+    overflow: hidden;
+    resize: none;
+}
+
+.message h5 {
+    color: #369;
+    font-weight: bold;
+}
+
+.message .wrap-text div {
+    margin: 5px 0;
+    word-break: break-all;
+    word-wrap: break-word;
+    height: auto;
+    overflow: hidden;
+}
+
+.message .wrap-ri {
+    float: right;
+    width: 110px;
+    overflow: hidden;
+    resize: none;
+}
+
+.message .wrap-ri div {
+    text-align: right;
+    color: #999;
+    height: 18px;
+    line-height: 18px;
+    overflow: hidden;
+    clear: both;
+    position: absolute;
+    bottom: 10px;
+    right: 5px;
+}
+
+.message .wrap-ri div span {
+    display: inline-block;
+    line-height: 18px;
+    vertical-align: bottom;
+    zoom: 1;
+}
+
+body .modal-content {
+    border-radius: 6px;
+}
+
+html:-moz-full-screen {
+
+    background: red;
+
+}
+
+html:-webkit-full-screen {
+
+    background: red;
+
+}
+
+html:fullscreen {
+
+    background: red;
+
+}
+
+.animate-show-hide {
+    -webkit-transition: all linear 0.3s;
+    transition: all linear 0.3s;
+}
+
+.animate-show-hide.ng-hide {
+    opacity: 0;
+}
+
+.masget-hover {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.masget-hover:hover {
+    background-color: lightgrey;
+}
+
+#contentPanelInner_my ul li:first-child span:hover {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    transition: all 0.3s;
+    background-color: rgba(105, 212, 155, 0.73);
+    color: white;
+}
+
+.my-icon {
+    opacity: 0;
+    -webkit-transition: all 0.3s ease 0;
+    -moz-transition: all 0.3s ease 0;
+    -o-transition: all 0.3s ease 0;
+    -ms-transition: all 0.3s ease 0;
+    transition: all 0.3s ease 0;
+}
+
+.my-icon.hover {
+    opacity: 1;
+}
+
+.masget-my-icon{
+    opacity:0;
+    -webkit-transition: all 0 ease 0.3s;
+    -moz-transition: all 0 ease 0.3s;
+    -o-transition: all 0 ease 0.3s;
+    -ms-transition: all 0 ease 0.3s;
+    transition: all 0 ease 0.3s;
+}
+
+.masget-my-icon.hover{
+    opacity:1;
+}
+
+@-moz-document url-prefix()    /*Firefox*/
+{
+
+    .firefoxHack
+    {
+        font-size:14px!important;
+    }
+
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0)    /*写在选择器外层时（只可写在此处）：Chrome only*/
+{
+
+}
+
+.datepicker .btn-default{
+    border:0px;
+}
+

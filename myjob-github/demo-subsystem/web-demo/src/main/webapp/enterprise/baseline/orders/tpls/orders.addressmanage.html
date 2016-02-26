@@ -1,0 +1,147 @@
+<!-- 模态窗口start -->
+<div class="modal fade" id="addressManager" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" style="width:1024px;">
+		<div class="modal-content">
+			<div class="modal-header">
+				 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h4 class="modal-title" id="myModalLabel">
+					地址管理
+				</h4>
+			</div>
+			<div class="modal-body">
+			    <div class="" ng-repeat="receiveItem in receiveData.dataList">
+			        <label style="margin-left:5px;"><input type="radio" ng-model="receiveItem.receiveData" ng-click="addressClick(receiveItem)" name="receiveData" ng-value="true">
+			            &nbsp;{{receiveItem.contactname}}
+			            &nbsp;{{receiveItem.provincename}}
+			            {{receiveItem.cityname}}
+			            {{receiveItem.areaname}}
+			            {{receiveItem.address}}
+			            &nbsp;{{receiveItem.mobile}}
+			        </label>&nbsp;&nbsp;&nbsp;&nbsp;
+			        <span ng-show="receiveItem.editDeleteShow">
+			            <!-- <a class="edit" href="javascript:void(0)" ng-click="modifyAddress(receiveItem)">修改</a> -->
+						<a class="delete" ng-if="receiveItem.isdefault ==1"  href="javascript:void(0)" >默认地址</a>
+			        </span>
+			    </div>
+			    <div class="">
+			        <label style="margin-left:5px;"><input type="radio" ng-model="receiveItem.receiveData" ng-click="newAddressClick()" name="receiveData" ng-value="true">使用新地址</label>
+			    </div>
+			    <!-- 收货人信息添加 start-->
+                <div class="modal-body" ng-show="receiveData.modalShow" style="border: 1px #DDDDDD solid;padding: 0px;background-color: gray1">
+                	<form class="form-inline" style="margin-top: 10px">
+					  <div class="row" style="margin-bottom:10px;">
+						   <label class="col-md-1">收货人:</label> 
+						    <input class="col-md-3 form-control" type="text"  ng-model="receiveData.contactname"/>
+						    <label class="col-md-1" for="exampleInputEmail2">手机号:</label>
+						    <input class="form-control col-md-3" type="text" ng-model="receiveData.mobile" />
+						    <label class="col-md-1" for="exampleInputEmail2">固话:</label>
+						    <input class="form-control col-md-3" type="text" ng-model="receiveData.phone" />
+					  </div>
+					   <div class="row" style="margin-bottom:10px;">
+					   		<!-- <label class="col-md-1" for="exampleInputEmail2">固话:</label>
+						    <input class="form-control col-md-3" type="text" ng-model="receiveData.phone" /> -->
+						   <!-- <label class="col-md-1">分机号:</label> 
+						    <input class="col-md-3 form-control" type="text"  ng-model="receiveData.phonesubcode"/> -->
+						    <label class="col-md-1" for="exampleInputEmail2">邮编:</label>
+						    <input class="form-control col-md-3" type="text" ng-model="receiveData.postcode" />
+						    <!-- <label class="col-md-1" for="exampleInputEmail2">区号:</label>
+						    <input class="form-control col-md-3" type="text" ng-model="receiveData.phonepostcode" /> -->
+						    
+						    <label class="col-md-1">默认:</label>
+			              	<select class="form-control col-md-3" ng-model="receiveData.isdefault"  ng-options="o.id as o.value for o in type">
+				       			<option value="">--请选择--</option>
+			   				</select>
+					  </div>
+					  <div class="row" style="margin-bottom:10px;">
+						   <label class="col-md-1">地址:</label> 
+						    <!-- <select style="width:100px;" class="form-control"  ng-model="receiveData.provinceid" ng-change="onChangeProvince(receiveData.provinceid)" ng-options="o.provinceid as o.provincename for o in baseData.provinces">
+                                <option value="">(空)</option>
+                            </select>
+							<select style="width:100px;" class="form-control"  ng-model="receiveData.cityid"  ng-change="onChangeCity(receiveData.cityid)" ng-options="o.cityid as o.cityname for o in baseData.citys">
+                                <option value="">(空)</option>
+                            </select>
+							<select style="width:150px;" class="form-control" ng-model="receiveData.areaid" ng-options="o.areaid as o.areaname for o in baseData.areas">
+                                <option value="">(空)</option>
+                            </select>
+							<input type="text" class="form-control"  placeholder="请输入详细地址" ng-model="receiveData.address" style="max-width:230px;width:100%;"/>
+					  		 -->
+					  		<select style="width:150px;" class="form-control" ng-change="getArea()" ng-model="receiveData.provinceid"
+							   ng-options="provinces.provinceid as provinces.provincename for provinces in provinceList">
+							    
+							</select>
+							<select class="form-control" ng-change="getDistrict()" ng-model="receiveData.cityid"
+							   ng-options="areas.cityid as areas.cityname for areas in areaList">
+							    
+							</select>
+							<select class="form-control" ng-model="receiveData.areaid"
+							   ng-options="districts.areaid as districts.areaname for districts in districtList">
+							    
+							</select>
+							<input type="text" class="form-control"  placeholder="请输入详细地址" ng-model="receiveData.address" style="max-width:230px;width:100%;"/>
+					  
+					  </div>
+					  
+					   <div class="row" style="margin-bottom:10px;">
+						   <label class="col-md-1">备注:</label> 
+					   		<textarea class="form-control col-md-7" ng-model="receiveData.remark">
+					   		
+							</textarea>
+					  </div>
+					  <div class="row" style="margin-bottom:10px;">
+						    <!-- <a href="#"  style="margin-left:9%;">保存</a> -->
+						    <button type="button" class="btn btn-primary" style="margin-left:9%;" ng-click="saveAddressManage()">保存</button>
+						</div>
+					
+					</form>
+					
+				   <!--  <form class="form-inline">
+				        <div class="form-group" style="width:100%">
+							<label class="col-md-1">收货人:</label> 
+							<input class="col-md-3 form-control" type="text"  ng-model="receiveData.contactname"/>
+							<label class="col-md-1">手机号:</label> 
+							<input class="col-md-3 form-control" type="text" ng-model="receiveData.mobile" />
+							<label class="col-md-1">固话:</label> 
+							<input class="col-md-3 form-control" type="text" ng-model="receiveData.phone"  />
+						</div>
+						<div class="form-group" style="width:100%">
+						    <label>分机号:</label> <input type="text" ng-model="receiveData.phonesubcode" class="form-control" style="height:34px;width:90%;max-width:150px;"/>
+						    <label>邮编:</label> <input type="text" ng-model="receiveData.postcode" class="form-control" style="height:34px;width:90%;max-width:150px;"/>
+						    <label>区号:</label> <input type="text" ng-model="receiveData.phonepostcode" class="form-control" style="height:34px;width:90%;max-width:120px;"/>
+						</div>
+						<div class="form-group" id="h_billing_address" style="width:100%">
+							<label>送货地址:</label> 
+							<select style="width:150px;" class="form-control"  ng-model="receiveData.provinceid" ng-change="onChangeProvince(receiveData.provinceid)" ng-options="o.provinceid as o.provincename for o in baseData.provinces">
+                                <option value="">(空)</option>
+                            </select>
+							<select class="form-control"  ng-model="receiveData.cityid"  ng-change="onChangeCity(receiveData.cityid)" ng-options="o.cityid as o.cityname for o in baseData.citys">
+                                <option value="">(空)</option>
+                            </select>
+							<select class="form-control" ng-model="receiveData.areaid" ng-options="o.areaid as o.areaname for o in baseData.areas">
+                                <option value="">(空)</option>
+                            </select>
+							<input type="text" class="form-control"  placeholder="请输入详细地址" ng-model="receiveData.address" style="max-width:230px;width:100%;"/>
+					    </div>
+						<div class="form-group" style="width:100%">
+						    <label>备注:</label> 
+							<textarea class="form-control" rows="3" cols="20" ng-model="receiveData.remark">
+							</textarea>							
+						</div> 
+						<div class="form-group addressManageSave" style="width:100%">
+						    <a href="#" ng-click="saveAddressManage()" style="margin-left:9%;">保存</a>
+						</div>
+				    </form> -->
+				    
+				    
+			    </div>
+			    <!-- 收货人信息条件 end-->
+			</div>
+			<div class="modal-footer">
+				 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button> 
+				 <button type="button" ng-if="orders.orderid == undefined || orders.orderid == '' " class="btn btn-primary" ng-click="chooseAddress()">确定</button>
+				 
+				 <button type="button"  ng-if="orders.orderid != undefined && orders.orderid != '' " class="btn btn-primary" ng-click="submitAddress()">确定修改</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 模态窗口end -->

@@ -1,0 +1,57 @@
+<div class="col-sm-12 column" ng-controller="goodsstockcheckinController" style="padding: 0px;margin: 0px">
+    <!-- start h_main  -->
+    <div class="col-sm-12 column">
+        <!-- start form  -->
+<div class="h_formBox">
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+        <label class="col-sm-1 control-label">入库单号</label>
+        <div class="col-sm-2">
+            <input class="form-control input-sm" type="text" ng-model="addFormData.warehouseinnum" disabled/>
+        </div>
+        <div class="col-sm-1">
+                <button type="button" ng-click="onClickImportAddGoods()" class="btn btn-primary btn-sm">保存</button>
+        </div>
+     </div>
+</form>
+</div>
+<!--end form  -->
+
+<!--start   -->
+<div class="table-responsive">
+    <!-- <table class="table table-bordered table-hover table-striped table-condensed">
+        <thead>
+        <tr class="info">
+            <th>序号</th>
+            <th>商品名称</th>
+            <th>商品SKU</th>
+            <th>商品货号</th>
+            <th>进货价</th>
+            <th>完好数量</th>
+            <th>损坏数量</th>
+            <th>商品重量</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in goodsstockData.data.rows">
+           	<td ng-bind="$index+1">1</td>
+            <td><input type="text" class="form-control" value="{{item.goodsname}}"/></td>
+            <td>{{item.skuid}}</td>
+            <td>{{item.barcode}}</td>
+            <td>{{item.purchaseprice}}</td>
+            <td>{{item.goodqty}}</td>
+            <td>{{item.damageqty}}</td>
+            <td>{{item.weight}}</td>
+        </tr>
+
+        </tbody>
+    </table> -->
+    <!-- start ng-grid -->
+<div ui-grid="IngridOptions" ui-grid-edit ui-grid-cellnav ui-grid-selection class="grid"></div>
+<!-- end ng-grid --> 
+</div>
+<!--end  --> 
+    </div>
+    <!-- end h_main  -->
+ 
+</div>

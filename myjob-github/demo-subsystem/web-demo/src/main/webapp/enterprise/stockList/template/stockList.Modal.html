@@ -1,0 +1,20 @@
+<div class="modal" id="stockListModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" style="width:75%;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h4 class="modal-title" id="myModalLabel">
+					<strong>库存明细</strong>
+				</h4>
+			</div>
+			<div class="modal-body">
+			    <div style="margin-right:5px;margin-left:5px;margin-bottom:5px;">
+					<div ui-grid="stockListGridOption" ui-grid-cellNav ui-grid-resize-columns ui-grid-move-columns ui-grid-pagination ui-grid-auto-resize class="grid" style="margin-top:10px;"></div>
+			    </div>
+			</div>
+			<!-- <div class="modal-footer" style="margin-top:20px;">
+				 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> <button type="button" class="btn btn-primary">保存</button>
+			</div> -->
+		</div>
+	</div>
+</div>

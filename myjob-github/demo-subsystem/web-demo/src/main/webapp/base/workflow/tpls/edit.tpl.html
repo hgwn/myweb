@@ -1,0 +1,82 @@
+<form style="padding: 10px;" name="processEditForm">
+    <div class="query">
+        <div style="display: inline;" ng-if="operateType == 'insert'">
+            <label>业务类型:&nbsp;</label>
+            <button type="button" class="btn btn-success masget-btn-primary" ng-model="processInfo.business_id" data-trigger="focus"
+                    bs-options="item.ordertypeid as item.ordername for item in businessTypes" bs-select>
+                未选择<span class="caret"></span>
+            </button>
+            &nbsp;
+        </div>
+        <div  style="display: inline;">
+            <label>流程名称:&nbsp;</label>
+            <input type="text" class="form-control" style="width: 180px;display: inline;" placeholder="流程名"  ng-model="processInfo.process_name" name="processName" required>
+            <div style="display: inline-block;position: absolute;font-size: 32px;"
+                 ng-messages="processEditForm.processName.$error">
+                <div style="color: red;" ng-message="required">*</div>
+            </div>
+        </div>
+    </div>
+    <div style="border-top: 1px solid #808080;border-bottom: 1px solid #808080;padding:10px 30px;position: relative;margin-top:20px;" class="clearfix">
+        <div class="lineContainer">
+            <div class="horizontalLineWrapper" ng-if="lineCount>0">
+                <div class="horizontalLine line-hide" style="margin-left:40px;"></div>
+            </div>
+            <div class="horizontalLineWrapper" ng-if="lineCount>1">
+                <div class="horizontalLine line-hide"></div>
+            </div>
+            <div class="horizontalLineWrapper" ng-if="lineCount>2">
+                <div class="horizontalLine line-hide"></div>
+            </div>
+            <div class="horizontalLineWrapper" ng-if="lineCount>3">
+                <div class="horizontalLine line-hide"></div>
+            </div>
+            <div class="horizontalLineWrapper" ng-if="lineCount>4">
+                <div class="horizontalLine line-hide"></div>
+            </div>
+            <div class="horizontalLineWrapper" ng-if="lineCount>5">
+                <div class="horizontalLine line-hide"></div>
+            </div>
+            <div class="horizontalLineWrapper" ng-if="lineCount>6">
+                <div class="horizontalLine line-hide"></div>
+            </div>
+        </div>
+        <div style="padding: 25px 0" class="clearfix processNodesContainer">
+            <div ng-click="nodeClickHandler(item);" class="{{item.node_type== 1?'processNode':'processNode_check'}}" ng-repeat="item in processNodes" ng-class="{
+                'pull-right':item.isInEvenLine,
+                '':!item.isInEvenLine
+                }">
+            <span ng-if="item.node_type== 2" style="float:right;" ng-class="{
+                            'icon-check-empty':!item.checked,
+                            'icon-check':item.checked
+                            }" class="icon"
+                  ng-click="item.checked = !item.checked;$event.stopPropagation();"></span>
+            <span ng-if="item.node_type  == 1||item.checked" ng-class="{
+                            'user-icon':item.node_type == 1,
+                            'node-active':item.isActive
+                            }" class="glyphicon glyphicon-user" style="position: absolute;top: 4px;left: 30px;" ng-click="itemActive(item);"></span>
+                <span class="caption">{{item.node_name}}</span>
+            </div>
+            <div class="mask" ng-if="lineCount%2 == 1" style="width: 100%;height: 16px;margin-left:100%;bottom: 90px;"></div>
+        </div>
+    </div>
+    <div style="padding: 10px;">
+        <label>处理人配置---当前配置节点:</label>
+        <span style="color: red;font-weight: bold;" ng-bind="currentNode.node_name"></span>
+    </div>
+    <div style="padding: 10px;">
+        <label>处理URL:&nbsp;</label>
+        <input type="text" class="form-control" style="width: 200px;display: inline;" ng-model="currentNode.handle_url">
+    </div>
+    <div class="toolbar">
+        <button class="btn btn-success masget-btn-primary" ng-click="addNodeUsers();">
+            添加节点人员
+        </button>
+        <button class="btn btn-success masget-btn-primary" ng-click="deleteNodeUsers();">
+            删除节点人员
+        </button>
+        <button class="btn btn-success masget-btn-primary" ng-disabled="processEditForm.$invalid" ng-click="saveOrUpdate();">{{operateType === 'insert'?'创建流程':'更新流程'}}</button>
+        <button class="btn btn-success masget-btn-primary" ng-click="toWorkFlowList();">返回列表</button>
+    </div>
+    <div ui-grid="workFlowNodeUserList" ui-grid-selection ui-grid-exporter ui-grid-pagination ui-grid-resize-columns ui-grid-move-columns></div>
+</form>

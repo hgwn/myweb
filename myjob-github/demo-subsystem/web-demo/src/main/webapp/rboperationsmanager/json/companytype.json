@@ -1,0 +1,17 @@
+{
+"message":"获取公司类型成功",
+"ret":0,
+"data":{
+"total":15,
+"rows":[
+{
+"companytypeid":1000,
+"companytypename":"T+0资方"
+},
+{
+"companytypeid":2000,
+"companytypename":"专线物流"
+}
+]
+}
+}

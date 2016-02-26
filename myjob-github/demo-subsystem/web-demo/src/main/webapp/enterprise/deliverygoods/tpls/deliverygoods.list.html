@@ -1,0 +1,13 @@
+<div class="col-md-12 column" ng-controller="deliverygoodsListController" style="padding: 0px;margin: 0px">
+	<div class="col-md-12 column">
+		<div ui-view="query"></div>
+	</div>
+	<div class="col-sm-12" style="overflow: auto;height: 500px;margin-left: 10px;width: 99%;padding: 0px;">
+		<div ui-view="grid"></div>
+	</div>
+	<div class="col-md-12 column">
+		<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" style="height: 40px;border:0px">
+			<pagination recordcount="{{deliverys.data.total}}" pagenum="formData.pageNum" pagesize="formData.pageSize" is-show-pagesize-list="true1" onselect="queryForm()"></pagination>
+		</nav>
+	</div>
+</div>

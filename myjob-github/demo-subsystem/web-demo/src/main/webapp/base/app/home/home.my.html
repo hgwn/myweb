@@ -1,0 +1,54 @@
+<div class="container masget-clear" on-finish-render-filters="leftBar_my">
+	  <div id="myLeftBar" class="pull-left masget-leftbar-inner" style="width: 180px;margin-top: 4px;margin-top: 4px;">
+	       <div id="contactsPanel_my" class="masget-contactsPanel" ng-scrollbar scrollbar-x="false" scrollbar-y="true" scrollbar-config="{autoResize:true,show:true}">
+               <div class="list-group repeat" ng-repeat="item in multiRes" style="margin-bottom:5px;">
+                   <div ng-if="item.nodes.length > 0" class="list-group-item" style="background-color: rgba(158, 216, 218, 0.67);height: 2px;border-radius:0px;font-size: 10px;padding:0 0;font-weight: bold;"></div>
+                   <div class="list-group-item masget-group clearfix" style="margin-bottom:5px;border: 0px;">
+                           <div class="list-group" style="margin-bottom: 0px;background-color: rgb(231, 231, 231);">
+                               <a role="button" class="list-group-item masget-item target" ng-mouseover="innerItem.hover = true;" ng-mouseleave="innerItem.hover = false;" ng-repeat="innerItem in item.nodes" ng-class="{true:'masget-active',false:''}[innerItem.isActive]"
+                                  style="font-weight:bold;width:100%;padding: 0 0;"
+                                  aria-pressed="false" autocomplete="off"
+                                  ng-click="group($event,innerItem,$index);">
+                                   <img ng-if="innerItem.o_icon" style="width: 28px;height:28px;position: absolute;left: 20px;top:7px;" src="{{resourceIconPath + innerItem.o_icon}}"/>
+                                   {{innerItem.o_resourcename}}
+                                   <span class="masget-arrow my-icon" ng-class="{true:'hover'}[innerItem.hover]" style="position: absolute;right: 12px;top: 10px;font-size: 20px;" ng-show="innerItem.o_childnodetype%100==2"></span>
+                               </a>
+                       </div>
+                   </div>
+               </div>
+               <div class="list-group" style="margin-top:5px;">
+                   <div ng-if="myRes.length > 0" class="list-group-item" style="background-color: rgba(158, 216, 218, 0.67);height: 2px;border-radius:0px;font-size: 10px;padding:0 0;font-weight: bold;"></div>
+                   <a role="button" class="list-group-item masget-item target" ng-mouseover="item.hover = true;" ng-mouseleave="item.hover = false;" ng-repeat="item in myRes" ng-class="{true:'masget-active',false:''}[item.isActive]"
+                      aria-pressed="false" autocomplete="off"
+                      ng-click="group($event,item,$index);">
+                       {{item.o_resourcename||""}}
+                       <img ng-if="item.o_icon" class="masget-my-icon" ng-class="{false:'hover'}[item.hover]"style="width: 20px;height:20px;position: absolute;right: 10px;top:10px;" src="{{resourceIconPath + item.o_icon}}"/>
+                       <span ng-if="item.o_childnodetype!=100" ng-class="{true:'hover'}[item.hover]" class="masget-arrow my-icon" style="position: absolute;right: 10px;top: 10px;font-size: 20px;"></span>
+                   </a>
+               </div>
+	       </div>
+	  </div>
+      <div id="contentPanelInner_my" class="masget-contentPanel-inner" style="margin-left:180px;position:absolute;">
+          <div ng-show="tabs.length == 0" ng-scrollbar scrollbar-x="false" scrollbar-y="true" scrollbar-config="{autoResize:true,show:true}">
+              <div ng-include="'base/flowChar/flowChar.html'"></div>
+                <!--my模块默认页面-->
+          </div>
+          <div ng-show="tabs.length > 0">
+              <div id="contentPanelBar_my" class="pull-left" style="width: 100%;display: inline-block;border-bottom:1px solid #fff;">
+                  <div role="presentation" ng-click="hideMenu();" style="height: 38px;padding:0 0;position: absolute;border-right:1px solid #fff;">
+                      <span style="font-size: 20px;padding:9px;cursor:pointer;" class="myNav" ng-class="{true:'myNavTriangleRight',false:'myNavTriangleLeft'}[state]"></span>
+                  </div>
+                  <ul class="nav nav-tabs" role="tablist" style="margin-top:2px;margin-left:39px;">
+                      <li role="presentation" style="height: 38px;" ng-class="{true:'active'}[tab.tabActive]" ng-repeat="tab in tabs" ng-right-click="showRightMenu">
+                          <a style="background-color:inherit;padding: 7px 30px 7px 15px;"><b>{{tab.o_resourcename}}</b></a>
+                          <span title="关闭" class="glyphicon glyphicon-remove masget-removeTab"></span>
+                      </li>
+                  </ul>
+              </div>
+              <div id="contentPanelWrapper_my" style="overflow: hidden;width:100%;display: -moz-grid;">
+                  <div class="am-fade" ui-view="contentPanel_my" belongto="my" style="height:100%;position: relative;padding:3px 3px 0 3px;"></div>
+              </div>
+          </div>
+
+      </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="thumbnail"
+     style="z-index:1000;width: 400px;margin: 0 0;padding: 0 0;position: absolute;box-shadow: rgba(0, 0, 0, 0.156863) 0px 2px 5px 0px, rgba(0, 0, 0, 0.117647) 0px 2px 10px 0px;background-color: rgb(255, 255, 255);border-top: 0px;border-top-left-radius: 0px;border-top-right-radius: 0px;padding-top: 10px;"
+     on-finish-render-filters>
+    <img ng-if="session.stafficon ==''" src="static/img/base/contact.jpg" alt="...">
+    <img ng-if="session.stafficon !=''" src="{{session.stafficon}} " alt="..." >
+
+    <div class="caption" style="padding:10px 15px;">
+        <h3 class="text-left" style="padding-left: 60px;">姓名：{{session.staffname}}</h3>
+
+        <p class="text-left" style="padding-left: 60px;">当前站点：{{session.stationname}}</p>
+
+        <p class="text-left" style="padding-left: 60px;">所属公司：{{session.companyname}}</p>
+
+        <p class="text-left" style="padding-left: 60px;">联系电话：{{session.mobilephone}}</p>
+
+        <p style="text-align: center;">
+            <a ng-click="modifyPwd();" class="btn btn-primary masget-btn-primary" role="button"><span
+                    class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;修改密码</a>
+            <a ng-click="loginOut();" class="btn btn-primary masget-btn-primary" role="button"><span
+                    class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;退出登录</a>
+        </p>
+    </div>
+</div>

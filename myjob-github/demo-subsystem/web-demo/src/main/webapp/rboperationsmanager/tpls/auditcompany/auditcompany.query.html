@@ -1,0 +1,87 @@
+<form class="form-horizontal" role="form"  data-ng-init="addloadData()">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="form-group">
+                <label class="col-sm-4 control-label  ">类型</label>
+                <div class="col-sm-8">
+                    <select class="form-control col-sm-12" id="agentflag" ng-model="queryDataForm.agentflag">
+                        <option value="0"> 全部 </option>
+                        <option value="1"> 服务商 </option>
+                        <option value="2"> 服务商发展 </option>
+                        <option value="3"> 商户 </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="form-group">
+                <label class="col-sm-4 control-label">名称</label>
+                <div class="col-sm-8">
+                    <input type="text" id="companyname" placeholder="服务商/商户名称" maxlength="49" ng-model="queryDataForm.companyname" class="form-control col-sm-12">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="col-sm-2 control-label  ">开始时间</label>
+                <div class="col-sm-4" style="position: relative;">
+                    <input type="text" class="form-control col-sm-12" id="begintime" ng-model="queryDataForm.begintime">
+                    <span  style="position: absolute; top:6px; right: 25px; cursor: pointer;" ng-show="queryDataForm.begintime" ng-click="queryDataForm.begintime=null;"><i class="glyphicon glyphicon-remove"></i></span>
+                </div>
+                <div class="col-sm-3">
+                    <button id="btn_search" type="button" style="max-width:80px;" class="btn btn-info btn-block btn-sm" ng-click="query()"><span class="glyphicon glyphicon-search"></span>&nbsp;查 询</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="form-group">
+                <label class="col-sm-4 control-label  ">状态</label>
+
+                <div class="col-sm-8">
+                    <select class="form-control" id="auditstatus" ng-model="queryDataForm.auditstate">
+                        <option value="0"> 全部 </option>
+                        <option value="1"> 已审核待取号 </option>
+                        <option value="2"> 审核不通过 </option>
+                        <option value="3"> 待审核 </option>
+                        <option value="4"> 已取号 </option>
+                        <option value="5"> 取号失败 </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="form-group">
+                <label class="col-sm-4 control-label  ">收单行</label>
+
+                <div class="col-sm-8">
+                    <select class="form-control" id="acquirebank" ng-model="queryDataForm.acquirebankid" ng-options="item.acquirebankid as item.acquirebank for item in acquirebanks">
+                            <option value=""> 全部 </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="col-sm-2 control-label ">结束时间</label>
+                <div class="col-sm-4" style="position: relative;">
+                    <input type="text" class="form-control col-sm-12" id="endtime"  ng-model="queryDataForm.endtime">
+                    <span  style="position: absolute; top:6px; right: 25px; cursor: pointer;" ng-show="queryDataForm.endtime" ng-click="queryDataForm.endtime=null;"><i class="glyphicon glyphicon-remove"></i></span>
+                </div>
+                <!--<div class="col-sm-3">
+                    <button  type="button" style="max-width:80px;" class="btn btn-info btn-block btn-sm" ng-click="querySource()"><span class="glyphicon glyphicon-search"></span>&nbsp;查 询</button>
+                </div>-->
+            </div>
+        </div>
+
+    </div>
+</form>
+<!--start table-responsive-->
+<div ui-grid="gridOptions" ui-grid-pagination ui-grid-resize-columns  class="grid" ></div>
+<!--end table-responsive-->

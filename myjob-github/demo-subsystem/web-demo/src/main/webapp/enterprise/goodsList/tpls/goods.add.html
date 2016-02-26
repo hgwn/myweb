@@ -1,0 +1,113 @@
+<div class="modal fade" id="viewModal-add-goods" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:900px">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title">
+                   		{{baseData.modelGoodsData.title}}
+                </h4>
+            </div>
+            <form name="modeladdgoodsForm"  novalidate>
+            <div class="modal-body">
+                    <div class="container-fluid well" style=" border: 0px;border-radius: 0px;margin: -15px;">
+                        <div class="row row-add-goods">
+                            <label  class="col-sm-1 control-label">商品编码 </label>
+                            <div class="col-sm-3 control-edit" >
+                                <input type="text" class="form-control" required name="goodssn" ng-model="baseData.modelGoodsData.goodssn" ng-disabled="baseData.modelGoodsData.goodsid != undefined && baseData.modelGoodsData.goodsid != '' " placeholder="请输入商品编码(必填)"/>
+                                <div class="ng-messages-error" ng-messages="modeladdgoodsForm.goodssn.$error" ng-show="modeladdgoodsForm.goodssn.$invalid && baseData.modelGoodsData.isClickToSubmit">
+                                    <span ng-message="required" style="color: red;">商品编码不能为空</span>
+                                </div>
+                            </div>
+                            <label  class="col-sm-1 control-label">商品名称
+                            </label>
+                            <div class="col-sm-3 control-edit">
+                                <input type="text" class="form-control" required name="goodsname" ng-model="baseData.modelGoodsData.goodsname"  placeholder="请输入商品名称(必填)"/>
+                                <div class="ng-messages-error" ng-messages="modeladdgoodsForm.goodsname.$error" ng-show="modeladdgoodsForm.goodsname.$invalid && baseData.modelGoodsData.isClickToSubmit">
+                                    <span ng-message="required"  style="color: red;">商品名称不能为空</span>
+                                </div>
+                            </div>
+                            <label  class="col-sm-1 control-label">商品条码 </label>
+                            <div class="col-sm-3 control-edit" >
+                                <input type="text" class="form-control" required name="barcode" ng-model="baseData.modelGoodsData.barcode" ng-disabled="baseData.modelGoodsData.goodsid != undefined && baseData.modelGoodsData.goodsid != '' "  placeholder="请输入商品条码"/>
+                                <div class="ng-messages-error" ng-messages="modeladdgoodsForm.barcode.$error" ng-show="modeladdgoodsForm.barcode.$invalid && baseData.modelGoodsData.isClickToSubmit">
+                                    <span ng-message="required"  style="color: red;">商品条码不能为空</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-add-goods">
+                            <label  class="col-sm-1 control-label">规格</label>
+                            <div class="col-sm-3 control-edit">
+                                <input type="text" class="form-control" ng-model="baseData.modelGoodsData.goodsspec" placeholder="请输入商品规格"/>
+                            </div>
+                            <label  class="col-sm-1 control-label">商品分类
+                                <!--<span style="color: red;">(*)</span>-->
+                            </label>
+                            <div class="col-sm-3 control-edit" >
+                                <nested-combo-box control-disabled="false" change-event="changeItem"  collection="classifycombotree" current-member="activeClassifyItem"  />
+                                <!--<select ng-model="myColor" data-ng-options="item.companygoodsclassifyname group by item.parentname for item in baseData.companygoodsclassify">-->
+                                <!--</select>-->
+                                <!--<input type="text" class="form-control" required name="goodsname" ng-model="formdata.goodsname" placeholder="请选择商品分类"/>-->
+                            </div>
+                            <label  class="col-sm-1 control-label">单位</label>
+                            <div class="col-sm-3 control-edit">
+                                <div class="input-group">
+                                    <ui-select allow-clear ng-model="baseData.modelGoodsData.goodsunit" theme="bootstrap">
+                                        <ui-select-match placeholder="请选择商品计量单位.">{{$select.selected.name}}</ui-select-match>
+                                        <ui-select-choices repeat="item in baseData.goodsunit">
+                                            <span ng-bind-html="item.name"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                    <span class="input-group-btn">
+                                      <button ng-click="onClickShowAddGoodsUnitModel()" class="btn btn-default">
+                                          <span class="glyphicon glyphicon-plus"></span>
+                                      </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-add-goods">
+                            <label  class="col-sm-1 control-label">销售价
+                                <!--<span style="color: red;">(*)</span>-->
+                            </label>
+                            <div class="col-sm-3 control-edit">
+                                <input type="number" class="form-control" min="0" required name="shopprice" ng-model="baseData.modelGoodsData.shopprice" placeholder="请输入商品销售价(必填)"/>
+                                <div class="ng-messages-error" ng-messages="modeladdgoodsForm.shopprice.$error" ng-show="modeladdgoodsForm.shopprice.$invalid">
+                                    <span ng-message="number" style="color: red;">请输入正确的金额</span>
+                                </div>
+                                <div class="ng-messages-error" ng-messages="modeladdgoodsForm.shopprice.$error" ng-show="modeladdgoodsForm.shopprice.$invalid && baseData.modelGoodsData.isClickToSubmit">
+                                <span ng-message="required" style="color: red;">商品售价不能为空</span>
+                            </div>
+                            </div>
+                            <label  class="col-sm-1 control-label">产地</label>
+                            <div class="col-sm-3 control-edit" >
+                                <input type="text" class="form-control" ng-model="baseData.modelGoodsData.origin" placeholder="请输入商品产地"/>
+                            </div>
+                            <label  class="col-sm-1 control-label">重量(克/g)</label>
+                            <div class="col-sm-3 control-edit">
+                                <input type="number" class="form-control" min="0" name="weight" ng-model="baseData.modelGoodsData.weight" placeholder="请输入商品重量"/>
+                                <div class="ng-messages-error" ng-messages="modeladdgoodsForm.weight.$error" ng-show="modeladdgoodsForm.weight.$invalid">
+                                    <span ng-message="number"  style="color: red;">请输入合法的数字</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-add-goods">
+                            <label  class="col-sm-1 control-label">备注</label>
+                            <div class="col-sm-11 control-edit">
+                                <input type="text" class="form-control"  ng-model="baseData.modelGoodsData.description" placeholder="请输入备注"/>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary"  ng-click="onClickToAddGoods()">保存</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>

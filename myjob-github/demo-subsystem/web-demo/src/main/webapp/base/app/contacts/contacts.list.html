@@ -1,0 +1,29 @@
+<div class="clearfix" style="height:100%;overflow: auto;position: relative;" align="center" on-finish-render-filters="contacts_list" ng-scrollbar scrollbar-x="false" scrollbar-y="true" scrollbar-config="{autoResize:true,show:true}">
+    <div id="groupPanel" style="margin-top:0px;padding:3px 50px;">
+        <div class="masget-divider">
+        </div>
+        <div class="help-block" style="height: 20px;text-align: center;">
+            <h4>{{title||" "}}&nbsp;({{items.length}})</h4>
+            <span class="masget-upArrow" style="margin-top: -35px;margin-right: 40%;"
+                    ng-click="toggleGroup($event);">
+            </span>
+        </div>
+        <div class="masget-menu clearfix" ng-show="showFlag">
+            <div class="col-sm-6 col-md-2 " align="center" ng-show="node.level > 1">
+                <span class="glyphicon glyphicon-plus-sign masget-addIcon" ng-click="findFriends();"></span>
+            </div>
+            <div class="col-sm-6 col-md-2 repeat" align="center" ng-repeat="item in items" ng-click="contactDetail(item);">
+                <div class="thumbnail masget-icon">
+                    <span class="glyphicon glyphicon-remove-sign" style="float: right;font-size:18px;color: crimson;" ng-click="deleteItem(item);$event.stopPropagation();"></span>
+                    <img ng-if="item.isGroup" src="static/img/base/ui/group.png" alt=“图片已失效” style="margin-top: 18px;height: 70px;" ng-id="{{$index}}">
+                    <img ng-if="!item.isGroup" src="static/img/base/ui/person2.png" alt=“图片已失效” style="margin-top: 18px;height: 70px;" ng-id="{{$index}}"
+                         data-title="人员详情" data-content-Template="popover/contacts.person.detail.tpl.html" data-container="body" data-delay="200" data-hover-hold="true"
+                         data-html="true" data-trigger="hover" data-placement="bottom-right" bs-popover>
+                    <div class="caption" title="{{item.contactname||item.addressgroupname}}">
+                        <span>{{item.contactname||item.addressgroupname}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="col-sm-12">
+	<!-- start form-->
+	<div class="col-sm-4">
+		<form class="form-horizontal" name="serviceForm21" novalidate>
+			<div class="form-group">
+				<label class="col-sm-4 control-label">费率通道</label>
+				<div class="col-sm-8">
+					<select class="form-control" ng-options="item.settlementchannelid as item.settlementchannelname for item in agentsettlementchannes" ng-model="tableOjb.agentsettlementchannelid" ng-change="settlementrate_query(tableOjb.agentsettlementchannelid)">
+						<option value="">请选择</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-4 control-label">基准结算价</label>
+				<div class="col-sm-8">
+					<select class="form-control" ng-options="item.rateid as item.ratename for item in basesettlementrates" ng-model="tableOjb.basesettlementrateid">
+						<option value="">请选择</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-4 control-label">分润结算价</label>
+				<div class="col-sm-8">
+					<select class="form-control" ng-options="item.rateid as item.ratename for item in basesettlementrates" ng-model="tableOjb.settlementrateid">
+						<option value="">请选择</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group" ng-if="companylevelFlag">
+				<label class="col-sm-4 control-label">基准以下提成</label>
+				<div class="col-sm-8">
+					<select class="form-control" ng-options="item.profitid as item.profitname for item in profitnames" ng-model="tableOjb.baseagentprofitconfigid">
+						<option value="">请选择</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group" ng-if="companylevelFlag">
+				<label class="col-sm-4 control-label">基准以上提成</label>
+				<div class="col-sm-8">
+					<select class="form-control" ng-options="item.profitid as item.profitname for item in profitnames" ng-model="tableOjb.excessagentprofitconfigid">
+						<option value="">请选择</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-4 control-label"></label>
+				<div class="col-sm-8">
+					<button class="btn btn-info" ng-click="toTableBtn();">
+						将数据添加到右边列表
+						<i class="ace-icon glyphicon glyphicon-play-circle icon-on-right"></i>
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<!-- end form-->
+	<!-- start table-->
+	<div class="col-sm-8">
+		<div ui-grid="gridOptions"  class="grid" ></div>
+	</div>
+	<!-- end table-->
+</div>

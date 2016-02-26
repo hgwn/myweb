@@ -1,0 +1,227 @@
+<!--start register-content  -->
+<div class="register-content">
+    <h3 class="title">公司注册</h3>
+    <!-- BEGIN LOGIN -->
+    <div class="content">
+
+        <form class="form-vertical register-form" name="registerForm" novalidator>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">公司信息</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="control-group">
+                        <label class="control-label visible-ie8 visible-ie9">公司名称:</label>
+
+                        <div class="controls">
+                            <div class="input-icon left">
+                                <input class="placeholder-no-fix" ng-model="registerModel.companyname" type="text"
+                                       placeholder="公司名称" name="companyname"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label visible-ie8 visible-ie9">行业类型:</label>
+
+                        <div class="controls">
+                            <div class="input-icon left">
+                                <button type="button" class="btn btn-default masget-btn-default" ng-model="registerModel.industryid"
+                                        name="industryid" data-trigger="focus" data-container="body"
+                                        bs-options="item.industryid as item.industryname for item in industries"
+                                        bs-select required>
+                                    未选择<span class="caret"></span>
+                                </button>
+                                <div style="display: inline-block;" ng-messages="registerForm.industryid.$error">
+                                    <div class="text-danger" ng-message="required">*必填项</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label visible-ie8 visible-ie9">注册类型:</label>
+
+                        <div class="controls">
+                            <div class="input-icon left">
+                                <button type="button" class="btn btn-default masget-btn-default" ng-model="registerModel.companytype"
+                                        name="companytype" data-trigger="focus" data-container="body"
+                                        bs-options="item.companytypeid as item.companytypename for item in companytypes"
+                                        bs-select required>
+                                    未选择<span class="caret"></span>
+                                </button>
+                                <div style="display: inline-block;" ng-messages="registerForm.companytype.$error">
+                                    <div class="text-danger" ng-message="required">*必填项</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label visible-ie8 visible-ie9">传真:</label>
+
+                        <div class="controls">
+                            <div class="input-icon left">
+                                <input class="placeholder-no-fix" ng-model="registerModel.faxnumber" type="text"
+                                       placeholder="传真" name="faxnumber"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label visible-ie8 visible-ie9">电话:</label>
+
+                        <div class="controls">
+                            <div class="input-icon left">
+                                <input class="  placeholder-no-fix" ng-model="registerModel.phone" type="text"
+                                       placeholder="电话" name="phone" ng-pattern="/^1[3|4|5|7|8|][0-9]{9}$/" required/>
+                                <div style="display: inline-block;" ng-messages="registerForm.phone.$error">
+                                    <div class="text-danger" ng-message="required">*必填项</div>
+                                    <div class="text-danger" ng-message="pattern">请填写正确的手机号码</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label visible-ie8 visible-ie9">地区:</label>
+
+                        <div class="controls">
+                            <div class="input-icon left">
+                                <input select-address ng-model="registerModel.pca" name="pca" pca-ids="registerModel.addressids"  placeholder="点击选择地区信息" type="text" required/>
+                                <div style="display: inline-block;"
+                                     ng-messages="registerForm.pca.$error">
+                                    <div class="text-danger" ng-message="required">*必填项</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label visible-ie8 visible-ie9">地址:</label>
+
+                        <div class="controls">
+                            <div class="input-icon left">
+                                <input ng-model="registerModel.address" placeholder="请输入详细地址" name="address" type="text" required/>
+                                <div style="display: inline-block;" ng-messages="registerForm.address.$error">
+                                    <div class="text-danger" ng-message="required">*必填项</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="control-group" style="height: 75px;">
+                        <label class="control-label visible-ie8 visible-ie9" style="height:75px;">简介:</label>
+
+                        <div class="controls">
+                            <div class="input-icon left">
+                                <textarea class="placeholder-no-fix" ng-model="registerModel.introduction" rows="4"
+                                          placeholder="简介" name="introduction" style="width:400px;"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" style="margin-top:10px;">
+                <div class="panel-heading">
+                    <h3 class="panel-title">登录信息</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="control-group">
+                        <label class="control-label visible-ie8 visible-ie9">手机号码:</label>
+                        <div class="controls">
+                            <div class="input-icon left">
+                                <input class="placeholder-no-fix"  autocomplete="off" ng-model="registerModel.username" type="text"
+                                       placeholder="手机号码" name="username" ng-pattern="/^1[3|4|5|7|8|][0-9]{9}$/"
+                                       required/>
+                                <div style="display: inline-block;" ng-messages="registerForm.username.$error">
+                                    <div class="text-danger" ng-message="required">*必填项</div>
+                                    <div class="text-danger" ng-message="pattern">请填写正确的手机号码</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label visible-ie8 visible-ie9">密码:</label>
+
+                        <div class="controls">
+                            <div class="input-icon left">
+                                <input class="placeholder-no-fix" type="text" ng-model="registerModel.password"
+                                       placeholder="密码" onfocus="this.type='password'"   autocomplete="off"  name="password" ng-minlength=6 ng-maxlength=20 required/>
+
+                                <div style="display: inline-block;" ng-messages="registerForm.password.$error">
+                                    <div class="text-danger" ng-message="required">*必填项</div>
+                                    <div class="text-danger" ng-message="minlength">字符太短小于6</div>
+                                    <div class="text-danger" ng-message="maxlength">字符太长大于20</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label visible-ie8 visible-ie9">确认密码:</label>
+
+                        <div class="controls">
+                            <div class="input-icon left">
+                                <input class="placeholder-no-fix" ng-model="registerModel.rpassword" type="text"onfocus="this.type='password'"   autocomplete="off"
+                                       placeholder="确认密码" name="rpassword" required/>
+
+                                <div style="display: inline-block;" class="text-danger"
+                                     ng-if="registerModel.rpassword!=registerModel.password&&registerForm.rpassword.$error&&registerForm.rpassword.$dirty">
+                                    两次输入的密码不一致
+                                </div>
+                                <div style="display: inline-block;"
+                                     ng-messages="registerModel.rpassword==registerModel.password&&registerForm.rpassword.$error">
+                                    <div class="text-danger" ng-message="required">*必填项</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                        <label class="control-label visible-ie8 visible-ie9">验证码:</label>
+
+                        <div class="controls">
+                            <div class="input-icon left">
+                                <input class="  placeholder-no-fix" ng-model="registerModel.validationnum" type="text"
+                                       placeholder="手机验证码" name="validationnum"/>
+                                <button id="send_sms" ng-click="send_SMS();" ng-disabled="registerForm.$invalid"
+                                        style="position: absolute;left:370px;top:3px;">获取验证码
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+
+                        <div class="controls" style="margin-left:160px;">
+
+                            <label class="checkbox"> <input type="checkbox" style="cursor:pointer" ng-model="checkUser" name="tnc"/>我已阅读并接受<a href="#">《用户协议》</a>
+
+                            </label>
+
+                            <div id="register_tnc_error"></div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button id="register-back-btn" ui-sref="login" href="" class="btn btn-default masget-btn-default">
+                    返回
+                </button>
+                <button ng-click="register();" class="btn btn-warning" ng-disabled="formInvalid=registerForm.$invalid">
+                    注 册
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="col-sm-12 text-right">
+    <button class="btn btn-primary masget-btn-primary" ng-click="backTo();">返回</button>
+</div>
+<div class="col-sm-2">对账条件</div>
+<div class="col-sm-10">
+    银联：{{form.nAwardcompanyName}}&nbsp;&nbsp;
+    收单：{{form.nAcquirercompanyName}}&nbsp;&nbsp;
+    结算：{{form.nSettlementcompanyName}}&nbsp;&nbsp;
+    {{form.sBegintime}}至{{form.sEndtime}}
+</div>
+<div class="col-sm-2">ACOMA统计</div>
+<div class="col-sm-10">
+    收单收益：{{result.acoma_acquirebankmoney}}&nbsp;&nbsp;
+    荣邦收益：{{result.platform_masgetprofitmoney}}&nbsp;&nbsp;
+    收单行收益：{{result.acoma_bankfeeratemoney}}
+</div>
+<div class="col-sm-2">平台清算统计</div>
+<div class="col-sm-10">
+    收单收益：{{result.platform_acquirebankmoney}}&nbsp;&nbsp;
+    荣邦收益：{{result.platform_masgetprofitmoney}}&nbsp;&nbsp;
+    荣邦平台溢出收益：{{result.platform_platformamount}}
+</div>
+<div class="col-sm-2">ZSUM统计</div>
+<div class="col-sm-10">
+    交易总额：{{result.acoma_transactionamount}}&nbsp;&nbsp;
+    手续费：{{result.acoma_creditcardfeerate }}&nbsp;&nbsp;
+    商户待清算资金：{{result.acoma_merchantstoliquidatefundsmoney }}&nbsp;&nbsp;
+</div>
+<div class="col-sm-2">平台清算统计</div>
+<div class="col-sm-10">
+    交易总额：{{result.platform_transactionamount}}&nbsp;&nbsp;
+    手续费：{{result.platform_creditcardfeerate}}&nbsp;&nbsp;
+    商户待清算资金：{{result.platform_merchantstoliquidatefundsmoney}}
+</div>
+<div class="col-sm-12" style="margin-top:20px;">
+    <b>ACOMA差异数据：&nbsp;&nbsp;</b>
+    <a href="{{result.acoma_file_1}}">
+        <span class="label label-primary">下载ACOMA数据文件</span>
+    </a>
+    <a href="{{result.acoma_file_2}}">
+        <span class="label label-primary">下载差异文件</span>
+    </a>
+
+</div>
+<div class="col-sm-12">
+    <div style="margin-top:20px;" ui-grid="ACOMADifference"
+         ui-grid-resize-columns ui-grid-move-columns></div>
+</div>
+<div class="col-sm-12" style="margin-top:20px;">
+    <b>清算流水差异数据：&nbsp;&nbsp;</b>
+    <a href="{{result.platform_file_1}}">
+        <span class="label label-primary">下载清算流水记录文件</span>
+    </a>
+    <a href="{{result.platform_file_2}}">
+        <span class="label label-primary">下载差异文件</span>
+    </a>
+</div>
+<div class="col-sm-12">
+    <div style="margin-top:20px;" ui-grid="clearDifference"
+         ui-grid-resize-columns ui-grid-move-columns></div>
+</div>

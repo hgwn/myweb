@@ -1,0 +1,13 @@
+<div class="clearfix">
+    <div class="col-md-6" role="group" aria-label="...">
+        <button type="button" class="btn btn-primary" ng-click="addNewResource();">增加新资源</button>
+        <button type="button" class="btn btn-primary" ng-click="deleteResource();">删除</button>
+    </div>
+    <div class="col-md-6 text-right">
+        <label>资源名称:&nbsp;</label>
+        <input type="text" class="form-control" style="width: 180px;display: inline;" id="resourceSearchInput" ng-model="resourceSearchInput">
+        <button type="button" class="btn btn-primary" ng-click="queryResource();">查询</button>
+    </div>
+</div>
+<div style="margin-top:20px;" ui-grid="resourceList" ui-grid-selection ui-grid-edit ui-grid-exporter ui-grid-pagination
+     ui-grid-resize-columns ui-grid-move-columns></div>

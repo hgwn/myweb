@@ -1,0 +1,30 @@
+mqtt 修改
+1，在 puback 最后加上了 返回内容
+	c++ 修改的是 
+
+	MQTTPAcket.h 213行
+	typedef struct
+	{
+		Header header;	/**< MQTT header byte */
+		int msgId;		/**< MQTT message id */
+		int payloadlen;	/**< payload length */
+		char* payload;	/**< binary payload, length delimited */
+	} Puback;
+
+	MQTTPacket.c 514 行
+	void* MQTTPacket_puback(unsigned char aHeader, char* data, size_t datalen)
+
+	MQTTAsync.c 2556 行
+	MQTTPacket* MQTTAsync_cycle(int* sock, unsigned long timeout, int* rc)
+
+
+2，publish 和 puback 的payload 都是用以下格式
+	% 1bit      3bit        12bit	16bit		16bit     	binary_data....
+	% b_ziped  	crypt_type 	保留		ori_length	msg_type    crypted_ziped_protobuf
+
+3，publish 的qos 默认=1
+
+4，connect username password 填写内容：
+	username 填 用户名
+	password 填 devicetype:session 
+	devicetype 1:pc 2:mobile(pad)

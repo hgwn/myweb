@@ -1,0 +1,77 @@
+<ul class="breadcrumb">
+		<li>
+			 <a href="#">Home</a>
+		</li>
+		<li class="active">
+			{{topformData.title}}
+		</li>
+</ul>
+<!--start   -->
+<form class="form-horizontal" name="specificationAddForm" novalidate>
+		<div class="form-group">
+	        <label class="col-md-1 control-label">
+	            绑定分类
+	        </label>
+	        <div class="col-md-2">
+	            <select ng-model="formData.categoryid" name="categoryid" required class="form-control" ng-options="o.categoryid as o.categoryname for o in categorynames">
+			       <option value="">--请选择--</option>
+		   		</select>
+	        </div>
+	    </div>
+	    
+	    <div class="form-group">
+	        <label class="col-md-1 control-label">
+	            名称
+	        </label>
+	
+	        <div class="col-md-2">
+	            <input  name="specificationname"  ng-model="formData.specificationname" class="form-control" type="text" ng-class="{haserror:specificationAddForm.parametergroupname.$invalid&&formData.isCommitted}" required/>
+	        		<div class="ng-messages-error" ng-messages="specificationAddForm.specificationname.$error" ng-show="specificationAddForm.specificationname.$invalid&&formData.isCommitted" >
+                         <span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>名称不能为空!</span>
+                     </div>
+	        </div>
+	    </div>
+	    
+			<!--start modal-body  -->
+			<div>				  
+				 
+				<table class="table table-bordered table-striped">
+				    <thead>
+				    <tr class="info">
+			              <th>操作</th>
+			              <th>规格值名称</th>
+			              <!-- <th>排序</th> -->
+			        </tr>
+				    </thead>
+				    <tbody>
+					    <tr ng-repeat= "item in temp_specification">
+			               <td style="text-align: center;">
+			                   <a href="javascript:void(0);" class="btn_del" ng-click="delrecord($index)" title="删除"><span class="glyphicon glyphicon glyphicon-trash red"></span></a>
+			               </td>
+					        
+			               <td>
+			               <input style="width: 200px; margin-left:40% " type="text" class="form-control"  ng-model="item.specificationoptionname" />
+			               </td>
+			               <!-- <td><input style="width: 200px; margin-left:35% " type="text" class="form-control"  ng-model="item.goodssn" /></td> -->
+			           			
+			           </tr>
+				    </tbody>
+				    <tfoot>
+			        <tr>
+			        	<td style="text-align: center;">
+			        		<a href="javascript:void(0);" class="btn-link" ng-click="add_record()" title="添加规格值"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加规格值</a>
+			        	</td>
+			            <td colspan="12"></td>
+			        </tr>
+			        </tfoot>
+				</table>
+
+
+			</div>
+			<!--end modal-body  -->
+			<div class="modal-footer">
+				 <button type="button" class="btn btn-default" ng-click= "goback()">返回</button> 
+				 <button type="submit" class="btn btn-primary" ng-click="addFormDataSumbit(specificationAddForm.$invalid)">保存</button>
+			</div>
+</form>
+<!--end   -->	

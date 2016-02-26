@@ -1,0 +1,77 @@
+<div class="container-fluid h_billingContent" style="background-color: white;">
+	<div class="row clearfix">
+	    <div class="col-md-1 column">
+        </div>
+        <div class="col-md-10 col-xs-12 column" style="padding:0;margin:0 auto 0 auto;">
+            <div class="panel panel-default" style="margin-bottom:-5px;">
+                <div class="panel-body" style="padding:0;">
+                	<form class="form-inline">
+                	    <div class="col-md-12 col-xs-12"><h2 style="text-align:center;"><strong>采购单编辑</strong></h2></div>
+					    <div class="col-md-12 col-xs-12"><strong style="font-size:15px;margin-left:15px;">收货人信息</strong></div>
+						<div class="col-md-12 col-xs-12 form-group">
+							<label>收货人:</label> 
+							<input type="text" class="form-control" style="height:34px;width:90%;max-width:150px;" ng-model="edit_datas.contactname"/>
+							<label>联系电话:</label> <input type="text" ng-model="edit_datas.mobile" class="form-control" style="height:34px;width:90%;max-width:150px;"/>
+						</div>
+				        
+						<div class="col-md-12 col-xs-12 form-group" id="h_billing_address">
+							<label>送货地址:</label> 
+							<span  class="nullable">
+								<select name="province" class="form-control" ng-change="getArea()" ng-model="edit_datas.provinceid" ng-options="provinces.provinceid as provinces.provincename for provinces in provinceList">
+								    
+								</select>
+						    </span>
+							<span  class="nullable">
+								<select name="city" class="form-control" ng-change="getDistrict()" ng-model="edit_datas.cityid" ng-options="areas.cityid as areas.cityname for areas in areaList">
+								    
+								</select>
+						    </span>
+						    <span  class="nullable">
+								<select name="area" class="form-control"  ng-model="edit_datas.areaid" ng-options="districts.areaid as districts.areaname for districts in districtList">
+								    
+								</select>
+						    </span>
+							<input type="text" class="form-control"  placeholder="请输入详细地址" ng-model="edit_datas.address"/>
+					    </div>
+						<div class="col-md-12 col-xs-12 form-group">
+						    <label>备注:</label> 
+							<textarea class="form-control" rows="3" cols="20" ng-model="edit_datas.remark">
+							</textarea>							
+						</div>
+					</form>
+				    <table class="table table-striped text-center" >
+				        <caption style="" class="text-center">
+				            <strong style="font-size:20px;">采购明细</strong>  
+				        </caption>	                
+			            <thead>
+			                <tr style="border:1px solid #ccc;" >
+			                    <th style="text-align:center;">商品名</th>
+			                    <th style="text-align:center;">商品价格</th>
+			                    <th style="text-align:center;">商品规格</th>
+			                    <th style="text-align:center;">购买数量</th>
+			                </tr>
+			            </thead>
+				         <tbody>
+				             <tr ng-repeat="items in edit_datas.purchaseorderlist track by $index"  style="border:1px solid #ccc;">
+				                 <td style="color:#888;">{{items.goodsname}}</td>
+				                 <td style="color:#888;">{{items.dealingprice}}</td>
+				                 <td style="color:#888;">{{items.goodsspec}}</div></td>
+				                 <td style="color:#888;">
+				                     <input type="number" style="height:24px;width:70%; max-width:60px;" ng-model="items.goodsqty" ng-change="changeGoodsqty(items)" />
+				                 </td>
+				             </tr>
+				             <tr style="margin-top:25px;">
+				             	<td colspan="4" class="text-center">
+				                     <span>应付总额:<strong style="color:#e4393c">{{countPrice}}</strong></span>
+				                     <Button class="btn btn-primary" ng-click="submit()">提交</Button>
+				                     <Button class="btn btn-primary" ng-click="getPurchaseorders()">返回</Button>
+				                 </td>
+				             </tr>
+				         </tbody>
+			        </table>
+                </div>
+            </div>
+        </div>		
+	</div>
+</div>
+

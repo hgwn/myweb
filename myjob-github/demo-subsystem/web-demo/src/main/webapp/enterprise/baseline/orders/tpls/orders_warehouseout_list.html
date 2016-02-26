@@ -1,0 +1,94 @@
+	<div class="table-responsive" ng-controller="ordersWarehouseoutController">
+		<div class="col-md-12 column">
+			<ul class="breadcrumb">
+				<li>
+					 <a href="#" ui-sref="entry">销售单</a>
+				</li>
+				<li class="active">
+					销售单出库记录
+				</li>
+			</ul>
+		</div>
+	
+	     <div class="col-md-12 column">
+			 <form class="form-horizontal h_changewarehouseForm" role="form">
+			    <div class="form-group">
+			        <label class="col-sm-8 control-label" style="text-align: left">
+			            客户公司：{{ordersWarehouseout.buyername}} |
+			            单号：{{ordersWarehouseout.ordernum}}
+			        </label>
+			    </div>
+			    <!-- <div class="form-group">
+					<label class="col-sm-8 control-label" style="text-align: left">
+			        	订单状态：{{ordersWarehouseout.orderstatename}}
+			        </label>
+			    </div> -->
+			</form>
+	    </div>
+    
+        <table class="table table-bordered table-hover table-striped table-condensed">
+            <thead>
+            <tr class="info">
+            	<th>序号</th>
+                <th>商品编码</th>
+                <th>商品名称</th>
+                <th>订购数</th>
+                <th>已出库数</th>
+                <th>批次号</th>
+                <th>本次出库数</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in ordersWarehouseout.orderlist">
+            	<td>
+                    {{$index+1}}
+                </td>
+                <td>
+                    {{item.goodssn}}
+                </td>
+                <td>
+                   	{{item.goodsname}}
+                </td>
+                <td>
+                	{{item.goodsqty}}
+                </td>
+                <td>
+                   	{{item.deliverygoodsqty}}
+                </td>
+                <td>
+                   	<!-- <input style="width: 100px; margin-left:37% " type="text" class="form-control" ng-click="selectIsbatchcode($index,item)" ng-model="item.batchcode" /> -->
+                   	{{item.batchcode}}
+                </td>
+                <td style="width: 160px">
+                	<input style="width: 100%;" type="number" min="1" class="form-control" ng-click="selectIsbatchcode($index,item)" ng-model="item.warehouseoutqty" />
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr style="height: 45px">
+                <td colspan="6"></td>
+                <td style="text-align: center;">
+                	<button type="button" class="btn btn-primary" ng-click="submit()">
+					 <span class="glyphicon glyphicon-import"></span>   
+					    出库</button>
+                </td>
+            </tr>
+            
+            <tr style="color: red; height: 45px">
+                <td colspan="7">注意：不同批次号的同一个商品本次出库的总数不能大于该商品的订购数</td>
+            </tr>
+            
+            </tfoot>
+        </table>
+        
+	    <div class="col-md-6 column">
+			    <button type="button" class="btn" ng-click="goback()">
+			 <span class="glyphicon glyphicon-share-alt"></span>   
+			    返回</button>
+		</div> 
+		
+		<div class="col-md-12 column padding0px margin0px" >
+       		<div  ui-view="select_batchcode"></div>
+		</div>
+        
+    </div>

@@ -1,0 +1,34 @@
+<div on-finish-render-filters="find_list" >
+    <div id="find_list" ng-scrollbar scrollbar-x="false" scrollbar-y="true" scrollbar-config="{autoResize:true,show:true}" style=" background-color: #fff;">
+        <div id="find" class="col-md-12 column" style="  margin-top: 10px;">
+            <div class="form-group col-sm-12 " style="position: fixed;height: 40px;top: 0;line-height: 40px;border-bottom: 1px solid #ccc;margin-left: -15px;background: #fff;  z-index: 1000;">
+                <input name="saastypename" class="form-control input-sm " ng-model="saas.keyword" type="text" style="height:30px;width: 50%;display: inline-block;border-radius: 5px 0 0 5px;" >
+                <button type="button" class="searchBtn" ng-click="Check()" style="margin:-1px 0 0 -5px; border-radius:0 5px 5px 0;height:30px;line-height:15px;">Search</button>
+            </div>
+            <!--产品信息开始-->
+            <div id="main" ng-if="item.saas.length != 0 && item.saas != null" ng-repeat="item in saasData | orderBy:'saastypeid'" style="  width: 100%;  box-shadow: 0 0 0; background-color: #fff;">
+                <div class="header" ><span class="mle_1">{{item.saastypename}}系列</span></div>
+                <div class="Mulye">
+                    <ul class="muall" >
+                        <li class="liaue_1"  ng-repeat="val in item.saas | orderBy:'saasid'">
+                            <div class="limg"><a target="_blank" href="{{val.appurl}}">
+                                <img src="static/img/base/find/{{val.saasname}}.jpg">
+                                <!--<img src="static/img/base/home/xl_img1.gif">-->
+                            </a>
+                            </div>
+                            <div class="liwod">
+                                <div class="lwt_1"><span class="mcing_1">{{val.saasname}}</span></div>
+                                <div class="lwt_2"><a title="{{val.remark}}" target="_blank" href="{{val.appurl}}">{{val.remark}}</a></div>
+                                <div class="lwt_3" style="text-align: right">
+                                    <a href="{{val.appurl}}" target="_blank" type="button" class="searchBtn"  style="  height: 30px;width: 80px;" ng-click="Check()">{{val.appbtnname}}</a>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div><!--Mulye-->
+            </div><!--bymain内容展示-->
+        </div>
+
+    </div>
+</div>

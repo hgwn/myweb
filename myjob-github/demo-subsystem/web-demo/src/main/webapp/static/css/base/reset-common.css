@@ -1,0 +1,66 @@
+/*
+*lihongwen 重置 bootstrap和ui-grid样式   2015-07-13
+*/
+
+html,body{background-color:#fff; height:100%; position:relative;}
+/* reset bootstrap */
+.h_container{background-color:#fff;/*  margin:20px; border-color:#CFCFCF; box-shadow:0 1px 3px rgba(0, 0, 0, 0.2); */}
+.h_container label.control-label,.container-fluid label.control-label{font-weight:normal;}
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #f9f9f9
+}
+
+/* .table-hover>tbody>tr:hover {
+    background-color: #f5f5f5
+} */
+table.h_table>thead>tr.info>th,table.table>thead>tr.info>th,.h_containertable table.table>thead>tr>th{background-color:#f3f3f3; color:#555; font-weight:bold; font-size:12px; text-align:center; padding:10px 5px; border-bottom:0 none; white-space: nowrap;}
+table.h_table.table-bordered>tbody>tr>td,table.table.table-bordered>tbody>tr>td{font-size:12px; color:#555; padding:6px 5px; white-space: nowrap;}
+table.h_table.table-hover>tbody>tr:hover,table.table.table-hover>tbody>tr:hover{background-color:#e6f3f8;}
+.h_bgf5{background-color:#f5f5f5;}
+.h_bgf3{background-color:#f3f3f3;}
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th
+{border-color:#D6DEE3; white-space: nowrap;}   
+
+/*reset ui-grid*/
+.ui-grid-header-cell-wrapper {
+    position: relative;
+    display: table;
+    box-sizing: border-box;
+    height: 100%
+}
+
+.ui-grid-header-cell-row {
+    display: table-row;
+    position: relative
+}
+
+.ui-grid-header-cell {
+    /*background-color: #F3F3F3;*/
+    font-size:12px;
+    color:#555;
+    padding:5px;
+    border-right: 1px solid #D6DEE3;
+    text-align:center;
+}
+/*table-striped*/
+.ui-grid-row:nth-child(odd) .ui-grid-cell{background-color:#f9f9f9; border-bottom:1px solid #D6DEE3!important;}
+.ui-grid-row:nth-child(even) .ui-grid-cell{background-color:#fff; border-bottom:1px solid #D6DEE3!important;}
+.ui-grid-canvas{padding-top:0;}
+.ui-grid-cell-contents{font-size:12px; color:#555;}
+.ui-grid-canvas div.ui-grid-row.ng-scope{height:30px!important;}
+.ui-grid-canvas div.ui-grid-row.ng-scope:hover{ background-color:#e6f3f8!important;}
+.ui-grid-row.ui-grid-row-selected > [ui-grid-row] > .ui-grid-cell{
+  /* background-color: #c9dde1; */
+  background-color:#e6f3f8;
+}
+.ui-grid-canvas .ng-scope{height:30px;}
+.ui-grid-cell-focus{height:100%; width:100%; background-color:#e6f3f8;}
+.ui-grid-row:hover .ui-grid-cell{background: #e6f3f8!important;}
+.text-left .ui-grid-cell-contents{ text-align: left;}
+.text-right .ui-grid-cell-contents{ text-align: right;}
+/*人脉*/
+#contactsLeftBar li.list-group-item{border-radius:0; border-width:1px 0px;}
+
+/*商圈人脉公共*/
+#buzcircleLeftBar,#contactsLeftBar,#myLeftBar{background-color:#f7f7f7;}
+#buzcircleLeftBar nav.navbar,#contactsLeftBar nav.navbar{background:none;border:none;}

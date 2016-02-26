@@ -1,0 +1,85 @@
+<form name="resourceForm" ng-init="$parent.form = resourceForm;" class="row clearfix">
+    <div class="col-md-6" style="padding-bottom:5px; ">
+        <label>资源名称:&nbsp;</label>
+        <input type="text" class="form-control" style="width: 180px;display: inline;"
+               ng-model="$parent.resource.resourcename" name="resourcename" required>
+
+        <div style="top:0px;right:0px;position: absolute;font-size: 32px;"
+             ng-messages="resourceForm.resourcename.$error">
+            <div style="color: red;" ng-message="required">*</div>
+        </div>
+    </div>
+    <div class="col-md-6" style="padding-bottom:5px; ">
+        <label> 资源链接:&nbsp;</label>
+        <input type="text" class="form-control" style="width: 180px;display: inline;" ng-model="$parent.resource.weburl"
+               name="weburl" required>
+
+        <div style="top:0px;right:0px;position: absolute;font-size: 32px;"
+             ng-messages="resourceForm.weburl.$error">
+            <div style="color: red;" ng-message="required">*</div>
+        </div>
+    </div>
+    <div class="col-md-6" style="padding-bottom:5px; ">
+        <label style="position: absolute;top: 45px;"> 资源图标:&nbsp;</label>
+
+        <div ng-show="!$parent.usePicBlob">
+            <div class="uploadTarget" ngf-select ng-model="$parent.file" ngf-change="fileChange();"
+                 ngf-accept="'image/*'" style="margin-left:100px;">
+                <img ng-src="../upload/images/resources/{{resource.icon}}"
+                     style="width: 96px;height: 96px;margin: 0 2px;"/>
+                <em style="position: absolute;bottom: 0px;left:0px;">替换图片</em>
+            </div>
+        </div>
+        <div ng-show="$parent.usePicBlob">
+            <div class="uploadTarget" ngf-select ng-model="$parent.file" ngf-change="fileChange();"
+                 ngf-accept="'image/*'" style="margin-left:100px;">
+                <img ngf-src="$parent.file[0]" style="width: 96px;height: 96px;margin: 0 2px;"/>
+                <em style="position: absolute;bottom: 0px;left:0px;">替换图片</em>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6" style="padding-bottom:5px; ">
+        <label>资源提示:&nbsp;</label>
+        <input type="text" class="form-control" style="width: 180px;display: inline;"
+               ng-model="$parent.resource.resourcetip" name="resourcetip" required>
+
+        <div style="top:0px;right:0px;position: absolute;font-size: 32px;"
+             ng-messages="resourceForm.resourcetip.$error">
+            <div style="color: red;" ng-message="required">*</div>
+        </div>
+    </div>
+    <div class="col-md-6" style="padding-bottom:5px; ">
+        <label>初始权限:&nbsp;</label>
+        <button type="button" class="btn btn-default" ng-model="$parent.resource.selectedAuthen" data-html="1"
+                data-multiple="1" data-animation="am-flip-x" bs-options="icon.value as icon.label for icon in icons"
+                data-max-length="4" bs-select required name="authen">
+            无<span class="caret"></span>
+        </button>
+        <div style="top:0px;right:0px;position: absolute;font-size: 32px;"
+             ng-messages="resourceForm.authen.$error">
+            <div style="color: red;" ng-message="required">*</div>
+        </div>
+    </div>
+    <div class="col-md-12" style="padding:0 0;" ng-show="showAdvance">
+        <div class="col-md-6" style="padding-bottom:5px; ">
+            <label>模块名字:&nbsp;</label>
+            <input type="text" class="form-control" style="width: 180px;display: inline;"
+                   ng-model="$parent.resource.modulename" name="modulename">
+        </div>
+        <div class="col-md-6" style="padding-bottom:5px; ">
+            <label>依赖文件:&nbsp;</label>
+            <input type="text" class="form-control" style="width: 180px;display: inline;"
+                   ng-model="$parent.resource.filedeps" name="filedeps">
+        </div>
+        <div class="col-md-6" style="padding-bottom:5px; ">
+            <label>初始状态:&nbsp;</label>
+            <input type="text" class="form-control" style="width: 180px;display: inline;"
+                   ng-model="$parent.resource.initstate" name="initstate">
+        </div>
+    </div>
+    <div class="col-md-12 text-right">
+        <button type="button" class="btn btn-primary masget-btn-primary " ng-click="showAdvance = !showAdvance">高级</button>
+        <button type="button" class="btn btn-primary masget-btn-primary " ng-disabled="resourceForm.$invalid" ng-click="$modalButtonClick()">保存</button>
+        <button type="button" class="btn btn-default masget-btn-default " ng-click="$hide()">关闭</button>
+    </div>
+</form>

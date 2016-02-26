@@ -1,0 +1,42 @@
+<!doctype html>
+<!-- Our masgetWebApp module defined here -->
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name=”renderer” content=”webkit”>
+    <link rel="shortcut icon" href="static/img/base/login-img/favicon.ico"/>
+    <!-- 基础css -->
+    <link rel="stylesheet" type="text/css" href="static/css/base/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="static/css/base/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="static/css/base/angular-motion.css">
+    <link rel="stylesheet" type="text/css" href="static/css/base/common.css">
+    <!-- 重置主页面css -->
+    <link rel="stylesheet" type="text/css" href=""/>
+    <script src="frame.js"></script>
+    <script src="static/js/base/oclazyload/ocLazyLoad.require.js"></script>
+    <script data-main="base/app/main" src="static/js/base/requirejs/require.js"></script>
+    <title>银联供应链综合服务平台</title>
+
+    <style type="text/css">
+        body{
+            font-family: STXihei, "华文细黑", Heiti, "黑体", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", sans-serif,Helvetica,Tahoma, Arial, ;
+        }
+    </style>
+
+    <script>
+        /*屏蔽chrome右键菜单*/
+        jQuery(document).ready(function(){
+            jQuery(document.body).bind("contextmenu",function(){
+                return false;
+            });
+        });
+    </script>
+
+</head>
+<body style="overflow: hidden;">
+<div class="alert-container" style="display:none;z-index:1000;position:fixed;top: 0px;left: 0px;bottom: 0px;right: 0px;"></div>
+<div class="main" style="height:100%;position: fixed;top:0px;right: 0px;bottom: 0px;left:0px;">
+    <div class="slide" ui-view = "main" style="background-color:rgba(174, 239, 122, 0.06);height: 100%;"></div>
+</div>
+</body>
+</html>

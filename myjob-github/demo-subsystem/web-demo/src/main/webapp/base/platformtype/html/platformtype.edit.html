@@ -1,0 +1,21 @@
+<div class="clearfix well" style="height:100%;overflow: auto;position: relative;margin: auto" on-finish-render-filters="vehicletype">
+	<div style="width: 100%; margin: 0 auto;" >
+		<form class="form-horizontal" novalidate id="form_vehicletype" name="form_platformtytype">
+		
+			<div class="form-group"">
+			    <label for="platformtypename" class="col-sm-4 control-label">平台类型：</label>
+			    <div class="col-sm-8">
+			    <input type="text" id="platformtypename" name="platformtypename"  ng-model="platformItem.platformtypename"  class="form-control input-sm"  required>
+			 	</div>
+			 </div>
+			  <div class="form-group" ng-if="type == 'add'">
+			    <label for="platformtypename" class="col-sm-4 control-label">类型ID：</label>
+			     <div class="col-sm-8">
+				    <input type="text" name="platformtypeid"  ng-model="platformItem.platformtypeid"  class="form-control input-sm"  required>
+	            		<span ng-if="form_platformtytype.platformtypeid.$error.required&&form_platformtytype.platformtypeid.$dirty "style="margin-left: 25px;">*必填项</span>
+				  </div>
+			  </div>
+		    </div>
+		</form>
+	</div>
+</div>

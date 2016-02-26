@@ -1,0 +1,27 @@
+<table class="table table-bordered table-hover table-striped  table-condensed">
+	<thead>
+		<tr class="info">
+			<th >序号</th>
+			<th >操作</th>
+			<th >资源主码 </th>
+			<th >资源名称 </th>
+			<th >资源提示</th>
+			<th >资源链接 </th>
+			<th >资源描述</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="item in result | orderBy:'resourceid'" style="text-align: center;">
+			<td class="h_bgf3" ng-bind="$index+1">1</td>
+			<td>
+				<a href="" class="link_edit" ng-click="editModel(item)">编辑</a> 
+				<a href="" class="link_edit" ng-click="deleteModel(item)">删除</a> 
+			</td>
+			<td>{{item.resourceid}}</td>
+			<td>{{item.resourcename}}</td>
+			<td>{{item.resourcetip}}</td>
+			<td>{{item.weburl}}</td>
+			<td>{{item.description}}</td>
+		</tr>
+	</tbody>
+</table>

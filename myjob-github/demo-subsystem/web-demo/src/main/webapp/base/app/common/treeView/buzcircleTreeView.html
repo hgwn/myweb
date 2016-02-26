@@ -1,0 +1,5 @@
+<div ui-tree data-drag-Delay="200" class="list-group" style="margin-bottom: 0px;color: grey">
+    <div ui-tree-nodes ng-model="treeData" >
+        <div ng-repeat="node in treeData" ui-tree-node ng-include="'base/app/common/treeView/nodes_render.html'" collapsed="true"></div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<!--start register-content  -->
+<div class="register-content">
+    <h3 class="title">重置密码</h3>
+    <div class="content">
+        <form class="form-vertical" name="resetPwdForm" novalidator>
+            <div class="control-group">
+                <label class="control-label visible-ie8 visible-ie9">新密码:</label>
+                <div class="controls">
+                    <div class="input-icon left">
+                        <input class="placeholder-no-fix" type="password" ng-model="newPassword" placeholder="密码" name="newPassword" ng-minlength=6 ng-maxlength=20 required/>
+                                <div style="display: inline-block;" ng-messages="resetPwdForm.newPassword.$error">
+                                    <div class="text-danger" ng-message="required">*必填项</div>
+                                    <div class="text-danger" ng-message="minlength">字符太短小于6</div>
+                                    <div class="text-danger" ng-message="maxlength">字符太长大于20</div>
+                                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label visible-ie8 visible-ie9">确认密码:</label>
+                <div class="controls">
+                    <div class="input-icon left">
+                        <input class="placeholder-no-fix" ng-model="rpassword" type="password"
+                                       placeholder="确认密码" name="rpassword" required/>
+
+                                <div style="display: inline-block;" class="text-danger"
+                                     ng-if="rpassword != newPassword&&resetPwdForm.rpassword.$error&&resetPwdForm.rpassword.$dirty">
+                                    两次输入的密码不一致
+                                </div>
+                                <div style="display: inline-block;"
+                                     ng-messages="rpassword==newPassword&&resetPwdForm.rpassword.$error">
+                                    <div class="text-danger" ng-message="required">*必填项</div>
+                                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="button" ui-sref="login" id="back-btn" class="btn btn-default masget-btn-default">
+                    返回
+                </button>
+                <button class="btn btn-warning" ng-click="submit();" ng-disabled="resetPwdForm.$invalid">
+                    提交
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

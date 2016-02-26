@@ -1,0 +1,31 @@
+<div class="clearfix well" style="height:100%;overflow: auto;position: relative;margin: auto" on-finish-render-filters="vehicletype">
+	<div style="width: 100%; margin: 0 auto;" >
+		<form class="form-horizontal" novalidate id="form_vehicletype" name="form_deliverytype">
+		
+			<div class="form-group"">
+			    <label for="deliverytypename" class="col-sm-4 control-label">企业提货类型：</label>
+			     <div class="col-sm-8">
+			   		 <input type="text" id="deliverytypename" name="deliverytypename"  ng-model="deliveryItem.deliverytypename"  class="form-control input-sm"  required>
+				</div>
+			  </div>
+			  <div class="form-group"">
+			    <label class="col-sm-4 control-label">状态：</label>
+			     <div class="col-sm-8">
+			 	 	<label>
+				     <input type="radio" ng-model="deliveryItem.enableflag" value=1 class="ng-valid ng-dirty ng-valid-parse ng-touched" name="7"> 可用
+				   </label>&nbsp;&nbsp;&nbsp;&nbsp;
+				   <label >
+				     <input type="radio" ng-model="deliveryItem.enableflag" value=2  class="ng-pristine ng-untouched ng-valid" name="8"> 不可用
+				 </label>
+				 </div>
+			  </div>
+			  <div class="form-group"">
+			    <label for="remark" class="col-sm-4 control-label">备注：</label>
+			     <div class="col-sm-8">
+			     <textarea class="form-control" name="remark"  ng-model="deliveryItem.remark" ></textarea>
+			  	</div>
+			  </div>
+		    </div>
+		</form>
+	</div>
+</div>

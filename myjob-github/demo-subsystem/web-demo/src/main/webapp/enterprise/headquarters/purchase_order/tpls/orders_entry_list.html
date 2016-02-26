@@ -1,0 +1,21 @@
+<div ng-controller="ordersEntryController"  class="col-md-12 column" style="padding: 0px;margin: 0px">
+
+    <div class="col-md-12 column" >     
+        <div ui-view="query"></div>
+    </div>
+
+    <div class="col-sm-12" style="overflow: auto;height: 600px;margin-left: 10px;width: 99%;padding: 0px">
+        <div ui-view="grid"></div>
+    </div>
+
+    <div style="position: absolute;right:0px;top:1%">
+        <div class="list-group" >
+            <button ng-click="add()"  class="list-group-item active">开单</button>
+        </div>
+    </div>
+    
+    <div class="col-md-12 column" >     
+        <div ui-view="look"></div>
+    </div>
+    
+</div>

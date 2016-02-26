@@ -1,0 +1,42 @@
+<link href="/jsbweb/static/js/plugins/angular.plugins/comboxtable/css/style.css" rel="stylesheet">
+<div class="comboxtable-container">
+    <input  type="text" ng-model="keyWord" class="model-input" ng-change="query()" ng-click="showList()" ng-keydown="selectNext($event)" ng-keyup="reset()" ng-disabled="isDisabled" placeholder="{{inputPlaceholder==null?'请选择或输入':inputPlaceholder}}" style="width:100%;">
+    <div class="comboxtable-container-icon" ng-click="iconClick()"></div>
+    <div class="comboxtable-list" ng-show="isShowList">
+    	<div style="padding: 5px;border-bottom: 1px solid #D4D4D4;min-width: 330px" ng-if="false">
+    		<span>关键字:</span>
+    		<input type="text" name="searchText" class="form-control input-sm" placeholder="请输入关键字查询" style="width: 180px;">
+    		<button type="button" class="btn btn-default btn-sm">
+  				<span class="glyphicon glyphicon-search" aria-hidden="true"></span>查询
+			</button>
+    	</div>
+	    <div style="overflow-y:auto;overflow-x:hidden;min-height: 122px;max-height:172px;border: 0px ">
+	        <table class="comboxtable-table">
+	            <thead>
+	            <tr>
+	                <th ng-if="isShowIndex=='true'" style="width: 35px"></th>
+	                <th style="text-align: left;" ng-repeat="columnName in columnNames">
+	                    <span ng-bind="columnName"></span>
+	                </th>
+	                <th style="min-width: 53px"></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	                <tr ng-repeat="obj in datas" ng-click="onSelect(obj)" ng-class="{bgColor:obj.isSelected}">
+	                    <td class="text-center" ng-bind="$index+1" ng-if="isShowIndex=='true'"></td>
+	                    <td style="text-align: left;" ng-repeat="field in columnFields" ng-bind="obj.{{field}}"></td>
+	                    <td class="text-left" style="width: 53px;"><a ng-click="onSelect(obj)">使用</a></td>
+	                </tr>
+	            </tbody>
+	        </table>
+	    </div>
+        <footer style="height: 28px;width: 100%;border: 0px;border-top: 1px solid #D6D6D6;" ng-show="{{isShowPagination=='true'}}">
+            <section style="float: right;display:inline-block;padding-right: 10px;font-size: 12px">共{{paging.getPageCount()}}页,第{{paging.pageNum}}页,<span>{{paging.getRecordCount()}}条记录</span></section>
+            <section style="display: inline-block;padding-left: 10px;float: left;">
+                <a href="javascript:void(0);" ng-click="paging.skipToPrevious()" style="font-size: 12px;color: black;">上一页</a>
+                <a href="javascript:void(0);" ng-click="paging.skipToNext()" style="font-size: 12px;color: black;">下一页</a>
+             </section>
+        </footer>
+    </div>
+
+</div>

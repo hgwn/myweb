@@ -1,0 +1,1 @@
+var app=angular.module("app",["util.commobox"]);app.controller("commoboxController",["$scope","$http",function(o,n){n.get("comrelation.json").success(function(n){o.datas=n}),o.query=function(){console.info("查询-参数:"+o.keyWord)},o.station={},o.$watch("station",function(){console.info(o.station),o.stationname=o.station.stationname}),o.link=function(){alert("触发link方法")}}]);

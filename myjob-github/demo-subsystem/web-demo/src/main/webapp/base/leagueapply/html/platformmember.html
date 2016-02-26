@@ -1,0 +1,44 @@
+<div class="container well" on-finish-render-filters="list" style="padding-top:10px;margin-bottom:0;overflow: auto;border: none;  background-color: #fff;">
+    <div class="row clearfix" >
+        <div class="col-md-12 column" style="  width: 100%; overflow: auto;min-height: 500px">
+            <form class="form-inline queryForm" id="leagueapplyListForm" name="leagueapplyListForm" style="min-height: 70px;margin-bottom: 10px;">
+                <div class="form-group col-sm-5 pull-left" style="margin-bottom: 10px;">
+                    <label>公司名称：</label>
+                    <input type="text" name="companyname" placeholder="请输入公司名称搜索" ng-model="plat.companyname" class="form-control input-sm" style="width: 60%;">
+                </div>
+                <div class="form-group col-sm-5 pull-left" style="margin-bottom: 10px;">
+                    <label>状&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;态：</label>
+                    <select class="form-control input-sm" ng-model="plat.enableflag" style="width: 60%;">
+                        <option value="">--请选择--</option>
+                        <option value="1">加盟</option>
+                        <option value="2">解盟</option>
+                    </select>
+                </div>
+                <div class="form-group col-sm-5 pull-left" ng-class="{haserror:platForm.screatedtime.$invalid&&platForm.submitted}">
+                    <label>开始时间：</label>
+                    <input name="screatedtime" type="text"  required class="form-control" data-max-date="{{plat.ecreatedtime}}" ng-model="plat.screatedtime" data-date-format="yyyy-MM-dd" data-date-type="string" data-autoclose="1"  bs-datepicker style="height:30px;width: 60%;" >
+                    <div ng-messages="platForm.screatedtime.$error" ng-show="platForm.screatedtime.$invalid&&platForm.submitted" class="ng-messages-error">
+                        <div ng-message="required">开始时间为必填项</div>
+                    </div>
+                </div>
+                <div class="form-group col-sm-5 pull-left"  ng-class="{haserror:platForm.ecreatedtime.$invalid&&platForm.submitted}">
+                    <label>结束时间：</label>
+                    <input name="ecreatedtime" type="text"  required class="form-control" data-min-date="{{plat.screatedtime}}" ng-model="plat.ecreatedtime" data-date-format="yyyy-MM-dd" data-date-type="string" data-autoclose="1"  bs-datepicker style="height:30px;width: 60%;" >
+                    <div ng-messages="platForm.ecreatedtime.$error" ng-show="platForm.ecreatedtime.$invalid&&platForm.submitted" class="ng-messages-error">
+                        <div ng-message="required">结束时间为必填项</div>
+                    </div>
+                </div>
+                <div class="form-group col-sm-2 pull-left">
+                    <button type="button" class="btn btn-success btn-sm"  style="width: 80px;" ng-click="Check()">查询</button>
+                </div>
+            </form>
+            <div ui-grid="gridOptions"  ui-grid-pagination id="platModel" class="grid" style="margin:0;clear: both"></div>
+        </div>
+    </div>
+</div>
+<div ng-if="iconFlag == 'add'" style="width:100%;height:100%;position: absolute;background: #D5D5D5;opacity:0.5;z-index:10000;  top: 0;">
+</div>
+<div ng-if="iconFlag == 'add'" style="width:100px;height:100px;position: absolute;z-index:10001;  position: fixed;top: 40%;left: 50%;">
+    <span class="icon-spinner icon-spin" style="font-size:50px;opacity:1"></span>
+    <div style="margin-left: -16px;">{{context}}</div>
+</div>

@@ -1,0 +1,172 @@
+@charset "utf-8";
+/* ------------------重置样式------------------ */
+a, abbr, acronym, address, applet, article, aside, audio, b, blockquote, big, body, center, canvas, caption, cite, code, command, datalist, dd, del, details, dfn, dl, div, dt, em, embed, fieldset, figcaption, figure, font, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, keygen, label, legend, li, meter, nav, object, ol, output, p, pre, progress, q, s, samp, section, small, span, source, strike, strong, sub, sup, table, tbody, tfoot, thead, th, tr, tdvideo, tt, u, ul, var {background: transparent; border: 0 none; font-size: 100%; margin: 0; padding: 0; border: 0; outline: 0; vertical-align: top;}
+ol, ul {list-style: none;}
+table, table td {padding:0; border:none; border-collapse:collapse;}
+img {vertical-align:top; border:none;}
+input, button { font-size:12px; }
+h1, h2, h3 { font-weight:bold; font-size:14px; }
+body {font:12px/24px "宋体", Arial, Tahoma; color:#666; background:#f1f3f5 }
+
+/* ------------------通用样式------------------ */
+.l { float:left; }
+.r { float:right; }
+.b { font-weight:bold; }
+.c { text-align:center;}
+a { color:#666; text-decoration:none; outline:none; }
+a:hover { text-decoration:none; color:#e70103; }
+a span { cursor:pointer; }
+.clear {clear:both; height:0px; overflow:hidden; }
+.red_link a { color:#e70103; text-decoration:none; }
+.red_link a:hover {  color:#f00; text-decoration:none; }
+.blue_link a { color:#003399; text-decoration:none; }
+.blue_link a:hover { color:#003399; text-decoration:none;  }
+.white_link a { color:#fff; text-decoration:none; }
+.white_link a:hover { color:#fff; text-decoration:none;  }
+.h_10{ height:10px; overflow:hidden; clear:both;}
+.msg01 { margin-top:144px!important; margin-top:144px; font-size:12px;position:absolute;z-index:5; padding-left: 40px; }
+/*----------------- 样式 -----------------*/
+.hy_main{ width:960px; margin:0px auto;}
+.hy_top{ min-width:960px;background:url(../images/login/hy_top_bg.gif) repeat-x; height:59px; overflow:hidden;}
+.hy_top .rehome{ float:right; padding-right:20px; margin-top:15px; background:url(../images/login/hy_home.gif) no-repeat 0px 5px; padding-left:20px;}
+.hy_top .rehome a{ color:#999} 
+.hy_banner_wrap{ min-width:960px;background:url(../images/login/hy_banner_bg.gif) repeat-x;}
+.hy_banner{ background:url(../images/login/hy_banner.jpg) no-repeat center; height:400px}
+.hy_banner .hy_main{ height:400px; position:relative;}
+
+/*----------------- 登录样式 -----------------*/
+.hy_login{ position:absolute; left: 655px; top: 40px; width: 250px; height: 300px;}
+.hy_l_menu li{ float:left; display:block; text-align:center; width:250px; border-bottom:1px solid #e70103; line-height:36px; cursor:pointer; height:36px;overflow:hidden}
+.hy_l_menu .hover{ font-size:14px; color:#004898; font-weight:bold; border-bottom:3px solid #e70103; height:34px; overflow:hidden }
+.hy_l_main{ clear:both}
+
+.hy_l_con1{ background:url(../images/login/hy_login_bg.gif) no-repeat 0px 30px; width:250px; height:280px; position:relative;}
+.hy_l_input1{
+    line-height: 34px;
+    height: 34px;
+    width: 209px;
+    color: #000;
+    padding: 0px 5px;
+    background-color: transparent;
+}
+.hy_l_input2{
+    line-height: 34px;
+    height: 34px;
+    width: 114px;
+    padding: 0px 5px;
+    background-color: transparent;
+}
+.hy_l_input3{
+    line-height: 34px;
+    height: 34px;
+    width: 114px;
+    padding: 0px 5px;
+    background-color: transparent;}
+.hy_l_rn{position:absolute; background:url(../images/login/hy_rn_login.gif) no-repeat; width:250px; height:47px; border:none; left:0px; top:195px; cursor:pointer;}
+.hy_l_reg{ position:absolute; bottom:0px; left:0px; width: 155px; color:#E7E7E7; }
+.hy_l_kd{ width:56px; height:18px; position:absolute; left: 168px; top:92px; }
+.hy_l_code{ position:absolute; left: 168px; top: 136px; }
+
+.hy_l_con2{ background:url(../images/login/hy_login_bg1.gif) no-repeat 0px 15px; width:250px; height:280px; position:relative;}
+.hy_l_con2 .hy_l_input1{position:absolute; left: 41px; top: 16px;  line-height:normal; line-height:34px; height:34px; width:198px; border:none; color:#999; padding:0px 5px; background-color:transparent;}
+.hy_l_con2 .hy_l_input2{position:absolute; left: 41px; top: 62px;  line-height:normal; line-height:34px; height:34px; width:198px; border:none; color:#999; padding:0px 5px; background-color:transparent;}
+.hy_l_con2 .hy_l_input3{position:absolute; left: 41px; top: 108px;  line-height:normal; line-height:34px; height:34px; width:104px; border:none; color:#999; padding:0px 5px; background-color:transparent;}
+.hy_l_con2 .hy_l_input4{position:absolute; left: 41px; top: 152px;  line-height:normal; line-height:34px; height:34px; width:104px; border:none; color:#999; padding:0px 5px; background-color:transparent;}
+.hy_l_con2 .hy_l_rn{position:absolute; background:url(../images/login/hy_rn_login.gif) no-repeat; width:250px; height:47px; border:none; left:0px; top:220px; cursor:pointer;}
+.hy_l_con2 .hy_l_reg{ position:absolute; bottom:-16px; left:0px; width: 155px; color:#E7E7E7; }
+.hy_l_con2 .hy_l_kd{ width:56px; height:18px; position:absolute; left: 168px; top:115px; }
+.hy_l_con2 .hy_l_code{ position:absolute; left: 168px; top: 150px; }
+
+.hy_xzzz{ position: absolute; right:1px; top: 21px; z-index:100; text-align:right; width: 208px; height:36px; overflow:hidden; cursor:pointer}
+.hy_m_over{position: absolute; right:1px; top: 21px; z-index:100; text-align:right; width: 208px; height:auto;cursor:pointer}
+.hy_zzzz_l{ border:1px solid #7f9db9; margin-top:5px; }
+.hy_zzzz_l a{ display:block; text-align:left; line-height:24px; background:#fff; padding-left:10px;}
+.hy_zzzz_l a:hover{ color:#fff; background:#3399ff}
+
+
+.login_btn, .submit_btn, .next_btn, .return_btn, .ver_btn, .com_btn { background:url(../images/btn_bg.png) no-repeat; }
+.return_btn { display:block;width:152px; height:48px; margin:0 auto;text-indent:-9999px; background-position:0 -300px; }
+.return_btn:hover {background-position:-170px -300px;}
+.main_alert {width:500px; height:220px;border:solid 1px #90bae3; background-color:#fff; margin:0 auto; }
+.point_div { height:40px; background-color:#2965a9; }
+.return_info2 {width:500px; height:60px; margin:0 auto; padding:20px 0 30px 0;}
+.return_info2 .p_succ,.return_info2 .p_err {height:26px; line-height:26px; margin:0 auto; font-size:14px; padding-left:30px; background:url(../images/icon_02.png) no-repeat;}
+.return_info2 .p_succ { background-position:0 0; }
+
+.return_info2 .p_err { background-position:0 -50px;}
+.return_btn_div2 { width:500px; margin:0 auto; padding-bottom:30px;}
+/*----------------- 服务样式 -----------------*/
+.hy_server{ background:#fff; padding:40px 0px;}
+.hy_server .line{ background:url(../images/login/hy_line.gif) no-repeat right;}
+.hy_s_bank{ width:320px; display:block; height:200px;}
+.hy_s_tit1{ background:url(../images/login/hy_ico_server.gif) no-repeat; width:90px; height:70px; display:block; margin:30px 0px 10px 120px;}
+.hy_s_tit2{ background:url(../images/login/hy_ico_server.gif) no-repeat -103px 0px; width:90px; height:70px; display:block; margin:30px 0px 10px 120px;}
+.hy_s_tit3{ background:url(../images/login/hy_ico_server.gif) no-repeat -200px 0px; width:90px; height:70px; display:block; margin:30px 0px 10px 120px;}
+.hy_server .txt_24{ font-family:"Microsoft YaHei"; font-size:24px; color:#4d4d4d; display:block; margin-left:50px;}
+.hy_s_link{color:#ddd; line-height:36px; display:block; margin-left:50px;}
+.hy_s_link a{ color:#336699;}
+.hy_s_link a:hover{color:#e70103;}
+.hy_s_link span{ padding:0px 8px;}
+
+
+.hy_footer{min-width:960px; text-align:center; line-height:18px; padding:20px; background:#f1f3f5; color:#999;}
+.hy_footer .txt_14{ font-size:14px; color:#666; margin-bottom:8px;}
+
+/*---------  20140422  --------*/
+.code_tips { height:16px; line-height:16px; color:#d6000f; position:absolute; left:0; top:198px;}
+.code_btn { display:block; width:80px; height:36px; color:#fff; text-align:center; line-height:36px; font-size:12px; background:url(../images/login/code_btn_bg.png) no-repeat;}
+.code_btn:hover { color:#fff;}
+.code_span {display:block; width:80px; height:36px; color:#fff; font-weight:bold; text-align:center; line-height:36px; font-size:12px; background:url(../images/login/code_span_bg.png) no-repeat;}
+
+/*错误信息显示*/
+.ng-messages-error{
+    margin-left: 110px;
+}
+.ng-messages-error div {
+    position: absolute;
+    z-index: 100;
+    font-size: 12px;
+    color: red
+}
+
+.haserror .form-control {
+    border-color: #a94442;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+.haserror .form-control:focus {
+    border-color: #843534;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+}
+
+.form-title{
+    display: block;
+    text-align: center;
+    width: 250px;
+    line-height: 36px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #004898;
+    font-weight: bold;
+    border-bottom: 3px solid #e70103;
+    height: 34px;
+    overflow: hidden;
+}
+
+.h-label{
+    width: 40px;
+    height: 34px;
+    line-height: 34px;
+    font-size: 20px;
+    color: #fff;
+    padding-left: 13px;
+    background-color: #6492C7;
+    border-radius: 5px 0 0 5px;
+}
+
+.masget-top{
+    position: absolute;
+    top:40%;
+    left:40%;
+}

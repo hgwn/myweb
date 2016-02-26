@@ -1,0 +1,44 @@
+mqtt connect
+username 填 用户名
+password 填 devicetype:session 
+devicetype 1:pc 2:mobile(pad)
+
+mqtt publish 和 puback 的 payload 组成 
+% Payload
+% 1byte      1byte       4byte		2byte     	binary_data....
+% b_ziped  	crypt_type 	ori_length	msg_type    crypted_ziped_protobuf
+
+% b_ziped : 0: not ziped, 1: ziped
+% crypt_type : 0: not crypted, 1: des crypted key1 2: des crypted key2
+% ori_length : 原始数据长度
+% 先压缩 后加密 
+% msg_type : 表示解密解压后的binary对应的是那个protobuf 对应 msg.proto
+% type=1001 msg_body, 			// 发送消息
+% type=1002 msg_voice_begin		// 发送语音 第一个包
+% type=1003 msg_voice_pack		// 发送语音 第二个到最后一个
+% type=1004 server_msg_id		// 返回的该消息对应的服务端唯一id
+% type=1005 cancel_msg			// 撤销消息
+		
+(server -> client)
+(client -> server)
+都是使用 publish topic=$MSG
+返回都是puback
+puback里有payload
+payload 由上边定义的二进制组成
+
+			
+测试topic=$TEST
+会收到什么就返回什么
+
+
+通知消息：
+用户改信息	改头像
+			改说明
+
+群改名
+群解散
+群成员改信息 	改昵称
+			改头像
+
+商圈改信息	改
+

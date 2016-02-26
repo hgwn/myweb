@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body ng-controller="comboxtableController">
+<form class="form-inline" name="myForm">
+    {{myForm.station.$valid}}
+    <div class="container form-inline haserror" style="width:100%;margin: 10px  0px">
+        <comboxtable name="station" ng-model="station" 
+        			 column-names="['公司id','公司','站点']" column-fields="['companyid','companyname','stationname']" 
+                     text-field="companyname" datas="datas" on-change="query()" key-word="formData.keyWord" is-required="true" is-show-index="true" 
+                     content-style="width: 200px" input-style="font-size:13px" input-class="form-control" input-height="34px" input-placeholder="请选择"
+                     is-always-reps-click="true" is-show-pagination="true" recordcount="7" pagenum="formData.pagenum" pagesize="formData.pagesize">
+                     </comboxtable>
+                     
+        <p>选择的记录:{{station}}</p>
+        <input ng-model="stationname" name="stationname">
+        
+        	<!--name 下拉表格name属性--必填项-->
+	        <!--ng-model 下拉表格ng-model属性--必填项-->
+	        <!--column-names 表格显示的列名名称--必填项>
+	        <!--column-fields 表格显示的数据所对应的字段-必填项->
+	        <!--text-field 当选择了某条记录时，将在文本框中显示记录中字段'text-field'所对应的值--必填项-->
+	        <!--datas 数据源--必填项-->
+	        <!--on-change input文本框改变时触发的方法--可选项，不填时不会触发方法-->
+	        <!--key-word 下拉表格搜索关键字-->
+	        <!--is-disabled 标示下拉选择框是否可用--可选项，默认为可用-->
+	        <!--is-required 标示下拉选择框是否必填--可选项，默认为不必填-->
+	        <!--is-show-index--标示是否显示索引列，可选项，默认为不显示-->
+	        <!--content-style--可选项,要设置文本框的长度时需要在这里设置才生效-->
+	        <!--input-style input文本框的style-->
+	        <!--input-class input文本框的class->
+	        <!--input-height input文本框的高-->
+	        <!--input-placeholder input文本框的提示信息--可选项，默认为'请选择或输入'-->
+	        <!--is-always-reps-click 标示当点击图标时是否时刻响应查询--可选项，默认为不时刻想响应-->
+	        <!--is-show-pagination 标示是否显示分页工具栏--可选项，默认为不显示-->
+	        <!--recordcount 记录数，当is-show-pagination为'true'时为必填项-->
+	        <!--pagenum 当前显示第几页，当is-show-pagination为'true'时为必填项-->
+	        <!--pagesize 每页显示多少记录，当is-show-pagination为'true'时为必填项-->
+	        
+    </div>
+</form>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/angular.min.js"></script>
+<script src="../comboxtable.js"></script>
+<script src="controller.js"></script>
+</body>
+</html>

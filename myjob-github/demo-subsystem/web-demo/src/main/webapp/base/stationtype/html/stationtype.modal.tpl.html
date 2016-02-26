@@ -1,0 +1,15 @@
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" style="width: 400px;">
+        <div class="modal-content">
+            <div class="modal-header" ng-show="title">
+                <button type="button" class="close" ng-click="$hide()">&times;</button>
+                <h4 class="modal-title" ng-bind="title"></h4></div>
+            <div class="modal-body" ng-bind="content" style="padding: 0;"></div>
+            <div class="modal-footer" >
+            	<button type="button" ng-if="type == 'edit'" class="btn btn-warning btn-sm" ng-disabled="button"  ng-click="editVehicle(form_stationtytype)">修改</button>
+                <button type="button" ng-if="type == 'add'" class="btn btn-warning btn-sm" ng-disabled="button"  ng-click="addVehicle(form_stationtytype,stationItem)">新增</button>
+                <button type="button" class="btn btn-warning btn-sm" ng-click="$hide()">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>

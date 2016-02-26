@@ -1,0 +1,64 @@
+<div class="masget-contentPanel-inner" on-finish-render-filters="schedule" style="overflow: auto;height: 100%;">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist" style="background-color: #F7F7F7;">
+        <li role="presentation" class="active"><a role="tab" ng-click="historyShow = false;" data-toggle="tab" style="font-weight: bold;background-color: inherit;">待办任务</a></li>
+        <li role="presentation"><a role="tab" data-toggle="tab" ng-click="historyShow = true;" style="font-weight: bold;background-color:inherit; ">已办任务</a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content clearfix" style="margin-top:5px;position: absolute;width: 100%;" ng-scrollbar scrollbar-x="false" scrollbar-y="true" scrollbar-config="{autoResize:true,show:true}">
+        <div role="tabpanel" class="tab-pane active clearfix" ng-hide="historyShow">
+            <div class="col-md-12">
+                <div class="panel-group" ng-model="todolistpanels.activePanel" data-allow-multiple="true" role="tablist"
+                     aria-multiselectable="true" bs-collapse>
+                    <div class="panel panel-default" ng-repeat="panel in todolistpanels">
+                        <div class="panel-heading" style="cursor:pointer;" role="tab" ng-click="panel.active = !panel.active" bs-collapse-toggle>
+                            <span class="glyphicon" ng-class="{true:'glyphicon-triangle-bottom',false:'glyphicon-triangle-right'}[panel.active]" style="float:left;margin-right: 10px;"></span>
+                            <h4 class="panel-title">
+                                <a>
+                                    {{ panel.title }}&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge">{{panel.list.length}}</span>
+                                </a>
+                            </h4>
+                        </div>
+                        <div class="panel-collapse" role="tabpanel" bs-collapse-target>
+                            <!-- List group -->
+                            <ul class="list-group">
+                                <li class="list-group-item" ng-click="resolve(item);"
+                                    ng-repeat="item in panel.list" ng-class="{true:'masget-read'}[item.readflag]" style="cursor:pointer;">
+                                    {{item.subject}}<span style="position: absolute;top:10px;right: 10px;">{{item.createdtime}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane active clearfix" ng-hide="!historyShow">
+                <div class="col-md-12">
+                    <div class="panel-group" ng-model="donelistpanels.activePanel" data-allow-multiple="true" role="tablist"
+                         aria-multiselectable="true" bs-collapse>
+                        <div class="panel panel-default" ng-repeat="panel in donelistpanels">
+                            <div class="panel-heading" style="cursor:pointer;" role="tab" ng-click="panel.active = !panel.active" bs-collapse-toggle>
+                                <span class="glyphicon" ng-class="{true:'glyphicon-triangle-bottom',false:'glyphicon-triangle-right'}[panel.active]" style="float:left;margin-right: 10px;"></span>
+                                <h4 class="panel-title">
+                                    <a>
+                                        {{ panel.title }}&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge">{{panel.list.length}}</span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div class="panel-collapse" role="tabpanel" bs-collapse-target>
+                                <!-- List group -->
+                                <ul class="list-group">
+                                    <li class="list-group-item" ng-click="resolve(item);" style="cursor:pointer;"
+                                        ng-repeat="item in panel.list" ng-class="{true:'masget-read'}[item.readflag]">
+                                        {{item.subject}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+

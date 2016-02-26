@@ -1,0 +1,23 @@
+<div class="clearfix well" style="height:100%;overflow: auto;position: relative;margin: auto" on-finish-render-filters="vehicletype">
+	<div style="width: 100%; margin: 0 auto;" >
+		<form class="form-horizontal" novalidate id="form_vehicletype" name="form_stafftytype">
+		
+			<div class="form-group"">
+			    <label for="stafftypename" class="col-sm-4 control-label">员工类型：</label>
+			    <div class="col-sm-8">
+			    <input type="text" id="stafftypename" name="stafftypename"  ng-model="staffItem.stafftypename" required class="form-control input-sm"  required>
+            		<span ng-if="form_stafftytype.stafftypename.$error.required&&form_stafftytype.stafftypename.$dirty "style="margin-left: 25px;">*必填项</span>
+			  </div>
+			  </div>
+		    
+		    <div class="form-group" ng-if="type == 'add'">
+			    <label for="stafftypeid" class="col-sm-4 control-label">类型ID：</label>
+			    <div class="col-sm-8">
+			    <input type="text"  name="stafftypeid"  ng-model="staffItem.stafftypeid" required class="form-control input-sm"  required>
+            		<span ng-if="form_stafftytype.stafftypeid.$error.required&&form_stafftytype.stafftypeid.$dirty "style="margin-left: 25px;">*必填项</span>
+			  </div>
+			  </div>
+		    </div>
+		</form>
+	</div>
+</div>

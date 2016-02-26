@@ -1,0 +1,52 @@
+<div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped table-condensed">
+        <thead>
+        <tr class="info">
+            <th>序号</th>
+            <th>操作</th>
+            <th>单号</th>
+            <th>仓库</th>
+            <th>数据来源</th>
+            <th>总数量</th>
+            <th>总金额</th>
+<!--             <th>完好数量</th>
+            <th>完好金额</th> -->
+<!--             <th>损坏数量</th>
+            <th>损坏金额</th> -->
+            <th>入库状态</th>
+            <th>审核标志</th>
+            <th>备注</th>
+            <th>创建时间</th>
+            <th>审核时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="warehousein in warehouseins.data.rows">
+            <td ng-bind="$index+1" align="center" class="h_bgf3">1</td>
+            <td align="center" class="h_bgf3">
+                <a href="#warehousein" class="btn_view" title="查看" ng-click="view(warehousein)" data-toggle="modal" data-target="#viewModal" ng-show="{{warehousein.isview}}"><span class="glyphicon glyphicon-eye-open blue"></span></a>
+                <a href="#warehousein" class="btn_audit" title="审核" ng-click="audit(warehousein)" ng-show="{{warehousein.isaudit}}"><span class="glyphicon glyphicon-saved green"></span></a>
+                <!-- <a href="#warehousein" class="btn_auditfail" title="审核失败" ng-click="auditfail(warehousein)" ng-show="{{warehousein.isauditfail}}"><span class="glyphicon glyphicon-ban-circle green"></span></a> -->
+                <a href="#warehousein" class="btn_del" title="删除" ng-click="deleteto(warehousein)" ng-show="{{warehousein.isdelete}}"><span class="glyphicon glyphicon glyphicon-trash red"></span></a>
+                &nbsp;
+                <a href="#warehousein" class="btn_del" title="打印" ng-click="printHtml(warehousein)" data-toggle="modal" data-target="#modal-container-printhtml"><span class="glyphicon glyphicon-print" aria-hidden="true"></span></a>
+            </td>
+            <td>{{warehousein.warehouseinnum}}</td>
+            <td>{{warehousein.stationname}}</td>
+            <td>{{convertsourceflagtoname(warehousein.sourceflag)}}</td>
+            <td>{{warehousein.totgoodsqty}}</td>
+            <td>{{warehousein.totgoodsmoney}}</td>
+<!--             <td>{{warehousein.totsoundqty}}</td>
+            <td>{{warehousein.totsoundmoney}}</td> -->
+<!--             <td>{{warehousein.totdamageqty}}</td>
+            <td>{{warehousein.totdamagemoney}}</td> -->
+            <td>{{convertstatetoname(warehousein.state)}}</td>
+            <td>{{convertauditflagtoname(warehousein.auditflag)}}</td>
+            <td>{{warehousein.remark}}</td>
+            <td>{{warehousein.createdtime}}</td>
+            <td>{{warehousein.audittime}}</td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>

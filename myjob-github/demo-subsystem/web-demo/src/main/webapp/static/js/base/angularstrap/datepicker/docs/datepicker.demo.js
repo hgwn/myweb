@@ -1,0 +1,1 @@
+"use strict";angular.module("mgcrea.ngStrapDocs").config(function(e){angular.extend(e.defaults,{dateFormat:"dd/MM/yyyy",startWeek:1})}).controller("DatepickerDemoCtrl",function(e,t){e.selectedDate=new Date,e.selectedDateAsNumber=Date.UTC(1986,1,22),e.getType=function(t){return Object.prototype.toString.call(e[t])},e.clearDates=function(){e.selectedDate=null}});

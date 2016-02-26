@@ -1,0 +1,46 @@
+<div class="container well" on-finish-render-filters="list" style="  background-color: #fff;max-height: 660px;border:none;overflow: auto;">
+    <div class="row clearfix" >
+        <div class="col-md-12 column">
+            <form class="form-inline queryForm" id="stationForm" >
+                <div class="form-group col-sm-4 ">
+	                <label>平台类型名称：</label>
+			        <input type="text" name="vehicletypename" ng-model="platform.platformname"   class="form-control input-sm"   style="height:30px;width:175px"/>
+                </div>
+                <button type="button" class="btn btn-sm btn-primary"  style="width: 80px;" ng-click="check()">查询</button>
+                <button type="button" class="btn btn-primary btn-sm link_add" data-toggle="modal" data-target="#contractModal"  style="width: 80px" ng-click="add()">新增</button>
+                <br><br>
+            </form>
+                <div>
+                    <table class="table table-bordered table-hover table-striped  table-condensed" >
+                        <thead>
+                        <tr class="info">
+                        	<th style="width:100px">序号</th>
+                        	<th style="width:60%">平台类型</th>
+                        	<th style="width:100px">类型ID</th>
+                        	<th >操作</th>
+                            
+                        </tr>
+                        </thead>
+                        <tbody>
+                        	<tr ng-repeat="item in result " style="text-align: center;">
+                        		<td class="h_bgf3" ng-bind="$index+1">1</td>
+                        		 <td >{{item.platformtypename}}</td>
+                        		  <td >{{item.platformtypeid}}</td>
+                        		<td >
+	                            	<a href="#" ng-click="edit(item)"><span class="glyphicon glyphicon-pencil blue"></span>&nbsp;编辑</a>
+	                            	&nbsp;&nbsp;&nbsp;&nbsp;
+	                            	<a href="#" ng-click="deleteVehicletype(item)"><span class="glyphicon glyphicon-trash blue"></span>&nbsp;删除</a>
+	                            </td>
+	                           
+	                        </tr>
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+		<div class="col-md-12 column" ng-if="total>platform.pageSize">
+			<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" style="height: 40px;">
+				<pagination recordcount="{{total}}"  pagenum="platform.pageNum" pagesize="platform.pageSize" onselect="check()"></pagination>
+			</nav>
+		</div>
+    </div>
+</div>

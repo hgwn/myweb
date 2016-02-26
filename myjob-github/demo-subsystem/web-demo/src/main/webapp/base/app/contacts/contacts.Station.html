@@ -1,0 +1,82 @@
+<div class="clearfix well" style="height:100%;overflow: auto;position: relative;margin: auto;padding: 0 0;" on-finish-render-filters="editStation">
+    <div style="border:1px solid #ccc;width:750px;height:500px;  margin:5% auto;padding-left: 35px;">
+        <h1 class="text-center" style="margin-bottom: 50px;" ng-show="type == 'add'">新增站点</h1>
+        <h1 class="text-center" style="margin-bottom: 50px;" ng-show="type == 'edit'">站点信息</h1>
+        <h1 class="text-center" style="margin-bottom: 50px;" ng-show="type == 'check'">站点信息</h1>
+        <form class="form-inline form_staff" ng-submit="submitForm(form_station.$valid)" novalidate id="form_station" name="form_station" style="height:280px;" >
+            <div class="form-group col-sm-5 width330" ng-class="{haserror:form_station.contractnum.$invalid}">
+                <label>公司名称：</label>
+                <input type="hidden" name="companyid" ng-model="stationDatum.companyid">
+                <input type="text" readonly="readonly"  name="companyname" ng-model="stationDatum.companyname"  class="form-control input-sm" >
+            </div>
+            <div class="form-group col-sm-5 width330" ng-class="{haserror:form_station.stationname.$invalid&&form_station.submitted}">
+                <label>站点名称：</label>
+                <input ng-disabled="stationname" type="text" name="stationname" required ng-model="stationDatum.stationname" required class="form-control input-sm">
+                <div ng-messages="form_station.stationname.$error" ng-show="form_station.stationname.$invalid&&form_station.submitted" class="ng-messages-error">
+                    <div ng-message="required">站点名称为必填项</div>
+                </div>
+            </div>
+            <div class="form-group col-sm-5 marginTop width330" >
+                <label>站点简写：</label>
+                <input ng-disabled="stationcode" type="text" name="stationcode" ng-model="stationDatum.stationcode"  class="form-control input-sm">
+            </div>
+            <!--<div class="form-group col-sm-5 marginTop width330" >-->
+                <!--<label>助&nbsp;&nbsp;记&nbsp;&nbsp;码：</label>-->
+                <!--<input ng-disabled="shortening" type="text" name="shortening" ng-model="stationDatum.shortening"  class="form-control input-sm"  style="height: 30px;" >-->
+            <!--</div>-->
+            <div class="form-group col-sm-5 marginTop width330" ng-class="{haserror:form_station.stationtypeid.$invalid&&form_station.submitted}">
+                <label>站点类型：</label>
+                <button ng-disabled="select" required style="padding: 4px 12px; width: 190px;" name="stationtypeid" type="button" class="btn btn-default " ng-model="stationDatum.stationtypeid" data-trigger="focus"
+		              bs-options="item.stationtypeid as item.stationtypename for item in stationtype" bs-select>
+		          	未选择 <span class="caret"></span>
+		      	</button>
+                <div ng-messages="form_station.stationtypeid.$error" ng-show="form_station.stationtypeid.$invalid&&form_station.submitted" class="ng-messages-error">
+                    <div ng-message="required">站点类型为必选项</div>
+                </div>
+            </div>
+            <div class="form-group col-sm-5 marginTop width330"  >
+                <label>父站名称：</label>
+                <button ng-disabled="comtree" name="pstationid" class="btn btn-default " id="comtree" ng-model="stationDatum.pstationid"   style="height:30px;width: 190px;">{{stationDatum.pstationname||"无"}}&nbsp;&nbsp;<span class="caret"></span></button>
+            </div>
+            <div class="form-group col-sm-5 marginTop width330" ng-class="{haserror:form_station.longitude.$invalid&&form_station.submitted}">
+                <label>站点经度：</label>
+                <input ng-disabled="longitude" name="longitude"   ng-model="stationDatum.longitude" ng-pattern="/^\d+(.\d{1,2})?$/"  class="form-control" style=" height: 30px;" type="text" >
+                <div ng-messages="form_station.longitude.$error" ng-show="form_station.longitude.$invalid&&form_station.submitted" class="ng-messages-error">
+                    <div ng-message="pattern">只能输入数字和小数点</div>
+                </div>
+            </div>
+            <div class="form-group col-sm-5 marginTop width330"  ng-class="{haserror:form_station.latitude.$invalid&&form_station.submitted}">
+                <label>站点纬度：</label>
+                <input ng-disabled="latitude" name="latitude"   ng-model="stationDatum.latitude" ng-pattern="/^\d+(.\d{1,2})?$/" class=" form-control" style=" height: 30px;" type="text" >
+                <div ng-messages="form_station.latitude.$error" ng-show="form_station.latitude.$invalid&&form_station.submitted" class="ng-messages-error">
+                    <div ng-message="pattern">只能输入数字和小数点</div>
+                </div>
+            </div>
+            <div class="form-group col-xs-12 marginTop" ng-class="{haserror:form_station.address.$invalid&&form_station.submitted}">
+                <label >站点省市县/区：</label>
+                <button  name="provinceid" type="button"  class="btn btn-default " ng-model="stationDatum.provinceid" data-trigger="focus"
+                        bs-options="item.provinceid as item.provincename for item in pca.data" bs-select>
+                     未选择<span class="caret"></span>
+                </button>
+                &nbsp;
+                <button  name="cityid" type="button"  class="btn btn-default " ng-model="stationDatum.cityid" data-trigger="focus"
+                        bs-options="item.cityid as item.cityname for item in cities" bs-select>
+                        未选择<span class="caret"></span>
+                </button>
+                &nbsp;
+                <button name="areaid" type="button"  class="btn btn-default " ng-model="stationDatum.areaid" data-trigger="focus"
+                        bs-options="item.areaid as item.areaname for item in areas" bs-select>
+                        未选择<span class="caret"></span>
+                </button>
+                <input ng-disabled="address" name="address" required  ng-model="stationDatum.address"  class=" form-control" style=" height: 30px;" type="text" >
+                <div ng-messages="form_station.address.$error" ng-show="form_station.address.$invalid&&form_station.submitted" class="ng-messages-error">
+                    <div ng-message="required" style="  margin-left: 25%;">省市或详细地址不能为空</div>
+                </div>
+            </div>
+        </form>
+        <div class="text-center">
+            <button class="btn btn-primary masget-btn-primary" ng-disabled="button" ng-click="add()" ng-show="type == 'add'">保存</button>
+			<button class="btn btn-primary masget-btn-primary" ng-disabled="button" ng-show="type == 'edit'" ng-click="edit()">保存</button>
+        </div>
+    </div>
+</div>

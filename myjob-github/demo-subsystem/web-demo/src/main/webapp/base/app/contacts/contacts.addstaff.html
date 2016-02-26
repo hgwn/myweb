@@ -1,0 +1,107 @@
+<div class="clearfix well" style="height:100%;overflow: auto;position: relative;margin: auto;padding: 0 0;" on-finish-render-filters="editStaff" ng-scrollbar scrollbar-x="false" scrollbar-y="true" scrollbar-config="{autoResize:true,show:true}">
+	<div style="border:1px solid #ccc;width:750px;height:500px;  margin:5% auto;padding-left: 35px;">
+		<h1 class="text-center" ng-if="type == 'add'">新增员工</h1>
+		<h1 class="text-center" ng-if="type == 'edit'">员工信息</h1>
+		<h1 class="text-center" ng-if="type == 'check'">员工信息</h1>
+		<form style="height: 75%;" class="form-inline form_staff" ng-submit="submitForm(form_staff.$valid)" novalidate id="form_staff" name="form_staff">
+			<div class="form-group col-sm-5 width330" style="  height: 100px;">
+		        <label class="pull-left" style="  line-height: 90px;">图&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标：</label>
+		        <ul id="goodsAdd-imgUl">
+					<li class="goodsAdd-imgLi" ng-show="file">
+							<div class="goodsAdd-img">
+							<img src="{{comstaffDatum.stafficon}}" >
+							<div class="goodsAdd-imgaction">
+<!-- 								<a class="imgaction-item h-img-update" href="#" ngf-select  ngf-accept="'image/*'">替换</a> -->
+								<a class="imgaction-item h-img-del" href="#" ng-click="deletePic(comstaffDatum.pictUrl)" style="margin-left:25px;">删除</a>
+							</div>
+							</div>
+					</li>
+					<li class="button goodsAdd-imgLi" ngf-select ng-model="files" ngf-accept="'image/*'"  ng-hide="file">
+						<span class="glyphicon glyphicon-plus"></span>
+						<em>单击上传图片</em>
+					</li>
+				</ul>
+		    </div>
+		    <div class="form-group col-sm-5 width330 pull-right" style="margin-top: 12px;">
+		        <label>公司名称：</label>
+		        <input type="text" readonly="readonly"  name="companyname" ng-model="comstaffDatum.companyname"  class="form-control input-sm" >
+		    </div>
+		    
+		    <div class="form-group col-sm-5 width330 marginTop pull-right" style="margin-bottom: 10px;" ng-class="{haserror:form_staff.staffname.$invalid&&form_staff.submitted}">
+		        <label>员工名称：</label>
+		        <input  type="text" name="staffname" required ng-model="comstaffDatum.staffname"  class="form-control input-sm">
+		        <div ng-messages="form_staff.staffname.$error" ng-show="form_staff.staffname.$invalid&&form_staff.submitted" class="ng-messages-error">
+            		<div ng-message="required">员工名称为必填项</div>
+       			</div>
+		    </div>
+		    <div class="form-group col-sm-5 width330 marginTop" ng-class="{haserror:form_staff.mobilephone.$invalid&&form_staff.submitted}">
+		        <label>电话号码：</label>
+		        <input ng-change="changePhone()"  type="text" name="mobilephone"  ng-model="comstaffDatum.mobilephone" required class="form-control input-sm"  style="height: 30px;" ng-pattern="/^(1(([35][0-9])|(47)|[8][0126789]))\d{8}$/">
+			    <div ng-messages="form_staff.mobilephone.$error" ng-show="form_staff.mobilephone.$invalid&&form_staff.submitted" class="ng-messages-error">
+            		<div ng-message="pattern">电话号码格式不对</div>
+            		<div ng-message="required">电话号码为必填项</div>
+       			</div>
+		    </div>
+		    <div class="form-group col-sm-5 width330 marginTop pull-right" >
+		        <label>工作站点：</label>
+		        <input type="hidden" readonly="readonly"  name="workingstationid"  ng-model="comstaffDatum.workingstationid " class="form-control input-sm" >
+		        <input  readonly="readonly"  name="stationname"  ng-model="comstaffDatum.stationname " class="form-control input-sm" >
+		    </div>
+		    <div class="form-group col-sm-5 width330 marginTop" ng-class="{haserror:form_staff.roletypeid.$invalid&&form_staff.submitted}">
+		        <label>角色类型：</label>
+		        <select ng-disabled="roletypemodel" class="form-control input-sm" name="roletypeid" required  ng-model="comstaffDatum.roletypeid" ng-options="item.roletypeid as item.companyroletypename for item in roletype">
+		        	<option value="">--请选择--</option>
+		        </select>
+				<div ng-messages="form_staff.roletypeid.$error" ng-show="form_staff.roletypeid.$invalid&&form_staff.submitted" class="ng-messages-error">
+            		<div ng-message="required">角色类型为必填项</div>
+       			</div>
+		    </div>
+		    <div class="form-group col-sm-5 width330 marginTop pull-right" ng-class="{haserror:form_staff.email.$invalid&&form_staff.submitted}">
+		        <label>电子邮箱：</label>
+		        <input ng-pattern="/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/" class="easyui-combotree form-control input-sm"  name="email" ng-model="comstaffDatum.email" style="height:30px;"/>
+				<div ng-messages="form_staff.email.$error" ng-show="form_staff.email.$invalid&&form_staff.submitted" class="ng-messages-error">
+            		<div ng-message="pattern">电子邮箱格式不对</div>
+       			</div>
+		    </div>
+		    <div class="form-group col-sm-5 width330 marginTop "  >
+		        <label>备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：</label>
+		        <input ng-disabled="remark" name="remark"   ng-model="comstaffDatum.remark"  class=" form-control" style=" height: 30px;" type="text" >
+		    </div>
+		    <div class="form-group col-sm-5 width330 marginTop  pull-right" ng-class="{haserror:form_staff.identitycard.$invalid&&form_staff.submitted}">
+		        <label>身份证号：</label>
+		        <input name="identitycard" ng-pattern="/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/"  ng-model="comstaffDatum.identitycard"  class=" form-control" style=" height: 30px;" type="text" >
+		        <div ng-messages="form_staff.identitycard.$error" ng-show="form_staff.identitycard.$invalid&&form_staff.submitted" class="ng-messages-error">
+            		<div ng-message="pattern">身份证号格式不对</div>
+       			</div>
+		    </div>
+		    <div class="form-group col-sm-5 width330 marginTop  pull-right" ng-if="typeShow == 'checkSms'"  ng-class="{haserror:form_staff.validationnum.$invalid&&form_staff.submitted}">
+		        <label>校&nbsp;&nbsp;验&nbsp;&nbsp;码：</label>
+		        <input  name="validationnum" ng-pattern="/^\d{6,6}$/" required ng-model="comstaffDatum.validationnum"   class=" form-control" style=" height: 30px;  width: 80px;" type="text" >
+		        <button  ng-click="sendSms();">获取验证码<span style="color:red;" ng-if="SMS">({{counter}})</span></button>
+		        <div ng-messages="form_staff.validationnum.$error" ng-show="form_staff.validationnum.$invalid&&form_staff.submitted" class="ng-messages-error">
+            		<div ng-message="pattern">验证码为6位数字</div>
+            		<div ng-message="required">验证码不能为空</div>
+       			</div>
+		    </div>
+		    <div class="form-group col-sm-5 width330 marginTop" ng-class="{haserror:form_staff.loginname.$invalid&&form_staff.submitted}">
+		        <label>登录名称：</label>
+		        <input ng-disabled="loginname" type="text" name="loginname"  required  ng-model="comstaffDatum.loginname"   class="form-control" style=" height: 30px;"  >
+		        <div ng-messages="form_staff.loginname.$error" ng-show="form_staff.loginname.$invalid&&form_staff.submitted" class="ng-messages-error">
+            		<div ng-message="required">登录名称不能为空</div>
+       			</div>
+		    </div>
+		    <div class="form-group col-sm-5 width330 marginTop pull-right"  ng-if="type == 'add'" ng-class="{haserror:form_staff.loginpwd.$invalid&&form_staff.submitted}">
+		        <label>登录密码：</label>
+		        <input  required name="loginpwd"  ng-model="comstaffDatum.loginpwd"  class=" form-control" style=" height: 30px;" type="password" >
+		         <div ng-messages="form_staff.loginpwd.$error" ng-show="form_staff.loginpwd.$invalid&&form_staff.submitted" class="ng-messages-error">
+            		<div ng-message="required">登录密码不能为空</div>
+       			</div>
+		    </div>
+		</form>
+		<div class="text-center">
+			<button class="btn btn-primary masget-btn-primary" ng-if="type == 'add'" ng-click="add()">保存</button>
+			<button class="btn btn-primary masget-btn-primary" ng-if="typeShow == 'edit'" ng-click="edit()">保存</button>
+			<button class="btn btn-primary masget-btn-primary" ng-if="typeShow == 'checkSms'" ng-click="checkSms()">保存</button>
+		</div>
+	</div>
+</div>

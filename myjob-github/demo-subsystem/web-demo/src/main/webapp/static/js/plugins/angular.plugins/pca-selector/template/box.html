@@ -1,0 +1,30 @@
+<link href="/masgetweb/static/js/plugins/angular.plugins/pca-selector/css/style.css" rel="stylesheet">
+<div class="pca-selector-container" style="background-color1: blue" ng-show="isShowContainer" ng-class="{'container-show':isShowContainer,'container-hide':!isShowContainer}">
+	<div class="pca-selector-content clearfix ">
+		<div class="pca-selector-content-tab">
+			<section ng-repeat="tab in tabs" ng-click="onTabChange(tab.id)" ng-class="{'tab-selected':tab.selected}" class="col-md-4 text-center">{{tab.name}}</section>
+		</div>
+
+		<div class="pca-selector-content-province" ng-show="tabIndex==1" >
+			<ul style="background-color:greenyellow">
+				<li ng-repeat="province in pcaData|orderBy:'provinceid'" ng-click="onSelectProvinceChange(province)" ng-class="{'ul-li-selected':province.selected}" >{{province.p}}</li>
+			</ul>
+		</div>
+		<div class="pca-selector-content-city" ng-show="tabIndex==2" >
+			<ul>
+				<li ng-repeat="city in selectedProvince.c" ng-click="onSelectCityChange(city)" ng-class="{'ul-li-selected':city.selected}">{{city.n}}</li>
+			</ul>
+		</div>
+		<div class="pca-selector-content-area" ng-show="tabIndex==3" >
+			<ul>
+				<li ng-repeat="area in selectedCity.a" ng-click="onSelectAreaChange(area)" ng-dblclick="confirm()" ng-class="{'ul-li-selected':area.selected}">{{area.s}}</li>
+			</ul>
+		</div>		
+	</div>
+	<div class="pca-selector-footer clearfix">
+			<button class="btn btn-default btn-xs" ng-click="clear()">清空</button>
+			<button class="btn btn-warning btn-xs btn-cancle" ng-click="cancle()">取消</button>
+			<button class="btn btn-primary btn-xs" ng-click="confirm()">确定</button>
+	</div>
+	
+</div>

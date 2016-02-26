@@ -1,0 +1,33 @@
+<div style="height:100%;overflow: auto;position: relative;margin: auto" on-finish-render-filters="chargetype">
+	<div style="height: 170px;  margin: 0 auto;" >
+		<form style="height: 75%;" class="form-inline" novalidate id="form_chargetype" name="form_chargetype">
+		    <div class="form-group col-sm-12 marginTop "  >
+		        <label>公司名称：</label>
+		        <input type="text" readonly="readonly" name="companyname"  ng-model="chargetype.companyname"  class="form-control input-sm"  style="height: 30px;  width: 503px;" >
+		    </div>
+		    <div class="form-group col-sm-5 width290 marginTop " ng-class="{haserror:form_chargetype.basechargetypeid.$invalid&&form_chargetype.submitted}" >
+		        <label>费用类型：</label>
+		        <select required name="basechargetypeid" ng-disabled="disabled" ng-model="chargetype.basechargetypeid" ng-options="item.basechargetypeid as item.chargetypename for item in notuse"  class="form-control input-sm"   style="height:30px;width:166px" >
+		        	<option value="">--请选择--</option>
+		        </select>
+				<span title="必填项" ng-messages="form_chargetype.basechargetypeid.$error" ng-show="form_chargetype.basechargetypeid.$invalid&&form_chargetype.submitted" >
+                 	<span ng-message="required" class="icon-exclamation-sign ng-scope" style="    color: #a94442; font-size: 16px;"></span>
+            	</span>
+		    </div>
+		    <div class="form-group col-sm-5 width290 marginTop pull-right" ng-class="{haserror:form_chargetype.chargedirection.$invalid&&form_chargetype.submitted}">
+		        <label>费用方向：</label>
+		        <select required name="chargedirection" ng-model="chargetype.chargedirection" class="form-control input-sm" style="height:30px;width: 180px ;">
+		        	<option value="1">支出</option>
+					<option value="2">收入</option>
+				</select>
+				<span title="必填项" ng-messages="form_chargetype.chargedirection.$error" ng-show="form_chargetype.chargedirection.$invalid&&form_chargetype.submitted" >
+                 	<span ng-message="required" class="icon-exclamation-sign ng-scope" style="    color: #a94442; font-size: 16px;"></span>
+            	</span>
+		    </div>
+		    <div class="form-group col-sm-12  marginTop "  >
+		        <label>备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：</label>
+		        <input type="text" name="remark"  ng-model="chargetype.remark"  class="form-control input-sm"  style="height: 30px;  width:503px;" >
+		    </div>
+		</form>
+	</div>
+</div>

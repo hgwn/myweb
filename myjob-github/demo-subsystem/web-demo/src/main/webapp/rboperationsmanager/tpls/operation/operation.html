@@ -1,0 +1,35 @@
+<div class="col-sm-12 column" ng-controller="operationsController"  style="padding: 0px;margin: 0px">
+<form class="form-horizontal">
+  <div class="form-group">
+    <label  class="col-sm-2 control-label">系统环境</label>
+    <div class="col-sm-3">
+      <select class="form-control" ng-model="formData.osenvirnmentid" ng-options="item.osenvirnmentid as item.osenvinrment for item in osenvinrmentFormData.osenvinrmentData">
+      	   <option value="">--请选择--</option>
+      	   <!--<option ng-repeat="item in osenvinrmentFormData.osenvinrmentData" value="{{item.osenvirnmentid}}">{{item.osenvinrment}}</option>-->
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label  class="col-sm-2 control-label">公司类型</label>
+    <div class="col-sm-3">
+       <select class="form-control" ng-model="formData.companytypeid" ng-options="item.companytypeid as item.companytypename for item in companytypeFormData.companytypeData ">
+          <option value="">--请选择--</option>
+       </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label  class="col-sm-2 control-label">角色</label>
+    <div class="col-sm-3">
+      <select class="form-control input-sm" ng-model="formData.roletypeid" ng-options="item.roletypeid as item.roletypename for item in roletypeFormData.roletypeData">
+          <option value="">--请选择--</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default btn-info" ng-click="gotoNest()">下一步</button>
+    </div>
+  </div>
+</form>
+  <div ui-view="osroleresource"></div>
+</div>

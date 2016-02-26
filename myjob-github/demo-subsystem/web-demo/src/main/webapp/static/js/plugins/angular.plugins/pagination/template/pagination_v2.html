@@ -1,0 +1,56 @@
+
+<nav style="display: inline-block;">
+    <div style="border: 0px;margin: auto 0px;" class="clearfix">
+        <div style="padding: 0px;">
+            <ul class="pagination" style="margin: 0px;padding: 0px;padding-left: 10px;">
+                <li ng-hide="isHidePagesizeList=='true'" style="padding: 0px;">
+                    <a style="border: 0px;padding: 0px;">
+                        <select name="pageSize" id="pageSize" ng-model="paging.pageSize" ng-options="v for v in paging.pageSizeList" class="form-control input-sm pagesize-list" ng-change="onChange()" ng-style="pagesizeSelectStyle" >
+                        </select>
+                    </a>
+                </li>
+                <li><a href="javascript:;" ng-click="paging.skipToFirst()">首页</a></li>
+                <li ng-hide="isHidePrePageLink=='true'"><a href="javascript:;" ng-click="paging.skipToPrevious()">上一页</a></li>
+                <li ng-repeat="page in paging.pages" ng-class="{active:page.isActive}"><a href="javascript:;" ng-click="paging.skipToPage(page)"><span ng-bind="page.pageNum"></span></a></li>
+                <li ng-hide="isHideNextPageLink=='true'"><a href="javascript:;" ng-click="paging.skipToNext()">下一页</a></li>
+                <li><a href="javascript:;" ng-click="paging.skipToLast()">末页</a></li>
+                <li class="pageInfo" ng-hide="isHideSummaryInfo=='true'&&isHidePagenumInput=='true'">
+                    <a style="border-top: 0px;border-right: 0px;border-bottom:0px;background-color: inherit;">
+                        <span ng-hide="isHideSummaryInfo=='true'">{{paging.getRecordCount()}}条记录，共{{paging.getPageCount()}}页</span>
+                        <span ng-hide="(isHideSummaryInfo!='true'&&isHidePagenumInput=='true')||(isHideSummaryInfo=='true'&&isHidePagenumInput!='true')||(isHideSummaryInfo=='true'&&isHidePagenumInput=='true')">，</span>
+                        <span ng-hide="isHidePagenumInput=='true'">到第<input type="number" min="1" max={{paging.getPageCount()}} name="num" ng-model="paging.num" style="width:40px;height: 22px"> 页</span>
+                    </a>
+                </li>
+                <li ng-hide="{{isHidePagenumInput=='true'}}"><a href="" ng-click="paging.changePageNum()">刷新</a></li>
+            </ul>
+        </div>
+    </div>
+    <style type="text/css">
+		.pagesize-list:FOCUS{
+			border: 1px solid #DDDDDD;
+		}
+		#pageSize{
+			height: 34px; border-radius: 3px 0px 0px 3px;color:#337ab7;border:1px solid #DDDDDD;border-right:0px;
+		}
+		@media (max-width: 992px){
+			.pagination{
+				font-size:12px;
+			}
+			.pagination > li > a, .pagination > li > span{
+				padding: 5px 10px;
+			}
+			#pageSize{
+				    padding: 0 2px;
+    				height: 29px;
+			}
+		}
+		@media (max-width: 768px){
+			.pagination .pageInfo{
+				display:none
+			}
+		}
+	</style>
+</nav>
+
+
+

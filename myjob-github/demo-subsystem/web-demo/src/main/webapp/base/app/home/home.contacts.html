@@ -1,0 +1,46 @@
+<div class="container masget-clear" on-finish-render-filters="leftBar_contacts">
+    <div id="contactsLeftBar" class="pull-left masget-leftbar-inner" style="width:260px;border-right:1px solid rgb(178, 178, 178)">
+        <div class="row clearfix">
+            <div class="col-md-12 column" style="height:55px;" ng-hide="isActive">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="input-group" style="margin-top:8px;width: 90%;margin-left:5%;">
+                        <span class="input-group-btn" >
+                            <button id="contactsSearchBtn" ng-click="search();" ng-hide="showSearch"
+                                    class="btn btn-default glyphicon glyphicon-search" style="top: 0px;"></button>
+                        </span>
+                        <input type="text" id="contactsSearchInput" ng-model="searchInput" class="form-control"
+                               placeholder="姓名/手机号" ng-keyup="enterToSearch($event)">
+                        <span class="input-group-btn">
+                            <button id="contactsBackBtn" ng-click="backToContacts();" ng-show="showSearch"
+                                    class="btn btn-default icon icon-reply" style="top: 0px;line-height: inherit;"></button>
+                        </span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div id="contactsPanel_contacts" style="overflow-y: auto;overflow-x:hidden;" ng-scrollbar
+                 scrollbar-x="false" scrollbar-y="true" scrollbar-config="{autoResize:true,show:true}">
+            <div id="contactsTreeView" class="col-md-12  masget-panel animate-show-hide" style="" ng-hide="showSearch"></div>
+            <div id="contactsSearchResult" class="masget-contactsPanel animate-show-hide"
+                 style="width:100%;" ng-show="showSearch">
+                <div class="list-group" style="margin-bottom:0">
+                    <div role="button" ng-if="resultTotalNum == 0" class="list-group-item">查无结果</div>
+                    <div class="list-group" ng-repeat="scenetype in searchResult" style="margin-bottom:0px;" ng-hide="scenetype.items.length == 0">
+                        <div role="button" class="list-group-item" style="color: rgb(234, 122, 122);height:30px;padding-top:5px;font-size: 10px;font-weight: bold;">{{scenetype.scenetypename}}</div>
+                        <a role="button" ng-click="searchResultSelected(item);" style="text-align: left;padding-left:10px;"
+                           ng-repeat="item in scenetype.items track by $index" class="list-group-item" ng-mouseover="itemMouseOver(item);" ng-mouseleave="itemMouseLeave(item);">
+                            <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;<span>{{item.staffname}}</span>&nbsp;&nbsp;<span style="font-size: 12px;color: #CA7F7F;">{{"["+(scenetype.scenetypeid == 1?item.companyname+"--"+item.stationname:item.addressgroupname)+"]"}}</span></span>
+                            <div style="background-color:rgb(241, 239, 235);position: absolute;font-size: 19px;top:0px;right: 0px;z-index:1;width: 80px;" ng-show="item.isHover"><span class="icon icon-comments masget-hover" style="padding: 10px;position: absolute;right: 40px;"  title="发消息" ng-click="chatTo()"></span><span class="glyphicon glyphicon-info-sign masget-hover" style="padding: 10px;position: absolute;right: 0px;top: 0px;" title="显示人员详情" ng-click=""></span></div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contentPanelInner_contacts" class="masget-contentPanel-inner" style="margin-left: 260px;">
+        <div class="am-slide-right" style="height: 100%;position: relative;" ui-view="contentPanel_contact" autoscroll belongto="contacts"></div>
+    </div>
+</div>
+
+

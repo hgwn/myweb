@@ -1,0 +1,129 @@
+@CHARSET "UTF-8";
+
+.ui-grid-tree-header-row{
+  font: 15px/1.5 arial, \5b8b\4f53;
+  color: #555;
+  font-weight: 100 !important;
+}
+.well {
+	padding-left: 15px;
+	padding-right: 15px;
+	width: auto;
+}
+form label {
+	font-weight: normal;
+}
+.masget-top{
+    overflow:hidden;
+    position: fixed;
+    top:60%;
+    left:43%;
+    z-index:1151;
+}
+.grid{
+  width: 100%;
+  height: 580px;
+}
+.ordersForm div.form-group label {
+    font-weight: normal;
+    color: #666;
+    width: 120px;
+    text-align: right;
+}
+.ng-messages-error{
+	margin-left: 100px;
+	margin-top:-12px;
+	color:red;
+}
+.haserror .form-control {
+  border-color: #a94442;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+.haserror .form-control:focus {
+  border-color: #843534;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+}
+.panelDecorate:HOVER{
+	border-color:red ;
+}
+.panelDecorate span{
+	cursor:default;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space: nowrap;
+	width: auto;
+}
+.goodsname{
+	display:block;
+}
+.well {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.dc{
+	background-color: #efefef;
+}
+.modal-backdrop.in {
+    opacity: 0.0;
+}
+.countGoodsNumber a:link {
+	text-decoration:none;
+}
+.countGoodsNumber a:visited{
+	text-decoration:none;
+}
+.countGoodsNumber a:hover {
+	text-decoration:none;
+}
+.countGoodsNumber a:active {
+	text-decoration:none;
+}
+.green{
+	color:green;
+}
+.red{
+	color:red;
+}
+.borderBottom1px{
+	border-bottom:1px solid #6E6E6E;
+}
+.margin0px{
+	margin: 0px;
+}
+.padding0px{
+	padding: 0px;
+}
+.borderBottom10px{
+	border-bottom:1px solid #6E6E6E;
+}
+.marginBottom10px{
+	margin-bottom: 10px;
+}
+.marginTop{
+	margin-top: 18px;
+}
+.marginTop10px{
+	margin-top: 10px;
+}
+.textCenter{
+	text-align: center;
+}
+.addressManager a:link,a:visited,a:hover,a:active{
+	text-decoration: none;
+    color: #337ab7;
+}
+.addressManageSave a:link,a:visited,a:active{
+	text-decoration: none;
+    color: #1596ad !important;
+}
+.addressManageSave a:hover{
+	text-decoration: underline;
+    color: #1596ad !important;
+}
+.h_billingContent{ background-color: #f0f0f0;} 
+.h_billingContent div.form-group{text-align:left; margin:5px auto;}
+.h_billingContent div.form-group label{font-weight:normal; color:#666; width:120px; text-align:right;}
+.h_billingContent input.form-control,.h_billingConten  select.form-control{width:60%; max-width:220px;}
+#h_billing_address select.form-control{display:inline-block;width:auto;}

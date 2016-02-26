@@ -1,0 +1,544 @@
+.login .logo {
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.login .content {
+    background-color: #f7f7f7;
+    width: 291px;
+    margin: 0 auto;
+    margin-bottom: 0px;
+    padding: 10px 30px;
+    position: relative;
+}
+
+.login .content h3 {
+    color: #000;
+}
+
+.login .content h4 {
+    color: #555;
+}
+
+.login .content p {
+    color: #222;
+}
+
+.login .content .login-form,
+.login .content .forget-form {
+    padding: 0px;
+    margin: 0px;
+}
+
+/*
+.login .content .m-wrap {
+  width: 249px;
+  border-left: 0 !important;
+}
+
+ .login .content .input-icon {
+  border-left: 2px solid #35aa47 !important;
+} 
+
+.login .content .control-group {
+  margin-bottom: 10px !important;
+}
+*/
+.login .content .input-icon .m-wrap {
+    margin: 0px !important;
+}
+
+/*
+.login .content .forget-form {
+  display: none;
+}
+
+
+.login .content .register-form {
+  display: none;
+}
+
+*/
+.login .content .form-title {
+    font-weight: 300;
+    border-bottom: 1px solid #ccc;
+}
+
+.login .content .form-actions {
+    background: none;
+    clear: both;
+    border: 0px;
+    border-bottom: 1px solid #eee;
+    padding: 0px 30px 10px 30px;
+    margin-left: -30px;
+    margin-right: -30px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.login .content .forget-form .form-actions {
+    border: 0;
+    margin-bottom: 0;
+    padding-bottom: 20px;
+}
+
+.login .content .register-form .form-actions {
+    border: 0;
+    margin-bottom: 0;
+    padding-bottom: 0px;
+}
+
+.login .content .form-actions .checkbox {
+    margin-top: 8px;
+    display: inline-block;
+}
+
+.login .content .form-actions .btn {
+    margin-top: 1px;
+}
+
+.login .content .forget-password {
+    margin-top: 15px;
+    color: #999;
+}
+
+.login .content .create-account {
+    border-top: 1px dotted #eee;
+    padding-top: 10px;
+    margin-top: 15px;
+}
+
+.login .content .create-account a {
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.login .copyright {
+    text-align: center;
+    width: 100%;
+    color: #fff;
+    font-size: 11px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: #5090C1;
+    height: 40px;
+    line-height: 40px;
+}
+
+.login .copyright a {
+    color: #fff;
+    padding-right: 8px;
+}
+
+/*2015-05-20 hgwn*/
+.login .logo .red {
+    color: #dd5a43;
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 400;
+    padding-left: 8px;
+}
+
+.login .logo .logo-name {
+    color: #777;
+    font-size: 30px;
+    margin-top: 0;
+    font-weight: normal;
+}
+
+.h-light-box {
+    background-color: #BCC6CF;
+    background-color: rgba(100, 110, 120, .4);
+    -webkit-box-shadow: 0 0 2px 1px rgba(0, 0, 0, .12);
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, .12);
+    border: 1px solid rgba(50, 50, 50, .33)
+}
+
+/* input with left aligned icons */
+.input-icon.left i {
+    color: #ccc;
+    display: block !important;
+    position: absolute !important;
+    z-index: 1;
+    margin: 9px 2px 4px 10px;
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* .input-icon.left input {
+  padding-left: 33px !important;
+}
+ */
+
+.btn.blue {
+    background-color: #428bca !important;
+    border-color: #428bca;
+}
+
+/*2015-06-06 �İ�*/
+
+.header {
+    width: 960px;
+    margin: 0 auto;
+    height: 60px;
+    position: relative;
+    clear: both;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #004888;
+    line-height: 75px;
+    font-family: "MicroSoft Yahei";
+    font-weight: 400;
+    float: left;
+}
+
+.header h1 img {
+    vertical-align: middle;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.hRight, .hLine, .hHelp {
+    float: right;
+    line-height: 60px;
+    font-size: 12px;
+}
+
+.hHelp a {
+    color: #7a8193;
+    margin-right: 7px;
+}
+
+.hLine {
+    color: #1b5c92;
+    font-weight: 700;
+    font-family: "Microsoft Yahei", Arial, Helvetica, Sans-serif;
+    margin-right: 9px;
+    padding-left: 10px;
+}
+
+.login-content {
+    width: 100%;
+    min-width:1200px;
+    position: relative;
+    background: #decb9d;
+    clear: both;
+    overflow: hidden;
+}
+
+.h-content, .loginNotice {
+    width: 1208px;
+    margin: 0 auto;
+    position: relative;
+    clear: both;
+    overflow: hidden;
+}
+
+.login-banner {
+    width: 100%;
+    height: 400px;
+    float: left;
+    overflow: hidden;
+    background: url("../../../img/base/login-img/login_banner.jpg");
+}
+
+#loginBox {
+    position: absolute;
+    top: 0;
+    height: 400px;
+    background-color: #fff;
+}
+
+@media (min-width: 1080px) {
+    #loginBox {
+        left: 60%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1080px) {
+    #loginBox {
+        left: 45%;
+    }
+}
+
+@media (max-width: 768px){
+    #loginBox {
+        left: 10%;
+    }
+}
+
+
+
+
+
+.login #loginBox.content {
+    padding: 10px 15px;
+    width: 314px;
+}
+
+.login #loginBox.content .form-actions {
+    border-bottom: none;
+    margin: 0 auto;
+    padding: 0;
+}
+
+#loginBox.content .login-password {
+    position: relative;
+    overflow: hidden;
+    clear: both;
+    margin-top: -13px;
+    padding-left: 2px;
+    color: #999;
+}
+
+#loginBox .control-group {
+    position: relative;
+    padding-left: 27px;
+    margin-bottom: 10px;
+}
+
+#loginBox .control-group label {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#loginBox .control-group input{
+    width: 200px;
+    border: 1px solid #ccc;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    -webkit-transition: border linear .2s,box-shadow linear .2s;
+    -moz-transition: border linear .2s,box-shadow linear .2s;
+    -o-transition: border linear .2s,box-shadow linear .2s;
+    transition: border linear .2s,box-shadow linear .2s;
+    display: inline-block;
+    height: 20px;
+    padding: 4px 6px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #555;
+    vertical-align: middle;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+#imgVcode {
+    height: 32px;
+}
+
+#register-btn {
+    color: #074d8b;
+    font-size: 16px;
+    font-weight: 700;
+    padding-right: 15px;
+}
+
+#forget-password {
+    color: #999;
+    font-size: 14px;
+}
+
+a#register-btn:hover, a#forget-password:hover {
+    color: #F90;
+    text-decoration: underline;
+}
+
+.loginNotice {
+    border: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+.loginNotice .loginNotice-title {
+    font-size: 14px;
+    color: #414141;
+    text-indent: 16px;
+    padding: 5px 0;
+    border-bottom: 1px dotted #c3c5c4;
+    height: 50px;
+    line-height: 50px;
+    background-color: #fff;
+    margin: 0;
+}
+
+.loginNotice-ul {
+    background-color: #fafafa;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height:120px;
+    clear: both;
+    overflow: hidden;
+    position: relative;
+}
+
+.loginNotice-ul li {
+    float: left;
+    margin: 15px auto;
+    width: 45%;
+    margin-right: 1%;
+    background: url(../../../img/base/login-img/icoPointO.gif) no-repeat 0 0;
+    padding-left: 20px;
+}
+
+dl.loginNotice-list, dl.loginNotice-list dt, dl.loginNotice-list dd {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    line-height: 25px;
+}
+
+dl.loginNotice-list dt, dl.loginNotice-list dt a {
+    color: #333;
+    font-weight: 700;
+}
+
+dl.loginNotice-list dd {
+    color: #999;
+    text-indent: 20px;
+}
+
+.footer {
+    border-top: 1px solid #d9dbdb;
+    font-size: 12px;
+    color: #728196;
+    width: 880px;
+    margin: 15px auto 0;
+    position: relative;
+    clear: both;
+    overflow: hidden;
+}
+
+.footerLink {
+    float: left;
+}
+
+.footer li {
+    float: left;
+    line-height: 42px;
+    margin: 0 2px;
+}
+
+.footer a {
+    color: #728196;
+}
+
+.copyRigth {
+    float: right;
+    font-family: Arial, Helvetica, sans-serif, "simsun";
+}
+
+/*ע��ҳ��  */
+.register-content {
+    width: 960px;
+    margin: 0 auto;
+    position: relative;
+    min-height: 500px;
+    clear: both;
+    overflow: hidden;
+}
+
+.register-content h3.title {
+    text-align: center;
+    font-weight: normal;
+    font-size: 16px;
+    margin: 0;
+    border: 1px solid #e2e8f1;
+    margin-bottom: 20px;
+    height: 35px;
+    width: auto;
+    line-height: 35px;
+    background: #f6f8fa;
+    font-family: "Microsoft YaHei";
+    color: #114886;
+    /*box-shadow: 0px 1px 0px #d2d2d2;*/
+}
+
+.login .register-content .content {
+    background: #fff;
+    width: auto;
+    border: 1px solid #e2e8f1;
+    padding: 0;
+}
+
+.register-content .control-group {
+    position: relative;
+    height: 35px;
+    margin-bottom: 0;
+    overflow: hidden;
+    border-bottom: 1px solid #e2e8f1;
+}
+
+.register-content .content form {
+    margin: 0 auto;
+}
+
+.register-content .control-group label.control-label, .register-content .control-group div.control {
+    display: inline-block;
+    float: left;
+}
+
+.register-content .control-group label.control-label {
+    padding-right: 15px;
+    line-height: 35px;
+    height: 35px;
+    border-right: 1px solid #e2e8f1;
+    width: 150px;
+    text-align: right;
+    background: url(../../../img/base/login-img/t_bg.gif) no-repeat;
+}
+
+.register-content .control-group .input-icon input, .register-content .control-group .input-icon select {
+    margin: 3px 0 0 2px;
+    border-radius: 0;
+}
+
+.login .register-content .content .form-actions {
+    padding: 0;
+    margin: 8px 0 0 162px;
+    height: 40px;
+}
+
+/*�һ�����*/
+.findpwd-message {
+    background: #eef5ff url(../../../img/base/login-img/exclamation.gif) no-repeat 3px 6px;
+    display: block;
+    border: 1px solid #b4d1f3;
+    font-size: 12px;
+    color: #333;
+    padding-left: 20px;
+    height: 30px;
+    margin: -10px 0 10px;
+}
+
+.findpwd-message p {
+    line-height: 30px;
+}

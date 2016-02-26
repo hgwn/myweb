@@ -1,0 +1,85 @@
+  <style>
+    .box {
+        width: 850px;
+        height: 390px;
+        margin: 50px auto;
+        position: relative;
+    }
+
+    .pic {
+        position: absolute;
+          text-align: center;
+    }
+    .width60 img{
+   	width:48px;
+   }
+   .flowMain .masget-caption a{
+   		font-weight:normal;
+   		padding:7px 0;
+   }
+   .masget-caption>img{
+   	    margin-top: 10px;
+  	  width: 22px;
+   }
+   .font_blue{
+  	 	color:#26AAEE ;
+   }
+   .font_yellow{
+   	 	color:#F4C501;
+   }
+   .font_black{
+   	 	color:#333;
+   }
+</style>
+<div class="flowMain">
+	<div style="padding:10px;">
+		<img src="static/img/base/flowChar/location.png" style="vertical-align: bottom; width: 19px;" />流程示意图:
+	</div>
+	<div class="box masget-caption" >
+	    <a href="#" ng-click="goUrl('wsjd')" class="pic font_yellow width60"> <img src="static/img/base/flowChar/wsdd.png" /><br>{{flowconfig.wsjd.name}}</a>
+	    <a href="#" ng-click="goUrl('sjkd')" class="pic font_blue width60" style="top:150px;"> <img src="static/img/base/flowChar/sjkd.png" /><br>{{flowconfig.sjkd.name}}</a>
+	    <a href="#" ng-click="goUrl('zzdd')" class="pic font_yellow width60" style="top:300px;"> <img src="static/img/base/flowChar/web_35.png" /><br>{{flowconfig.zzdd.name}}</a>
+	
+	   	<img src="static/img/base/flowChar/left_b.png"  class="pic" style="transform:rotate(90deg);top:247px;left:482px;"/>
+	    <img src="static/img/base/flowChar/left_b.png" style="transform:rotate(-90deg);top:107px;left:482px;" class="pic"/></a>
+	    
+	    <a href="#" ng-click="goUrl('sjk')"  class="pic font_blue width60" style="top:150px;left:150px;"> <img src="static/img/base/flowChar/sjk.png"/><br>{{flowconfig.sjk.name}}</a>
+	    <a href="#" ng-click="goUrl('fc')" class="pic  font_blue width60" style="top:150px;left:300px;"> <img src="static/img/base/flowChar/fc.png"/><br>{{flowconfig.fc.name}}</a>
+	    <a href="#" ng-click="goUrl('jc')" class="pic font_blue  width60" style="top:150px;left:450px;"> <img src="static/img/base/flowChar/jc.png"/><br>{{flowconfig.jc.name}}</a>
+	
+	    <!-- <img src="static/img/base/flowChar/left2.png" class="pic" style="top:238px;left:536px;"/> -->
+	 	<img src="static/img/base/flowChar/left.png" class="pic" style="top: 74px;left: 579px;">
+	 	<img src="static/img/base/flowChar/left.png" class="pic" style="top: -9px;left: 579px;">
+	 	<img src="static/img/base/flowChar/left.png" class="pic" style="top: 33px;left: 539px;">
+	    <a href="#" class="pic font_yellow width60" style="left:450px;"> <img src="static/img/base/flowChar/dhk.png" /><br>{{flowconfig.dhk.name}}</a>
+	    <a href="#" ng-click="goUrl('zzk')" class="pic font_yellow width60" style="top:300px;left:450px;"> <img src="static/img/base/flowChar/web_34.png" /><br>{{flowconfig.zzk.name}}</a>
+	
+	    <!-- <img src="static/img/base/flowChar/left2.png" class="pic" style="top:-14px;left:536px;" /> -->
+		<a href="#" ng-click="goUrl('ffsk')" class="pic font_yellow  width60 " style="top:-25px;left: 615px;"> <img src="static/img/base/flowChar/fdsk.png"><br>货款管理</a>   
+		<a href="#" class="pic font_yellow width60" style="top: 61px;left: 616px;"> <img src="static/img/base/flowChar/sh.png"><br>送货</a>
+	    <a href="#" class="pic font_yellow width60" style="top: 61px;left:750px;"> <img src="static/img/base/flowChar/fhd.png"><br>返回单</a>
+	    <a href="#"  class="pic font_yellow width60" style="top:259px;left:616px;"> <img src="static/img/base/flowChar/dwzz.png"/><br>{{flowconfig.dwzz.name}}</a>
+	    <a href="#" class="pic font_yellow width60" style="top:355px;left:616px;"> <img src="static/img/base/flowChar/web_37.png"/><br>{{flowconfig.flzc.name}}</a>
+	
+	   	<img src="static/img/base/flowChar/left_b.png" class="pic" style="top:165px;left:100px;"/>
+	    <img src="static/img/base/flowChar/left_b.png" class="pic" style="top:165px;left:250px;"/>
+	    <img src="static/img/base/flowChar/left_b.png" class="pic" style="top:165px;left:400px;"/>
+	    
+	    <img src="static/img/base/flowChar/left.png" class="pic" style="top: 366px;left: 579px;">
+	    <img src="static/img/base/flowChar/left.png" class="pic" style="top: 274px;left: 579px;">
+	    <img src="static/img/base/flowChar/left.png" class="pic" style="top: 312px;left: 539px;">
+	    
+	    <img src="static/img/base/flowChar/left.png" class="pic" style="top: 74px;left: 716px;">
+	    <img src="static/img/base/flowChar/dowm.png" class="pic" style="transform:rotate(90deg);top:100px;left:30px;"/>
+	    <img src="static/img/base/flowChar/left.png" class="pic" style="transform:rotate(-90deg);top:250px;left:30px;"/>
+	</div>
+	<div class="masget-caption" style="height:130px;box-shadow: 0px 0px 15px #CAC6C6;overflow: hidden; margin-top: 90px">
+		<div style="position:relative;height:80px;width:373px;margin:20px auto 0 auto; ">
+		 <a href="#" ng-click="goUrl('ydjs')" class="pic font_black width60" style="top:0px;left:0;"> <img src="static/img/base/flowChar/ydjs.png" /><br>运单结算</a>
+	   	 <a href="#" ng-click="goUrl('xjls')" class="pic font_black width60" style="top:0px;left:98px;"> <img src="static/img/base/flowChar/xjls.png" /><br>现金结算</a>
+	   	 <a href="#"  class="pic font_black width60" style="top:0px;left:196px;"> <img src="static/img/base/flowChar/dshggl.png"/><br>代收款项</a>
+	  	 <a href="#" class="pic font_black width60" style="top:0px;left:294px;"> <img src="static/img/base/flowChar/cwsb.png" /><br>财务上报</a>
+		</div>
+	</div>
+</div>
+

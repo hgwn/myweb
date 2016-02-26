@@ -1,0 +1,165 @@
+	<div class="table-responsive" ng-controller="ordersCheckController">
+		<div class="col-md-12 column">
+			<ul class="breadcrumb">
+				<li>
+					 <a href="#" ui-sref="entry">采购单</a>
+				</li>
+				<li class="active">
+					采购单详情
+				</li>
+			</ul>
+		</div>
+	
+	     <div class="col-md-12 column">
+			 <form class="form-horizontal h_changewarehouseForm" role="form">
+			    <div class="form-group">
+			        <label class="col-sm-8 control-label" style="text-align: left">
+			            客户公司：{{orders.buyername}} |
+			            单号：{{orders.ordernum}}
+			        </label>
+			        
+			        <label class="col-sm-4 control-label">
+			        	<!-- <a style="cursor:pointer; title="修改" ng-click="modifyOrders(orders)" ng-hide="orders.orderstate == 5 || orders.orderstate == 8"><span class="glyphicon glyphicon-edit green"></span>修改</a>-->
+			        	<a style="cursor:pointer; title="支付" ui-sref="warehousein({ordernum:orders.ordernum,orderid:orders.orderid})" ng-if="orders.orderstate == 9"><span class="glyphicon glyphicon-alert yellow" style="color: #ffb752 !important;"></span><strong>入库审核</strong></a>
+			        	<a href="#" ng-click="payPuchaseOrders(orders)" title="付款" ng-if="(orders.paystate == 1 || orders.paystate == 2) && orders.orderstate != 2 && orders.orderstate != 8"><span class="glyphicon glyphicon glyphicon-yen" style="color: green;"></span><strong>支付</strong></a>
+			        	<a style="cursor:pointer; title="打印" ng-click="privewToPdf()"><span class="glyphicon glyphicon-print green"></span>打印</a>
+			        	<!-- <a style="cursor:pointer; title="导出" ng-click="onBtnClickexportGoods()"><span class="glyphicon glyphicon-share green"></span>导出订单</a> -->
+			        </label>
+			    </div>
+			    <div class="form-group">
+					<label class="col-sm-8 control-label" style="text-align: left">
+			        	订单状态：{{orders.orderstatename}}
+			        </label>
+			    </div>
+			</form>
+	    </div>
+    
+        <table class="table table-bordered table-hover table-striped table-condensed">
+            <thead>
+            <tr class="info">
+                <th>商品名称</th>
+                <th>数量</th>
+                <th>价格(￥)</th>
+                <th>折扣率%</th>
+                <th>商品金额(￥)</th>
+                <th style="width: 40px;">赠品</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in orders.orderlist">
+                <td>
+                    {{item.goodsname}}
+                </td>
+                <td>
+                   {{item.goodsqty}}
+                </td>
+                <td>{{item.dealingprice}}</td>
+                
+                <td>{{item.discountrate}}</td>
+                <td>
+                	{{item.totalmoney}}
+                </td>
+                <td>{{item.giftflag==2?"是":"否"}}</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr style="height: 45px">
+                <td colspan="3"></td>
+                <td><label>合计:</label></td>
+                <td></strong>
+                </td>
+                <td></td>
+            </tr>
+            <tr style="height: 45px">
+                <td colspan="3"></td>
+                <td>总数量：</td>
+                <td><strong style="color: red;">
+                {{orders.totgoodsqty}}</strong>
+                </td>
+                <td></td>
+            </tr>
+            <tr style="height: 45px">
+                <td colspan="3"></td>
+                <td>总金额：</td>
+                <td><strong style="color: red;">
+                {{orders.totgoodsmoney | currency:"￥"}}</strong>
+                </td>
+                <td></td>
+            </tr>
+            <tr style="height: 45px">
+                <td colspan="3"></td>
+                <td>待付金额：</td>
+                <td><strong style="color: red;">
+                {{orders.paymoney | currency:"￥"}}</strong>
+                </td>
+                <td></td>
+            </tr>
+            </tfoot>
+        </table>
+        
+        <div class="col-md-12 column">
+			 <form class="form-horizontal h_changewarehouseForm" role="form">
+			    <div class="form-group">
+			        <label class="col-sm-2 control-label" style="text-align: left;">
+			            备注信息：{{orders.remark}}
+			        </label>
+			    </div>
+   			    <div class="form-group">
+			        <label class="col-sm-2 control-label" style="text-align: left;">
+			            发货日期：{{orders.deliverydate | limitTo:10}}
+			        </label>
+			    </div>
+			    <div class="form-group">
+			        <label class="col-sm-8 control-label" style="text-align: left;">
+			            收货信息：
+			            <span>
+					                收货人:{{orders.orderaddress.contactname}}&nbsp;
+					                省份:{{orders.orderaddress.provincename}}
+					                城市:{{orders.orderaddress.cityname}}
+					                县区:{{orders.orderaddress.areaname}}
+					                地址:{{orders.orderaddress.address}}&nbsp;
+					                手机:{{orders.orderaddress.mobile}}&nbsp;
+					                固话:{{orders.orderaddress.phone}}
+					     </span>
+			        </label>
+			    </div>
+			    <!-- <div class="form-group">
+			        <label class="col-sm-12 control-label" style="text-align: left">
+			            展开日志
+				        <span class="glyphicon" ng-class="vm.collapsed?'glyphicon-chevron-down':'glyphicon-chevron-up'"
+	            		ng-click="vm.collapsed = !vm.collapsed; searchlog()">
+	            		</span>
+	            		
+	            		<div class="panel-collapse collapse" ng-class="{in: vm.collapsed}">
+						    <div>
+						     	<div ng-include=" 'tpls/orders_log_grid.html' "></div>
+						    </div>
+						</div>
+			        </label>
+			    </div> -->
+			    
+			    <div class="form-group">
+			        <label class="col-sm-12 control-label" style="text-align: left">
+			            订单支付流水
+				        <span class="glyphicon" ng-class="vm.collapsed?'glyphicon-chevron-down':'glyphicon-chevron-up'"
+	            		ng-click="vm.collapsed = !vm.collapsed; getPaymentflow()">
+	            		</span>
+	            		
+	            		<div class="panel-collapse collapse" ng-class="{in: vm.collapsed}">
+						    <div>
+						     	<div ng-include="'tpls/orders_paymentflow_grid.html'"></div>
+						    </div>
+						</div>
+			        </label>
+			    </div>
+			    
+			</form>
+	    </div>
+	    
+	    <div class="col-md-6 column">
+			    <button type="button" class="btn btn-primary btn-lg" ui-sref="entry">
+			 <span class="glyphicon glyphicon-share-alt"></span>   
+			    返回</button>
+		</div> 
+        
+    </div>

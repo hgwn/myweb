@@ -1,0 +1,38 @@
+/*example:  <span class="msicon settlementtype"></span>*/
+.msicon{padding-left: 22px;height: 20px;  display: inline-block;background-size: contain;vertical-align: middle;    position: relative;
+    top: -2px;}
+.insurancevalue{background:url(img/insurancevalue.png) no-repeat center left ;}
+.insurancemoney{background:url(img/insurancemoney2.png) no-repeat center left ;}
+.remark{background:url(img/remark2.png) no-repeat center left ;}
+.loadstation{background:url(img/loadstation2.png) no-repeat center left ;}
+.createdbilldate{background:url(img/createdbilldate2.png) no-repeat center left ;}
+.unloadstation{background:url(img/unloadstation.png) no-repeat center left ;}
+.enterprise{background:url(img/enterprise.png) no-repeat center left ;}
+.linkerphone{background:url(img/linkerphone.png) no-repeat center left ;}
+.sendaddress{background:url(img/sendaddress.png) no-repeat center left ;}
+.recvcompany{background:url(img/recvcompany2.png) no-repeat center left ;}
+.recvaddress{background:url(img/recvaddress.png) no-repeat center left ;}
+.transporttype{background:url(img/transporttype.png) no-repeat center left ;}
+.consignmenttype{background:url(img/consignmenttype.png) no-repeat center left ;}
+.timeline{background:url(img/timeline.png) no-repeat center left ;}
+.price{background:url(img/price.png) no-repeat center left ;}
+.remark{background:url(img/remark.png) no-repeat center left ;}
+.extraCharge{background:url(img/extraCharge.png) no-repeat center left ;}
+.extraChargeOut{background:url(img/extraChargeOut.png) no-repeat center left ;}
+.codmoney{background:url(img/codmoney.png) no-repeat center left ;}
+.settlementtype{background:url(img/"settlementtype".png) no-repeat center left ;}
+
+.curPrice{background:url(img/curPrice.png) no-repeat center left ;}
+.btn-warning .curPrice,.btn-primary .curPrice{ background-image:url(img/curPrice_w.png);}
+
+.settlementtype{background:url(img/settlementtype.png) no-repeat center left ;}
+.goodsfetchnum{background:url(img/goodsfetchnum.png) no-repeat center left ;}
+.staff{background:url(img/staff.png) no-repeat center left ;}
+.vehicleid{background:url(img/vehicleid.png) no-repeat center left ;}
+.totgoodsqty{background:url(img/totgoodsqty.png) no-repeat center left ;}
+.station{background:url(img/station.png) no-repeat center left ;}
+.gantanhao{background:url(img/iconfont-gantanhao.png) no-repeat center left ;   background-size: contain;}
+.settlementtype{background:url(img/settlementtype.png) no-repeat center left ;}
+.settlementtype{background:url(img/settlementtype.png) no-repeat center left ;}
+.settlementtype{background:url(img/settlementtype.png) no-repeat center left ;}
+.settlementtype{background:url(img/settlementtype.png) no-repeat center left ;}

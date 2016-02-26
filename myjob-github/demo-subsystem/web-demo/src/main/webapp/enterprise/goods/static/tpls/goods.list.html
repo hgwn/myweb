@@ -1,0 +1,88 @@
+	<div class="container-fluid" ng-controller="goodslistController">
+		<div class="h_goodsQuery">
+		<div class="row"><div class="col-md-12 col-xs-12"><h3 class="h-prod-title">商品管理</h3></div></div>
+		<div class="row">
+			<!-- 搜索框 start -->
+			<div class="col-md-12 col-xs-12">
+				<form class="form-inline" id="prod-form">
+					<div class="form-group col-md-3">
+						<label class="color666">商品分类:</label>
+						<select class="form-control" ng-model="formData.companygoodsclassifyid">
+							<option value="" style="color:#c2c2c2;">---请选择---</option>
+							<option ng-repeat="item in goodsClass"
+								value="{{item.companygoodsclassifyid}}">{{item.companygoodsclassifyname}}</option>
+						</select>
+					</div>
+					<div class="form-group col-md-3">
+						<label class="color666">商品名称:</label>
+						<input type="text" class="form-control" placeholder="搜索商品名称"   ng-model="formData.goodsname"/>
+					</div>
+					<div class="form-group col-md-3">
+						<label class="color666">条形码:</label>
+						<input type="text" class="form-control" placeholder="搜索条形码" ng-model="formData.barcode"/>
+					</div>
+					<button class="btn btn-default" ng-click="queryGoods()"><span class="glyphicon glyphicon-search"></span>&nbsp;查询</button>
+				</form>
+			</div>
+			<!-- 搜索框 end -->
+			<!-- 排序 start -->
+			<div class="col-md-12 col-xs-12 h-margin10">
+			    <div class="btn-group"> 
+					<button class="btn btn-default" ng-click="goodsDefaultSort()" type="button">默认排序</button> 
+					<button class="btn btn-default" ng-click="shopPriceSort()" type="button">售价<span id="shopPriceSortClassId"></span></button>
+					<button class="btn btn-default" ng-click="creatTimeSort()" type="button">上架时间<span id="creatTimeSortClassId"></span></button> 
+			    </div>
+	  		</div>
+	  		<!-- 排序 end -->
+		</div>
+		</div>
+		<!-- 商品展示 start -->
+		<!-- <div class="h-productShow" render-finished="productShow" ng-class="{true: 'isnoquery', false: 'innoquery'}[isActive]"> -->
+		<div class="h-productShow">
+			<div id="h-item-title" class="clearfix">
+				<div class="h-item-list-5 h-fl">序号</div>
+				<div class="h-item-list-25 h-fl">商品描述</div>
+				<div class="h-item-list-12 h-fl">商品名称</div>
+				<div class="h-item-list-10 h-fl">售价</div>
+				<div class="h-item-list-10 h-fl">条形码</div>
+				<div class="h-item-list-12 h-fl">分类</div>
+				<div class="h-item-list-12 h-fl">上架时间</div>
+				<div class="h-item-list-14 h-fl operation">操作</div>
+			</div>
+			<!-- h-productWrap start -->
+			<div id="h-productWrap">
+				<ul class="h-product-ul clearfix">
+					<li ng-repeat="item in goodslist.data.rows">
+						<div class="h-item-list-5 h-fl" ng-bind="$index+1">1</div>
+						<div class="h-item-list-25 h-fl clearfix">
+							<a href="#" class="h-product-name h-block h-fl">
+								<img src={{item.goodspicture[0].pictureurl}}>
+								<p>&nbsp;{{item.description}}</p>
+							</a>
+						</div>
+						<div class="h-item-list-12 h-fl">&nbsp;{{item.goodsname}}</div>
+						<div class="h-item-list-10 h-fl">&nbsp;{{item.shopprice}}</div>
+						<div class="h-item-list-10 h-fl">&nbsp;{{item.barcode}}</div>
+						<div class="h-item-list-12 h-fl">&nbsp;{{item.companygoodsclassifyname}}</div>
+						<div class="h-item-list-12 h-fl">{{item.createdtime}}</div>
+						<div class="h-item-list-14 h-fl">
+							<a  href="#" ui-sref="edit" title="编辑商品"  ng-click="editGoods(item)" class="blue-txt" ><span class="glyphicon  glyphicon-pencil blue"></span></a>
+							<a  href="#" class="red-txt" title="删除商品" ng-click="delGoods(item)"><span class="glyphicon  glyphicon-trash red"></span></a>
+						</div>
+					</li>
+
+				</ul>
+				<!-- 分页start -->
+								
+				 <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" style="height: 40px; padding-top:8px;">
+		            <pagination recordcount="{{goodslist.data.total}}" pagenum="formData.pagenum" pagesize="formData.pagesize" onselect="queryGoods()"></pagination>
+		        </nav> 
+				
+				<!-- 分页 end -->
+			</div>
+			<!--h-productWrap end  -->
+		</div>
+		<!-- 商品展示 end -->
+		
+		
+	</div>

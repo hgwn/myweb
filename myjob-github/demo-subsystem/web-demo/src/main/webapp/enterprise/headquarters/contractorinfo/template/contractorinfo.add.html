@@ -1,0 +1,159 @@
+<div class="container well well-lg"	>
+   	<div class="row clearfix">
+		<div class="column col-md-12"  style="margin-top:10px;">
+			<form class="form-horizontal" role="form">
+			    <div class="form-group">
+			        <label class="col-md-2 col-sm-2 control-label">
+			            <span style="padding-right:35px;font-size:23px;">基本资料</span>
+			        </label>
+			        <div class="col-md-10 col-sm-10">
+			        </div>
+			    </div>
+   				<div class="form-group">
+				    <label for="" class="col-md-2 col-sm-2 control-label">经销商关系类型</label>
+					<div class="col-md-6 col-sm-6">
+   						<span class="nullable">
+							<select name="cooperanttypeid" style="" class="form-control" ng-model="formData.cooperanttypeid" ng-options="item.cooperanttypeid as item.cooperanttypename for item in formData.cooperanttypeList">
+							    
+							</select>
+					    </span>	
+					</div>
+				</div>	
+				<div class="form-group">
+				    <label for="" class="col-md-2 col-sm-2 control-label">经销商名称</label>
+					<div class="col-md-6 col-sm-6">
+					    <input class="form-control" style="display:inline;" name="" id="" ng-model="formData.subcompanyname" type="text" placeholder="请输入经销商名称"/>
+					</div>
+				</div>	
+				<div class="form-group">
+				    <label for="" class="col-md-2 col-sm-2 control-label">经销商级别</label>
+					<div class="col-md-6 col-sm-6">
+						<span class="nullable">
+							<select name="addressgroupid" style="" class="form-control" ng-model="formData.addressgroupid" ng-options="item.addressgroupid as item.addressgroupname for item in addressgroupList">
+							    
+							</select>
+					    </span>					    
+					</div>
+					<div class="col-md-2 col-sm-2">
+					    <a class="btn btn-default btn-xs" style="margin-top:5px" ng-click="addressGroupConfigAdd()">新增级别</a>
+					</div>
+				</div>
+				<div class="form-group">
+				    <label for="" class="col-md-2 col-sm-2 control-label">电话</label>
+					<div class="col-md-2 col-sm-2">
+					    <input class="form-control" style="display:inline;" name="" id="" ng-model="formData.phone" type="text" placeholder="请输入电话"/>
+					</div>
+					<label for="" class="col-md-1 col-sm-1 control-label">传真</label>
+					<div class="col-md-2 col-sm-2">
+					    <input class="form-control" style="display:inline;" name="" id="" ng-model="formData.faxnumber" type="text" placeholder="请输入传真号"/>
+					</div>
+				</div>	
+				<div class="form-group">
+				    <label for="" class="col-md-2 col-sm-2 control-label">地址</label>
+					<div class="col-md-2 col-sm-2">
+						<span class="nullable">
+							<select name="provinceid" ng-change="getArea()" class="form-control" ng-model="formData.provinceid" 
+							ng-options="provinces.provinceid as provinces.provincename for provinces in provinceList">
+							    
+							</select>
+					    </span>					    
+					</div>
+					<div class="col-md-2 col-sm-2">
+						<span class="nullable">
+							<select name="cityid" ng-change="getDistrict()" class="form-control" ng-model="formData.cityid" 
+								ng-options="areas.cityid as areas.cityname for areas in areaList">
+							    
+							</select>
+					    </span>					    
+					</div>
+					<div class="col-md-2 col-sm-2">
+						<span class="nullable">
+							<select name="areaid" style="" class="form-control" ng-model="formData.areaid" 
+								ng-options="districts.areaid as districts.areaname for districts in districtList">
+							    
+							</select>
+					    </span>					    
+					</div>										
+				</div>
+				<div class="form-group">
+				    <label for="" class="col-md-2 col-sm-2 control-label"></label>
+					<div class="col-md-6 col-sm-6">
+					    <input class="form-control" style="display:inline;"  name="" id="" ng-model="formData.address" type="text" placeholder="请输入地址"/>
+					</div>
+				</div>	
+				<div class="form-group">
+				    <label for="" class="col-md-2 col-sm-2 control-label">联系人</label>
+					<div class="col-md-6 col-sm-6">
+					    <input class="form-control" style="display:inline;"  name="" id="" ng-model="formData.staffname" type="text" placeholder="请输入联系人"/>
+					</div>
+				</div>
+				<div class="form-group">
+				    <label for="" class="col-md-2 col-sm-2 control-label">手机</label>
+					<div class="col-md-6 col-sm-6">
+					    <input class="form-control" style="display:inline;"  name="" id="" ng-model="formData.mobilephone" type="text" placeholder="请输入手机"/>
+					</div>
+				</div>	
+				<div class="form-group">
+				    <label for="" class="col-md-2 col-sm-2 control-label">备注</label>
+					<div class="col-md-6 col-sm-6">
+					    <input class="form-control" style="display:inline;" name="" id="" ng-model="formData.remark" type="text" placeholder="请输入备注"/>
+					</div>
+				</div>
+				<div class="form-group">
+			        <label class="col-md-2 col-sm-2 control-label">
+			            <span style="padding-right:35px;font-size:23px;">账号信息</span>
+			        </label>
+			        <div class="col-md-10 col-sm-10">
+			        </div>
+			    </div>
+				<div class="form-group">
+				    <label for="" class="col-md-2 col-sm-2 control-label">账号</label>
+					<div class="col-md-6 col-sm-6">
+					    <input class="form-control" style="display:inline;" name="" id="" ng-model="formData.loginname" type="text" placeholder="请输入账号"/>
+					</div>
+				</div>	
+				<div class="form-group">
+				    <label for="" class="col-md-2 col-sm-2 control-label">密码</label>
+					<div class="col-md-6 col-sm-6">
+					    <input class="form-control" style="display:inline;" name="" id="" ng-model="formData.loginpwd" type="password" placeholder="请输入密码"/>
+					</div>
+				</div>	
+				<div class="form-group">
+				    <label for="" class="col-md-2 col-sm-2 control-label">确认密码</label>
+					<div class="col-md-6 col-sm-6">
+					    <input class="form-control" style="display:inline;" name="" id="" ng-model="formData.loginpwd2" type="password" placeholder="请输入密码"/>
+					</div>
+				</div>	
+				<div class="form-group">
+				    <label for="" class="col-md-2 col-sm-2 control-label"></label>
+					<div class="col-md-6 col-sm-6">
+					    <input name="message" type="checkbox" style="display:inline;" ng-model="formData.sendmsgflag" />
+					    发送订货帐号短信
+					</div>
+				</div>	
+				<div class="form-group" style="margin-top:10px;">
+				    <label for="" class="col-md-4 col-sm-4 control-label"></label>
+					<div class="col-md-1 col-sm-1">
+					    <Button class="btn btn-primary" style="width:100%;background-color:#1596ad !important;border-color:#1596ad;border-radius:0px;" ng-click="add()">
+					        保存
+					    </Button>
+					</div>
+					<div class="col-md-1 col-sm-1">
+					    <Button class="btn btn-default" style="width:100%;background-color:#E4E9EB !important;border-color:#E4E9EB;border-radius:0px;" ng-click="cancelAdd()">
+					        取消
+					    </Button>
+					</div>
+					<label for="" class="col-md-2 col-sm-2 control-label"></label>
+				</div>																				
+			</form>
+		</div>
+		<!-- 分组级别添加模态窗口 -->
+		<div ui-view="addressGroupConfigViewModal"></div>
+	</div>
+</div>
+<style type="text/css">
+.well{
+    padding-left:20px;
+    padding-right:20px;
+}
+</style>

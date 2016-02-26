@@ -1,0 +1,8 @@
+<a role="menuitem" tabindex="-1" class="list-group-item" title="{{node.text}}" ng-click="stationChanged(node);" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+    <span class="indent" repeat-times="{{node.level}}">&nbsp;&nbsp;&nbsp;</span>
+    {{node.text}}
+    <span ng-if="searchStationId == node.id" class="glyphicon glyphicon-ok pull-right"></span>
+    </a>
+<div class="stationItem" role="presentation"
+     ng-repeat="node in node.children" ng-include="'base/workflow/tpls/stationsListRender.html'">
+</div>

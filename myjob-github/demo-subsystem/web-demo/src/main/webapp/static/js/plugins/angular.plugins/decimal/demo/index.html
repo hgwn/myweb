@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/angular.min.js"></script>
+    <script src="../decimal.js"></script>
+    <script src="controller.js"></script>
+</head>
+<body ng-controller="decimalController">
+   	<input type="text" ng-model="text1" decimal>-->可输入<br>
+   	<input type="text" ng-model="text2" ng-disabled="true" decimal>-->不可用<br>
+   	<input type="text" ng-model="text3" ng-readonly="true" decimal>-->只可读<br>
+   	<input type="text" ng-model="text4" decimal precision="1">-->可输入(保留1位小数)<br>
+   	<input type="text" ng-model="text5" decimal precision="3">-->可输入(保留3位小数)<br>
+   	<!--decimal 小数指令--必填项-->
+   	<!--precision 精度值--可选项，默认为2-->
+</body>
+</html>

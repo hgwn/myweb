@@ -1,0 +1,35 @@
+<form class="form-inline" style="padding-left: 150px;" name="callForm">
+	<div class="col-md-12 clearfix" style="margin-bottom:10px;"> 
+		<div class="col-sm-1 text-right" style="padding: 5px 0px 0px 0px;">
+			<label>method ：</label>
+		</div>
+		<div class="col-sm-8 text-left" style="padding: 0px;">
+			<input type="text" name="method" ng-model="formData.method" required="required" placeholder="输入method" class="form-control input-sm" style="width: 100%">					
+		</div>
+	</div>
+	<div class="col-md-12 clearfix" style="margin-bottom:10px;"> 
+		<div class="col-sm-1 text-right" style="padding: 5px 0px 0px 0px;">
+			<label>data：</label>
+		</div>
+		<div class="col-sm-8 text-left" style="padding: 0px;">
+			<textarea name="data" ng-model="formData.data" required="required" placeholder="输入data" class="form-control input-sm" style="width: 100%;height: 100px;"></textarea>
+		</div>
+	</div>
+	<div class="col-md-12 clearfix" style="margin-bottom:10px;"> 
+		<div class="col-sm-1 text-right" style="padding: 5px 0px 0px 0px;"></div>
+		<div class="col-sm-4 text-left" style="padding: 5px 0px 0px 0px;background-color: red1">
+			<button type="reset" class="btn btn-warning btn-sm" style="width: 100px">清空</button>
+		</div>
+		<div class="col-sm-4 text-right" style="padding: 5px 0px 0px 0px;background-color: red1">
+			<button type="submit" class="btn btn-success btn-sm" style="width: 100px" ng-click="callApi(callForm)">提交</button>
+		</div>
+	</div>
+	<div class="col-md-12 clearfix" style="margin-bottom:10px;"> 
+		<div class="col-sm-1 text-right" style="padding: 5px 0px 0px 0px;">
+			<label>result：</label>
+		</div>
+		<div class="col-sm-8 text-left" style="padding: 0px;">
+			<textarea name="result" ng-model="formData.result" class="form-control input-sm" style="width: 100%;height: 300px;background-color: white;cursor: text;" readonly="readonly"></textarea>
+		</div>
+	</div>
+</form>			

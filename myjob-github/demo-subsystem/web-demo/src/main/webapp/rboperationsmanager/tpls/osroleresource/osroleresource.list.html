@@ -1,0 +1,54 @@
+<div class="col-sm-12 column"  style="padding: 0px;margin: 0px">
+    <!--start form  -->
+    <form class="form-horizontal h_tunnelmanagerForm" role="form">
+        <div class="row">
+            <div class="col-sm-10">
+                <div class="form-group">
+                    <label class=" col-sm-2 control-label h_mb5">
+                        系统环境
+                    </label>
+                    <div class=" col-sm-4 h_mb5">
+                        <select class="form-control input-sm" ng-model="queryDataForm.osenvirnmentid" ng-options="item.osenvirnmentid as item.osenvinrment for item in osenvinrmentFormData">
+                            <option value="">--请选择--</option>
+                        </select>
+                    </div>
+                    <label class=" col-sm-2 control-label">
+                        公司类型
+                    </label>
+                    <div class=" col-sm-4  h_mb5">
+                        <select class="form-control input-sm" ng-model="queryDataForm.companytypeid" ng-options="item.companytypeid as item.companytypename for item in companytypeFormData">
+                            <option value="">--请选择--</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class=" col-sm-2 control-label h_mb5">
+                        角色
+                    </label>
+                    <div class="col-sm-4  h_mb5">
+                        <select class="form-control input-sm" ng-model="queryDataForm.roletypeid" ng-options="item.roletypeid as item.roletypename for item in roletypeFormData">
+                            <option value="">--请选择--</option>
+                        </select>
+                    </div>
+                    <label class=" col-sm-2  control-label h_mb5">
+                        菜单名称
+                    </label>
+                    <div class=" col-sm-4 h_mb5">
+                        <input type="text" class="form-control input-sm" ng-model="queryDataForm.resourcename"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <button id="btn_search" type="button" style="max-width:80px;" class="btn btn-info btn-block btn-sm" ng-click="querySource()"><span class="glyphicon glyphicon-search"></span>&nbsp;查 询</button>
+            </div>
+        </div>
+
+    </form>
+    <!--end form  -->
+    <!--start table-responsive-->
+    <div ui-grid="gridOptions" ui-grid-pagination ui-grid-resize-columns  class="grid" ></div>
+    <!--end table-responsive-->
+    <div class="col-sm-12 column" ui-view="edit"></div>
+</div>
+
+

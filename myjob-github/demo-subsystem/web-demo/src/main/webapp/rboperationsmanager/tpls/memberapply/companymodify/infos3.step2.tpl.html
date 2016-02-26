@@ -1,0 +1,137 @@
+
+<div class="col-sm-12">
+	<!-- start 左边第一个form name=serviceForm21-->
+		<div class="col-sm-6">
+			<form class="form-horizontal" name="serviceForm21" novalidate>
+			<div class="form-group">
+				<div class="checkbox control-label col-sm-5">
+					<label>
+						<input ng-checked="formData.pbankaccountFlag" ng-click="step2Checkbox();" type="checkbox">
+						<span class="lbl">企业账号，开户名称</span>
+					</label>
+				</div>
+
+				<div class="col-sm-7">
+					<input type="text"  class="form-control" ng-class="{haserror:serviceForm21.paccountname.$invalid&&formData.pbankaccountFlag}" ng-disabled="!formData.pbankaccountFlag" ng-model="formData.paccountname" name="paccountname" required />
+					<div class="ng-messages-error" ng-messages="serviceForm21.paccountname.$error" ng-show="serviceForm21.paccountname.$invalid&&formData.pbankaccountFlag" >
+						<span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-5 control-label">公司银行帐号</label>
+				<div class="col-sm-7">
+					<input type="text"  class="form-control" ng-class="{haserror:serviceForm21.pbankaccount.$invalid&&formData.pbankaccountFlag}" ng-model="formData.pbankaccount" name="pbankaccount" ng-disabled="!formData.pbankaccountFlag" ng-pattern="/^[0-9]*$/" ng-keypress="validateNumber($event);" required/>
+					<div class="ng-messages-error" ng-messages="serviceForm21.pbankaccount.$error" ng-show="serviceForm21.pbankaccount.$invalid&&formData.pbankaccountFlag">
+						<span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+						<span ng-message="pattern"><span class="glyphicon glyphicon-exclamation-sign"></span>请输入数字!</span>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-5 control-label">确认公司银行帐号</label>
+				<div class="col-sm-7">
+					<input type="text"  class="form-control" ng-class="{haserror:serviceForm21.pbankaccount2.$invalid&&formData.pbankaccountFlag}" ng-model="formData.pbankaccount2" name="pbankaccount2" ng-disabled="!formData.pbankaccountFlag" ng-pattern="/^[0-9]*$/" ng-keypress="validateNumber($event);" required/>
+					<div class="ng-messages-error" ng-messages="serviceForm21.pbankaccount2.$error" ng-show="serviceForm21.pbankaccount2.$invalid&&formData.pbankaccountFlag">
+						<span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+						<span ng-message="pattern"><span class="glyphicon glyphicon-exclamation-sign"></span>请输入数字!</span>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-5 control-label">开户银行</label>
+				<div class="col-sm-7">
+					<input type="text"  class="form-control" ng-class="{haserror:serviceForm21.pbank.$invalid&&formData.pbankaccountFlag}" ng-model="formData.pbank" name="pbank" ng-disabled="!formData.pbankaccountFlag" required/>
+					<div class="ng-messages-error" ng-messages="serviceForm21.pbank.$error" ng-show="serviceForm21.pbank.$invalid&&formData.pbankaccountFlag">
+						<span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-5 control-label">联行号</label>
+				<div class="col-sm-7">
+					<input type="text" ng-model="formData.pbankcode" name="pbankcode" class="form-control" ng-class="{haserror:serviceForm21.pbankcode.$invalid&&formData.pbankaccountFlag}" ng-disabled="!formData.pbankaccountFlag"  required/>
+					<div class="ng-messages-error" ng-messages="serviceForm21.pbankcode.$error" ng-show="serviceForm21.pbankcode.$invalid&&formData.pbankaccountFlag">
+						<span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+					</div>
+				</div>
+			</div>
+			</form>
+		</div>
+	<!-- end 左边第一个form-->
+	<!-- start 右边边第二个form name=serviceForm22-->
+		<div class="col-sm-6">
+			<form class="form-horizontal" name="serviceForm22" novalidate>
+			<div class="form-group">
+				<div class="checkbox control-label col-sm-5">
+					<label>
+						<input type="checkbox" ng-checked="formData.bankaccountFlag" ng-click="bankaccountFlag();"/>
+						<span class="lbl">个人账号，开户名称</span>
+					</label>
+				</div>
+
+				<div class="col-sm-7">
+					<input type="text" class="form-control" ng-model="formData.accountname" name="accountname" ng-disabled="!formData.bankaccountFlag" ng-class="{haserror:serviceForm22.accountname.$invalid&&formData.bankaccountFlag}" required/>
+					<div class="ng-messages-error" ng-messages="serviceForm22.accountname.$error" ng-show="serviceForm22.accountname.$invalid&&formData.bankaccountFlag" >
+						<span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-5 control-label no-padding-right">个人银行帐号</label>
+				<div class="col-sm-7">
+					<input type="text"  class="form-control" ng-class="{haserror:serviceForm22.bankaccount.$invalid&&formData.bankaccountFlag}" ng-model="formData.bankaccount" name="bankaccount" ng-disabled="!formData.bankaccountFlag" ng-keypress="validateNumber($event);"  ng-pattern="/^[0-9]*$/"  required />
+					<div class="ng-messages-error" ng-messages="serviceForm22.bankaccount.$error" ng-show="serviceForm22.bankaccount.$invalid&&formData.bankaccountFlag" >
+						<span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+						<span ng-message="pattern"><span class="glyphicon glyphicon-exclamation-sign"></span>请输入数字!</span>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-5 control-label">确认个人银行帐号</label>
+				<div class="col-sm-7">
+					<input type="text"  class="form-control" ng-class="{haserror:serviceForm22.bankaccount2.$invalid&&formData.bankaccountFlag}" name="bankaccount2" ng-model="formData.bankaccount2" ng-disabled="!formData.bankaccountFlag" ng-keypress="validateNumber($event);"  ng-pattern="/^[0-9]*$/" required/>
+					<div class="ng-messages-error" ng-messages="serviceForm22.bankaccount2.$error" ng-show="serviceForm22.bankaccount2.$invalid&&formData.bankaccountFlag" >
+						<span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+						<span ng-message="pattern"><span class="glyphicon glyphicon-exclamation-sign"></span>请输入数字!</span>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-5 control-label">开户银行</label>
+				<div class="col-sm-7">
+					<input type="text"  class="form-control" ng-class="{haserror:serviceForm22.bank.$invalid&&formData.bankaccountFlag}" ng-model="formData.bank" name="bank" ng-disabled="!formData.bankaccountFlag" required/>
+					<div class="ng-messages-error" ng-messages="serviceForm22.bank.$error" ng-show="serviceForm22.bank.$invalid&&formData.bankaccountFlag" >
+						<span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-5 control-label">联行号</label>
+				<div class="col-sm-7">
+					<input type="text"  class="form-control" ng-class="{haserror:serviceForm22.bankcode.$invalid&&formData.bankaccountFlag}"  ng-model="formData.bankcode" name="bankcode" ng-disabled="!formData.bankaccountFlag"  required/>
+					<div class="ng-messages-error" ng-messages="serviceForm22.bankcode.$error" ng-show="serviceForm22.bankcode.$invalid&&formData.bankaccountFlag" >
+						<span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-5 control-label">身份证号码</label>
+				<div class="col-sm-7">
+					<input type="text"  class="form-control" ng-class="{haserror:serviceForm22.idcardno.$invalid&&formData.bankaccountFlag}" ng-model="formData.idcardno" name="idcardno" ng-disabled="!formData.bankaccountFlag" required/>
+					<div class="ng-messages-error" ng-messages="serviceForm22.idcardno.$error" ng-show="serviceForm22.idcardno.$invalid&&formData.bankaccountFlag" >
+						<span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+					</div>
+				</div>
+			</div>
+			</form>
+		</div>
+	<!-- end 右边边第二个form-->
+	<!--serviceForm21:{{serviceForm21.$invalid}}<br>
+	serviceForm22:{{serviceForm22.$invalid}}<br>
+		<input type="hidden" id="formDatainvalid21" value="{{serviceForm21.$invalid}}">
+		<input type="hidden" id="formDatainvalid22" value="{{serviceForm22.$invalid}}">-->
+</div>
+
+
+

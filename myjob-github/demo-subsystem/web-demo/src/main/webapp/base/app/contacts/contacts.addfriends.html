@@ -1,0 +1,30 @@
+
+<div class="clearfix" style="height:100%;overflow: auto;position: relative;" on-finish-render-filters="groupPanel" ng-scrollbar scrollbar-x="false" scrollbar-y="true" scrollbar-config="{autoResize:true,show:true}">
+    <div id="groupPanel" style="margin-top:0px;padding:3px 50px;">
+        <div class= "masget-divider">
+        </div>
+        <div class="help-block" style="height: 20px;text-align: center;">
+            <h3>{{items.commercialcirclename}}</h3>
+            <button class="btn btn-default masget-btn-default btn-sm pull-right" style="margin:-56px 20px 5px 0;" ng-click="toggleGroup();">
+                折叠
+            </button>
+        </div>
+        <div class="masget-menu clearfix" ng-hide="groupPanel">
+            <div class="col-sm-6 col-md-2 " align="center">
+                <div class="thumbnail masget-icon">
+                    <div class="caption">
+                        <span>添加</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-2 " align="center" ng-repeat="item in items.group">
+                <div class="thumbnail masget-icon">
+                    <img src="{{item.imgUrl}}" alt="图片已失效" style="height: 70px;">
+                    <div class="caption">
+                        <span>{{item.name}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

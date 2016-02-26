@@ -1,0 +1,59 @@
+<div class="row"
+	style="padding: 0px;margin: 0px; padding-top: 10px;height: 100%;">
+		<!--start form  -->
+	<form class="form-horizontal" role="form">
+		<div class="form-group">
+			<label class="col-md-1 control-label"> 单号: </label>
+			<div class="col-md-2  col-sm-4">
+				<input ng-model="formData.warehouseoutnum" class="form-control"
+					type="text" style="border: solid 1px #D7D7D7;height: 30px" readonly />
+			</div>
+			<label class="col-md-1 control-label"> 出库类型: </label>
+			<div class=" col-md-2 col-sm-4 ">
+				<select class="form-control input-sm" ng-model="formData.sourceflag">
+					<option ng-repeat="item in sourceflags" value="{{item.id}}">{{item.value}}</option>
+				</select>
+			</div>
+<!-- 			<label class="col-md-1 control-label"> 出库日: </label>
+			<div class=" col-md-2 col-sm-4 ">
+				 <input  ng-model="formData.begincreatedtime"  data-date-format="yyyy-MM-dd" data-date-type="string" data-autoclose="1"  bs-datepicker placeholder=""  class="form-control" type="text" style="border: solid 1px #D7D7D7;height: 30px" readonly="readonly" />
+			</div>
+			<label class="col-md-1 control-label"> 制单人: </label>
+			<div class="col-md-2  col-sm-4">
+				<input ng-model="formData.createdby" class="form-control"
+					type="text" style="border: solid 1px #D7D7D7;height: 30px" />
+			</div> -->
+		</div>
+	</form>
+	<!--end form  -->
+	<!--start-->
+	<div id="grid" ui-grid="gridOption" ui-grid-cellNav  ui-grid-edit 
+		ui-grid-resize-columns  ui-grid-auto-resize
+		class="grid" style="margin-top:15px;height:100%;"></div>
+	<!--start-->
+	<form class="form-horizontal" role="form" style="margin-top: 15px;">
+		<div class="modal-footer">
+            <button type="button" class="btn btn-primary btn-sm" ng-click="onClickToAddWarehouseout()">
+               		 提交
+            </button>
+            <button type="button" class="btn btn-default"  ui-sref="warehouseout">
+               		取消
+            </button>
+        </div>
+	</form>
+	
+</div>
+<div class="col-md-12 column padding0px margin0px" >
+       <div  ui-view="select_goods"></div>
+</div>
+<div class="col-md-12 column padding0px margin0px" >
+       <div  ui-view="select_orders"></div>
+</div>
+<div class="col-md-12 column padding0px margin0px" >
+       <div  ui-view="select_serial"></div>
+</div>
+<div class="col-md-12 column padding0px margin0px" >
+       <div  ui-view="select_batchcode"></div>
+</div>
+
+

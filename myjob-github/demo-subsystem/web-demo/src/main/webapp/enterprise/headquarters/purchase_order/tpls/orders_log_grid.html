@@ -1,0 +1,25 @@
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr class="info">
+                <th>操作人</th>
+                <th>操作时间</th>
+                <th>操作日志</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in orderslog | orderBy:'createdtime':true">
+                <td style="text-align: center;">
+                {{item.createdname}}
+                <!-- {{orders.suppliername}} -->
+                </td>
+                <td style="text-align: center;">
+                {{item.createdtime}}
+                </td>
+                <td>
+                {{item.msginfo}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>

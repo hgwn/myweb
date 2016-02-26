@@ -1,0 +1,126 @@
+<!--start 模态框-->
+<div class="modal fade" id="companyinfoModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:700px">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true" title="关闭">
+                    &times;
+                </button>
+                <h4 class="modal-title">
+                    添加公司数据
+                </h4>
+            </div>
+            <form name="companyinfoForm" class="form-horizontal" role="form" data-ng-init="addloadData()"  novalidate>
+                <!--start modal-body  -->
+                <div class="modal-body">
+                    <!-- start row 主题内容-->
+                    <div class="row">
+                        <label class="col-md-2 control-label" style="  line-height: 90px;">图&nbsp;&nbsp;&nbsp;&nbsp;标</label>
+                        <div class="col-md-4">
+                            <ul id="goodsAdd-imgUl">
+                                <li class="goodsAdd-imgLi" ng-show="file">
+                                    <div class="goodsAdd-img">
+                                        <img src="{{editCompany.icon}}" >
+                                        <div class="goodsAdd-imgaction">
+                                            <a class="imgaction-item h-img-del" href="#" ng-click="deletePic(editCompany.icon)" style="margin-left:25px;">删除</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li title="该功能处于研发阶段" ng-disabled="true" style="  cursor: context-menu;" class="button goodsAdd-imgLi" ngf-select ng-model="files" ngf-accept="'image/*'"  ng-hide="file">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                    <em>单击上传图片</em>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class=" col-md-3 control-label">
+                                    公司名称
+                                </label>
+                                <div class=" col-md-9 ">
+                                    <input type="text" class="form-control input-sm" name="companyname"  placeholder="公司名称" ng-model="formData.companyname" ng-class="{haserror:companyinfoForm.companyname.$invalid&&formFlag}"  required />
+                                    <div class="ng-messages-error" ng-messages="companyinfoForm.companyname.$error" ng-show="companyinfoForm.companyname.$invalid&&formFlag" >
+                                        <span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>公司名称不能为空!</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class=" col-md-3 control-label">
+                                    公司类型
+                                </label>
+                                <div class=" col-md-9 ">
+                                    <select class="form-control input-sm" name="companytypeid" ng-model="formData.companytypeid" ng-options="item.companytypeid as item.companytypename for item in companytypeData" ng-class="{haserror:companyinfoForm.companytypeid.$invalid&&formFlag}" required>
+                                        <option value="">--请选择--</option>
+                                    </select>
+                                    <div class="ng-messages-error" ng-messages="companyinfoForm.companytypeid.$error" ng-show="companyinfoForm.companytypeid.$invalid&&formFlag" >
+                                        <span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>公司类型不能为空!</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:15px;">
+                        <label class=" col-md-2 control-label">
+                            电话号码
+                        </label>
+                        <div class=" col-md-4 ">
+                            <input type="text" class="form-control input-sm" name="phone"  placeholder="电话号码" ng-model="formData.phone" ng-class="{haserror:companyinfoForm.phone.$invalid&&formFlag}" ng-pattern="/^(0[0-9]{2,3}\-)?([0-9][0-9]{6,9})+(\-[0-9]{1,4})?$|(^(1([0-9][0-9]))\d{8}$)/" required/>
+                            <div class="ng-messages-error" ng-messages="companyinfoForm.phone.$error" ng-show="companyinfoForm.phone.$invalid&&formFlag" >
+                                <span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>电话号码不能为空!</span>
+                                <span ng-message="pattern"><span class="glyphicon glyphicon-exclamation-sign"></span>电话号码格式不对!</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class=" col-md-3 control-label">
+                                    传真号码
+                                </label>
+                                <div class=" col-md-9 ">
+                                    <input type="text" class="form-control input-sm" name="faxnumber"  placeholder="传真号码" ng-model="formData.faxnumber" ng-class="{haserror:companyinfoForm.faxnumber.$invalid&&formFlag}" ng-pattern="/^[+]{0,1}(\d){1,3}[ ]?([-]?((\d)|[ ]){1,12})+$/" required/>
+                                    <div class="ng-messages-error" ng-messages="companyinfoForm.faxnumber.$error" ng-show="companyinfoForm.faxnumber.$invalid&&formFlag" >
+                                        <span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>传真号码不能为空!</span>
+                                        <span ng-message="pattern"><span class="glyphicon glyphicon-exclamation-sign"></span>传真号码格式不对!</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                            <label class=" col-md-2 control-label">
+                                公司地址
+                            </label>
+                            <div class=" col-md-4">
+                                <input style="width: 100%"  select-address ng-model="formData.pca"  name="pca" pca-ids="formData.addressids" placeholder="点击选择地区" class="form-control input-sm " type="text" ng-class="{haserror:companyinfoForm.pca.$invalid&&formFlag}" required/>
+                                <div class="ng-messages-error" ng-messages="companyinfoForm.pca.$error" ng-show="companyinfoForm.pca.$invalid&&formFlag" >
+                                    <span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>公司地址不能为空!</span>
+                                </div>
+                            </div>
+                            <div class=" col-md-6">
+                                <input type="text" class="form-control input-sm" name="address"  placeholder="详细地址" ng-model="formData.address" ng-class="{haserror:companyinfoForm.address.$invalid&&formFlag}" required/>
+                                <div class="ng-messages-error" ng-messages="companyinfoForm.address.$error" ng-show="companyinfoForm.address.$invalid&&formFlag" >
+                                    <span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>详细地址不能为空!</span>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="row" style="margin-top: 15px;">
+                        <label class=" col-md-2 control-label">
+                            公司介绍
+                        </label>
+                        <div class=" col-md-10">
+                            <textarea rows="4"  ng-model="formData.introduction  " ng-change="checkText()" style="resize:none;width:100%;padding:10px;"></textarea>
+                        </div>
+                    </div>
+                    <!-- end row 主题内容-->
+                </div>
+                <!--end modal-body  -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-warning btn-sm"  ng-click="onClickToSave(companyinfoForm.$invalid)">保存</button>
+                    <button type="button" class="btn btn-default btn-sm" ng-click="onClickToCancel()">取消</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!--end 模态框-->

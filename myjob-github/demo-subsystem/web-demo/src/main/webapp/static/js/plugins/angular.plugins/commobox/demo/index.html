@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body ng-controller="commoboxController">
+	<form class="form-inline" name="myForm">
+	    <div class="container form-inline" style="width:100%;margin: 10px  0px">
+	    
+	        <commobox  name="station" ng-model="station" value-field="companyid" text-field="companyname" datas="datas"
+	                      on-change="query()"  key-word="keyWord" is-disabled="false" is-required="false" content-style="width:200px"
+	                      input-style="" input-height="30px" input-class="form-control" input-placeholder="请选择或输入"
+	                      has-link="true" link-text="新增客户" link-action="link()"></commobox>
+	                      
+	        <div style="padding: 10px">model值：{{station}}</div>
+	         <div style="padding: 10px">keyWord值：{{keyWord}}</div>
+	         
+	        <!--name 下拉选择框name属性--必填项-->
+	        <!--ng-model 下拉选择框ng-model属性--必填项-->
+	        <!--value-field 在下拉框选择某一项时绑定的真正的值--可选项，不写时ngModel绑定的值为选择的整个对象-->
+	        <!--text-field 当选择了某条记录时，将在文本框中显示记录中字段'text-field'所对应的值--必填项-->
+	        <!--datas 数据源--必填项-->
+	        <!--on-change input文本框改变时触发的方法--可选项，不填时不会触发方法-->
+	        <!--key-word 下拉选择框搜索关键字-->
+	        <!--is-disabled 标示下拉选择框是否可用--可选项，默认为可用-->
+	        <!--is-required 标示下拉选择框是否必填--可选项，默认为不必填-->
+	        <!--content-style--可选项,要设置文本框的长度时需要在这里设置才生效-->
+	        <!--input-style input文本框的style-->
+	        <!--input-height input文本框的高-->
+	        <!--input-class input文本框的class->
+	        <!--input-placeholder input文本框的提示信息--可选项，默认为'请选择'-->
+	        <!--has-link 标示是否显示链接--可选项，默认为不显示-->
+	        <!--link-text 链接显示文本--可选项，默认为'新增'-->
+	        <!--link-action 点击链接时触发的方法-->
+	        
+	    </div>
+	</form>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/angular.min.js"></script>
+<script src="../commobox.js"></script>
+<script src="controller.js"></script>
+</body>
+</html>

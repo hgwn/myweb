@@ -1,0 +1,130 @@
+<div style="width:100%;height: 100%;min-width:768px;max-height:1000px;margin-top:5px;padding:0 0;margin: 0 0;" on-finish-render-filters="home">
+    <div class="masget-titleBar">
+        <h1 style="margin:0;padding: 6px 50px;font-size: 22px;color: #E6ECF1;float:left;font-family: MicroSoft Yahei;">
+            <img src="static/img/base/login-img/logo.png" style="width: 59px;">
+            银联供应链综合服务平台
+        </h1>
+        <span style="position: absolute;color: white;font-weight: bold;top: 18px;">服务热线：400-888-2328</span>
+        <div id="accountInfo" style="cursor:pointer;position: absolute;color: #FFFFFF;font-weight: bold;padding:8px;right: 180px;font-size: 20px;" >
+            <span class="masget-circle" style="font-size: 18px;position: relative;">{{session.companyname}}</span>
+            <img style="width:40px;" src="{{baseIconPath+'stafficon.png'}}" style="position:relative;top:1px;"/>
+            <span class="glyphicon" ng-class="{true:'glyphicon-triangle-bottom',false:'glyphicon-triangle-left'}[showAccount]" style="font-size:12px;"></span>
+        </div>
+
+        <ul class="nav nav-pills nav-justified" style="width: 146px;position: absolute;height:100%;right:20px;padding: 0;">
+            <li id="switchStation" style="position: relative;padding: 9px 2px;top:-3px;">
+                <a class="material-design" style="padding:5px 10px;left:-10px;border-radius:3px;" wave-effect>
+                    <span class="icon icon-exchange"></span>
+                </a>
+            </li>
+            <li id="messagePopup" style="position: relative;padding: 9px 2px;left:-10px;">
+                <a  class="material-design" style="border-radius:3px;" wave-effect>
+                    <span ng-click="msgShow();" class="glyphicon glyphicon-comment"></span>
+                    <span ng-if="chatClient.isConnected()&&msgTotalNum == 0" class="firefoxHack glyphicon glyphicon-ok-sign" style="position: absolute;top:7px;right:12px;font-size:5px;color:green;"></span>
+                    <span ng-if="!chatClient.isConnected()" class="firefoxHack glyphicon glyphicon-remove-sign" style="position: absolute;top:7px;right:12px;font-size:5px;color:red;"></span>
+                    <span ng-if="chatClient.isConnected()&&msgTotalNum > 0"class="badge" style="position: absolute;top:5px;right:10px;">{{msgTotalNum}}</span>
+                </a>
+            </li>
+            <li id="fullScreen" style="position: relative;padding: 9px 2px;border-radius:3px;left:20px;">
+                <a class="material-design" style="border-radius:3px;" ng-click="fullScreen();" wave-effect>
+                    <span class="glyphicon glyphicon-fullscreen"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div id="leftbar" ng-show="resources.length>1" class="pull-left masget-leftbar">
+        <ul class="nav nav-pills nav-stacked">
+            <li ng-repeat="resource in resources" >
+                <a class="material-design" ng-mouseover="ngMouseover(resource)" ng-mouseleave="ngMouseleave(resource)" ng-click="changeTo($event,modulesNamesEnum[resource.o_resourceid])" id="leftbar_{{modulesNamesEnum[resource.o_resourceid]}}" data-trigger="hover" data-type="success" data-placement="right" data-html="true" data-title="<div style='width:50px;font-size:18px;'><span>{{resource.o_resourcename}}</span></div>" bs-tooltip wave-effect>
+                    <img style="width: 25px;height:25px;margin-top:-10px;" ng-src="{{resourceIconPath + resource.icon}}"/>
+                </a>
+            </li>
+            <!--
+                        <li class="active">
+                            <a class=".buzcircle-icon material-design" ng-click="changeTo($event,'buzcircle')" data-trigger="hover" data-type="success" data-placement="right" data-html="true" data-title="<div style='width:50px;font-size:18px;'><span>商圈</span></div>" bs-tooltip wave-effect>
+                            <span class="glyphicon glyphicon-globe"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class=".contacts-icon material-design" ng-click="changeTo($event,'contacts')" data-trigger="hover" data-type="success" data-placement="right" data-html="true" data-title="<div style='width:50px;font-size:18px;'><span>人脉</span></div>" bs-tooltip wave-effect>
+                                <span class="icon icon-group"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class=".find-icon material-design" ng-click="changeTo($event,'find')" data-trigger="hover" data-type="success" data-placement="right" data-html="true" data-title="<div style='width:50px;font-size:18px;'><span>探索</span></div>" bs-tooltip wave-effect>
+                                <span class="glyphicon glyphicon-screenshot"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class=".my-icon material-design" ng-click="changeTo($event,'my')" data-trigger="hover" data-type="success" data-placement="right" data-html="true" data-title="<div style='width:50px;font-size:18px;'><span>我的</span></div>" bs-tooltip wave-effect>
+                                <span class="glyphicon glyphicon-user"></span>
+                            </a>
+                        </li>
+            -->
+        </ul>
+    </div>
+    <div id="contentPanel" class="masget-contentPanel">
+        <div class="masget-buzcircle slide" style="display:block;">
+            <div ui-view="buzcircle"></div>
+            <span id="toggleLeftBarBtn_buzcircle" style=""
+                  class="masget-toggleLeftBarBtn glyphicon glyphicon-menu-left"></span>
+        </div>
+        <div class="masget-contacts slide" style="display:none;">
+            <div ui-view="contact"></div>
+            <!--<span id="toggleLeftBarBtn_contacts" style="margin-left:260px;" class="masget-toggleLeftBarBtn glyphicon glyphicon-menu-left"></span>-->
+        </div>
+        <div class="masget-find slide" style="display:none;width: 100%;">
+            <div ui-view="find"></div>
+            <!--<span class="masget-toggleLeftBarBtn glyphicon glyphicon-menu-left"></span>-->
+        </div>
+        <div class="masget-my slide" style="display:none;">
+            <div ui-view="my"></div>
+            <span id="toggleLeftBarBtn_my" style="margin-left:180px;"
+                  class="masget-toggleLeftBarBtn glyphicon glyphicon-menu-left"></span>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    var currentActiceModulePanel = $(".masget-buzcircle");
+    var currentActiceModuleName = "buzcircle";
+    var toggleStates = {buzcircle: false, contacts: false, find: false, my: false};
+    var chatShowed = false;
+    var chatOnline = false;
+
+    $(".masget-toggleLeftBarBtn").click(function () {
+        var $this = $(this);
+        var count = $(this).data("count");
+        var leftBarWidth = $("#leftbar").width();
+        if (count)
+            $(this).data("count", count + 1);
+        else
+            $(this).data("count", 1);
+        if ($this.data("count") % 2 == 1) {
+            $("#" + currentActiceModuleName + "LeftBar").animate({marginLeft: '-300px'}, "fast", function () {
+                $(this).css("display", "none");
+            });
+            $("#contentPanelInner_" + currentActiceModuleName).animate({width: (document.body.scrollWidth - leftBarWidth) + 'px', marginLeft: '0px'}, "fast");
+            $this.addClass("rotate180");
+            $this.animate({marginLeft: "0px"}, 'fast');
+            toggleStates[currentActiceModuleName] = true;
+        } else {
+            $("#contentPanelInner_" + currentActiceModuleName).animate({
+                width: currentActiceModuleName == "contacts" ? (document.body.scrollWidth - 260 - leftBarWidth) : (document.body.scrollWidth - 180 - leftBarWidth) + 'px',
+                marginLeft: currentActiceModuleName == "contacts" ? '260px' : '180px'
+            }, "fast");
+            $("#" + currentActiceModuleName + "LeftBar").css("display", "block");
+            $("#" + currentActiceModuleName + "LeftBar").animate({marginLeft: '0px'}, "fast");
+            $this.removeClass("rotate180");
+            if (currentActiceModuleName == "contacts") {
+                $this.animate({marginLeft: "260px"}, 'fast');
+            } else {
+                $this.animate({marginLeft: "180px"}, 'fast');
+            }
+            toggleStates[currentActiceModuleName] = false;
+        }
+    });
+
+    $(".masget-toggleLeftBarBtn").css("display", "none");
+
+</script>

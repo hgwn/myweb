@@ -1,0 +1,47 @@
+<div class="container well">
+	<div class="row clearfix" style="margin-bottom:50px">
+		<div class="col-md-12 column">
+			<div class="col-md-12 column" style="text-align:center;"><h3>付款</h3></div> 
+			<div class="col-md-12 column " style="background-color: #C6C6C6;border: 1px solid #6E6E6E;padding-left:0px;">
+				<div class="col-md-12 column marginTop10px marginBottom10px" style="font-size:14px;">
+                    <div style="display:inline;">订单号：{{paramsData.purchaseordernum}}</div> 
+                    <div style="display:inline;position: absolute;right: 0;">应付金额：<span style="color:red;font-size:18px;margin:0 3px;">{{paramsData.totgoodsmoney}}</span>元</div>
+				</div>
+			</div>
+			<form name="payForm">
+				<div class="col-md-12 column" style="padding:10px 5px;background-color: #C6C6C6;border-left: 1px solid #6E6E6E;border-right: 1px solid #6E6E6E">选择支付方式：</div>
+				<div class="col-md-12 column padding0px margin0px" style="border-top: 1px solid #6E6E6E;border-left: 1px solid #6E6E6E;border-right: 1px solid #6E6E6E;border-bottom: 1px solid #6E6E6E;">
+					<ul class="list-unstyled padding0px margin0px  marginTop10px marginBottom10px">
+						<li class="radio margin0px padding10px ">
+							<label  style="margin-left:5px;"><input type="radio" ng-model="paramsData.paymentType" name="paymentType" ng-value="1">POS机刷卡</label>
+						</li>
+					</ul>
+				</div>
+				<!-- <div class="col-md-12 column" style="padding:10px 5px;background-color: #C6C6C6;border-left: 1px solid #6E6E6E;border-right: 1px solid #6E6E6E;border-top: 1px solid #6E6E6E">信息通知：</div>
+				<div class="col-md-12 column padding0px margin0px borderBottom1px" style="border-top: 1px solid #6E6E6E;border-left: 1px solid #6E6E6E;border-right: 1px solid #6E6E6E">
+					<div class="col-md-12 column marginTop10px checkbox form-inline">
+						<label><input type="checkbox" ng-model="paramsData.isSmsWarn">短信提醒：</label>
+						<input type="text" name="phoneNum" ng-model="paramsData.phoneNum" required ng-pattern="/^1[0-9]{2}[0-9]{8}$/" ng-disabled="!paramsData.isSmsWarn" placeholder="输入手机号码" class="form-control input-sm" style="width: 200px">
+					</div>
+					<div class="col-md-12 column marginTop10px checkbox form-inline">
+						<label><input type="checkbox" ng-model="paramsData.isEmailWarn">邮件提醒：</label>
+						<input type="email" name="emailAddress" ng-model="paramsData.emailAddress" required ng-disabled="!paramsData.isEmailWarn" placeholder="输入邮箱地址" class="form-control input-sm" style="width: 200px">
+					</div>
+				</div> -->
+				<div class="col-md-12 column padding0px margin0px">
+					<div class="col-md-12 column marginTop10px textCenter">
+						<button type="button" class="btn btn-primary" ng-click="payPurchaseOrders()">确认支付</button>
+						<button type="button" class="btn btn-primary" ng-click="returnPurchaseOrders()">返回</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<style type="text/css">
+.well {
+	padding-left: 200px;
+	padding-right: 200px;
+	width: auto;
+}
+</style>

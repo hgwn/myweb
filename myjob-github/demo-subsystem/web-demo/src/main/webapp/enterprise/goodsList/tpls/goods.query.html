@@ -1,0 +1,21 @@
+<div class="col-md-12 column" ng-controller="GoodsListQueryController">
+    <div class="col-md-3" style="padding: 0px;padding-right: 3px;">
+        <input type="text" class="form-control"  ng-model="queryParams.goodsname" placeholder="按商品条码，商品名称，规格等查询" style="width: 100%">
+    </div>
+    <div  class="pull-left" style="margin-left: 12px;">
+        <button type="button" ng-click="onClickToQuery()" class="btn btn-default" >查询</button>
+    </div>
+    <div class="pull-left" style="margin-left: 10px;">
+        <button type="button" class="btn btn-default"  data-toggle="modal" ng-click="onBtnClickAddGoods()" data-backdrop="static">新增</button>
+        <button type="button" ng-click="deleteSelectedRows()" class="btn btn-default" >删除</button>
+        <!--<button type="submit" class="btn btn-default">禁用</button>-->
+        <!--<button type="submit" class="btn btn-default">启用</button>-->
+        <button type="button" class="btn btn-default" ui-sref="goodsImport" data-toggle="modal">导入</button>
+        <button type="button" class="btn btn-default" ng-click="onBtnClickexportGoods()">导出</button>
+        <!-- <a target="_blank" href="/masgetweb/enterprise/goods/export.do" >导出</a> -->
+        <!--<button type="submit" class="btn btn-default">删除</button>-->
+    </div>
+  
+
+</div>
+

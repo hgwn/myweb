@@ -1,0 +1,43 @@
+<div class="col-md-12 column" ng-controller="entWarehouseoutController" style="padding: 0px;margin: 0px" >
+   	<div class="col-md-12 column" style="padding-left: 0px;"> 
+    	<label class="col-md-1 control-label">
+                                       数据来源
+        </label>
+        <div class="col-md-2">
+            <select class="form-control input-sm" ng-model="queryParams.sourceflag" ng-options="o.id as o.value for o in sourceflags">
+                <option value="">--全部--</option>
+            </select>
+        </div>
+	    <label class="col-md-1 col-sm-1 control-label" for="">
+           	单号
+        </label>
+        <div class="col-md-2">
+        <input type="text" class="form-control  col-md-12" ng-model="queryParams.warehouseoutnum" style="height:30px;" placeholder="请输入单号"/>
+<!--         <input  ng-model="queryParams.begincreatedtime"  data-date-format="yyyy-MM-dd" data-container="body"  data-date-type="string" data-autoclose="1"  bs-datepicker placeholder="开单开始时间"  class="form-control" type="text" style="border: solid 1px #D7D7D7;height: 30px" />
+      -->
+        </div>
+      <!--  <label class="col-md-1 control-label">
+            	到
+        </label>
+        <div class="col-md-2" style="padding-left: 0px;">
+       <input  ng-model="queryParams.endcreatedtime" data-date-format="yyyy-MM-dd" data-container="body"  data-date-type="string" data-autoclose="1"  bs-datepicker  placeholder="开单结束时间" class="form-control" type="text" style="border: solid 1px #D7D7D7;height: 30px" />
+        </div> -->
+        
+	    <div  class="pull-left" style="margin-left: 12px;">
+	         <button id="btn_search" type="  " class="btn btn-primary btn-block btn-sm" ng-click="onClickToQuery()"><span class="glyphicon glyphicon-search"></span>&nbsp;查 询</button>
+	    </div>
+	    <div class="pull-left" style="margin-left: 10px;">
+	        <button id="btn_add" type="button" class="btn btn-primary btn-block btn-sm" ng-click="onBtnClickAdd()"><span class="glyphicon glyphicon-plus"></span>&nbsp;新增</button>
+	        <!-- <button type="button" ng-click="deleteSelectedRows()" class="btn btn-default" >删除</button> -->
+	    </div>   
+	</div>
+
+	<div class="col-md-12" style="margin-top: 20px;">
+	    <div ui-grid="WarehouseoutgridOptions" ui-grid-pagination class="grid" style="height: 550px;"></div>
+	</div>
+	
+	<div class="col-md-12 column padding0px margin0px">
+        <div ui-view="viewWarehouseout"></div>
+    </div>
+</div>	
+

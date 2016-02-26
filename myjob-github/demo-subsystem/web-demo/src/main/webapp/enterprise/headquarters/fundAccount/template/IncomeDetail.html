@@ -1,0 +1,45 @@
+<div class="col-md-12 column"  style="padding: 0;margin: 0px"  on-finish-render-filters="check">
+    <div ng-if="payFlag" class="col-md-12 column marginBottom10" style="min-height: 30px;line-height: 30px;font-size: 14px;padding-left: 0">
+        <span>经销商名称：<span style="font-size: 18px;">{{payData.objectname}}</span></span>
+        <span>余额总计:<span style="font-size: 22px;">{{payData.usablebalance}}</span>元</span>
+    </div>
+    <div class="col-md-12 column " style="padding-left: 0">
+        <form class="form-inline" id="arrivalCheck" name="arrivalCheck">
+            <div ng-if="!payFlag" class="col-sm-6 " style="margin-bottom: 10px;width: 260px;">
+                <label>经销商名称:</label>
+                <input type="text" name="objectname" ng-model="payModel.objectname"  placeholder="输入经销商名称" class="form-control input-sm" style="width: 150px;height: 31px;">
+            </div>
+            <div class="col-sm-6 " style="margin-bottom: 10px;width: 220px;">
+                <label>摘要:</label>
+                <select ng-model="payModel.watertype" class="form-control " style="width: 150px;  height: 30px;">
+                    <option value="">全部</option>
+                    <option value="1">提现</option>
+                    <option value="2">支付付款</option>
+                    <option value="3">转账付款</option>
+                    <option value="4">充值</option>
+                    <option value="5">支付收款</option>
+                    <option value="6">转账收款</option>
+                </select>
+            </div>
+            <div class="col-sm-6 " style="margin-bottom: 10px;  width: 330px;">
+                <label>时段选择:</label>
+                <input name="begincreatedtime" data-container="body"  type="text"  required class="form-control" data-max-date="{{payModel.endcreatedtime}}" ng-model="payModel.begincreatedtime" data-date-format="yyyy-MM-dd" data-date-type="string" data-autoclose="1"  bs-datepicker style="height:31px;  width: 100px;" >
+                <div ng-messages="arrivalCheck.begincreatedtime.$error" ng-show="arrivalCheck.begincreatedtime.$invalid&&arrivalCheck.submitted" class="ng-messages-error">
+                    <div ng-message="required">开始时间为必填项</div>
+                </div>
+                <label>至:</label>
+                <input name="endcreatedtime" data-container="body" type="text"  required class="form-control" data-min-date="{{payModel.begincreatedtime}}" ng-model="payModel.endcreatedtime" data-date-format="yyyy-MM-dd" data-date-type="string" data-autoclose="1"  bs-datepicker style="height:31px;  width: 100px;">
+                <div ng-messages="arrivalCheck.endcreatedtime.$error" ng-show="arrivalCheck.endcreatedtime.$invalid&&arrivalCheck.submitted" class="ng-messages-error">
+                    <div ng-message="required">结束时间为必填项</div>
+                </div>
+            </div>
+            <div class="col-sm-3 " style="margin-bottom: 10px;  width: 100px;">
+                <button type="button" class="btn btn-success btn-sm" style="width: 70px" ng-click="check()">查询</button>
+            </div>
+        </form>
+    </div>
+    <div ui-grid="gridOptions" ui-grid-pagination  ui-grid-resize-columns id="IncomeModel" class="grid" style="clear: both"></div>
+</div>
+<div  ng-if="payFlag" style="position: absolute;right:10px;top:10px">
+    <a  class="btn btn-success btn-sm"  ng-click="reset()" >返回</a>
+</div>

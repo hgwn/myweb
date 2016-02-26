@@ -1,0 +1,76 @@
+<!-- 模态窗口start -->
+<div class="modal fade" id="acceptPurchaseOrders" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="exampleModalLabel">采购单受理</h4>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid h_billingContent" style="background-color: white;">
+					<div class="row clearfix" style="margin-top:5px;">
+						<div class="col-md-12 col-xs-12"><strong style="font-size:15px;margin-left:15px;">收货人信息</strong></div>
+						<form class="form-inline">
+							<div class="col-md-12 col-xs-12 form-group">
+								<label><span style="color:black;">收货人:</span>&nbsp;&nbsp;</label><span style="text-decoration: underline">{{acceptDatas.contactname}}&nbsp;</span>
+								<label><span style="color:black;">联系电话:</span>&nbsp;&nbsp;</label><span style="text-decoration: underline">{{acceptDatas.mobile}}&nbsp;</span> 
+								<label><span style="color:black;">送货地址:</span>&nbsp;&nbsp;</label><span style="text-decoration: underline">{{acceptDatas.provincename}}{{acceptDatas.cityname}}{{acceptDatas.areaname}}{{acceptDatas.address}}&nbsp;</span>
+							</div>
+							<div class="col-md-12 col-xs-12 form-group">
+							    <label><span style="color:black;">备注:</span>&nbsp;&nbsp;</label><span style="text-decoration: underline">{{acceptDatas.remark}}&nbsp;</span> 
+							</div>
+							<div class="col-md-12 col-xs-12 form-group">
+    			                <label class="col-md-2" style="padding-top:5px;color:black;padding-right:9px;">
+				                                                              出货仓库:
+							    </label>
+						        <div class="col-md-4">
+								    <select ng-model="acceptDatas.warehouseid" required class="form-control" style="height: 31px">
+								       <option value="" class="" >--请选择--</option>
+								       <option ng-repeat="item in storehouses" value="{{item.stationid}}">{{item.stationname}}</option>
+							        </select>
+								</div>
+							</div>
+						</form>
+					</div>
+		            <table class="table table-striped text-center" >
+                        <caption style="" class="text-center">
+                            <strong style="font-size:20px;">采购明细</strong>  
+                        </caption>	                
+	                    <thead>
+	                        <tr style="border:1px solid #ccc;" >
+	                            <th style="text-align:center;">商品名</th>
+	                            <th style="text-align:center;">商品价格</th>
+	                            <th style="text-align:center;">商品规格</th>
+	                            <th style="text-align:center;">购买数量</th>
+	                            <th style="text-align:center;">金额小计</th>
+	                        </tr>
+	                    </thead>
+	                    <tbody>
+	                        <tr ng-repeat="items in acceptDatas.purchaseorderlist track by $index"  style="border:1px solid #ccc;">
+	                            <td style="color:#888;">{{items.goodsname}}</td>
+	                            <td style="color:#888;">{{items.dealingprice}}</td>
+	                            <td style="color:#888;">{{items.goodsspec}}</div></td>
+	                            <td style="color:#888;">{{items.goodsqty}}</td>
+	                            <td style="color:#888;">{{items.goodsmoney}}</td>
+	                        </tr>
+	                        <tr style="border:1px solid #ccc;">
+	                            <td style="color:#888;">合计</td>
+	                            <td style="color:#888;"></td>
+	                            <td style="color:#888;"></td>
+	                            <td style="color:#888;">{{acceptDatas.totgoodsqty}}</td>
+	                            <td style="color:#888;">{{acceptDatas.totgoodsmoney}}</td>
+	                        </tr>
+	                    </tbody>
+                    </table>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" ng-click="auditPuchaseOrders('',acceptDatas,acceptDatas.acceptKey)">受理</button>
+				<!-- <button type="button" class="btn btn-primary">保存</button> -->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 模态窗口end -->

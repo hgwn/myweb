@@ -1,0 +1,117 @@
+<div class="chatBox"style="height: 100%;" on-finish-render-filters="mgchat">
+    <div class="panel panel-default">
+        <div class="panel-heading" style="height: 30px;padding-top:5px;font-weight: bold;border-radius: 5px;">{{chatTitle}}</div>
+        <div class="panel-body clearfix" style="padding: 0;">
+            <div class="chat01_content" style="position:absolute;bottom:145px;overflow: hidden;width: 100%">
+                <div style="height: 100%" class="mgchatContent" ng-hide="messageShow">
+                    <div ui-view="mgchat_content" class="am-fade" belongto="mgchat" style="height:100%;"></div>
+                </div>
+                <div class="message_box mes2">
+                </div>
+                <div class="message_box mes3" style="display: block;height: 100%;overflow: auto;" ng-show="messageShow" ng-scrollbar scrollbar-x="false" scrollbar-y="true" scrollbar-config="{autoResize:true,show:true}">
+                    <div class="message clearfix" ng-repeat="msg in msgContent track by $index" data-ng-class="{1:'sender',0:'receiver'}[msg.direction]">
+                        <div>
+                            <img src="static/js/plugins/jquery.plugins/chat/img/head/2015.jpg">
+                        </div>
+                        <div>
+                            <div ng-class="{1:'left_triangle',0:'right_triangle'}[msg.direction]"></div>
+                            <div ng-bind-html="msg.content"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="message_box mes4">
+                </div>
+                <div class="message_box mes5">
+                </div>
+                <div class="message_box mes6">
+                </div>
+                <div class="message_box mes7">
+                </div>
+                <div class="message_box mes8">
+                </div>
+                <div class="message_box mes9">
+                </div>
+                <div class="message_box mes10">
+                </div>
+            </div>
+            <div style="height: 45px;position: absolute;padding-top:10px;background-color: #E8E4E2;bottom: 100px;width: 100%;">
+                <a id="emojifyShowBtn" style="position: absolute;cursor:pointer;"><span class="masget-faceBtn" style="width: 25px;height: 25px;margin:0 10px;display: inline-block;"></span></a>
+                <a class="chat02_title_btn ctb02" href="javascript:;" title="选择文件">
+                <embed width="15" height="16" flashvars="swfid=2556975203&amp;maxSumSize=50&amp;maxFileSize=50&amp;maxFileNum=1&amp;multiSelect=0&amp;uploadAPI=http%3A%2F%2Fupload.api.weibo.com%2F2%2Fmss%2Fupload.json%3Fsource%3D209678993%26tuid%3D1887188824&amp;initFun=STK.webim.ui.chatWindow.msgToolBar.upload.initFun&amp;sucFun=STK.webim.ui.chatWindow.msgToolBar.upload.sucFun&amp;errFun=STK.webim.ui.chatWindow.msgToolBar.upload.errFun&amp;beginFun=STK.webim.ui.chatWindow.msgToolBar.upload.beginFun&amp;showTipFun=STK.webim.ui.chatWindow.msgToolBar.upload.showTipFun&amp;hiddenTipFun=STK.webim.ui.chatWindow.msgToolBar.upload.hiddenTipFun&amp;areaInfo=0-16|12-16&amp;fExt=*.jpg;*.gif;*.jpeg;*.png|*&amp;fExtDec=选择图片|选择文件"
+                       data="upload.swf" wmode="transparent" bgcolor="" allowscriptaccess="always" allowfullscreen="true"
+                       scale="noScale" menu="false" type="application/x-shockwave-flash"
+                       src="http://service.weibo.com/staticjs/tools/upload.swf?v=36c9997f1313d1c4">
+            </a><a class="chat02_title_btn ctb03" href="javascript:;" title="选择附件">
+                <embed width="15" height="16" flashvars="swfid=2556975203&amp;maxSumSize=50&amp;maxFileSize=50&amp;maxFileNum=1&amp;multiSelect=0&amp;uploadAPI=http%3A%2F%2Fupload.api.weibo.com%2F2%2Fmss%2Fupload.json%3Fsource%3D209678993%26tuid%3D1887188824&amp;initFun=STK.webim.ui.chatWindow.msgToolBar.upload.initFun&amp;sucFun=STK.webim.ui.chatWindow.msgToolBar.upload.sucFun&amp;errFun=STK.webim.ui.chatWindow.msgToolBar.upload.errFun&amp;beginFun=STK.webim.ui.chatWindow.msgToolBar.upload.beginFun&amp;showTipFun=STK.webim.ui.chatWindow.msgToolBar.upload.showTipFun&amp;hiddenTipFun=STK.webim.ui.chatWindow.msgToolBar.upload.hiddenTipFun&amp;areaInfo=0-16|12-16&amp;fExt=*.jpg;*.gif;*.jpeg;*.png|*&amp;fExtDec=选择图片|选择文件"
+                       data="upload.swf" wmode="transparent" bgcolor="" allowscriptaccess="always" allowfullscreen="true"
+                       scale="noScale" menu="false" type="application/x-shockwave-flash"
+                       src="http://service.weibo.com/staticjs/tools/upload.swf?v=36c9997f1313d1c4">
+            </a>
+                <div style="position: absolute;top: 5px;left: 100px;" ng-model="button.radio" ng-show="isGrouper" bs-radio-group>
+                    <label ng-click="toResource(item);" class="btn btn-info masget-btn-info" ng-repeat="item in roleSceneResources" style="margin-right:5px;" wave-effect  wave-effect-speed="5"><input type="radio" class="btn btn-info">{{item.resourcename}}</label>
+                    <button ng-click="getMoreResource(item);" ng-hide="moreResources.length ==0" class="btn btn-default masget-btn-default moreResourceBtn" style="margin-right:5px;" wave-effect  wave-effect-speed="5"><input type="radio" class="btn btn-default masget-btn-default">更多...</button>
+                </div>
+                <button type="button" style="right: 10px;top: -5px;" class="btn btn-default masget-btn-default pull-right" ng-click="toggleMsgPanel();" wave-effect wave-effect-color="#ffffff" wave-effect-speed="5">{{messageShow?(isGrouper?'商圈成员':'隐藏消息'):'显示消息'}}</button>
+            </div>
+
+            <div class="chat02_content" style="height: 60px;position: absolute;bottom: 40px;width: 100%;">
+                <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor" style="display: none;">
+                    <div class="btn-group">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i class="icon-font"></i><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        </ul>
+                    </div>
+                    <div class="btn-group">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font Size"><i class="icon-text-height"></i>&nbsp;<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
+                            <li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
+                            <li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group">
+                        <a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="icon-bold"></i></a>
+                        <a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="icon-italic"></i></a>
+                        <a class="btn" data-edit="strikethrough" title="Strikethrough"><i class="icon-strikethrough"></i></a>
+                        <a class="btn" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i class="icon-underline"></i></a>
+                    </div>
+                    <div class="btn-group">
+                        <a class="btn" data-edit="insertunorderedlist" title="Bullet list"><i class="icon-list-ul"></i></a>
+                        <a class="btn" data-edit="insertorderedlist" title="Number list"><i class="icon-list-ol"></i></a>
+                        <a class="btn" data-edit="outdent" title="Reduce indent (Shift+Tab)"><i class="icon-indent-left"></i></a>
+                        <a class="btn" data-edit="indent" title="Indent (Tab)"><i class="icon-indent-right"></i></a>
+                    </div>
+                    <div class="btn-group">
+                        <a class="btn" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)"><i class="icon-align-left"></i></a>
+                        <a class="btn" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)"><i class="icon-align-center"></i></a>
+                        <a class="btn" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><i class="icon-align-right"></i></a>
+                        <a class="btn" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i class="icon-align-justify"></i></a>
+                    </div>
+                    <div class="btn-group">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" title="Hyperlink"><i class="icon-link"></i></a>
+                        <div class="dropdown-menu input-append">
+                            <input class="span2" placeholder="URL" type="text" data-edit="createLink"/>
+                            <button class="btn" type="button">Add</button>
+                        </div>
+                        <a class="btn" data-edit="unlink" title="Remove Hyperlink"><i class="icon-cut"></i></a>
+                    </div>
+                    <div class="btn-group">
+                        <a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="icon-picture"></i></a>
+                        <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
+                    </div>
+                    <div class="btn-group">
+                        <a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="icon-undo"></i></a>
+                        <a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="icon-repeat"></i></a>
+                    </div>
+                    <input type="text" data-edit="inserttext" id="voiceBtn" x-webkit-speech="">
+                </div>
+                <div id="msgContent" contenteditable="true" style="height: 58px;overflow: auto;">
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer" style="height: 35px;padding-top: 2px;position: absolute;bottom:5px;width: 100%;">
+            <!--<button ng-click="autoSendMsg($event);" data-loading-text="发送..." class="btn btn-success pull-right" style="font-size:18px;top:5px;right: 20px;height:28px;padding-top: 2px;">自动发送</button>-->
+            <button id="sendMsgBtn" ng-click="sendMsg($event);" ng-disabled="msgSending" class="btn btn-success masget-btn-success pull-right" style="font-size:18px;top:5px;right: 20px;height:28px;padding-top: 2px;" wave-effect  wave-effect-speed="5">{{msgSending?'发送中...':'发送'}}</button>
+        </div>
+    </div>
+</div>

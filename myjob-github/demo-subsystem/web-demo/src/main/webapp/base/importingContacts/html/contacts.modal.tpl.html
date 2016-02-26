@@ -1,0 +1,24 @@
+<div class="modal" tabindex="-1" role="dialog" style="z-index: 3000">
+    <div class="modal-dialog"   style="z-index: 3001">
+        <div class="modal-content">
+            <div class="modal-header" ng-show="title">
+                <button type="button" class="close" ng-click="$hide()">&times;</button>
+                <h4 class="modal-title" ng-bind="title"></h4></div>
+            <div class="modal-body" ng-bind="content" style="padding: 10px 20px;"></div>
+            <div class="modal-footer" >
+            	<button type="button" class="btn btn-warning btn-sm " ng-disabled="button"  ng-click="$modalButtonClick()">保存</button>
+                <button type="button" class="btn btn-warning btn-sm" ng-click="$hide()">关闭</button>
+            </div>
+        </div>
+    </div>
+    <div style="  position: fixed;
+  opacity: 0.2;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3000;
+  background-color: #000;
+  opacity: .5;
+  transition: opacity .15s linear;"></div>
+</div>

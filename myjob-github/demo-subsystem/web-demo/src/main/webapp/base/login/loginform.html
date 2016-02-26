@@ -1,0 +1,81 @@
+<div class="login-content" style="height: 400px;" on-finish-render-filters="loginForm">
+    <div class="h-content">
+       <div class="login-banner"></div>
+        <!-- BEGIN LOGIN -->
+        <div id="loginBox" class="content h-light-box">
+            <!-- BEGIN LOGIN FORM -->
+            <form class="form-vertical login-form" name="loginForm" novalidator>
+                <h3 class="form-title">
+                    用户登录
+                </h3>
+                <span id="login_error"></span>
+                <div class="control-group" style="height: 40px;">
+                    <label class="h-label"><img src="static/img/base/login-img/upol_login_1.gif"></label>
+                    <input class="m-wrap placeholder-no-fix" style="height: 30px;margin-left: 3px;border-radius: 0px;" type="text" placeholder="登录名/手机号码" autocomplete="off" ng-model="loginModel.username" name="username" ng-trim required/>
+                    <div style="display: inline-block;position: absolute;top: 3px;margin-left:5px;" ng-messages="loginForm.username.$error" ng-if="loginForm.username.$dirty">
+                        <div class="text-danger" ng-message="required">*必填项</div>
+                    </div>
+                </div>
+                <div class="control-group" style="height: 40px;">
+                    <label class="h-label"><img src="static/img/base/login-img/upol_login_2.gif"></label>
+                    <input class="m-wrap placeholder-no-fix" style="height: 30px;margin-left: 3px;border-radius: 0px;" type="text" placeholder="请输入登录密码"  onfocus="this.type='password'" autocomplete="off"  onfocus="this.type='password'"   autocomplete="off" ng-model="loginModel.password" name="password" required/>
+                    <div style="display: inline-block;position: absolute;top: 3px;margin-left:5px;" ng-messages="loginForm.password.$error" ng-if="loginForm.password.$dirty">
+                        <div class="text-danger" ng-message="required">*必填项</div>
+                    </div>
+                </div>
+
+                <div class="control-group" id="image_code_div" ng-show="showCode">
+                    <label class="h-label"><img src="static/img/base/login-img/upol_login_3.gif"></label>
+                    <input class="m-wrap placeholder-no-fix" style="height: 30px;margin-left: 3px;border-radius: 0px;" id="image_code" type="text" autocomplete="off" placeholder="请输入验证码" name="image_code" ng-model="loginModel.code"/><span class="glyphicon glyphicon-ok" ng-show="codeValidation" style="color: green;top: -3px;left: 5px;"></span><span class="glyphicon glyphicon-remove" ng-hide="codeValidation" style="color: red;top: -3px;left: 5px;"></span>
+                    <div>
+                    <img id='imgVcode' src="" style="margin-top: 15px;" /><span><a href="javascript:;" onclick="document.getElementById('imgVcode').src='base/findImageCode.do?dt='+ Math.random();">看不清楚？换个图片</a></span>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <div class="login-password">
+                        <label class="checkbox"> <input type="checkbox" name="remember" value="1" style="margin-left: 0px;position: relative;"/> 记住密码</label>
+                    </div>
+                    <div class="login-action">
+                        <button id="loginBtn" ng-click="mylogin();" ng-disabled="loginForm.$invalid||logining" class="btn btn-warning" style="width:244px; font-weight:700;">{{logining?'正在登录...':'登&nbsp;&nbsp;&nbsp;&nbsp;录'}}</button>
+                    </div>
+                </div>
+                <div class="forget-password">
+                    <a ui-sref="login.register" href="#" id="register-btn" class="">注册账号</a><span>|</span>
+                    <a ui-sref="login.fetchPwd" href="#" class="" id="forget-password">密码忘记了 ? </a>
+                </div>
+            </form>
+            <!-- END LOGIN FORM -->
+        </div>
+        <!-- END LOGIN -->
+    </div>
+</div>
+<div class="loginNotice">
+    <h1 class="loginNotice-title">公告栏</h1>
+    <ul class="loginNotice-ul clearfix" id="myscroll" render-finished="myscroll">
+ 		 <!-- <li>
+            <dl class="loginNotice-list">
+                <dt><a href="#">1. 关于更新商户服务平台用户登陆密码控件的公告</a></dt>
+                <dd>全渠道商户服务 2015-05-26 17:59:08</dd>
+            </dl>
+        </li>
+        <li>
+            <dl class="loginNotice-list">
+                <dt><a href="#">2. 关于更新商户服务平台用户登陆密码控件的公告</a></dt>
+                <dd>全渠道商户服务 2015-05-26 17:59:08</dd>
+            </dl>
+        </li>
+        <li>
+            <dl class="loginNotice-list">
+                <dt><a href="#">3. 关于更新商户服务平台用户登陆密码控件的公告</a></dt>
+                <dd>全渠道商户服务 2015-05-26 17:59:08</dd>
+            </dl>
+        </li>
+        <li>
+            <dl class="loginNotice-list">
+                <dt><a href="#">4. 关于更新商户服务平台用户登陆密码控件的公告</a></dt>
+                <dd>全渠道商户服务 2015-05-26 17:59:08</dd>
+            </dl>
+        </li> -->
+    </ul>
+    <div class="clearfix" style="height:15px;background-color:#fff;"></div>
+</div>

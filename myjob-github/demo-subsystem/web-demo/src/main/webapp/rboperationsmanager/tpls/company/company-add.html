@@ -1,0 +1,15 @@
+<div id="hw-steps">
+    <div class="steps-container">
+        <ul class="steps">
+            <li ng-repeat="step in stepTabs" ng-click="stepTab(step);" ng-class="{complete:step.isComplete,active:step.isActive}"><span class="bage">{{step.index}}</span>{{step.title}}<span class="chevron"></span></li>
+        </ul>
+        <div class="steps-btn">
+            <button type="button" class="btn btn-default btn-sm" id="btnPrev" ng-disabled="isBtnPrevDisabled"  disabled="disabled" ng-click="btnPrev();"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;上一步</button>
+            <button type="button" class="btn btn-info btn-sm" ng-show="!step_end" ng-click="btnNext();">下一步&nbsp;<span class="glyphicon glyphicon-arrow-right"></span></button>
+            <button type="button" ng-show="step_end" class="btn btn-info btn-sm" ng-click="btnSubmit();">提 交</button>
+        </div>
+    </div>
+   	<div class="steps-content">
+        <div ng-include="currentTab"></div>
+    </div> 
+</div>

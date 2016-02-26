@@ -1,0 +1,141 @@
+.pagewrapDIV{
+	margin-top: 10px;
+}
+.paginationDIV {
+	margin-left: 40px;
+}
+.paginationDIV ul {
+	display: inline-block;
+	margin-bottom: 0;
+	margin-left: 0;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.paginationDIV ul li {
+	display: inline;
+}
+.paginationDIV ul li a, .paginationDIV ul li span {
+	float: left;
+	padding: 4px 12px;
+	line-height: 20px;
+	text-decoration: none;
+	background-color:#fff;
+	background: url('images/bottom_bg.png') 0px 0px;
+	border: 1px solid #d3dbde;
+	border-left-width: 0;
+	color: #08c;
+	cursor: pointer;
+}
+
+.paginationDIV ul li a :active, .paginationDIV ul li span :active{
+	background-image:none;
+}
+
+.paginationDIV ul li a:hover {
+	color: red;
+}
+.paginationDIV ul li .first-child a, .paginationDIV ul li .first-child span {
+	border-left-width: 1px;
+	-webkit-border-bottom-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	-webkit-border-top-left-radius: 3px;
+	border-top-left-radius: 3px;
+	-moz-border-radius-bottomleft: 3px;
+	-moz-border-radius-topleft: 3px;
+}
+.paginationDIV ul .disabled span, .paginationDIV ul .disabled a, .paginationDIV ul .disabled a:hover {
+	color: #999;
+	cursor: default;
+	background-color: transparent;
+}
+.paginationDIV ul .active a, .paginationDIV ul .active span {
+	color: #999;
+}
+.paginationDIV ul li a:hover, .paginationDIV ul .active a, .paginationDIV ul .active span {
+	background-color: #f5f5f5;
+}
+.paginationDIV ul li.last-child a, .paginationDIV ul li.last-child span {
+	-webkit-border-top-right-radius: 3px;
+	border-top-right-radius: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	-moz-border-radius-topright: 3px;
+	-moz-border-radius-bottomright: 3px;
+}
+.pagetable_tr_o ,.pagetable_tr_o td{ background:#fdeeb5; }
+.pagetable_tr_s ,.pagetable_tr_s td{ background:#fff3d1; }
+.pagetable_tr_d ,.pagetable_tr_d td{ background:rgb(255, 255, 255); }
+.pagetable_td2{ background:#FAECD4;}
+.pagetable_td3{ background-color: rgb(255, 255, 255);}
+
+.pageNote{text-align:left;font-weight: bold; font-size: 14px; float: left;}
+
+/*table*/
+.pagetable {
+	width: 100%;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+.pagetable th {
+	height: 25px;
+	/*background: url('../images/box_top.png') 0px 0px repeat-x;*/
+	line-height: 25px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	border: 1px solid #d3dbde;
+	border-collapse: collapse;
+}
+.pagetable tr {
+	min-height:25px;
+	line-height: 20px;
+}
+.pagetable td {
+	border: 1px solid #d3dbde;
+	cursor: pointer;
+	padding-left:4px;
+}
+
+.pagetable .underline:hover{
+	text-decoration:underline;
+}
+
+.pagination .prev_arrow{
+	width: 12px;
+    height: 17px;
+    margin-top: 3px;
+	background:url(../../images/pagetable/prev.gif) no-repeat;
+}	
+
+.pagination .next_arrow{
+	width: 12px;
+    height: 17px;
+    margin-top: 3px;
+	background:url(../../images/pagetable/next.gif) no-repeat;
+}
+
+.pagination .first_arrow{
+	width: 13px;
+    height: 17px;
+    margin-top: 3px;
+	background:url(../../images/pagetable/first.gif) no-repeat;
+}
+
+.pagination .last_arrow{
+	width: 12px;
+    height: 17px;
+    margin-top: 3px;
+	background:url(../../images/pagetable/last.gif) no-repeat;
+}
+
+.pagination .refresh{
+	width: 17px;
+    height: 17px;
+    margin-top: 3px;
+	background:url(../../images/pagetable/load.png) no-repeat;
+	background-size:100%;
+}

@@ -1,0 +1,84 @@
+<div class="col-md-12 column" ng-controller="ordersSalesOrderListController" style="padding: 0px;margin: 0px">
+
+    <div class="col-md-12 column" >
+        <div ui-view="query"></div>
+    </div>
+
+    <div class="col-sm-12" style="overflow: auto;height: 550px;margin-left: 10px;width: 99%;padding: 0px">
+        <div ui-view="grid"></div>
+    </div>
+
+    <div class="col-md-12 column">
+        <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" style="height: 40px;">
+            <pagination recordcount="{{orders.total}}" pagenum="formData.pagenum" pagesize="formData.pagesize" onselect="queryForm()"></pagination>
+        </nav>
+    </div>
+
+
+    <div class="col-md-12 column padding0px margin0px" >
+        <!-- 模态框（Modal） -->
+        <div class="modal fade" id="viewModal" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel" aria-hidden="true" >
+            <div class="modal-dialog" style="width:900px">
+                <div class="modal-content" >
+                    <div class="modal-header">
+                        <button type="button" class="close"
+                                data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            查看销货单明细信息
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-responsive" style="width: 850px;overflow: auto">
+                            <table class="table table-bordered table-hover table-striped table-condensed">
+                                <thead>
+                                <tr class="info">
+                                    <th>序号</th>
+                                    <th>商品名称</th>
+                                    <th>商品规格</th>
+                                    <th>商品条码</th>
+                                    <!--<th>SKU</th>-->
+                                    <th>数量</th>
+                                    <th>原始单价</th>
+                                    <th>折扣率</th>
+                                    <th>单价</th>
+                                    <th style="width: 40px;">赠品</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="item in modeldata.orderlists">
+                                    <td ng-bind="$index+1">1</td>
+                                    <td>{{item.goodsname}}</td>
+                                    <td>{{item.goodsspec}}</td>
+                                    <td>{{item.barcode}}</td>
+                                    <!--<td>{{item.skuname}}</td>-->
+                                    <td>{{item.goodsqty}}</td>
+                                    <td>{{item.goodsunitprice}}</td>
+                                    <td>{{item.discount}}</td>
+                                    <td>{{item.dealingprice}}</td>
+                                    <td>{{convertGiftFlag(item.giftflag)}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default"
+                                data-dismiss="modal">关闭
+                        </button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+    </div>
+
+    <div style="position: absolute;right:0px;top:1%">
+        <div class="list-group">
+            <a ui-sref="add" class="list-group-item active">开单</a>
+            <!--<a ui-sref="list"class="list-group-item active">查询</a>-->
+        </div>
+    </div>
+
+</div>

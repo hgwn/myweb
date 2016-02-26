@@ -1,0 +1,26 @@
+<div class="col-md-12 column"  style="padding: 0;margin: 0px"  on-finish-render-filters="check">
+    <div class="col-md-12 column " style="padding-left: 0">
+        <form class="form-inline" id="arrivalCheck" name="arrivalCheck">
+            <div class="col-sm-6 " style="margin-bottom: 10px;width: 260px;">
+                <label>经销商名称:</label>
+                <input type="text" name="objectname" ng-model="confirmModel.objectname"  placeholder="输入经销商名称" class="form-control input-sm" style="width: 150px;height: 31px;">
+            </div>
+            <div class="col-sm-6 " style="margin-bottom: 10px;  width: 410px;">
+                <label>时段选择:</label>
+                <input name="begincreatedtime" type="text" data-container="body"  class="form-control" data-max-date="{{confirmModel.endcreatedtime}}" ng-model="confirmModel.begincreatedtime" data-date-format="yyyy-MM-dd" data-date-type="string" data-autoclose="1"  bs-datepicker style="height:31px;  width: 150px;" >
+                <label>至:</label>
+                <input name="endcreatedtime" type="text" data-container="body" class="form-control" data-min-date="{{confirmModel.begincreatedtime}}" ng-model="confirmModel.endcreatedtime" data-date-format="yyyy-MM-dd" data-date-type="string" data-autoclose="1"  bs-datepicker style="height:31px;  width: 150px;">
+            </div>
+            <div class="col-sm-3 " style="margin-bottom: 10px;  width: 100px;">
+                <button type="button" class="btn btn-success btn-sm" style="width: 70px" ng-click="check()">查询</button>
+            </div>
+        </form>
+    </div>
+    <div ui-grid="gridOptions" ui-grid-pagination  ui-grid-resize-columns id="listModel" class="grid" style="clear: both"></div>
+</div>
+<div ng-if="iconFlag == 'add'" style="width:99%;height:99%;position: absolute;background: #D5D5D5;opacity:0.5;z-index:1132;  margin-left: -10px;">
+</div>
+<div ng-if="iconFlag == 'add'" style="width:100px;height:100px;z-index:1133;  position: fixed;top: 40%;left: 50%;">
+    <span class="icon-spinner icon-spin" style="font-size:50px;opacity:1"></span>
+    <div style="margin-left: -16px;">{{context}}</div>
+</div>

@@ -1,0 +1,99 @@
+@charset "UTF-8";
+/* clear float */
+.clearfix:before,
+.clearfix:after {display: block;  height: 0;  visibility: hidden;  font-size: 0; }
+.clearfix:after, .cl {  clear: both;  }
+.clearfix {  *zoom: 1;  }
+
+.pca-selector-container{
+	width: 220px;
+	box-shadow: 0px 3px 12px rgba(0, 0, 0,0.176);
+	z-index:9999;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	background-color: white;
+	font-size: 13px;
+}
+.pca-selector-content-tab section{
+	display: inline-block;
+	border-bottom: 1px solid #ccc;
+	cursor: default;
+	height: 25px;
+	background-color:#ebebeb;
+	padding-top: 4px;
+	font-size:13px;
+
+}
+.pca-selector-content-tab section:first-child{
+	border-right: 1px solid #ccc;
+}
+.pca-selector-content-tab section:last-child{
+	border-left: 1px solid #ccc;
+}
+.pca-selector-footer{
+	text-align: right;
+    padding: 8px;
+	border-top: 1px solid gainsboro;
+}
+
+.pca-selector-footer section{
+	background-color1: #c9302c;
+	display: inline-block;
+	float: right;
+	padding: 11px;
+}
+
+.pca-selector-footer section button{
+	width: 36px;
+}
+.pca-selector-content{
+	min-height: 212px;
+}
+.pca-selector-content ul{
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.pca-selector-content ul li{
+	float: left;
+	padding: 2px 5px;
+	margin: 2px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.pca-selector-content ul li:hover{
+	text-decoration: underline;
+	color: #337AB7;
+}
+
+.ul-li-selected{
+	background-color: #5CB85C;
+	color: white !important;
+}
+
+.tab-selected{
+	/*background-color:goldenrod;*/
+	border-bottom: 0px !important;
+	background-color: white !important;
+}
+
+.pca-input{
+	background: url("../image/input_icon2.png") no-repeat right center;
+}
+
+.container-show{
+	opacity: 1;
+}
+
+.container-hide{
+	opacity: 0;
+}
+
+.btn-cancle {
+    color: #FFF;
+    background-color: #F0AD4E;
+    border-color: #EEA236;
+    width: 36px;
+}

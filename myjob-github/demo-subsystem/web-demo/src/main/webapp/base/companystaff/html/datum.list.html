@@ -1,0 +1,27 @@
+<div class="container well" on-finish-render-filters="list" style="margin-bottom:0;  background-color: #fff;border:none;overflow: auto;">
+    <div class="row clearfix" >
+        <div class="col-md-12 column">
+            <form class="form-inline queryForm" id="stationForm" >
+                <div class="form-group col-sm-6 " style="margin-bottom: 10px">
+                    <label>员工名称：</label>
+                    <input type="text" placeholder="请输入员工名称" name="staffname" ng-model="comStaff.staffname" class="form-control input-sm" style="width: 60%">
+                </div>
+                <div class="form-group col-sm-6 " style="margin-bottom: 10px">
+                    <label>角色类型：</label>
+                    <select class="form-control input-sm" style="height:30px;width: 60%" ng-model="comStaff.roletypeid" ng-options="item.roletypeid as item.companyroletypename for item in reData">
+                        <option value="">--请选择--</option>
+                    </select>
+                </div>
+                <div class="form-group col-sm-6 " style="margin-bottom: 10px">
+	                <label>站点名称：</label>
+			        <select name="pstationid"  id="comtree"  class="easyui-combotree form-control input-sm"   style="height:30px;width: 60%"/>
+                </div>
+                <div class="form-group col-sm-6 " style="margin-bottom: 10px">
+                    <button type="button" class="btn btn-success btn-sm"  style="width: 80px;" ng-click="check()">查询</button>
+                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#contractModal"  style="width: 80px" ng-click="add()">新增</button>
+                </div>
+            </form>
+            <div ui-grid="gridOptions" ui-grid-pinning ui-grid-selection ui-grid-resize-columns ui-grid-pagination id="staffModel" class="grid" style="margin:0;clear: both"></div>
+        </div>
+    </div>
+</div>

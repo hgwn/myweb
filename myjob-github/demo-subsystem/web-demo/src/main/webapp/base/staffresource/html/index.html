@@ -1,0 +1,35 @@
+<form class="form-inline">
+  <div class="form-group">
+   <label>员工名称：</label>
+	                  <div style="display:inline-block">
+	                <comboxtable name="addstaff" ng-model="addstaff" 
+        			 column-names="['员工','员工类型']" column-fields="['staffname','roletypename']" 
+                     text-field="staffname" datas="datas" on-change="query()" key-word="comboxValue.staffname" is-required="true" is-show-index="true" 
+                     content-style="width: 200px" isAlwaysRepsClick="true" input-style="font-size:13px" input-class="form-control" input-height="34px" input-placeholder="输入员工名称"
+                     is-always-reps-click="true" is-show-pagination="true" recordcount="{{comboxValue.recordcount}}" pagenum="comboxValue.pagenum" pagesize="comboxValue.pagesize">
+                     </comboxtable>      
+	</div>
+ </div>
+ &nbsp;&nbsp;&nbsp;&nbsp;
+   <div class="form-group">
+   <label>客户端类型：</label>
+	                  <div style="display:inline-block">
+	                   <select ng-model="osenvirnment" ng-options=" o.osenvirnmentname for o in osenvirnments" class="form-control"></select>
+	</div>
+ </div>
+   <button type="button" class="btn btn-success btn-sm"  ng-click="findStaffClip()">查询</button>
+</form>  
+<div class="content_wrap clearfix">
+	<div class="zTreeDemoBackground left">
+		<div class="treehead">我的资源<span class="smalltip">（勾选要分配的权限）</span></div>
+		<ul id="treeDemo" class="ztree"></ul>
+	</div>
+	<div class="jt"> 
+		<button type="button" class="btn  btn-default" ng-disabled="delAbled" ng-click="delResource()"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>&nbsp;收回权限</button><br>
+		<button type="button" class="btn  btn-default" ng-disabled="addAbled" ng-click="addResource()">分配权限&nbsp;<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></button><br>
+	</div>
+	<div class="zTreeDemoBackground right">
+		<div class="treehead"><strong >{{staffname}}</strong>的资源<span class="smalltip">（勾选要回收的权限）</span></div>
+		<ul id="treeDemo2" class="ztree"></ul>
+	</div>
+</div>

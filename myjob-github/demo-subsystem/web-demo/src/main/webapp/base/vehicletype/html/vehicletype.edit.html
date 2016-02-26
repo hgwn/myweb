@@ -1,0 +1,48 @@
+<div style="height:100%;overflow: auto;position: relative;margin: auto" on-finish-render-filters="vehicletype">
+	<div style="width: 100%;height: 170px;  margin: 0 auto;" >
+		<form style="height: 75%;" class="form-inline" novalidate id="form_vehicletype" name="form_vehicletype">
+		    <div class="form-group col-sm-5 width330 marginTop " ng-class="{haserror:form_vehicletype.vehicletypename.$invalid&&form_vehicletype.submitted}" >
+		        <label style="width: 110px">车辆类型名称：</label>
+		        <input type="text" name="vehicletypename"  ng-model="vehicletype.vehicletypename" required class="form-control input-sm"  style="height: 30px;" >
+				<span title="必填项" ng-messages="form_vehicletype.vehicletypename.$error" ng-show="form_vehicletype.vehicletypename.$invalid&&form_vehicletype.submitted" >
+                 	<span ng-message="required" class="icon-exclamation-sign ng-scope" style="    color: #a94442; font-size: 16px;"></span>
+            	</span>
+		    </div>
+		    <div class="form-group col-sm-5 width330 marginTop pull-right" ng-class="{haserror:form_vehicletype.loadcapacity.$invalid&&form_vehicletype.submitted}">
+		        <label  style="width: 110px">载重数量(吨/t)：</label>
+		        <input type="text" name="loadcapacity"  ng-model="vehicletype.loadcapacity"  class="form-control input-sm"  style="height: 30px;" ng-pattern="/^\d+(.\d{1,2})?$/">
+			    <span ng-messages="form_vehicletype.loadcapacity.$error" ng-show="form_vehicletype.loadcapacity.$invalid&&form_vehicletype.submitted" style="position: absolute;    top: 25px;  left: 130px;">
+					<span ng-message="pattern" class="icon-exclamation-sign ng-scope" style="    color: #a94442; font-size: 12px;">请输入数字</span>
+       			</span>
+		    </div>
+		    <div class="form-group col-sm-5 width330 marginTop " ng-class="{haserror:form_vehicletype.maxloadcapacity.$invalid&&form_vehicletype.submitted}" >
+		        <label style="width: 110px">最大载重(吨/t)：</label>
+		        <input type="text" name="maxloadcapacity"  ng-model="vehicletype.maxloadcapacity"  class="form-control input-sm"  style="height: 30px;" ng-pattern="/^\d+(.\d{1,2})?$/">
+			    <span ng-messages="form_vehicletype.maxloadcapacity.$error" ng-show="form_vehicletype.maxloadcapacity.$invalid&&form_vehicletype.submitted" style="position: absolute;    top: 25px;  left: 130px;">
+					<span ng-message="pattern" class="icon-exclamation-sign ng-scope" style="    color: #a94442; font-size: 12px;">请输入数字</span>
+       			</span>
+		    </div>
+		    <div class="form-group col-sm-5 width330 marginTop pull-right"  ng-class="{haserror:form_vehicletype.vehiclelength.$invalid&&form_vehicletype.submitted}">
+		        <label  style="width: 110px">车辆长度(米/m)：</label>
+		        <input type="text" name="vehiclelength"  ng-model="vehicletype.vehiclelength"  class="form-control input-sm"  style="height: 30px;" ng-pattern="/^\d+(.\d{1,2})?$/">
+			    <span ng-messages="form_vehicletype.vehiclelength.$error" ng-show="form_vehicletype.vehiclelength.$invalid&&form_vehicletype.submitted" style="position: absolute;   top: 25px;   left: 130px;">
+					<span ng-message="pattern" class="icon-exclamation-sign ng-scope" style="    color: #a94442; font-size: 12px;">请输入数字</span>
+       			</span>
+		    </div>
+		    <div class="form-group col-sm-5 width330 marginTop " ng-class="{haserror:form_vehicletype.vehiclewidth.$invalid&&form_vehicletype.submitted}">
+		        <label style="width: 110px">车辆宽度(米/m)：</label>
+		        <input type="text" name="vehiclewidth"  ng-model="vehicletype.vehiclewidth"  class="form-control input-sm"  style="height: 30px;" ng-pattern="/^\d+(.\d{1,2})?$/">
+			    <span ng-messages="form_vehicletype.vehiclewidth.$error" ng-show="form_vehicletype.vehiclewidth.$invalid&&form_vehicletype.submitted" style="position: absolute;   top: 25px;   left: 130px;">
+					<span ng-message="pattern" class="icon-exclamation-sign ng-scope" style="    color: #a94442; font-size: 12px;">请输入数字</span>
+       			</span>
+		    </div>
+		    <div class="form-group col-sm-5 width330 marginTop pull-right" ng-class="{haserror:form_vehicletype.vehiclehigth.$invalid&&form_vehicletype.submitted}">
+		        <label  style="width: 110px">车辆高度(米/m)：</label>
+		        <input type="text" name="vehiclehigth"  ng-model="vehicletype.vehiclehigth"  class="form-control input-sm"  style="height: 30px;" ng-pattern="/^\d+(.\d{1,2})?$/">
+			    <span ng-messages="form_vehicletype.vehiclehigth.$error" ng-show="form_vehicletype.vehiclehigth.$invalid&&form_vehicletype.submitted" style="position: absolute;   top: 25px;   left: 130px;">
+					<span ng-message="pattern" class="icon-exclamation-sign ng-scope" style="    color: #a94442; font-size: 12px;">请输入数字</span>
+       			</span>
+		    </div>
+		</form>
+	</div>
+</div>

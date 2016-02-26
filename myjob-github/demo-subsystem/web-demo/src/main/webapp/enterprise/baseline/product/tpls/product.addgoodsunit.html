@@ -1,0 +1,30 @@
+<div class="modal fade" id="viewModal-add-goodsunit" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:300px">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title">
+                    新增商品计量单位
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid well" style=" border: 0px;border-radius: 0px;margin: -15px;">
+                    <div class="row row-add-goods">
+                        <label  class="col-sm-3 control-label">名称</label>
+                        <div class="col-sm-9 control-edit">
+                            <input type="text" class="form-control"  ng-model="modelGoodsUnitData.goodsunitname" placeholder="请输入计量单位名称"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary"  ng-click="addGoodsUnit()">保存</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>

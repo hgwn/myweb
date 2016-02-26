@@ -1,0 +1,67 @@
+<div class="row masget-clear" style="overflow: auto;height: 100%;" on-finish-render-filters="buzcircle_edit" ng-scrollbar scrollbar-x="false" scrollbar-y="true" scrollbar-config="{autoResize:true,show:true,autoScroll:false}">
+    <nav class="navbar navbar-default" style="margin-bottom: 10px;">
+        <div class="container-fluid">
+            <div class="navbar-header" style="padding: 10px 15px;">
+                    <!--<img alt="Brand" src="...">-->
+                    <span><b>{{type =='add'?'新增商圈':'修改商圈'}}</b></span>
+            </div>
+        </div>
+    </nav>
+    <div>
+        <div class="col-md-4">
+            <div class="col-md-12" style="height:55px;">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="input-group" style="margin-top:8px;width: 90%;margin-left:5%;">
+                        <span class="input-group-btn">
+                            <button id="editBuzcircleSearchBtn" ng-click="search();" class="btn btn-default glyphicon glyphicon-search" style="top: 0px;"></button>
+                        </span>
+                        <input id="editBuzcircleSearchInput" type="text" ng-model="$parent.$parent.searchInput" class="form-control" placeholder="搜索">
+                        <!--<input name="takeofftime" type="text"  required class="form-control" ng-model="searchTime" data-date-format="yyyy-MM-dd" data-date-type="string" data-autoclose="1"  bs-datepicker style="height:30px;">-->
+                    </div>
+                </nav>
+            </div>
+            <div id="contactsPanel_buzcircle" class="col-md-12 masget-contactsPanel"
+                 style="overflow-y: auto;overflow-x:hidden; max-height: 500px;" ng-scrollbar scrollbar-x="false" scrollbar-y="true" scrollbar-config="{autoResize:true,show:true}">
+                <div id="selectContactsTreeView" class="col-md-12  masget-panel" style="margin-top: 5px;"></div>
+            </div>
+        </div>
+        <div class="col-md-8 ">
+            <div class="panel panel-default">
+                <div class="panel-heading">商圈成员</div>
+                <div class="panel-body" style="max-height: 360px;border:0px;"  ng-scrollbar scrollbar-x="false" scrollbar-y="true" scrollbar-config="{autoResize:true,show:true}">
+                    <ul class="list-group" style="margin-bottom:0px;">
+                        <li class="list-group-item repeat clearfix" ng-show="selectContacts.length == 0">尚未添加商圈成员！</li>
+                        <li class="list-group-item repeat clearfix" ng-class="{true:'masget-twinkle',false:''}[item.twinkle]" ng-repeat="item in selectContacts">{{item.nodeName}}<span class="glyphicon glyphicon-remove-sign masget-delete-icon" ng-click="removeMember(item.nodeId);"></span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">圈信息</div>
+                <div class="panel-body">
+                    <div class="input-group" style="margin-bottom:20px;">
+                        <span class="input-group-addon" id="basic-addon1">商圈名:&nbsp;</span>
+                        <input id="autoGenerateCircleName" type="text" class="form-control" aria-describedby="basic-addon1" ng-model="autoGenerateCircleName">
+                    </div>
+                    <!-- Split button -->
+                    <div class="input-group" ng-show="false">
+                        <span class="input-group-addon" id="basic-addon2">商圈类型:&nbsp;</span>
+                        <button type="button" class="btn btn-default masget-btn-default" aria-describedby="basic-addon2" ng-disabled="type == 'edit'"  ng-model="selectedbuztype" bs-options="icon.commericalcircletypeid as icon.commericalcircletypename for icon in buzcircletype" bs-select>
+                            未选择<span class="caret"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="panel-footer clearfix">
+                    <div class="pull-right">
+                        <button class="btn btn-primary masget-btn-primary" ng-disabled="submitting" ng-click="saveOrUpdate($event);">
+                            {{submitting?'提交中...':'提交'}}
+                        </button>
+                        <button data-ng-show="$root.cacheMode" class="btn btn-primary masget-btn-primary" data-loading-text="提交中..." ng-click="submitCachedData($event);">
+                            提交缓存数据
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

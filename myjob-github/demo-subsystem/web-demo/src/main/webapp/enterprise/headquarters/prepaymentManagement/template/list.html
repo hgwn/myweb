@@ -1,0 +1,62 @@
+<div class="col-md-12 column"  style="padding: 10px 0 0 0;margin: 0px"  on-finish-render-filters="check">
+    <div class="col-md-12 column" style="padding: 0">
+        <table class="table table-bordered table-hover table-striped  table-condensed">
+            <thead>
+            <tr class="info">
+                <th style="width: 40px;" >序号</th>
+                <th >操作</th>
+                <th>经销商名称</th>
+                <th >余额 </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr  style="text-align: center;">
+                <td class="h_bgf3" ng-bind="$index+1">1</td>
+                <td><a href ng-click="recharge(walletData)">充值</a>&nbsp;&nbsp;<a href="#" ui-sref="reDetail({id:walletData.objectid})">充值明细</a>
+                    &nbsp;&nbsp;<a href="#" ui-sref="order({id:walletData.walletid})">付款记录</a></td>
+                <td>{{walletData.objectname}}</td>
+                <td>{{walletData.usablebalance}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="col-md-12 column" style="padding: 0">
+        <form class="form-inline" id="arrivalCheck" name="arrivalCheck">
+            <div class="col-sm-3 " style="margin-bottom: 10px;width: 220px;">
+                <label>摘要:</label>
+                <select ng-model="watergetData.watertype" class="form-control " style="width: 150px;  height: 31px;">
+                    <option value="">全部</option>
+                    <option value="1">提现</option>
+                    <option value="2">支付付款</option>
+                    <option value="3">转账付款</option>
+                    <option value="4">充值</option>
+                    <option value="5">支付收款</option>
+                    <option value="6">转账收款</option>
+                </select>
+            </div>
+            <div class="col-sm-6 " style="margin-bottom: 10px;  width: 410px;">
+                <label>时段选择:</label>
+                <input name="begincreatedtime" type="text" data-container="body" required class="form-control" data-max-date="{{watergetData.endcreatedtime}}" ng-model="watergetData.begincreatedtime" data-date-format="yyyy-MM-dd" data-date-type="string" data-autoclose="1"  bs-datepicker style="height:31px;width: 150px;" >
+                <div ng-messages="arrivalCheck.begincreatedtime.$error" ng-show="arrivalCheck.begincreatedtime.$invalid&&arrivalCheck.submitted" class="ng-messages-error">
+                    <div ng-message="required">开始时间为必填项</div>
+                </div>
+                <label>至</label>
+                <input name="endcreatedtime" type="text" data-container="body" required class="form-control" data-min-date="{{watergetData.begincreatedtime}}" ng-model="watergetData.endcreatedtime" data-date-format="yyyy-MM-dd" data-date-type="string" data-autoclose="1"  bs-datepicker style="height:31px;width: 150px;">
+                <div ng-messages="arrivalCheck.endcreatedtime.$error" ng-show="arrivalCheck.endcreatedtime.$invalid&&arrivalCheck.submitted" class="ng-messages-error">
+                    <div ng-message="required">结束时间为必填项</div>
+                </div>
+            </div>
+            <div class="col-sm-3 " style="margin-bottom: 10px;  width: 100px;">
+                <button type="button" class="btn btn-success btn-sm" style="width: 70px" ng-click="waterget()">查询</button>
+            </div>
+        </form>
+    </div>
+    <div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection ui-grid-resize-columns id="listModel" class="grid" style="clear: both"></div>
+</div>
+<div ng-if="iconFlag == 'add'" style="width:99%;height:99%;position: absolute;background: #D5D5D5;opacity:0.5;z-index:1132;  margin-left: -10px;">
+</div>
+<div ng-if="iconFlag == 'add'" style="width:100px;height:100px;z-index:1133;  position: fixed;top: 40%;left: 50%;">
+    <span class="icon-spinner icon-spin" style="font-size:50px;opacity:1"></span>
+    <div style="margin-left: -16px;">{{context}}</div>
+</div>

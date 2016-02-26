@@ -1,0 +1,142 @@
+<form class="form-horizontal" name="serviceForm1" novalidate>
+	<div class="row">
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label">发展公司</label>
+			<div class="col-sm-8">
+                <input type="text"  class="form-control" ng-show="!companytypeFlag"  readonly="readonly" value="{{getSession.companyname}}" />
+                <comboxtable ng-show="companytypeFlag" name="station" ng-model="formData.companyinfo"
+                             column-names="['公司id','公司']" column-fields="['companyid','companyname']"
+                             text-field="companyname" datas="companydatas.data" on-change="fingcompanyinfo()" key-word="companyinfoFormData.companyname" is-required="false" is-show-index="true"    content-style="width: 100%;" input-style="font-size:13px" input-class="form-control" input-height="34px" input-placeholder="请选择"
+                             is-always-reps-click="false" is-show-pagination="true" recordcount="{{companydatas.total}}" pagenum="companyinfoFormData.pagenum" pagesize="companyinfoFormData.pagesize">
+                </comboxtable>
+			</div>
+		</div>
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label">服务商名称</label>
+			<div class="col-sm-8">
+				<input type="text" ng-model="formData.membername" name="membername"  placeholder="必填"  class="form-control" ng-class="{haserror:serviceForm1.membername.$invalid&&formData.isCommitted1}" maxlength="49" required/>
+				<div class="ng-messages-error" ng-messages="serviceForm1.membername.$error" ng-show="serviceForm1.membername.$invalid&&formData.isCommitted1" >
+					<span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+					<span ng-message="maxlength">超出最大长度了</span>
+				</div>
+			</div>
+		</div>		
+	</div>
+	<div class="row">
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label">行业类型</label>
+			<div class="col-sm-8">
+				<select class="form-control" ng-model="formData.industrytype" name="industrytype" ng-class="{haserror:serviceForm1.industrytype.$invalid&&formData.isCommitted1}"
+ng-options="item.id as item.value for item in industrytypes" required>
+					<option value="">请选择</option>
+				</select>
+				<div class="ng-messages-error" ng-messages="serviceForm1.industrytype.$error" ng-show="serviceForm1.industrytype.$invalid&&formData.isCommitted1" >
+					<span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+				</div>
+			</div>
+		</div>
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label">法人</label>
+			<div class="col-sm-8">
+				<input type="text" ng-model="formData.legalperson" name="legalperson"  placeholder="必填"  class="form-control" ng-class="{haserror:serviceForm1.legalperson.$invalid&&formData.isCommitted1}" maxlength="19" required/>
+				<div class="ng-messages-error" ng-messages="serviceForm1.legalperson.$error" ng-show="serviceForm1.legalperson.$invalid&&formData.isCommitted1" >
+					<span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--start next row  -->	
+	<div class="row">
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label">法人身份证</label>
+			<div class="col-sm-8">
+				<input type="text" ng-model="formData.legalpersonidcard" name="legalpersonidcard"  placeholder="必填"  class="form-control" ng-class="{haserror:serviceForm1.legalpersonidcard.$invalid&&formData.isCommitted1}" minlength="8" maxlength="18"
+					   required/>
+				<div class="ng-messages-error" ng-messages="serviceForm1.legalpersonidcard.$error" ng-show="serviceForm1.legalpersonidcard.$invalid&&formData.isCommitted1" >
+					<span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+					<span ng-message="minlength"><span class="glyphicon glyphicon-exclamation-sign"></span>最少8位!</span>
+				</div>
+			</div>
+		</div>
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label">法人电话</label>
+			<div class="col-sm-8">
+				<input type="text" ng-model="formData.legalpersonphone" name="legalpersonphone"  placeholder="必填"  class="form-control" ng-class="{haserror:serviceForm1.legalpersonphone.$invalid&&formData.isCommitted1}" maxlength="19" ng-keypress="validateNumber($event);"  ng-pattern="/^[0-9]*$/" required/>
+				<div class="ng-messages-error" ng-messages="serviceForm1.legalpersonphone.$error" ng-show="serviceForm1.legalpersonphone.$invalid&&formData.isCommitted1" >
+					<span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+					<span ng-message="pattern"><span class="glyphicon glyphicon-exclamation-sign"></span>请输入数字!</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--end next row  -->
+	<!--start next row  -->	
+	<div class="row">
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label">负责人</label>
+			<div class="col-sm-8">
+				<input type="text" ng-model="formData.companyleander" name="companyleander"  placeholder="必填"  class="form-control" ng-class="{haserror:serviceForm1.companyleander.$invalid&&formData.isCommitted1}" maxlength="19" required />
+				<div class="ng-messages-error" ng-messages="serviceForm1.companyleander.$error" ng-show="serviceForm1.companyleander.$invalid&&formData.isCommitted1" >
+					<span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+				</div>
+			</div>
+		</div>
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label">负责人电话</label>
+			<div class="col-sm-8">
+				<input type="text" ng-model="formData.companyleanderphone" name="companyleanderphone"  placeholder="必填"  class="form-control" ng-class="{haserror:serviceForm1.companyleanderphone.$invalid&&formData.isCommitted1}" maxlength="19" ng-pattern="/^[0-9]*$/" ng-keypress="validateNumber($event);"  required/>
+				<div class="ng-messages-error" ng-messages="serviceForm1.companyleanderphone.$error" ng-show="serviceForm1.companyleanderphone.$invalid&&formData.isCommitted1" >
+					<span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+					<span ng-message="pattern"><span class="glyphicon glyphicon-exclamation-sign"></span>请输入数字!</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--end next row  -->
+	<!--start next row  -->	
+	<div class="row">
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label">营业执照号</label>
+			<div class="col-sm-8">
+				<input type="text" ng-model="formData.businesslicence" name="businesslicence"  placeholder="必填"  class="form-control" ng-class="{haserror:serviceForm1.businesslicence.$invalid&&formData.isCommitted1}" maxlength="18" required/>
+				<div class="ng-messages-error" ng-messages="serviceForm1.businesslicence.$error" ng-show="serviceForm1.businesslicence.$invalid&&formData.isCommitted1" >
+					<span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+				</div>
+			</div>
+		</div>
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label">税务登记证号</label>
+			<div class="col-sm-8">
+				<input type="text" ng-model="formData.taxregcercode" name="taxregcercode"  placeholder="必填"  class="form-control" ng-class="{haserror:serviceForm1.taxregcercode.$invalid&&formData.isCommitted1}" maxlength="20"   required/>
+				<div class="ng-messages-error" ng-messages="serviceForm1.taxregcercode.$error" ng-show="serviceForm1.taxregcercode.$invalid&&formData.isCommitted1" >
+					<span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--end next row  -->
+	<!--start next row  -->	
+	<div class="row">
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label">地址</label>
+			<div class="col-sm-8">
+				<input style="width: 100%"  select-address ng-model="formData.pca"  name="pca" pca-ids="formData.addressids" placeholder="点击选择地区" class="form-control input-sm " type="text" ng-class="{haserror:serviceForm1.pca.$invalid&&formData.isCommitted1}" required/>
+				<div class="ng-messages-error" ng-messages="serviceForm1.pca.$error" ng-show="serviceForm1.pca.$invalid&&formData.isCommitted1" >
+					<span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+				</div>
+			</div>
+		</div>
+		<div class="form-group col-sm-6">
+			<label class="col-sm-4 control-label">详细地址地址</label>
+			<div class="col-sm-8">
+				<input type="text" ng-model="formData.address" name="address"  placeholder="必填"  class="form-control" ng-class="{haserror:serviceForm1.address.$invalid&&formData.isCommitted1}" maxlength="99" required/>
+				<div class="ng-messages-error" ng-messages="serviceForm1.address.$error" ng-show="serviceForm1.address.$invalid&&formData.isCommitted1" >
+					<span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--end next row  -->		
+		<!--<p>{{serviceForm1.$invalid}}</p>-->
+		<input type="hidden" id="formDatainvalid1" value="{{serviceForm1.$invalid}}">
+</form>

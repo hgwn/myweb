@@ -1,0 +1,11 @@
+<form name="serviceForm4">
+	name3:<input name="name3" ng-class="{haserror:serviceForm4.name3.$invalid&&formData.isCommitted&&formData.pbankaccountFlag}" ng-model="formData.name3" type="text" required /><br>
+	<div class="ng-messages-error" ng-messages="serviceForm4.name3.$error" ng-show="serviceForm4.name3.$invalid&&formData.isCommitted&&formData.pbankaccountFlag" >
+		<span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+	</div>
+	word3:<input name="word3" ng-model="formData.word3" type="text" /><br>
+	name3:{{formData.name3}}
+	<br>
+	{{serviceForm4.$invalid}}
+	<input type="hidden" id="formDatainvalid" value="{{serviceForm4.$invalid}}">
+</form>

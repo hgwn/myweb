@@ -1,0 +1,18 @@
+{
+"message":"查询成功",
+"ret":0,
+"data":{
+"rows":[
+{
+"roletypeid":5,
+"createdtime":"2015-05-08 00:00:00",
+"roletypename":"出纳"
+},
+{
+"roletypeid":8,
+"createdtime":"2015-05-08 00:00:00",
+"roletypename":"仓管员"
+}
+]
+}
+}

@@ -1,0 +1,6 @@
+<a role="menuitem" tabindex="-1" ng-href="{{node.href}}" class="list-group-item" title="{{node.stationname}}"
+   ng-if="!node.divider" ng-click="stationSelected(node);" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"
+   ><span class="indent" repeat-times="{{node.level}}">&nbsp;&nbsp;&nbsp;</span>{{node.stationname}}<span ng-if="session.stationid == node.stationid" class="glyphicon glyphicon-ok pull-right"></span></span></a>
+<div class="stationItem" role="presentation"
+     ng-repeat="node in node.nodes" ng-include="'base/app/home/stations.html'">
+</div>

@@ -1,0 +1,28 @@
+<form class="form-horizontal" role="form"
+	ng-controller="addPurchaseorderHeadController">
+	<div class="col-md-12" style="padding: 0px">
+		<div class="form-group col-md-1" style="padding: 3px 0px 0px 0px;">
+			<label>客户：</label>
+		</div>
+		<div class="col-md-4 text-left " id="h_comboxtable-input"
+			style="padding: 0px;white-space: nowrap; position:relative;">
+			<comboxtable ng-model="selectedAcontact"
+				column-names="['客户','联系人','地址','联系电话']"
+				column-fields="['companyname','staffname','addressEx','mobilephone']"
+				text-field="staffname" datas="contacts" on-change="getContact()"
+				key-word="contactkeyword" is-required="false" is-show-index="true"
+				input-placeholder="请选择客户" content-style="width:83.33%;"
+				input-style="font-size:13px" input-class="form-control"
+				input-height="34px" style="width: 100%;"> </comboxtable>
+			<span class="input-group-btn"
+				style="position:absolute;left:83.33%;top:0;">
+				<button class="btn btn-default" style="height:34px;" ng-click=""
+					title="添加客户" data-toggle="modal"
+					data-target="#modal-container-184101" data-backdrop="static">
+					<span class="glyphicon glyphicon-plus" style="color: deepskyblue;"></span>
+				</button>
+			</span>
+		</div>
+	</div>
+
+</form>

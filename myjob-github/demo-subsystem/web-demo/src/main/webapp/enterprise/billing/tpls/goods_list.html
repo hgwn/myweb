@@ -1,0 +1,190 @@
+		<div class="row clearfix">
+<!-- 			<div class="col-md-1 col-xs-1" style="float: left;position: absolute;margin-top: 10px;">
+			<button  class="btn btn-success btn-large" style=" cursor:pointer;" ng-click="addToCart()">返回</button>
+			</div> -->
+			<div class="col-md-12 col-xs-12">
+				<h3 class="h-prod-title">售货开单-选择商品</h3>
+			</div>
+		</div>
+	<form class="form-inline">
+		<div class="row clearfix">
+			<div  class="col-md-12 form-group" style="position:relative; height:44px;">
+				<div style="position:absolute;left:50%; top:0; width:320px; margin-left:-160px;">
+					<input type="text" class="form-control" style="width:250px;" ng-model="queryFormData.goodsname" placeholder="商品名/货号/条形码"
+						class="search_key" />
+					<button class="btn btn-default" ng-click="queryForm(true)">查询</button>
+				</div>		
+			</div>
+		</div>
+	</form>
+	<div class="container" style="margin-bottom: 30px">
+	    <div class="row clearfix" style="padding:0px;">
+	    <div infinite-scroll="queryForm()" infinite-scroll-disabled="queryFormData.busy" infinite-scroll-distance="3">
+		     <div class="col-md-12 column" style="margin-top:5px;padding:0px;">
+	            <!-- 商品展示 -->
+	            <div class="col-md-3 col-xs-6 column" ng-repeat="item in items" style="margin-top:5px;padding:0px;">
+	                <div class="panel panel-default panelDecorate">
+	                    <div class="panel-body">
+                            <div style="width:130px; background-image: url(static/img/nopic.png); background-repeat: no-repeat; 
+                            			background-position: center center;">
+								<img style="height:130px;" ng-src="{{item.image}}" class="img-rounded img-responsive"/>
+							</div>
+	                        <div class="col-md-12 col-xs-12" style="padding:0;">
+	                            <div class="" style="color:red;font-size:14px; margin-bottom:5px;">
+	                                <span class="shopPrice" style="font-size:12px;">市场价:￥<span ng-bind="item.marketprice"></span></span>
+	                                	￥<span ng-bind="item.shopprice"></span>
+	                            </div>
+                                	<span ng-bind="item.goodsname" style="margin-bottom:5px;white-space:nowrap;"></span>
+	                        </div>
+	                        <div class="text-center" style="margin-top:5px;">
+	                            <Button href="#modal-container-355358" data-toggle="modal" type="button" class="btn btn-success btn-large" ng-click="addToOrder(item)">加入订单</Button>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	            <!-- 商品展示end -->
+            </div>
+        </div>
+        </div>
+    </div>   
+<!-- <div id="h-productWrap" class="col-md-12 column">
+		<div id="h-item-title" class="clearfix">
+			<div class="h-item-list-14 h-fl">商品</div>
+			<div class="h-item-list-14 h-fl">商品名</div>
+			<div class="h-item-list-12 h-fl">市场价</div>
+			<div class="h-item-list-12 h-fl">销售价</div>
+			<div class="h-item-list-12 h-fl">操作</div>
+		</div>				
+		<ul class="h-product-ul clearfix" ng-repeat="v in items">
+			<li>
+				<div class="h-item-list-14 h-fl clearfix">
+					<img style="width: 100px;height: 65px;" ng-src="{{v.image}}">
+				</div>	
+				<div class="h-item-list-14 h-fl">
+					{{v.goodsname}}<p>{{v.barcode}}</p>
+				</div>
+				<div class="h-item-list-12 h-fl">￥{{v.marketprice}}</div>
+				<div class="h-item-list-12 h-fl">￥{{v.shopprice}}</div>
+				<div class="h-item-list-12 h-fl">
+					<Button type="button" data-toggle="modal" id="modal-355358" href="#modal-container-355358"  class="btn btn-success btn-xs" ng-click="edit(v)">加入订单</Button>
+				</div>
+			</li>
+			<li ng-show="goCats" style="background-color: #FFFFE0">
+				<div class="h-item-list-30 h-fl clearfix">
+					{{v.goodsname}}
+				</div>	
+				
+				<div class="h-item-list-14 h-fl">
+					111
+				</div>
+				<div class="h-item-list-12 h-fl">
+					22
+				</div>
+				<div class="h-item-list-12 h-fl">
+					333
+				</div>
+				<div class="h-item-list-12 h-fl">
+				</div>
+			</li>
+		</ul>
+</div> -->
+<!-- 
+<pagination recordcount="{{goodsdata.data.total}}" pagenum="queryFormData.pageNum" pagesize="queryFormData.pageSize" onselect="queryForm()"></pagination>
+ -->
+			
+<div class="content1_right3">
+	<table width="257" border="0" align="center" cellpadding="0" cellspacing="0" style="background:url(../billing/static/img/wmyd_bg_09_03.jpg) no-repeat;">
+         <tr>
+           <td height="42" style="padding-left:53px; color:#ffffff;">已选商品数量:{{orders.totgoodsqty}}</td>
+           <td width="74" align="center"><a ng-click="addToCart(item)"   style="color:#ffffff; text-decoration:none; cursor:pointer;">返回</a></td>
+         </tr>
+    </table> 
+</div>
+
+
+<!-- 模态窗口,点击购物车、立即购买按钮  展示型号类型信息 -->
+
+  <div class="modal fade" id="modal-container-355358" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                   <h4 class="modal-title" id="myModalLabel">
+                                                                  添加订单
+                   </h4>
+              </div>
+              <div class="modal-body">	
+              
+                    <div ng-repeat="items in selectedGoods.goodsskuattrib">
+                        <div style="margin-bottom:5px;">
+                            <span class="mechantsTitle">{{items.attribname}}</span>
+		                    <span ng-repeat="item in items.properties" class="arrAttributes">
+		                        <a href="javascript:void(0);" ng-class="{wasSelected:item.selected}" ng-click="selectedSKUAttribClick(item, items)"><span>{{item.attribproperties}}</span></a>
+		                    </span>
+                        </div>
+                    </div>
+                    <div style="margin-top:20px;" ng-if="(selectedGoods.skuid==0 && selectedGoods.goodsskuattrib.length == 0)||selectedGoods.skuid > 0">
+                        <span style="color:#838383;">数量:
+                        	<input type="number" min="1" ng-model="selectedGoods.goodsqty" class="ng-valid ng-valid-min ng-dirty ng-valid-number ng-touched" style="width:10%;">
+						</span>
+					</div>
+					<div ng-if="(selectedGoods.skuid==0 && selectedGoods.goodsskuattrib.length == 0)||selectedGoods.skuid > 0">
+                        <span style="color:#838383;">价格:
+                        	 <input type="text" ng-model="selectedGoods.dealingprice" style="width:10%;"/>
+						</span>
+						<!-- <span style="color:#838383;">价格:{{selectedGoods.shopprice | currency:"￥  " }}</span> -->
+						<strong style="float:right;color:#f0152c;">合计:{{selectedGoods.dealingprice * selectedGoods.goodsqty  | currency:"￥  " }}</strong>
+                    </div>
+                    
+              	<div class="modal-footer">
+                    <Button data-dismiss="modal" ng-click="submitAddCart()" class="btn btn-success control_bottom_submit" style="width:150px;">加入订单</Button>
+                    <Button data-dismiss="modal" class="btn btn-default control_bottom_submit" style="width:150px;">取消</Button>
+                </div>
+<!--                     <div ng-repeat="items in merchant.goodsskuattrib">
+                        <div style="margin-bottom:5px;">
+                            <span class="mechantsTitle">{{items.attribname}}</span>
+		                    <span ng-repeat="item in items.properties" class="arrAttributes">
+		                        <a href="javascript:void(0);" ng-class="{wasSelected:item.cssFlag}" ng-click="selectedClick(item,items,merchant)"><span>{{item.attribproperties}}</span></a>
+		                    </span>
+                        </div>
+                    </div>
+                    <div style="margin-top:20px;">
+                        <span style="color:#838383;">库存:{{merchantPriceDetail.quantity}}</span>
+                        <span style="color:#838383;">购买数量:<input type="number" ng-click="" min="1" max={{merchantPriceDetail.quantity}} ng-model="merchantPriceDetail.num" style="width:10%;"/></span>
+                        <strong style="color:#838383;">单价:￥{{merchantPriceDetail.price}}</strong>
+                        <strong style="float:right;color:#f0152c;">总价:￥{{merchantPriceDetail.totalPrice()}}</strong>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <Button id="" data-dismiss="modal" ng-click="submitAddCart()" class="btn btn-default control_bottom_submit" style="width:150px;">添加</Button>
+                    <Button id="" ng-click="" class="btn btn-default control_bottom_submit" style="width:150px;">提交订单</Button>
+                </div> -->
+<!--               <form id="myformid"  name="myformid" novalidate ng-submit="processForm()">         
+					<div ng-repeat="items in billing.goodsskuattrib">
+                        <div style="margin-bottom:5px;">
+                            <span class="mechantsTitle">{{items.attribname}}</span>
+		                    <span ng-repeat="item in items.properties" class="arrAttributes">
+		                        <a href="javascript:void(0);" ng-class="{wasSelected:item.cssFlag}" ng-click="selectedClick(item,items,billing)"><span>{{item.attribproperties}}</span></a>
+		                    </span>
+                        </div>
+                    </div>
+                    <div style="margin-top:20px;">
+                        <span style="color:#838383;">库存:{{merchantPriceDetail.quantity}}</span>
+                        <span style="color:#838383;">购买数量:<input type="number" min="1"  ng-model="merchantPriceDetail.num" style="width:10%;"/></span>
+                        <strong style="color:#838383;">单价:￥{{merchantPriceDetail.price}}</strong>
+                        <strong style="float:right;color:#f0152c;">总价:￥{{merchantPriceDetail.totalPrice()}}
+                        </strong>
+                    </div>
+			
+	          <div class="modal-footer">
+                   <Button class="btn btn-info control_bottom_submit" type="submit"  style="width:150px;">提交</Button>
+              </div>
+            </form>  --> 
+              </div>
+              
+          </div>
+      </div>
+</div>
+<!-- 模态窗口end -->
+
+

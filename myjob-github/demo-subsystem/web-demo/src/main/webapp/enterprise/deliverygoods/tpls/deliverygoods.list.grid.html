@@ -1,0 +1,42 @@
+<table class="table table-bordered table-hover table-striped table-condensed">
+	<thead>
+		<tr class="info">
+			<th style="width: 40px;" >序号</th>
+			<th>操作</th>
+			<th style="width: 120px">发货单号</th>
+			<th style="width: 90px">开单时间</th>
+			<th style="width: 90px">状态</th>
+			<th style="width: 90px">来源</th>
+			<th style="width: 120px">发货人/单位</th>
+			<th style="width: 100px">发货地址</th>
+			<th style="width: 100px">发货人电话</th>
+			<th style="width: 100px">收货人</th>
+			<th style="width: 100px">收货人地址</th>
+			<th style="width: 100px">收货人电话</th>
+			<th style="width: 100px">提货方式</th>
+			<th style="width: 100px">送货方式</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="delivery in deliverys.data.rows">
+			<td ng-bind="$index+1" class="h_bgf3"  style="text-align: center;">1</td>
+			<td class="h_bgf3"  style="text-align: left;padding-left: 10px;padding-right: 10px;">
+				<a href="javascript:;" class="link_edit" ng-click="view(delivery)">查看</a> 
+				<a href="javascript:;" class="link_edit" ng-click="edit(delivery)" ng-if="delivery.deliverystate<4">修改</a> 
+				<a href="javascript:;" class="link_edit" ng-click="deleteDelivery(delivery)" ng-if="delivery.deliverystate<4">删除</a> 
+			</td>
+			<td>{{delivery.deliverynum}}</td>
+			<td>{{delivery.createdtime|limitTo:19}}</td>
+			<td>{{delivery.statename}}</td>
+			<td>{{delivery.datasource==1?"手工开单":delivery.datasource==2?"出库单":delivery.datasource==3?"售货单":""}}</td>
+			<td>{{delivery.enlinkername}}</td>
+			<td>{{delivery.sendaddress}}</td>
+			<td>{{delivery.enlinkerphone}}</td>
+			<td>{{delivery.recvlinkername}}</td>
+			<td>{{delivery.recvaddress}}</td>
+			<td>{{delivery.recvlinkerphone}}</td>
+			<td>{{delivery.consignmenttype==1?"物流上门收货":"货主送货"}}</td>
+			<td>{{delivery.deliverytype==1?"送货上门":"收货方自提"}}</td>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,23 @@
+{
+"message":"查询成功!",
+"ret":0,
+"data":{
+"rows":[
+{
+"osenvirnmentid":2,
+"createdtime":"2015-05-06 13:18:10",
+"osenvinrment":"android"
+},
+{
+"osenvirnmentid":1,
+"createdtime":"2015-05-06 13:13:15",
+"osenvinrment":"pc"
+},
+{
+"osenvirnmentid":3,
+"createdtime":"2015-05-06 13:18:23",
+"osenvinrment":"ios"
+}
+]
+}
+}

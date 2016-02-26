@@ -1,0 +1,1 @@
+var fs=require("fs"),ProtoBuf=require("protobufjs"),userProtoStr=fs.readFileSync("./msg.proto").toString();console.log(userProtoStr);var UserModel=ProtoBuf.loadJson(userProtoStr).build("protobuf").UserModel,userModel;userModel=new UserModel,console.log(userModel.toString());

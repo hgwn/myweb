@@ -1,0 +1,19 @@
+<div class="panel panel-default"
+     style="border: 1px solid #C7D4BE;position:absolute;z-index:10000;border-top-left-radius:5px;border-top-right-radius:5px;background-color:transparent;width:200px">
+    <div class="panel-heading" style="text-align:center"><span style="font-weight:700;font-size:14px">选择站点</span>&nbsp;&nbsp;&nbsp;<span
+            class="glyphicon glyphicon-triangle-left" style="font-size:14px;cursor:pointer;"
+            ng-click="toggleState($event);showSearch=!showSearch;$event.stopPropagation();"></span>
+
+        <div class="input-group" style="margin-top:5px" ng-show="showSearch">
+            <input class="form-control" ng-click="$event.stopPropagation();" placeholder="站点搜索"
+                   ng-model="$parent.stationSearchInput" aria-describedby="stationSearchBtb">
+        </div>
+    </div>
+    <div class="panel-body" style="max-height:180px;overflow:auto;padding: 0 0;" ng-scrollbar scrollbar-x="false"
+         scrollbar-y="true" scrollbar-config="{autoResize:true,show:true}">
+        <div tabindex="-1" style="margin-bottom:0px;position:relative;display:block" class="list-group" role="menu">
+            <div class="stationItem" role="presentation" ng-repeat="node in stationList"
+                 ng-include="'base/workflow/tpls/stationsListRender.html'"></div>
+        </div>
+    </div>
+</div>

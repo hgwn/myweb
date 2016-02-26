@@ -1,0 +1,133 @@
+<div class="container well well-lg"	>
+   	<div class="row clearfix">
+		<div class="column col-md-12"  style="margin-top:10px;">
+			<form class="form-horizontal" role="form">
+			    <div class="form-group">
+			        <label class="col-md-2 col-sm-2 control-label">
+			            <span style="padding-right:35px;font-size:23px;">基本资料</span>
+			        </label>
+			        <div class="col-md-10 col-sm-10">
+			        </div>
+			    </div>
+				<div class="form-group">
+				    <label for="" class="col-md-2 col-sm-2 control-label">经销商关系类型</label>
+					<div class="col-md-2 col-sm-2">
+						<span class="form-control" >{{viewData.cooperanttypename}}</span>	
+					</div>
+				    <label for="" class="col-md-2 col-sm-2 control-label">经销商名称</label>
+					<div class="col-md-2 col-sm-2">
+						<span class="form-control" >{{viewData.subcompanyname}}</span>	
+					</div>
+				    <label for="" class="col-md-2 col-sm-2 control-label">经销商级别</label>
+					<div class="col-md-2 col-sm-2">
+						<span class="form-control" >{{viewData.addressgroupname}}</span>
+					</div>
+				</div>				    
+				<!-- <div class="form-group">
+				    <label for="" class="col-md-5 col-sm-5 control-label">经销商名称</label>
+					<div class="col-md-2 col-sm-2">
+						<span class="form-control" >{{viewData.subcompanyname}}</span>	
+					</div>
+				</div>	
+				<div class="form-group">
+				    <label for="" class="col-md-5 col-sm-5 control-label">经销商级别</label>
+					<div class="col-md-2 col-sm-2">
+						<span class="form-control" >{{viewData.addressgroupname}}</span>
+					</div>
+				</div> -->
+				<div class="form-group">
+				    <label for="" class="col-md-2 col-sm-2 control-label">电话</label>
+					<div class="col-md-2 col-sm-2">
+					    <span class="form-control" >{{viewData.phone}}</span>
+					</div>
+					<label for="" class="col-md-2 col-sm-2 control-label">传真</label>
+					<div class="col-md-2 col-sm-2">
+						<span class="form-control" >{{viewData.faxnumber}}</span>
+					</div>
+				    <label for="" class="col-md-2 col-sm-2 control-label">地址</label>
+					<div class="col-md-2 col-sm-2">
+					    <span class="form-control" >{{viewData.address}}</span>				    
+					</div>
+				</div>	
+				<!-- <div class="form-group">
+					<label for="" class="col-md-5 col-sm-5 control-label">传真</label>
+					<div class="col-md-2 col-sm-2">
+						<span class="form-control" >{{viewData.faxnumber}}</span>
+					</div>
+				</div>
+				<div class="form-group">
+				    <label for="" class="col-md-5 col-sm-5 control-label">地址</label>
+					<div class="col-md-2 col-sm-2">
+					    <span class="form-control" >{{viewData.address}}</span>				    
+					</div>
+				</div> -->
+				<div class="form-group">
+				    <label for="" class="col-md-2 col-sm-2 control-label">联系人</label>
+					<div class="col-md-2 col-sm-2">
+					    <span class="form-control" >{{viewData.contractname}}</span>	
+					</div>
+				    <label for="" class="col-md-2 col-sm-2 control-label">手机</label>
+					<div class="col-md-2 col-sm-2">
+					    <span class="form-control">{{viewData.mobilephone}}</span>	
+					</div>
+				    <label for="" class="col-md-2 col-sm-2 control-label">备注</label>
+					<div class="col-md-2 col-sm-2">
+					    <span class="form-control">{{viewData.remark}}</span>
+					</div>
+				</div>
+				<!-- <div class="form-group">
+				    <label for="" class="col-md-5 col-sm-5 control-label">手机</label>
+					<div class="col-md-2 col-sm-2">
+					    <span class="form-control">{{viewData.mobilephone}}</span>	
+					</div>
+				</div>	
+				<div class="form-group">
+				    <label for="" class="col-md-5 col-sm-5 control-label">备注</label>
+					<div class="col-md-2 col-sm-2">
+					    <span class="form-control">{{viewData.remark}}</span>
+					</div>
+				</div> -->
+			    <div class="form-group">
+			        <label class="col-md-2 col-sm-2 control-label">
+			            <span style="padding-right:35px;font-size:23px;">收货信息</span>
+			        </label>
+			        <div class="col-md-10 col-sm-10">
+			        </div>
+			    </div>
+   				<div class="form-group"  ng-repeat = "item in viewData.addressmanageList">
+				    <label for="" class="col-md-2 col-sm-2 control-label"></label>
+					<div class="col-md-10 col-sm-10">
+					    <span class="form-control">
+					    	{{item.contactname}}
+					    	{{item.provincename}}
+					    	{{item.cityname}}
+					    	{{item.areaname}}
+					    	{{item.address}}
+					    	{{item.mobile}}
+					    </span>
+					</div>
+					<!-- <label for="" class="col-md-5 col-sm-5 control-label"></label> -->
+				</div>				
+				<div class="form-group" style="margin-top:10px;">
+				    <label for="" class="col-md-6 col-sm-6 control-label"></label>
+					<div class="col-md-1 col-sm-1">
+					    <Button class="btn btn-primary" style="width:100%;background-color:#1596ad !important;border-color:#1596ad;border-radius:0px;" ng-click="returnToList()">
+					        返回
+					    </Button>
+					</div>
+				</div>																				
+			</form>
+		</div>
+		<!-- 分组级别添加模态窗口 -->
+		<div ui-view="addressGroupConfigViewModal"></div>
+	</div>
+</div>
+<style type="text/css">
+.well{
+    padding-left:20px;
+    padding-right:20px;
+}
+.form-control{
+    border: 0px solid #ccc;
+}
+</style>

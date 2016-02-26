@@ -1,0 +1,70 @@
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="datasourceModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog"  style="width: 1000px;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="false">&times;</button>
+				<h4 class="modal-title"> 选择数据</h4>
+			</div>
+			<div class="modal-body form-inline" style="height: 350px">
+				<div class="col-sm-12" style="padding:0px">
+					<div class="col-sm-6" style="padding: 0px">
+						<span>数据来源：</span>
+						<select name="datatype" ng-model="formData_ds.datatype" ng-init="formData_ds.datatype=1" class="form-control input-sm" style="width: 25%;height: 30px">
+							<option value="1">出库单</option>
+							<option value="2">售货单</option>
+						</select>
+						<span>{{formData_ds.datatype==1?"出库单号：":"售货单号："}}</span>
+						<input type="text" name="ordernum" ng-model="formData_ds.ordernum" placeholder="请输入单号查询" class="form-control input-sm" style="width: 35%;height: 30px">
+					</div>
+					<div class="col-sm-6" style="padding: 0px;position: relative;left: -30px;">
+						<span>下单日期：</span> 
+						<input name="begincreatedtime" type="text" ng-model="formData_ds.begincreatedtime" class="form-control" data-max-date="{{formData_ds.endcreatedtime}}"  data-date-format="yyyy-MM-dd" data-date-type="string" data-autoclose="1"  bs-datepicker style="width: 150px;height: 30px">
+						<span>到</span>
+						<input name="endcreatedtime" type="text" ng-model="formData_ds.endcreatedtime" class="form-control" data-min-date="{{formData_ds.begincreatedtime}}"  data-date-format="yyyy-MM-dd" data-date-type="string" data-autoclose="1"  bs-datepicker style="width: 150px;height:30px">
+					
+						<button type="button" class="btn btn-primary input-sm" ng-click="queryDataSourse()">查询</button>
+					</div>
+				</div>
+				<div class="col-sm-12" style="padding:10px 0px;overflow: auto;width:950px;height: 285px">
+					<table class="table table-bordered table-hover table-striped table-condensed">
+						<thead>
+							<tr class="info">
+								<th style="width: 50px">序号</th>
+								<th style="width: 80px">操作</th>
+								<th style="width: 150px">售货单号</th>
+								<th style="width: 130px">下单日期</th>
+								<th style="width: 80px">来源</th>
+								<th style="width: 100px">供应商</th>	
+								<th style="width: 100px">联系电话</th>
+								<th style="width: 130px">地址</th>
+								<th style="width: 100px">采购商</th>
+								<th style="width: 100px">联系电话</th>
+								<th style="width: 130px">地址</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="datasource in datasources.data.rows">
+								<td ng-bind="$index+1" class="h_bgf3"  style="text-align: center;"></td>
+								<td class="h_bgf3"  style="text-align: center;"><a href="javascript:;" ng-click="importData(datasource)">受理</a></td>
+								<td>{{datasource.ordernum}}</td>
+								<td>{{datasource.createdtime|limitTo:19}}</td>
+								<td>{{datasource.datatype==1?"出库单":"售货单"}}</td>
+								<td>{{datasource.suppliercompanyname}}</td>
+								<td>{{datasource.supplierphone}}</td>
+								<td>{{datasource.buyerprovincename}}{{datasource.buyercityname}}{{datasource.buyerareaname}}{{datasource.buyeraddress}}</td>
+								<td>{{datasource.buyername}}</td>
+								<td>{{datasource.buyerphone}}</td>
+								<td>{{datasource.supplierprovincename}}{{datasource.suppliercityname}}{{datasource.supplierareaname}}{{datasource.supplieraddress}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="modal-footer" style="text-align: left;">
+			 	<pagination recordcount="{{datasources.data.total}}" pagenum="formData_ds.pageNum" pagesize="formData_ds.pageSize" onselect="queryDataSourse()" is-hide-pagenum-input="true1"></pagination>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 模态框（Modal）结束-->

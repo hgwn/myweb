@@ -1,0 +1,34 @@
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th class="center">银行</th>
+            <th class="center">银行帐号</th>
+            <th class="center">联行号</th>
+            <th class="center">开户名称</th>
+            <th class="center">身份证号码</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="item in queryData.mgsettlement_companyaccountinfo">
+            <td class="center">
+                <span id=pbank">{{item.bank}}</span>
+            </td>
+            <td class="center">
+                <span id="bankaccount">{{item.bankaccount}}</span>
+            </td>
+            <td class="center">
+                <span id="bankcode">{{item.bankcode}}</span>
+            </td>
+            <td class="center">
+                <span id="accountname">{{item.accountname}}</span>
+            </td>
+            <td class="center">
+                <span id="idcardno">{{item.idcardno}}</span>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>

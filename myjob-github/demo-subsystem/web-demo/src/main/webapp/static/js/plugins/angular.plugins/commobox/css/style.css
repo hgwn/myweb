@@ -1,0 +1,20 @@
+/* clear float */
+.clearfix:before,
+.clearfix:after {display: block;  height: 0;  visibility: hidden;  font-size: 0; }
+.clearfix:after, .cl {  clear: both;  }
+.clearfix {  *zoom: 1;  }
+
+.commobox-container {  font: 13px/24px "宋体";color: #333;position: relative; display: inline-block;}
+.commobox-container input { background: url(../image/input_icon.png) #fff no-repeat center right;  box-shadow: 2px 3px 10px #ececec;height: 30px;font-size:13px;  }
+.commobox-container-icon {width: 18px;height: 30px;cursor:pointer;position: absolute;top:0px;right:0px}
+
+.commobox-list {width: 100%; max-height:250px;position: absolute; top: 30px; left: 0;  background: #fff;border: 1px solid #D4D4D4;padding-right: 0px ;z-index:1000}
+.commobox-list .content{max-height:190px;overflow-y:auto;overflow-x:hidden;margin-bottom: 0px}
+.commobox-list .content ul{padding:0px;margin: 0px;}
+.commobox-list .content ul li{padding-left: 5px}
+.commobox-list .content ul li:hover{cursor:default;}
+.commobox_list_ul_li_bgcolor{background-color: #62AAF2;}
+.commobox-list footer{height: 30px;width: 100%;border-top: 1px solid #D6D6D6;position: absolute;bottom: 0px;padding-left: 15px;}
+.commobox-list footer a{color: #333333}
+.commobox-list footer a:hover{color: #2166AB;cursor: pointer}
+

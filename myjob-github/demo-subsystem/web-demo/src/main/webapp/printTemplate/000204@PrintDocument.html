@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>模板打印</title>
+<meta charset="UTF-8"> 
+    <link rel="stylesheet" type="text/css" href="jquery-easyui-1.4/themes/metro/easyui.css"/>
+    <link rel="stylesheet" type="text/css" href="jquery-easyui-1.4/themes/icon.css"/>
+    <script type="text/javascript" src="jquery-easyui-1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery-easyui-1.4/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="jquery-easyui-1.4/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="jquery-easyui-1.4/datagrid-detailview.js"></script>
+    
+    <script type="text/javascript" src="../static/js/plugins/jquery.plugins/colorpick/jquery.colorpicker.js"></script> 
+    <script type="text/javascript" src="common/mglogistics.easyui.js"></script>
+    <script type="text/javascript" src="../static/js/plugins/jquery.plugins/jquery.json.js"></script>
+    <script type="text/javascript" src="dataformat.js"></script>
+    <script type="text/javascript" src="workplace.js"></script>
+    <script type="text/javascript" src="dialog.js"></script>
+    <script type="text/javascript" src="mainview.js"></script>
+    <script type="text/javascript" src="propertygrid.js"></script>
+    <script type="text/javascript" src="templateitem.js"></script>
+    <script type="text/javascript" src="000204@PrintDocument.js"></script>
+<style type="text/css">
+    *{margin:0;padding:0;}
+    html,body
+    {
+        text-align:center;
+        height:100%;
+        background-color:#F5FFFA;
+        user-select: none;
+    }
+    .mainview{       
+        position: relative;
+        width:100%;
+        height:100%;
+        overflow: hidden;
+        background:#ddd;
+    }
+     .mainview[class]{
+        position:static;
+        display: table;
+    }
+    .center-outer{
+        position:absolute;
+        top:50%;
+        padding:10px;
+        user-select: none;
+    }
+    .center-outer[class]{
+        display: table-cell;
+        vertical-align: middle;
+        position:static;
+    }
+    .center-content{
+        margin: 0 auto;
+        position:relative;
+        top:-50%;
+    }
+    
+    .h-table-box{ border-collapse: collapse; margin:15px auto 0;text-align:center}
+    .h-table-box tr,.h-table-box td{ border:1px solid #ddd;padding:5px;}
+    .h-table-box label{ display: inline-block; width: 80px; text-align: right;}
+    .h-table-tr1{ height: 35px;background:#f7f7f7}
+    .h-table-tr2{ height: 35px;background:#fdfdfd}
+    .h-table-title{ width:80px;}
+    
+    .dataitem{
+        background:#eee;
+        position:absolute;
+        min-width:3mm;
+        min-height:3mm;
+        outline:1px outset #ccc;
+        z-index:100;
+        font-size:12pt;
+        cursor:default;
+        overflow:hidden;
+        text-align:center;
+        
+    }
+    .dataitem-focus{
+        z-index:101;
+        outline:2px outset #888;
+        background:#ddd;
+        cursor:pointer;
+    }
+    .dataitem-drag{
+        opacity:0.5;
+        filter:alpha(opacity=50);
+        cursor:not-allowed;
+    }
+    .workplace-over{
+        background: #eee;
+    }
+   	#modeifyfile{
+    	 vertical-align: top;
+    	 visibility: hidden;
+ 	 	 position: absolute;
+ 		 top: 0;
+ 		 left: -5000px;
+    }
+    #mmpicture  .filebox{
+   	  visibility: hidden;
+    }
+    .noselect{
+     -moz-user-select: none;
+	  -webkit-user-select: none;
+  	  moz-user-select: none;
+    }
+    .icon-colorP {
+	  background: url('../static/js/plugins/jquery.plugins/colorpick/colorpicker.png') no-repeat center center;
+	}
+</style>
+</head>
+<body class="easyui-layout">
+    <div data-options="region:'north',height:'auto'">
+        <div id="mmpicture" class="easyui-menu" style="width:120px;">
+            <div data-options="name:'change'">更换图片</div>  
+            <div id="mpsaveas" data-options="name:'saveas',iconCls:'icon-save'">图片另存为</div>
+            <input id="modeifyfile" type="text" style="width:300px">
+        </div>
+        <div id="mmdataitem" class="easyui-menu" style="width:120px;">
+            <div id="mddelete" data-options="name:'delete'">删除选中项</div>
+            <div id="mdalignup" data-options="name:'alignup'">向上对齐</div>
+            <div id="mdaligndown" data-options="name:'aligndown'">向下对齐</div>
+            <div id="mdalignleft" data-options="name:'alignleft'">向左对齐</div>
+            <div id="mdalignright" data-options="name:'alignright'">向右对齐</div>
+            
+            <div id="mdmaxwidth" data-options="name:'maxwidth'">对齐最大宽度</div>
+            <div id="mdminwidth" data-options="name:'minwidth'">对齐最小宽度</div>
+            <div id="mdmaxheight" data-options="name:'maxheight'">对齐最大高度</div>
+            <div id="mdminheight" data-options="name:'minheight'">对齐最小高度</div>
+        </div>
+
+        <a class="easyui-menubutton" data-options="menu:'#mmfile',iconCls:'icon-edit'">文件</a>
+        <div id="mmfile" style="width:150px;">
+            <div id="mfnew" data-options="iconCls:'icon-add'" onclick="FileMenu.onNew();">新建</div>
+            <div id="mfsave" data-options="iconCls:'icon-save',disabled:true" onclick="FileMenu.onSave();">保存</div>
+            <div id="mfclose" data-options="iconCls:'icon-cancel',disabled:true" onclick="FileMenu.onOpen();">关闭</div>
+        </div>
+        <a id="tbalignup" class="easyui-linkbutton" data-options="plain:true,disabled:true">向上对齐</a>
+        <a id="tbaligndown" class="easyui-linkbutton" data-options="plain:true,disabled:true">向下对齐</a>
+        <a id="tbalignleft" class="easyui-linkbutton" data-options="plain:true,disabled:true">向左对齐</a>
+        <a id="tbalignright" class="easyui-linkbutton" data-options="plain:true,disabled:true">向右对齐</a>
+        
+        <a id="tbmaxwidth" class="easyui-linkbutton" data-options="plain:true,disabled:true">对齐最大宽度</a>
+        <a id="tbminwidth" class="easyui-linkbutton" data-options="plain:true,disabled:true">对齐最小宽度</a>
+        <a id="tbmaxheight" class="easyui-linkbutton" data-options="plain:true,disabled:true">对齐最大高度</a>
+        <a id="tbminheight" class="easyui-linkbutton" data-options="plain:true,disabled:true">对齐最小高度</a>
+        
+        <!-- <a class="easyui-linkbutton" data-options="plain:true" onclick="location.reload()">刷新</a> -->
+    </div>
+    <div class="noselect" data-options="region:'west',title:'模板项列表',split:true" style="width:200px;">
+        <div id="tempitemlist" class="easyui-accordion" data-options="fit:true,border:0" onselectstart="return false;">
+        </div>
+    </div>
+    <div data-options="region:'east',title:'属性',split:true" style="width:200px;">   
+        <table id="propertylist" class="easyui-propertygrid" data-options="fit:true,showGroup:true,scrollbarSize:0,border:0">
+        </table>
+    </div>
+    <div data-options="region:'center'">
+        <div class="mainview"><div class="center-outer noselect" onselectstart="return false;">
+            <!--new file dialog-->
+            <div id="newdialog" class="center-content" style="width:500px;height:240px;display:none">
+                <div class="easyui-panel" data-options="iconCls:'icon-add',title:'新建打印模板',fit:true">
+                    <table class="h-table-box">
+                        <tr class="h-table-tr1">
+                            <td class="h-table-title">模板类型</td>
+                            <td colspan=2><input id="ndtype" class="easyui-combobox" style="width:350px;" panelHeight="auto" editable=false prompt="请选择模版类型"/></td>
+                        </tr>
+                        <tr class="h-table-tr2">
+                            <td>模板信息</td>
+                            <td colspan=2  style="text-align: left;">名称：<input id="ndname" style="width:250px;"  class="easyui-textbox" style="width:120px;" data-options="validType:'tempName' ,prompt:'请输入模板名称'"/></td>
+                           <!--  <td>作者：<input id="ndauthor" class="easyui-textbox" style="width:120px;" prompt="请输入作者名称"/> </td>-->
+                        </tr>
+                        <tr class="h-table-tr1">
+                            <td>纸张信息</td>
+                            <td style="text-align: left;">宽度：<input id="ndwidth" class="easyui-numberbox" style="width:95px;" min="0" precision="2" prompt="纸张宽度(mm)"/>毫米</td>
+                            <td>高度：<input id="ndheight" class="easyui-numberbox" style="width:95px;" min="0" precision="2" prompt="纸张高度(mm)"/>毫米</td>
+                        </tr>
+                        <tr class="h-table-tr2">
+                            <td>背景图片</td>
+                            <td colspan=2 ><input id="ndbackground" class="easyui-filebox" style="width:320px; "  data-options="validType:'picPath',buttonText:'浏览...',prompt:'请选择背景图片'" /></td>
+                        </tr>
+                        <tr>
+                            <td colspan=3>
+                                <a class="easyui-linkbutton" data-options="iconCls:'icon-ok'" onclick="mainView.closeNewDialog('ok');">确定</a>
+                                <a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" onclick="mainView.closeNewDialog('cancel');">取消</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!--new file dialog end-->
+            <!--open file dialog-->
+            <div id="opendialog" class="center-content" style="width:600px;height:500px;">
+                <div class="easyui-panel" data-options="iconCls:'icon-edit',title:'打开打印模板',fit:true">
+                    <table id="odgrid" class="easyui-datagrid" data-options="singleSelect:true,border:false,fitColumns:true,onDblClickRow:function(){mainView.openFile();}" style="width:100%;height:435px;">
+                        <thead>
+                            <tr>
+                                <th data-options="width:15,field:'tempname'">模板名称</th>
+                                <th data-options="width:10,field:'templatetypename'">模板类型</th>
+                                <!--<th data-options="width:15,field:'createdby'">作者</th>-->
+                                <!-- <th data-options="width:15,field:'tempid'">模板ID</th>-->
+                            </tr>
+                        </thead>
+                    </table>
+                    <div style="margin:0 auto;text-align:center;padding:5px;background:#bbb;">
+                        <a class="easyui-linkbutton" data-options="iconCls:'icon-ok'" onclick="mainView.openFile();">打开</a>
+                        <a class="easyui-linkbutton" data-options="iconCls:'icon-no'" onclick="mainView.deleteFile();">删除</a>
+                        <a class="easyui-linkbutton" style="float:right" data-options="iconCls:'icon-add'" onclick="mainView.openNewDialog();">新建</a>
+                    </div>
+                </div>
+            </div>
+            <!--open file dialog end-->
+            <!--my messagebox-->
+            <div id="msgbox" class="easyui-dialog" title="系统信息" style="width:300px;height:128px;padding:5px 10px;"data-options="modal:true,closed:true
+">
+                <div class="messager-icon messager-question"></div>
+                <div id="msgContext">当前模板已经经过修改，是否保存当前模板？</div>
+                <div style="clear: both;"></div>
+                <div class="messager-button">
+                    <a id="msgYes" class="easyui-linkbutton">是</a>
+                    <a id="msgNo" class="easyui-linkbutton" style="margin-left:10px;">否</a>
+                    <a id="msgCancel" class="easyui-linkbutton" style="margin-left:10px;">取消</a>
+                </div>
+            </div>
+            <!--my messagebox end-->
+            <div id="workdialog" class="center-content" style="width:200mm;height:100mm;display:none" onselectstart="return false;">
+                <img id="wdcanvas" class="easyui-droppable" ondragstart="return false;" data-options="accept:'.tree-node',onDrop:WorkPlace.onDrop" style="width:100%;height:100%;background-color:#fff;" onselectstart="return false;"/>
+            </div>
+        </div></div>
+    </div>
+</body>
+</html>

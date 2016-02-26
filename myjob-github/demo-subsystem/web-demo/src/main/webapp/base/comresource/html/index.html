@@ -1,0 +1,31 @@
+<form class="form-inline">
+  <div class="form-group">
+   <label>公司名称：</label>
+	            <comboxtable name="cmpcompany" ng-model="cmpcompany" 
+        			 column-names="['公司id','公司','公司类型']" column-fields="['companyid','companyname','companytypename']" 
+                     text-field="companyname" datas="datas" on-change="findCompany()" key-word="comboxValue.companyname" is-required="true" is-show-index="true" 
+                     content-style="width: 200px" input-style="font-size:13px" input-class="form-control" input-height="34px" input-placeholder="输入公司名称"
+                     is-always-reps-click="true" is-show-pagination="true" recordcount="{{comboxValue.recordcount}}" pagenum="comboxValue.pagenum" pagesize="comboxValue.pagesize">
+                     </comboxtable>
+	</div>
+ </div>
+ &nbsp;&nbsp;&nbsp;&nbsp;
+   <div class="form-group">
+   <label>应用系统类型：</label>
+	                  <div style="display:inline-block">
+	                   <select ng-model="osenvirnment" ng-options=" o.osenvirnmentname for o in osenvirnments" class="form-control"></select>
+	</div>
+ </div>
+   <button type="button" class="btn btn-sm btn-primary"  ng-click="findCompanyClip()">查询</button>
+   <button type="button" ng-click="saveNode()" class="btn btn-primary btn-sm ">保存</button>
+</form>  
+<div class="content_wrap clearfix">
+	<div class="zTreeDemoBackground left">
+		<div class="treehead">定制资源<span class="smalltip">(可拖动下方资源分配给公司)</span></div>
+		<ul id="treeDemo" class="ztree"></ul>
+	</div>
+	<div class="zTreeDemoBackground right">
+		<div class="treehead"></span> <strong ng-if="comNmae">{{comNmae}}（{{typeName}}）</strong>的资源配置<span  class="smalltip">(已勾选表示公司可用资源,通过取消选择回收公司资源)</span></div>
+		<ul id="treeDemo2" class="ztree"></ul>
+	</div>
+</div>

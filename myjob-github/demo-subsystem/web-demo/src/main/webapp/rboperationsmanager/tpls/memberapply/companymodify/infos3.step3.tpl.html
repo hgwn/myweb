@@ -1,0 +1,42 @@
+<div class="col-sm-12">
+	<!-- start form-->
+	<form class="form-horizontal" name="serviceForm3" novalidate>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">结算通道</label>
+            <div class="col-sm-4">
+                <select class="form-control" name="agentsettlementchannelid" ng-class="{haserror:serviceForm3.agentsettlementchannelid.$invalid}"   ng-options="item.settlementchannelid as item.settlementchannelname for item in agentsettlementchannes"  ng-model="tableOjb.agentsettlementchannelid" ng-change="settlementrate_query(tableOjb.agentsettlementchannelid)" required>
+                    <option value="">请选择</option>
+                </select>
+                <div class="ng-messages-error" ng-messages="serviceForm3.agentsettlementchannelid.$error" ng-show="serviceForm3.agentsettlementchannelid.$invalid" >
+                    <span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">商户签约费率</label>
+            <div class="col-sm-4">
+                <select class="form-control" name="basesettlementrateid" ng-class="{haserror:serviceForm3.basesettlementrateid.$invalid}" ng-options="item.rateid as item.ratename for item in basesettlementrates"ng-model="tableOjb.basesettlementrateid" required>
+                    <option value="">请选择</option>
+                </select>
+                <div class="ng-messages-error" ng-messages="serviceForm3.basesettlementrateid.$error" ng-show="serviceForm3.basesettlementrateid.$invalid" >
+                    <span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">信用卡划账</label>
+            <div class="col-sm-4">
+                <select class="form-control" ng-model="formData.creditcardaccountflag" name="creditcardaccountflag" ng-class="{haserror:serviceForm3.creditcardaccountflag.$invalid}" required>
+                    <option value="1" ng-if="formData.pbankaccountFlag">公账</option>
+                    <option value="2" ng-if="formData.bankaccountFlag">私账</option>
+                </select>
+                <div class="ng-messages-error" ng-messages="serviceForm3.creditcardaccountflag.$error" ng-show="serviceForm3.creditcardaccountflag.$invalid" >
+                    <span ng-message="required"><span class="glyphicon glyphicon-exclamation-sign"></span>不能为空!</span>
+                </div>
+            </div>
+        </div>
+       <!-- <p>{{serviceForm3.$invalid}}</p>
+        <input type="hidden" id="formDatainvalid3" value="{{serviceForm3.$invalid}}">-->
+	</form>
+	<!-- end form-->
+</div>

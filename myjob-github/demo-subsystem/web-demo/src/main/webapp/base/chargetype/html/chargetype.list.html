@@ -1,0 +1,17 @@
+<div class="container well" on-finish-render-filters="list"  style="  background-color: #fff;margin-bottom:0;border:none;overflow: auto;">
+    <div class="row clearfix" >
+        <div class="col-md-12 column">
+            <form class="form-inline queryForm" id="stationForm" >
+                <div style="  width: 260px;margin-bottom: 10px;  display: inline-block;  float: left;">
+	                <label>费用类型：</label>
+			        <select name="basechargetypeid" ng-model="charge.basechargetypeid" ng-options="item.basechargetypeid as item.chargetypename for item  in chargeType"  class="form-control input-sm"   style="display: inline-block;height:30px;width:175px" >
+			        	<option value="">--请选择--</option>
+			        </select>
+                </div>
+                <button type="button" class="btn btn-success btn-sm "  style="width: 80px;" ng-click="check()">查询</button>
+                <button type="button" class="btn btn-success btn-sm "  style="width: 80px" ng-click="add()">新增</button>
+            </form>
+            <div ui-grid="gridOptions" ui-grid-selection ui-grid-pagination id="LchargeModel" class="grid" style="margin:0;clear: both"></div>
+        </div>
+    </div>
+</div>

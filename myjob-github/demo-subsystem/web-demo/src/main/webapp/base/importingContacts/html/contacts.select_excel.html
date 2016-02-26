@@ -1,0 +1,33 @@
+    
+<!--start 遮罩窗体  -->
+<div class="modal fade" id="goodsstockcheck-save" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<form class="form-horizontal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h4 class="modal-title" id="myModalLabel">
+					批量导入
+				</h4>
+			</div>
+			<!--start modal-body  -->
+			<div class="modal-body">
+				<h3 style="color: #DD5A43;font-size: 14px; margin-top: 0;"><span class="glyphicon glyphicon-exclamation-sign red"></span>请注意导入格式跟导出格式保存一致！</h3>
+				<div style="  height: auto;position: relative;clear: both;  overflow: hidden;">
+					<h3 style="  margin: 0;font-size: 14px;font-weight: bold;color: #555;line-height: 30px;float: left;display: inline-block;">请选择要导入文件：</h3>
+					<input type="text" class="form-control" ng-model="filename" value="{{filename}}" style="  float: left;width: 250px;"/>
+					<button type="button" class="button btn btn-default masget-btn-default" ngf-select ngf-change="upload($files)" style="  margin-left: 5px;">选择文件</button>
+					<!-- <input type="file" name="upfile" ngf-select ngf-change="upload($files)"/>  -->
+				</div>
+			</div>
+			<!--end modal-body  -->
+			<div class="modal-footer" style="display: none;">
+				 <button type="button" class="btn btn-default masget-btn-default" data-dismiss="modal">取消</button>
+				 <button type="button" class="btn btn-primary masget-btn-primary"  ng-click="addSumbit()">确定</button>
+			</div>
+		</div>
+		
+	</div>
+</form>	
+</div>
+<!--end 遮罩窗体  -->  

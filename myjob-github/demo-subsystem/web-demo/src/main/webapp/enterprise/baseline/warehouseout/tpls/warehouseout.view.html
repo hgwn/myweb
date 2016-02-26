@@ -1,0 +1,71 @@
+<div class="modal fade" id="warehouseout_view" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" style="width: 950px;">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="false">&times;</button>
+                <h4 class="modal-title">销售出库记录</h4>
+            </div>
+            <!-- div modal-header end -->
+
+            <div class="modal-body">
+
+                <div class="form-group row">
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                        <label for="txt_warehouseoutnum_view">单号：</label>{{viewData.warehouseoutnum}}
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                        <label for="txt_totgoodsqty_view">出库日期：</label>{{viewData.createdtime|limitTo:10}}
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                        <label for="txt_totgoodsmoney_view">制单人：</label>{{viewData.createdname}}
+                    </div>                    
+                </div>
+                <!--div form-group end-->
+
+                <div class="table-responsive" style="max-height:392px;overflow:auto;">
+                    <table class="table table-bordered table-hover table-striped table-condensed">
+                        <thead>
+                            <tr class="info">
+                                <th>序号</th>
+                                <th>商品编码</th>
+                                <th>商品</th>
+                                <th>规格</th>
+                                <th>出库类型</th>
+                                <th>出库数量</th>
+                                <th>计量单位</th>
+                                <!-- <th>备注</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in viewData.warehouseoutlist">
+                                <td ng-bind="$index+1">1</td>
+                                <td>{{item.goodssn}}</td>
+                                <td>{{item.goodsname}}</td>
+                                <td>{{item.goodsspec}}</td>
+                                <td>{{getSourceflag(viewData.sourceflag)}}</td>
+                                <td>{{item.goodssoundqty}}</td>
+                                <td>{{item.goodsunitname}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--div table-responsive end-->
+            </div>
+            <!-- div modal-body end -->
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm">
+                   		 打印
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                   		关闭
+                </button>
+            </div>
+            <!-- div modal-footer end -->
+        </div>
+        <!-- div modal-content end -->
+    </div>
+    <!-- div modal-dialog end -->
+</div>
+<!-- div dialog end -->

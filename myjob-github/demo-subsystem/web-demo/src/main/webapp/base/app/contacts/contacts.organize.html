@@ -1,0 +1,32 @@
+<div class="clearfix" style="height:100%;overflow: auto;position: relative;;padding: 0 0;" align="center" on-finish-render-filters="" ng-scrollbar scrollbar-x="false" scrollbar-y="true" scrollbar-config="{autoResize:true,show:true}">
+    <div id="groupPanel" style="margin-top:0px;padding:3px 50px;">
+        <div class="masget-divider">
+        </div>
+        <div class="help-block" style="height: 20px;text-align: center;">
+            <h4>{{title||" "}}&nbsp;({{count}})</h4>
+            <span class="masget-upArrow" style="margin-top: -35px;margin-right: 40%;"
+                    ng-click="toggleGroup($event);">
+            </span>
+        </div>
+        <div class="masget-menu clearfix" ng-if="showFlag">
+            <div class="col-sm-6 col-md-2 " align="center" ng-if="type == 'station'&&currentGroup.parent.companyid == currentGroup.parent.sessionid || type == 'company'&&currentGroup.companyid == currentGroup.sessionid">
+                <span class="glyphicon glyphicon-plus-sign masget-addIcon" ng-if="type == 'station'&&currentGroup.parent.companyid == currentGroup.parent.sessionid" ng-click="staffAdd();"></span>
+                <span class="glyphicon glyphicon-plus-sign masget-addIcon" ng-if="type == 'company'&&currentGroup.companyid == currentGroup.sessionid" ng-click="stationAdd();"></span>
+            </div>
+            <div class="col-sm-6 col-md-2 " align="center" ng-repeat="item in items">
+                <div class="thumbnail masget-icon">
+                    <span class="glyphicon glyphicon-remove-sign" style="float: right;font-size:18px;color: crimson;" ng-if="type == 'staff'"  ng-click="deleteStaff(item)"></span>
+                    <span class="glyphicon glyphicon-remove-sign" style="float: right;font-size:18px;color: crimson;" ng-if="type == 'company'&&currentGroup.companyid == currentGroup.sessionid&&currentGroup.sessionStationid != item.stationid" ng-click="deleteStation(item)"></span>
+                    <img src="static/img/base/ui/person2.png" alt="" style="height: 70px;" ng-if="type == 'station'" ng-click="staffEdit(item)">
+                    <img src="static/img/base/ui/station.png" alt="" style="height: 70px;" ng-if="type == 'company'" ng-click="stationEdit(item)">
+                    <img src="static/img/base/ui/company.png" alt="" style="height: 70px;" ng-if="type == 'scenetype'" ng-click="companyEdit(item)">
+                    <div class="caption">
+                        <span ng-if="type == 'station'" ng-click="staffEdit(item)">{{item.contactname}}</span>
+                        <span ng-if="type == 'company'" ng-click="stationEdit(item)">{{item.stationname}}</span>
+                        <span ng-if="type == 'scenetype'" ng-click="companyEdit(item)">{{item.companyname}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

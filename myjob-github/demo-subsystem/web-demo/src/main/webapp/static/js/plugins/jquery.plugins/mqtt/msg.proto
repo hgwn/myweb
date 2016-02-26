@@ -1,0 +1,101 @@
+
+// message im_msg {  
+// 	required int32 type 	= 1;  		// 消息类型 
+// 	required bytes body 	= 2;  		// type=1001，body = msg_body, 			// server_msg_id
+// 										// type=1002 body = msg_voice_begin		// server_msg_id
+// 										// type=1003 body = msg_voice_pack		// normal_ack
+//										// type=1004 body = server_msg_id
+//										// type=1005 body = cancel_msg			// normal_ack
+//										// type=1006 body = normal_ack			// 
+// }  
+
+// client_type // 0:pc, 1: mobile
+enum e_client_type {
+	ECT_PC 		= 1;
+	ECT_MOBILE 	= 2;
+}
+
+// id_type // 群消息，系统消息，聊天消息，商圈消息
+enum e_id_type {
+	EIT_TWOPART		= 1;
+	EIT_QUN	 		= 2;
+	EIT_SHANGQUAN 	= 3;
+	EIT_XITONG 		= 4;
+	EIT_TAOLUN 		= 5;
+	EIT_JOB 		= 6;
+}
+
+// msg_type // 1:文字，2:图片，3:音频，4:短片 5:文件 6:连接信息
+enum e_msg_type {
+	EMT_TEXT 	= 1;
+	EMT_PIC	 	= 2;
+	EMT_VOICE 	= 3;
+	EMT_MOVIE 	= 4;
+	EMT_FILE 	= 5;
+	EMT_LINK 	= 6;
+}
+
+// 消息id
+// receiverid + senderid + msgid 可以表示一个唯一的消息
+message msg_id {
+	required int64 msgid 		= 1; 	// 双方对话，群聊里的id都是唯一的，由服务器产生
+	required e_id_type type 	= 2; 	// 群消息，系统消息，聊天消息，商圈消息
+	required int64 receiverid 	= 3; 	// toid:groupid(staffid):
+	required int64 senderid 	= 4; 	// fromid:groupid(staffid)
+	required int32 scenetypeid 	= 5; 	// 场景id
+}
+
+// 消息头
+message msg_head {
+	required msg_id id 			= 1; 	// msg 唯一标识
+	required int32 time 		= 2;	// 服务端时间
+	required e_client_type client_type	= 3 [default = ECT_PC];	// e_client_type
+	required e_msg_type msg_type 	= 4 [default = EMT_TEXT]; 	// e_msg_type
+}
+
+// 服务端推送的 聊天消息，或者客户端发送的消息
+message msg_body {
+	// type=1001
+	required msg_head head 		= 1; 	// 包头
+	required bytes msg 			= 2; 	// 根据msg_type不同, 对应不同的结构: 1:文字（xml格式? 可以带上字符等信息在里边） 2:图片缩略图, 3:音频 msg (c->s:不用该包 应用用msg_voice_begin msg_voice_pack)(s->c:为音频实际内容), 4:短片缩略图, 5:文件信息 6:连接缩略图
+	optional int32 media_len 	= 3; 	// 多媒体(音频,视频)时长 图片大小
+	optional string link 		= 4; 	// 图片，音频，短片 文件 的下载连接 （使用另外的tcp或者http ziped）
+}
+
+// 发送语音 第一个包
+message msg_voice_begin {
+	// type=1002
+	required msg_head head		= 1; 	// 包头
+	required int32 msg_id 		= 2; 	// 音频 分片id = 65535 表示包已经完结
+	required bytes msg 			= 3; 	// 音频 分片内容
+}
+
+// 发送语音 第二个包 或者 最后一个包
+message msg_voice_pack {
+	// type=1003
+	required msg_id id 			= 1; 	// msg 唯一标识
+	required int32 msg_id 		= 2; 	// 音频 分片id = 65535 表示包已经完结
+	required bytes msg 			= 3; 	// 音频 分片内容
+}
+
+// 服务端返回客户端的消息对应的在服务端的id
+message server_msg_id {
+	// type=1004
+	required string ack 		= 1; 	// "ok" or error code
+	optional string why 		= 2;
+	optional int64 msgid 		= 3; 	// ack = 0 双方对话，群聊里的id都是唯一的，由服务器产生
+}
+
+// 只是ack，没有其他信息返回
+message normal_ack {
+	// type=1006
+	required string ack 		= 1; 	// "ok" or error code
+	optional string why 		= 2;	// error reason
+}
+
+// 撤销消息
+message cancel_msg {
+	// type=1005
+	required msg_id id 			= 1; 	// msg 唯一标识
+}
+

@@ -1,0 +1,24 @@
+<div class="clearfix" style="padding: 10px">
+    <div class="col-sm-5">
+        <div class="input-group">
+      <span class="input-group-addon">
+            员工姓名:
+      </span>
+            <input type="text" class="form-control" ng-model="staffname" aria-label="...">
+        </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+    <div class="col-sm-5">
+        <div class="input-group">
+      <span class="input-group-addon">
+           站点名称:
+      </span>
+            <button id="stationSelect" class="btn btn-default ">{{$parent.$parent.searchStationName||"全部"}}&nbsp;&nbsp;<span class="caret"></span></button>
+        </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+    <div class="col-sm-2">
+        <button class="btn btn-primary masget-btn-primary pull-right" ng-click="searchUsers();">
+            查询
+        </button>
+    </div>
+</div>
+<div ui-grid="selectNodeUserGrid" ui-grid-selection ui-grid-pagination ui-grid-resize-columns ui-grid-move-columns></div>

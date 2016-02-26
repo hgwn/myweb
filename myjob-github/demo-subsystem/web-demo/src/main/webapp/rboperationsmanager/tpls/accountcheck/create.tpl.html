@@ -1,0 +1,129 @@
+<form class="clearfix" name="createAcountCheckForm">
+    <div class="col-md-12" style="height:20px;"></div>
+    <div class="col-md-12">
+        <div class="col-md-push-3 col-md-6" style="padding-bottom:5px; ">
+            <label style="width: 85px;">银联:&nbsp;</label>
+            <button type="button" class="btn btn-default" ng-model="nAwardcompanyid" style="min-width:150px;"
+                    data-animation="am-flip-x" bs-options="item.id as item.text for item in nAwardcompanys"
+                    bs-select required name="nAwardcompanyid">
+                无<span class="caret"></span><input name="nAwardcompanyName" type="hidden" ng-model="item.text">
+            </button>
+            <div style="top:2px;left:260px;position: absolute;font-size: 32px;"
+                 ng-messages="createAcountCheckForm.nAwardcompanyid.$error">
+                <div style="color: red;" ng-message="required">*</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="col-md-push-3 col-md-6" style="padding-bottom:5px; ">
+            <label style="width: 85px;">收单行:&nbsp;</label>
+            <button type="button" class="btn btn-default" ng-model="nAcquirercompanyid" style="min-width:150px;"
+                    data-animation="am-flip-x" bs-options="item.id as item.text for item in nAcquirercompanys"
+                    bs-select required name="nAcquirercompanyid">
+                无<span class="caret"></span><input name="nAcquirercompanyName" type="hidden" ng-model="item.text">
+            </button>
+            <div style="top:2px;left:260px;position: absolute;font-size: 32px;"
+                 ng-messages="createAcountCheckForm.nAcquirercompanyid.$error">
+                <div style="color: red;" ng-message="required">*</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="col-md-push-3 col-md-6" style="padding-bottom:5px; ">
+            <label style="width: 85px;">结算行:&nbsp;</label>
+            <button type="button" class="btn btn-default" ng-model="nSettlementcompanyid" style="min-width:150px;"
+                    data-animation="am-flip-x" bs-options="item.id as item.text for item in nSettlementcompanys"
+                    bs-select required name="nSettlementcompanyid"><input name="nSettlementcompanyName" type="hidden" ng-model="item.text">
+                无<span class="caret"></span>
+            </button>
+            <div style="top:2px;left:260px;position: absolute;font-size: 32px;"
+                 ng-messages="createAcountCheckForm.nSettlementcompanyid.$error">
+                <div style="color: red;" ng-message="required">*</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="col-md-push-3 col-md-6" style="padding-bottom:5px; ">
+            <div class="input-group">
+                <label class="input-group-addon" style="width: 80px;">清算起始时间:&nbsp;</label>
+                <input type="text" style="width:125px;" class="form-control" ng-model="sBegintime" name="sBegintime" data-autoclose="1" data-container="body" placeholder="日期" bs-datepicker required>
+                <div style="top:2px;right:-20px;position: absolute;font-size: 32px;"
+                     ng-messages="createAcountCheckForm.sBegintime.$error">
+                    <div style="color: red;" ng-message="required">*</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="col-md-push-3 col-md-6" style="padding-bottom:5px; ">
+            <div class="input-group">
+                <label class="input-group-addon" style="width: 80px;">清算结束时间:&nbsp;</label>
+                <input type="text" style="width:125px;" class="form-control" ng-model="sEndtime" name="sEndtime" data-autoclose="1" data-container="body" placeholder="日期" bs-datepicker required>
+                <div style="top:2px;right:-20px;position: absolute;font-size: 32px;"
+                     ng-messages="createAcountCheckForm.sEndtime.$error">
+                    <div style="color: red;" ng-message="required">*</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="col-md-push-3 col-md-6" style="padding-bottom:5px; ">
+            <label style="width: 85px;">对账对象:&nbsp;</label>
+            <button type="button" class="btn btn-default" ng-model="nObjectType" style="min-width:150px;"
+                    data-animation="am-flip-x" bs-options="item.id as item.text for item in nObjectTypes"
+                    bs-select required name="nObjectType">
+                无<span class="caret"></span>
+            </button>
+            <div style="top:2px;left:260px;position: absolute;font-size: 32px;"
+                 ng-messages="createAcountCheckForm.nObjectType.$error">
+                <div style="color: red;" ng-message="required">*</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-12">
+        <div class="col-md-push-3 col-md-6" style="padding-bottom:5px; ">
+            <label style="width: 85px;">ZSUM文件:&nbsp;</label>
+
+        <a role="button" class="btn btn-default" ngf-select ngf-change="ZSUMfileChange(ZSUMfile);" ng-model="ZSUMfile" name="ZSUMfile"
+              ngf-resize="{width: 100, height: 100}" style="cursor:pointer;" required>
+            选择文件
+        </a>
+            {{ZSUMfile[0].name}}
+            <div style="top:2px;left:200px;position: absolute;font-size: 32px;"
+                 ng-messages="createAcountCheckForm.ZSUMfile.$error">
+                <div style="color: red;" ng-message="required">*</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="col-md-push-3 col-md-6" style="padding-bottom:5px; ">
+            <label style="width: 85px;">ACOMA文件:&nbsp;</label>
+        <a role="button" class="btn btn-default" ngf-select ngf-change="ACOMAfileChange(ACOMAfile);" ng-model="ACOMAfile" name="ACOMAfile"
+              ngf-resize="{width: 100, height: 100}" style="cursor:pointer;" required>
+            选择文件
+        </a>
+            {{ACOMAfile[0].name}}
+            <div style="top:2px;left:200px;position: absolute;font-size: 32px;"
+                 ng-messages="createAcountCheckForm.ACOMAfile.$error">
+                <div style="color: red;" ng-message="required">*</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="col-md-push-3 col-md-6 text-center" style="padding-bottom:5px; ">
+            <button type="button" class="btn btn-primary masget-btn-primary " ng-disabled="createAcountCheckForm.$invalid"
+                    ng-click="submit()">开始对账
+            </button>
+        </div>
+    </div>
+
+</form>
