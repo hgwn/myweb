@@ -1,0 +1,48 @@
+
+httpd.conf文件去掉下面#：
+
+Include conf/extra/httpd-vhosts.conf
+
+
+LoadModule proxy_module modules/mod_proxy.so
+LoadModule proxy_balancer_module modules/mod_proxy_balancer.so
+LoadModule proxy_http_module modules/mod_proxy_http.so
+
+可添加端口
+Listen 99
+
+
+httpd-vhosts.conf配置
+
+<VirtualHost *:99>
+    ServerAdmin www.lhw.com 
+
+    DocumentRoot "E:/build"
+    ServerName www.lhw.com 
+
+    ErrorLog "logs/portal-front-error.log"
+    CustomLog "logs/portal-front-access.log"  common
+	
+	<Directory "E:/build">
+		Options Indexes FollowSymLinks
+		AllowOverride None
+		Order allow,deny
+		Allow from all
+
+   </Directory>
+   
+   ProxyPass         /dlsys http://192.168.16.211:84/dlsys 
+
+   ProxyPassReverse  /dlsys http://192.168.16.211:84/dlsys 
+
+
+   ProxyPass         /dlapi http://192.168.16.211:84/dlapi 
+
+   ProxyPassReverse  /dlapi http://192.168.16.211:84/dlapi 
+
+   
+   ProxyPass         /dlbiz http://192.168.16.211:84/dlbiz 
+
+   ProxyPassReverse  /dlbiz http://192.168.16.211:84/dlbiz 
+		
+</VirtualHost>
