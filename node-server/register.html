@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<!-- saved from url=(0137)http://183.6.107.68:8877/wap/wapUser/registerInit.ht#eyJwYXJhbXMiOnt9LCJoYXNoIjoiaW5kZXhfc2VjdGlvbiIsInVybCI6ImluZGV4X3NlY3Rpb24uaHRtbCJ9 -->
+<html data-dpr="1" style="font-size: 22.5px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		
+
+ 
+
+
+
+
+
+
+<script type="text/javascript">
+var _ctx="";
+</script>
+<link rel="stylesheet" href="./register_files/temp.css">
+
+<!--- third --->
+<script src="./register_files/zepto.min.js.下载"></script>
+<script src="./register_files/iscroll-probe.js.下载"></script>
+<script src="./register_files/template-native.js.下载"></script>	
+<!-- agile -->
+<script type="text/javascript" src="./register_files/agile.js.下载"></script>		
+<!--- bridge --->
+<script type="text/javascript" src="./register_files/exmobi.js.下载"></script>
+<script type="text/javascript" src="./register_files/agile.exmobi.js.下载"></script>
+<!-- app -->
+<script type="text/javascript" src="./register_files/app.js.下载"></script>
+<script type="text/javascript" src="./register_files/numberAnimate.js.下载"></script>
+<script type="text/javascript" src="./register_files/jquery-2.1.3.min.js.下载"></script>
+<script type="text/javascript" src="./register_files/dlajax.js.下载"></script>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<script type="text/javascript">
+//金额格式化函数 s:金额 n:保留小数点位数
+function fmoney(s, n) {  
+    n = n > 0 && n <= 20 ? n : 2;  
+    var temp = "";
+    s = s+"";
+    if(s.indexOf("-")!=-1){
+    	temp = "-";
+    	s = s.replace("-","");
+    }
+    s = parseFloat(s.replace(/[^\d\.-]/g, "")).toFixed(n) + "";  
+    var l = s.split(".")[0].split("").reverse(), r = s.split(".")[1];  
+    t = "";  
+    for (i = 0; i < l.length; i++) {  
+        t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");  
+    }  
+    t = t+temp;
+    return t.split("").reverse().join("") + "." + r;  
+}
+//金额文本框输入验证，只能输入数字及小数点后保留两位 id:文本框ID
+function onkeyupInputForDouble(id){
+	//先把非数字的都替换掉，除了数字和. 
+    $("#"+id).val($("#"+id).val().replace(/[^\d.]/g, "").
+    //只允许一个小数点              
+    replace(/^\./g, "").replace(/\.{2,}/g, ".").
+    //只能输入小数点后两位
+    replace(".", "$#$").replace(/\./g, "").replace("$#$", ".").replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3'));
+}
+</script>
+		<title>注册</title>
+		<script type="text/javascript" src="./register_files/RemResponsive.js.下载"></script>
+		<link rel="stylesheet" href="./register_files/agile.layout.css">
+		<link rel="stylesheet" href="./register_files/ratchet.css">
+		<link rel="stylesheet" href="./register_files/app.css">
+		<link rel="stylesheet" href="./register_files/style.css">
+		<link rel="stylesheet" href="./register_files/register.css">
+		<link rel="stylesheet" href="./register_files/reset.css">
+		<link rel="stylesheet" href="./register_files/keyboard.css">
+		<script type="text/javascript" src="./register_files/common.js.下载"></script>
+		<script type="text/javascript" src="./register_files/RemResponsive.js.下载"></script>
+	<script type="text/javascript" src="./register_files/dldes.js.下载"></script>
+	<script type="text/javascript" src="./register_files/keyboard.js.下载"></script>
+	<script type="text/javascript">
+		$().ready(function(){
+			var is_withdrawal_pwd_open = 0;
+			if (is_withdrawal_pwd_open == 1) {
+				var $popup = A.popup({
+					html: $('#template3').html(),
+					css : {width:'auto'},
+					//pos : 'center'
+				}); 
+				$popup.popup.find('.icon-close').on(A.options.clickEvent, function(){
+			    	$popup.close();
+					return false;
+			    });
+				$popup.popup.find('.btn-block').on(A.options.clickEvent, function(){
+					$popup.close();
+					return false;
+			    });
+				return ;
+			}
+		});	
+	</script>
+	<style type="text/css">
+		.hg-checked{
+			 content: '\2714';
+		    color: #4791db;
+		    text-align: center;
+		    font-size: .2963rem;
+		    line-height: .47407rem;
+		    vertical-align: middle
+		}
+		.validImg{
+			position: absolute;
+			height: 1.6rem;
+			right: .54rem;
+			top: 0.54rem;
+			text-align: center;
+			width: auto;
+		}
+		.s_padded input {
+			font-size: 15px;
+		}
+		#section_container .bar .home{color:#333;}
+		#section_container .bar .login{color:#333; border:1px solid #eee;}
+	</style></head>
+	
+	<body>
+		<div id="section_container">
+			<section id="index_section" data-role="section" class="active" data-url="index_section.html" data-params="{&quot;&quot;:}" __init_controller__="true">
+				<header class="bar bar-nav header">
+					<a class="icon icon-left-nav pull-left home" data-toggle="back" href="http://183.6.107.68:8877/wap/wapUser/registerInit.ht#"></a>
+					<a class="icon icon-compose pull-right login" href="javascript:void(0);" onclick="toLogin();" data-toggle="html"></a>
+					<h1 class="title">注册</h1>
+				</header>
+				<article data-role="article" id="register" class="active" data-scroll="verticle" data-url="register.html" data-params="{&quot;&quot;:}" __init_controller__="true" style="touch-action: none;">
+					<div class="scroller padded s_padded" style="transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">						
+						<form id="register_form" name="register_form" action="http://183.6.107.68:8877/wap/wapUser/registerInit.ht" method="post">
+						<input id="registerType" name="registerType" type="hidden" value="1">
+						<input id="groupID" name="groupID" type="hidden" value="3">
+							<div class="input-row form-common" style="border-bottom:0;padding:0 15px;">
+									<label><span class="red">*</span>用户类型</label>
+									<label class="label-right">
+										<a href="javascript:void(0);" data-role="radio" style="margin-right:20px;" onclick="hideLoginName();">
+											<input type="radio" checked="checked" name="userType" id="userType" value="0" style="left:0;right:auto;top: 50%;">
+											<label for="male" class="black">个人账户</label>
+										</a>
+										
+										<a href="javascript:void(0);" data-role="radio" onclick="showLoginName();">
+											<input type="radio" name="userType" id="userType" value="1" style="left:0;right:auto;top: 50%;">
+											<label for="female" class="black">企业账户</label>
+										</a>
+									</label>
+							 </div>
+							
+							
+								<div id="userNamediv" style="display: none;"><em>用户名</em><input type="text" class="userName" id="loginName" name="loginName" placeholder="只能输入数字和字母"><span class="icon_s icon_u">x</span></div>
+								<div><em>手机</em><input type="text" class="phone" id="p_phone" name="mobile" placeholder="用于接收平台通知、找回密码" maxlength="11"><span class="icon_s icon_phone">x</span></div>
+														
+							<div><em>密        码</em><input type="password" id="p" name="loginPwd" class="password pass" placeholder="密码不能小于6个字符"><input type="text" class="password pass" id="g" placeholder="****"><span class="icon_p" title="close"></span></div>
+							<div><em>确认密码</em><input type="password" id="p2" name="rePassword" class="rePassword pass" placeholder="确认密码不能小于6个字符"><input type="text" class="password pass" id="g2" placeholder="****" style="display:none;"><span class="icon_p" id="icon_p" title="close"></span></div>							
+							
+							
+       						
+       						<div id="valid">
+								<input type="text" name="validCode" id="validCode" style="padding:0 .44444rem 0" maxlength="4" placeholder="请输入图形验证码">
+								<img id="validImg" class="validImg" src="./register_files/ValidCode" height="35px" onclick="reload()">           
+        					</div>
+        					
+								<div><em>验证码</em><input type="text" class="checkcode" id="checkcode" name="code" maxlength="6">
+								<span class="icon_s icon_check color_fb7782" id="markBtn" style="width: 6.6rem" onclick="requestCheckMark()">获取验证码</span>
+								<!-- <span class="icon_s icon_check color_fb7782">获取短信验证码</span>
+								<span class="icon_s icon_check">60秒后重发</span> --></div>
+							
+							
+          						
+          						
+									<div class="yqm">
+										<a href="http://183.6.107.68:8877/wap/wapUser/registerInit.ht#" id="yq">我有邀请码</a>
+										<div class="yq_none"><em>邀请码</em><input type="text" class="checkcode" id="spreadCode" name="spreadCode" placeholder="请输入邀请码或邀请人手机号码"></div>
+									</div>
+          						
+          					
+          					<div>
+							<input type="hidden" id="salt" name="salt" value="4980bc2a-f872-4d47-9eb3-da8e48ba8a6c">
+							</div>
+          						
+						</form>
+
+						<div class="reg">
+						<a href="http://183.6.107.68:8877/wap/wapUser/registerInit.ht#" data-role="checkbox"> <input type="checkbox" class="checked" checked="checked" id="checkboxCheck" name="checkboxCheck"> <label for="checked" class="black hg-checked"></label><span style="color:#333;">我已经阅读并同意<font style="color:#4791db;"></font></span></a><font style="color:#4791db;"><a class="cm" href="javascript:void(0);" onclick="openAgreement(&#39;/wap/wapUser/termsServiceList.html?contentCode=FWXY&#39;,&#39;服务协议&#39;);">《P2P服务协议》</a></font>
+						
+						<button class="btn btn-negative btn-block s_background" id="register_submit" onclick="register_form_submit();">注册</button>
+					    </div>
+					</div>
+					
+				<div class="iScrollVerticalScrollbar iScrollLoneScrollbar" style="overflow: hidden; pointer-events: none; transform: translateZ(0px); transition-duration: 500ms; opacity: 0;"><div class="iScrollIndicator" style="transition-duration: 0ms; display: block; height: 549px; transform: translate(0px, 0px) translateZ(0px); transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1);"></div></div></article>
+			</section>
+				<script type="text/html" id="template2">
+					<a href="javascript:void(0);" class="icon icon-close"></a>
+					<div style="padding:20px 20px;text-align:center;background-color: #fff;">
+						<div style="padding:50px 0px;" id="tip_id">
+							tip_content
+						</div>
+						<a href="javascript:void(0);" class="btn btn-primary btn-block" id="btn_id">btn_content</a>
+					</div>
+				</script>	
+			
+				<script type="text/html" id="template3">
+					<a href="javascript:void(0);" class="icon icon-close"></a>
+					<div style="padding:20px 20px;background-color: #fff;">
+						<div style="padding:25px 0px;" id="tip_id">
+							<div style="text-align: center;"><strong>温馨提示</strong></div></br>
+							<div style="text-indent:2em;">系统更新中，请稍后访问，如有疑问，请咨询客服400-888-2792</div></br>
+						</div>
+						<a href="javascript:void(0);" class="btn btn-primary btn-block" id="btn_id">确定</a>
+					</div>
+				</script>
+				
+				<script type="text/html" id="alert_template">
+					<div class="error_alert"></div>
+		    	</script>
+	</div>
+		<div id="numKeyborad" style="display: none;">
+        <div class="k-bk">
+            <ul class="k-num-ul">
+                <li data-v="1"><span>1</span></li>
+                <li data-v="2"><span>2</span></li>
+                <li data-v="3"><span>3</span></li>
+            </ul>
+            <ul class="k-num-ul">
+                <li data-v="4"><span>4</span></li>
+                <li data-v="5"><span>5</span></li>
+                <li data-v="6"><span>6</span></li>
+            </ul>
+            <ul class="k-num-ul">
+                <li data-v="7"><span>7</span></li>
+                <li data-v="8"><span>8</span></li>
+                <li data-v="9"><span>9</span></li>
+            </ul>
+            <ul class="k-num-ul">
+                <li id="changeABC"><span>ABC</span></li>
+                <li data-v="0"><span>0</span></li>
+                <li class="backspace"><img src="./register_files/backspace.png" alt="退格键"></li>
+            </ul>
+        </div>
+    </div>
+    <div id="engKeyword" style="display: none;">
+        <div class="k-bk">
+            <ul class="k-eng-ul k-eng-ul1">
+                <li class="li-letter" data-v="q"><span>q</span></li>
+                <li class="li-letter" data-v="w"><span>w</span></li>
+                <li class="li-letter" data-v="e"><span>e</span></li>
+                <li class="li-letter" data-v="r"><span>r</span></li>
+                <li class="li-letter" data-v="t"><span>t</span></li>
+                <li class="li-letter" data-v="y"><span>y</span></li>
+                <li class="li-letter" data-v="u"><span>u</span></li>
+                <li class="li-letter" data-v="i"><span>i</span></li>
+                <li class="li-letter" data-v="o"><span>o</span></li>
+                <li class="li-letter" data-v="p"><span>p</span></li>
+            </ul>
+            <ul class="k-eng-ul k-eng-ul2">
+                <li class="li-letter" data-v="a"><span>a</span></li>
+                <li class="li-letter" data-v="s"><span>s</span></li>
+                <li class="li-letter" data-v="d"><span>d</span></li>
+                <li class="li-letter" data-v="f"><span>f</span></li>
+                <li class="li-letter" data-v="g"><span>g</span></li>
+                <li class="li-letter" data-v="h"><span>h</span></li>
+                <li class="li-letter" data-v="j"><span>j</span></li>
+                <li class="li-letter" data-v="k"><span>k</span></li>
+                <li class="li-letter" data-v="l"><span>l</span></li>
+            </ul>
+            <ul class="k-eng-ul k-eng-ul3">
+                <li id="change-letter" class="icon-wrap">
+                    <img class="small-letter" src="./register_files/small_letter.png" alt="小写">
+                </li>
+                <li class="li-letter" data-v="z"><span>z</span></li>
+                <li class="li-letter" data-v="x"><span>x</span></li>
+                <li class="li-letter" data-v="c"><span>c</span></li>
+                <li class="li-letter" data-v="v"><span>v</span></li>
+                <li class="li-letter" data-v="b"><span>b</span></li>
+                <li class="li-letter" data-v="n"><span>n</span></li>
+                <li class="li-letter" data-v="m"><span>m</span></li>
+                <li class="icon-wrap backspace"><img src="./register_files/backspace.png" alt="退格"></li>
+            </ul>
+            <ul class="k-eng-ul k-eng-ul4">
+                <li id="change123" class="cnum-wrap"><span>123</span></li>
+                <li class="space-wrap"><span>空格</span></li>
+                <li class="goto-wrap"><a style="color:white" href="javascript:register_form_submit();">前往</a></li>
+            </ul>
+        </div>
+    </div>
+		<script type="text/javascript">
+		var ctx="";
+		(function(){
+			$('.icon_u').on(A.options.clickEvent, function(e){
+				var textData = $(".userName").attr("placeholder");
+				$(".userName").attr("placeholder","");
+				document.getElementById("loginName").value="";
+				$(".userName").focus();
+				$(".userName").blur(function(){
+					$(".userName").attr("placeholder",textData);
+				});
+			});
+
+			$('.icon_p').on(A.options.clickEvent, function(e){
+			    if(!$(this).attr("id")){			    	
+					var flag = $(this).attr("title");
+					var textData = $("#g").attr("placeholder");
+					if(flag=="close"){
+						var password = document.getElementById("p").value;
+						$(this).addClass("icon_pp");
+						$("#g").attr("placeholder","");
+						$("#p").css({"display":"none"});
+						$("#g").css({"display":"block"});
+						$("#g").focus();
+						$("#g").val(password);
+						$(this).attr("title","open");
+					}else{
+						var password = document.getElementById("g").value;
+						$(this).removeClass("icon_pp");
+						$("#g").css({"display":"none"});
+						$("#p").css({"display":"block"});
+						$("#p").focus();
+						$("#p").val(password);
+						$(this).attr("title","close");
+					}
+			    }else{
+			    	var flag = $(this).attr("title");
+					var textData = $("#g2").attr("placeholder");
+					if(flag=="close"){
+						var password = document.getElementById("p2").value;
+						$(this).addClass("icon_pp");
+						$("#g2").attr("placeholder","");
+						$("#p2").css({"display":"none"});
+						$("#g2").css({"display":"block"});
+						$("#g2").focus();
+						$("#g2").val(password);
+						$(this).attr("title","open");
+					}else{
+						var password = document.getElementById("g2").value;
+						$(this).removeClass("icon_pp");
+						$("#g2").css({"display":"none"});
+						$("#p2").css({"display":"block"});
+						$("#p2").focus();
+						$("#p2").val(password);
+						$(this).attr("title","close");
+					}
+			    }
+			});
+
+			$('.icon_phone').on(A.options.clickEvent, function(e){
+				var textData = $(".phone").attr("placeholder");
+				$(".phone").attr("placeholder","");
+				document.getElementById("p_phone").value="";
+				$(".phone").focus();
+				$(".phone").blur(function(){
+					$(".phone").attr("placeholder",textData);
+				});
+			});
+
+			$('#yq').on(A.options.clickEvent, function(e){
+                $(this).css({"display":"none"});
+                $(".yq_none").css({"display":"block"});
+			});
+
+			
+
+		})();
+		var registerType = $("#registerType").val();
+		var checkMarkRequesting = false;
+		var regex = /^(((1[3456789][0-9]{1})|(15[0-9]{1}))+\d{8})$/;
+		var mobileReg =  /^(((1[3456789][0-9]{1})|(15[0-9]{1}))+\d{8})$/;
+		var chrnum = /^([a-zA-Z0-9]+)$/;
+		function submitCheck(){
+			var loginName = $("#loginName").val();
+			var pwd = $("#p").val();
+			var rePwd=$("#p2").val();
+			var pphone = $("#p_phone").val();	
+			var checkcode = $("#checkcode").val();
+			var userType = $('input[name="userType"]:checked').val();;
+			if(!userType){
+				A.showToast('请选择用户类型');
+				return false;
+			}
+			if(registerType==0 && loginName==""){
+				A.showToast('请输入用户名');
+				return false;
+			}
+			if(registerType==0 && !chrnum.test(loginName)){
+				A.showToast('用户名只能输入数字和字母(字符A-Z, a-z, 0-9)');
+				return false;
+			}
+			if(registerType==0 && (loginName.length > 12 || loginName.length <5)){
+				A.showToast('用户名长度应为5至12个字符');
+				return false;
+			}
+			if(registerType==1 && pphone==""){
+				A.showToast('请输入手机号');
+				return false;
+			}
+			if(registerType==1 && !mobileReg.test(pphone)){
+				A.showToast('请输入正确的手机号');
+				return false;
+			}
+			if(pwd==""){
+			  	A.showToast('请输入密码');
+				return false;
+			}	
+			
+			var pwdReg = /[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/;
+			if(!pwdReg.test(pwd)){	
+				A.showToast('密码中必须包含英文和数字');
+			  	return false;
+			}
+			
+			if(pwd.length > 15 || pwd.length < 6){
+			 	A.showToast('密码长度应为6至15个字符');
+			  	return false;
+			}
+			
+			if(!rePwd){
+				A.showToast('请输入确认密码');
+			  	return false;
+			}
+			if(rePwd.length > 15 || rePwd.length < 6){
+			 	A.showToast('确认密码长度应为6至15个字符');
+			  	return false;
+			}
+			if(pwd!=rePwd){
+				A.showToast('两次输入的密码不一致');
+			  	return false;
+			}
+			
+			var loginStopPwd = $("#loginStopPwd").val();	
+			if(loginStopPwd==""){
+			  	A.showToast('请输入停服密码');
+				return false;
+			}	
+			
+			if(registerType==1 && checkcode==""){
+			  	A.showToast('请输入验证码');
+				return false;
+			}		
+			if(!document.getElementById("checkboxCheck").checked){
+				A.showToast('请确认是否同意服务协议');
+				return false;
+			}	
+			return true;
+		}
+		
+		function register_form_submit()
+		{
+			if(!submitCheck()){
+				return false;
+			}else{
+				var form = $("#register_form").serialize();
+	    		var data1 = strEnc("123=123",$("#salt").val());
+	        	form = form + "&key="+data1;
+				$.ajax({
+					url : "/wap/wapUser/register.html",
+					type : 'post',
+					data : form,
+					dataType : 'json',
+					success : function(rsp,textStatus) {
+						if (rsp.rspcode==1) {
+							//window.location= "/wap/wapUser/loginRedirect.html";
+							var $popup = A.popup({
+								html: $('#template2').html(),
+								css : {width:'auto'},
+								pos : 'center'
+							});
+							$popup.popup.find('.icon-close').on(A.options.clickEvent, function(){
+						    	$popup.close();
+						    	window.location = "/wap/wapUser/loginRedirect.html";
+								return false;
+						    });
+							$popup.popup.find('.btn-block').on(A.options.clickEvent, function(){
+								window.location.href= "/wap/wapMyAccount/Identitylist.ht";
+								return false;
+						    });
+							$('#tip_id').html('<span class="tips-pop">'+"注册成功，是否进行实名认证</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+'</span>');
+							$('#btn_id').html('前往实名认证');
+						}else{
+							A.showToast(rsp.rspdesc);
+							$("#register_submit").val('注册');
+							$("#register_submit").attr("onclick","register_form_submit()");
+							  return false;
+						}
+					},
+					error : function(XMLHttpRequest, textStatus, errorThrown) {
+						A.showToast(XMLHttpRequest.statusText);
+						return false;
+					},
+					beforeSend:function(){
+						$("#register_submit").attr("onclick","");
+						$("#register_submit").val('注册中...');
+					}
+				});
+			}
+		}
+		
+		function requestCheckMark() {
+			
+			var userType = $('input[name="userType"]:checked').val();;
+			if(!userType){
+				A.showToast('请选择用户类型');
+				return false;
+			}
+			if (checkMarkRequesting) {
+				return;
+			}
+			var loginName = $("#loginName").val();
+			if(registerType==0 && loginName==""){
+				A.showToast('请输入用户名');
+				return;
+			}
+			if(registerType==0 && !chrnum.test(loginName)){
+				A.showToast('用户名只能输入数字和字母(字符A-Z, a-z, 0-9)');
+				return;
+			}
+			if(registerType==0 && (loginName.length > 12 || loginName.length <5)){
+				A.showToast('用户名长度应为5至12个字符');
+				return;
+			}
+			
+			var photeNum = $("#p_phone").val();
+			if(registerType==1 && "" == photeNum){
+				A.showToast('请输入手机号');
+				return;
+			}
+			var loginNameReg = /[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/;
+			if(loginName!=""&&!loginNameReg.test(loginName)){	
+				A.showToast('用户中必须包含英文和数字');
+			  	return false;
+			}
+			if(loginName!=""&&(loginName.length > 12 || loginName.length <5)){
+				A.showToast('用户名长度应为5至12个字符');
+				return;
+			}
+			if (registerType==1 && !regex.test(photeNum)) {
+				A.showToast('你输入的手机号码不正确');
+				return;
+			}
+			
+			var pwd = $("#p").val();
+			if(pwd==""){
+			  	A.showToast('请输入密码');
+				return;
+			}	
+			var rePwd = $("#p2").val();
+			if(rePwd==""){
+			  	A.showToast('请输入确认密码');
+				return;
+			}
+			if(rePwd!=pwd){
+			  	A.showToast('两次输入的密码不一致');
+				return;
+			}
+			
+			var loginName = $("#loginName").val();
+			var validCode = $("#validCode").val();
+			
+			if(registerType==1 && validCode==""){
+				A.showToast('请输入图形验证码');
+				return false;
+			}
+	    		var data1 = strEnc("123=123",$("#salt").val());
+			$.ajax({
+				url : "/wap/wapUser/sendWeixinRegisterCheckCode.html",
+				data : {phone: photeNum, loginName: loginName,validCode:validCode,key:data1,checkCode:5,userType:userType},
+				dataType : "json",
+				type : 'post',
+				success : function(rsp) {
+					if (rsp.rspcode==1) {
+						$("#code").removeAttr("disabled");
+						var endTimeMillis = rsp.data;
+						initEndTime(endTimeMillis);
+						getCodeTime();
+					}
+					A.showToast(rsp.rspdesc);
+					return false;
+				},
+				error : function() {
+					A.showToast('网络异常，请稍后重试');
+					return false;
+				}
+			});
+		}
+		
+		//打开服务协议
+		function openAgreement(url,title){
+			window.location.href = url;
+		}
+		
+		var $popup;
+		function showErrMsg(){
+			if($popup) $popup.close();
+			$popup = A.popup({
+				html: $('#alert_template').html(),
+				css : {width:'auto'},
+				pos : 'center'
+			});
+			$popup.popup.find('a').on(A.options.clickEvent, function(){
+				$popup.close();
+			});
+		}
+
+		//add by yhj 2016-2-23 17:20:56 手机验证码
+		$().ready(function() {
+			var endTimeMillis = '0'; 
+			initEndTime(endTimeMillis);
+			getCodeTime();
+		});
+		
+		var wait = 0; 
+		function initEndTime(endTimeMillis){
+			//计算冷却结束时间
+			 if(endTimeMillis == null || endTimeMillis ==""){
+				 endTimeMillis= 0;
+			 }
+			 var nowDate = new Date();
+			 var nowTimeMillis = nowDate.getTime();
+			 endTimeMillis = nowTimeMillis + eval(endTimeMillis);
+			 if(endTimeMillis > nowTimeMillis){
+				 wait =  parseInt((endTimeMillis - nowTimeMillis) / 1000);
+				 checkMarkRequesting = true;
+			 }
+		}
+		
+		function getCodeTime() {  
+			var obj = $("#markBtn");
+		    if (wait == 0) {  
+		    	obj.html("获取验证码");  
+		        checkMarkRequesting = false;
+		    } else {   
+		        wait--;  
+		        obj.html("(" + wait + ")秒后重新获取");  
+		        setTimeout(getCodeTime, 1000);
+		    }  
+		}; 
+		
+		function reload(){
+			var url="/servlet/ValidCode?rand=" +new Date().getTime();
+			document.getElementById("validImg").src=url;
+			$("#validCode").val("");
+		}
+		
+		function hideLoginName(){
+			if($("#registerType").val()==1){
+				$("#userNamediv").hide();
+			}
+		}
+		function showLoginName(){
+			if($("#registerType").val()==1){
+				$("#userNamediv").show();
+			}
+		}
+		//end
+		</script>
+	
+﻿</body></html>

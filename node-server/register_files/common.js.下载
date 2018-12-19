@@ -1,0 +1,20 @@
+/*本文件存放公共js代码*/
+//验证登录
+function valiLoginTimeout(){
+	$.ajax({
+		url : _ctx + "/user/valiLoginTimeout.ht",
+		type : 'post',
+		dataType : 'json',
+		async: false,
+		success : function(data) {
+			if(!data){
+				window.top.location = _ctx + '/loginWap.jsp';
+			}
+		}
+	});			
+}
+
+/*跳转到登录页面*/
+function toLogin(){
+	window.location =_ctx +'/wap/wapUser/toLogin.ht';
+} 

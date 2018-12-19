@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>openAPI在线接口测试小工具</title>
+
+		<!-- Bootstrap -->
+		<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+		<!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+		<!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+		<style type="text/css">
+			#layout {background: #f5f5f5; overflow: hidden; position: relative;}
+			#loginForm{margin: 0 auto; padding: 20px; background: #eee;}
+			#ajaxForm{margin: 20px auto; padding: 20px; background: #fff;}
+			#content{padding: 20px;}
+			#content .title{background: #fff; height: 45px; line-height: 45px; border: 1px solid #eee; text-indent: 10px; color: #999;}
+			#content .maibox{background: #fff; border: 1px solid #ddd; height: 350px; min-height: 350px;}
+			#resetBtn{position: absolute; top: 6px; right: 20px;}
+			#copyBtn{position: absolute; top: 6px; right: 20px;}
+			#contentType{color: #666;}
+		</style>
+		
+	
+	</head>
+
+	<body>
+		<!--<h1>你好，世界！</h1>-->
+
+		<div id="layout">
+			 <div class="progress progress-striped active">
+		        <div id="prog" class="progress-bar" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width:0%;">
+		            <span id="proglabel">正在请求，请稍后......</span>
+		        </div>
+		  </div> 
+		  <!--/.进度条-->
+
+			<form class="form-inline" id="loginForm">
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-ip">http:// </span>
+						<input type="text" class="form-control" style="width: 600px;" id="ip" aria-describedby="basic-ip">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="sr-only" for="userName">用户名</label>
+					<input type="email" class="form-control" id="userName" placeholder="用户名">
+				</div>
+				<div class="form-group">
+					<label class="sr-only" for="password">密码</label>
+					<input type="password" class="form-control" id="password" placeholder="密码">
+				</div>
+				<div class="checkbox">
+					<label>
+		      <input type="checkbox"> 记住我
+		    </label>
+				</div>
+				<button type="button" class="btn btn-info" id="loginBtn" data-val='0'>登录</button>
+			</form>
+
+			<form class="form-inline" id="ajaxForm">
+				<div class="form-group">
+					<select class="form-control" id="ajaxType">
+					  <option value="GET">GET</option>
+					  <option value="POST">POST</option>
+					  <option value="PUT">PUT</option>
+					  <option value="DELETE">DELETE</option>
+					</select>
+				</div>
+				
+				
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-url">http:// </span>
+						<input type="text" class="form-control" style="width: 600px;" id="ajaxUrl" aria-describedby="basic-url">
+					</div>
+				</div>
+				
+				
+				<!--Content-Type: application/json;charset=UTF-8-->
+				<div class="form-group" id="contentType">
+					<span style="font-size: 16px; color: #666;">Content-Type: </span>
+					<label class="radio-inline">
+				  <input type="radio" name="contentTypeRadio" id="inlineRadio1" value="application/x-www-form-urlencoded" checked="checked"> application/x-www-form-urlencoded
+				</label>
+				<label class="radio-inline">
+				  <input type="radio" name="contentTypeRadio" id="inlineRadio2" value="application/json"> application/json 
+				</label>
+				</div>
+				
+			<button type="button" class="btn btn-info" data-loading-text="Loading..." autocomplete="off" id="submit">测试</button>
+			</form>
+			
+			<div class="row" id="content">
+			  <div class="col-md-4">
+			  	<div class="title">输入json参数/示例：{"userName":"admin","password":"123456"}</div>
+			  	<button type="submit" class="btn btn-warning" id="resetBtn">清空</button>
+			  	<div class="maibox">
+			  		<textarea class="form-control" id="params" style="height: 98%; width: 99%; margin: 2px auto; resize: none; overflow-y: scroll;"></textarea>
+			  	</div>
+			  </div>
+			  <div class="col-md-8">
+			  	<div class="title">输出json参数</div>
+			  	<button type="submit" class="btn btn-success" id="copyBtn">复制</button>
+			  	<div class="maibox" id="response"></div>
+			  </div>
+			</div>
+			
+			<!--警告框 start-->
+			   <!--<div class="alert alert-danger alert-dismissable" role="alert">
+			       <button type="button" class="close" data-dismiss="alert" aria-label="Close">          
+			          <span aria-hidden="true">&times;</span>
+			       </button>
+			       <strong class="tip">这里是错误信息</strong>
+			   </div>-->
+			   
+			   <!--此时警告框是默认隐藏的，要想显示的话，把div的“hide”类去掉，加上“in”即可-->
+			   <!-- $('.alert-danger').removeClass('hide').addClass('in')-->
+			   
+			 <div class="alert alert-success hidden" style="width: 60%; max-width: 500px; margin: 0 auto; position: absolute; left: 50%; top: 50%; margin-left: -250px;"> 
+				   <a href="#" rel="external nofollow" rel="external nofollow" rel="external nofollow" class="close" data-dismiss="alert" aria-hidden="true">&times;</a> 
+				   <strong>成功！</strong> 
+			  </div> 
+
+			<!--警告框 end-->
+			
+			<!--模态框 start-->
+			 <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title">提示</h4>
+			      </div>
+			      <div class="modal-body">
+			        <p id="myTips">One fine body&hellip;</p>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>
+			        <!--<button type="button" class="btn btn-primary">确定</button>-->
+			      </div>
+			    </div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+			<!--模态框 end-->
+			
+			<!--插入 loadingModal-->
+			<div id="loadingModal"></div>
+		
+			
+
+		</div>
+
+		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="js/dlsdk.js"></script>
+		<script src="js/dlapi.js"></script>
+	</body>
+
+</html>

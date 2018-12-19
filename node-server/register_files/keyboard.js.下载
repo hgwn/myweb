@@ -1,0 +1,185 @@
+$(function() {
+
+        eventFunc();
+
+        /**
+         *事件函数
+         */
+        function eventFunc() {
+
+            var p_value;
+
+            var pass_status = 1;
+
+            var old_color;
+
+            var thatInput;
+
+            var small_letter=ctx+"/styles/wap/skin/default/img/keyboard/small_letter.png";
+
+            var capital_letter=ctx+"/styles/wap/skin/default/img/keyboard/capital_letter.png";
+
+            var all_capital_letter=ctx+"/styles/wap/skin/default/img/keyboard/all_capital_letter.png";
+
+            //收起键盘
+            $(document).on({
+                touchend: function(e) {
+                    var container = $("#numKeyborad,#engKeyword");
+
+                    if (!container.is(e.target) && container.has(e.target).length === 0) {
+                        container.hide();
+                    }
+                }
+            });
+
+            /**
+             *密码输入框事件
+             *focus:获取焦点时弹出键盘
+             */
+            $(".pass").on({
+                focus: function() {
+                    //防止手机键盘弹出
+                    thatInput = $(this);
+                    document.activeElement.blur();
+                    $("#numKeyborad").slideDown('fast');
+                }
+            });
+
+            //点击转换英文键盘
+            $("#changeABC").on({
+                touchstart: function() {
+                    $("#numKeyborad").hide();
+                    $("#engKeyword").show();
+                }
+            });
+
+            //点击转换数字键盘
+            $("#change123").on({
+                touchstart: function() {
+                    $("#numKeyborad").show();
+                    $("#engKeyword").hide();
+                }
+            });
+
+
+            /**
+             * 键盘按钮点击事件
+             * 获取所有键盘的值和data-v的值并放到密码框里
+             */
+            $("#numKeyborad li,#engKeyword li").on({
+                touchstart: function() {
+                    if ($(this).hasClass('icon-wrap')) {
+
+                    } else {
+                        p_value = thatInput.val();
+                        if (!this.getAttribute("data-v")) {
+                            //不存在data-v或者为null
+                        } else {
+                            //p_value写进密码框
+                            p_value += this.getAttribute("data-v");
+                                                      
+                            thatInput.val(p_value);
+                            
+                            if("g"==thatInput.attr("id")){	//注册页面，明文输入密码时需对密文输入框的密码赋值
+                            	if($("#p") != undefined){
+                            		$("#p").val(p_value);
+                            	}                            	
+                            }
+                            if("g2"==thatInput.attr("id")){	//注册页面，明文输入确认密码时需对密文输入框的密码赋值
+                            	if($("#p2") != undefined){
+                            		$("#p2").val(p_value);
+                            	}  
+                            } 
+                        }
+                        //判断大写按钮状态 普通状态转会小写
+                        if ($("#change-letter").find('img').hasClass("captital-letter")) {
+                            $(".captital-letter").remove();
+                            $("#change-letter").html('<img class="small-letter" src='+ small_letter+' alt="小写">');
+                            $(".li-letter").each(function() {
+                                $(this).find('span').html($(this).find('span').html().toLowerCase());
+                                $(this).attr("data-v", $(this).attr("data-v").toLowerCase());
+                            });
+                        }
+                    }
+                }
+            });
+
+            /**
+             * PC：鼠标悬停键盘，按键变色
+             * 移动端：点击后变色
+             */
+            $("ul li").on({
+                touchstart: function() {
+                    //记录原来颜色
+                    old_color = $(this).css("background");
+
+                    $(this).css("background", "#d2d2d4");
+                },
+                touchend: function() {
+                    $(this).css("background", old_color);
+                },
+                touchcancel: function() {
+                    //防止长按后不执行touchend事件
+                    $(this).css("background", old_color);
+                }
+            });
+
+            /**
+             * 密码显示隐藏切换
+             * pass_status:密码显示状态 0密码隐藏 1密码显示
+             */
+            $(".show-pass").click(function() {
+                if (pass_status) {
+                    $(this).prev().attr('type', "text");
+                    pass_status = 0
+                } else {
+                    $(this).prev().attr('type', 'password');
+                    pass_status = 1;
+                }
+            });
+
+            /**
+             * 退格键功能
+             */
+            $(".backspace").on({
+                touchstart: function() {
+                    p_value = thatInput.val();
+                    p_value = p_value.substr(0, p_value.length - 1);
+                    thatInput.val(p_value);
+                }
+            });
+
+            /**
+             * 大小写切换
+             */
+            $("#change-letter").click(function() {
+
+                if ($(this).find("img").hasClass("small-letter")) {
+                    //小写状态
+                    $(".small-letter").remove();
+                    $(this).html("<img class='captital-letter' src="+capital_letter+" alt='大写'>");
+                    $(".li-letter").each(function() {
+                        $(this).find('span').html($(this).find('span').html().toUpperCase());
+                        $(this).attr("data-v", $(this).attr("data-v").toUpperCase());
+                    });
+                } else if ($(this).find("img").hasClass("captital-letter")) {
+                    //大写普通状态
+                    $(".captital-letter").remove();
+                    $(this).html("<img class='all-captital-letter' src="+all_capital_letter+" alt='持续大写'>");
+                    $(".li-letter").each(function() {
+                        $(this).find('span').html($(this).find('span').html().toUpperCase());
+                        $(this).attr("data-v", $(this).attr("data-v").toUpperCase());
+                    });
+                } else {
+                    //大写持续状态
+                    $(".captital-letter").remove();
+                    $(this).html('<img class="small-letter" src='+small_letter+' alt="小写">');
+                    $(".li-letter").each(function() {
+                        $(this).find('span').html($(this).find('span').html().toLowerCase());
+                        $(this).attr("data-v", $(this).attr("data-v").toLowerCase());
+                    });
+                }
+            });
+        }
+
+    });

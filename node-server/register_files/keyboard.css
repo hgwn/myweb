@@ -1,0 +1,152 @@
+body{
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.pass{
+    height: 36px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#numKeyborad,
+#engKeyword {
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: fixed;
+    display: none;
+    /* height: 240px; */
+    width: 100%;
+    bottom: 0;
+
+}
+
+input{
+    -webkit-user-select: auto;
+     user-select: auto;
+}
+
+#numKeyborad {
+    z-index: 9999;
+}
+
+#engKeyword {
+    z-index: 88;
+}
+
+.k-bk {
+    background-color: #dbdbdb;
+    overflow: hidden;
+}
+
+.k-num-ul {
+    display: table;
+    width: 100%;
+    height: 60px;
+}
+
+.k-num-ul:nth-child(-n+3) {
+    border-bottom: 1px solid #ededed;
+}
+
+.k-num-ul li {
+    display: inline-block;
+    width: 33.1%;
+    font-size: 24px;
+    text-align: center;
+    line-height: 60px;
+    background: #fff;
+}
+
+.k-num-ul img {
+	pointer-events:none;
+    width: 36px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.k-num-ul li:nth-child(-n+2) {
+    border-right: 1px solid #ededed;
+}
+
+.k-eng-ul1,
+.k-eng-ul2,
+.k-eng-ul3,
+.k-eng-ul4 {
+    display: table;
+    width: 100%;
+}
+
+.k-eng-ul1 {
+    margin: 15px 0;
+    height: 44px;
+}
+
+.k-eng-ul li {
+    display: inline-block;
+    background: #f9f9f9;
+    margin: 0 1.25%;
+    border-radius: 3px;
+    line-height: 44px;
+    height: 44px;
+    font-size: 24px;
+    text-align: center;
+    box-shadow: 0 1px #a8a8a8;
+}
+
+.k-eng-ul1 li,
+.k-eng-ul2 li,
+.k-eng-ul3 li {
+    width: 7.5%;
+}
+
+.k-eng-ul2 {
+    margin: 15px 5%;
+}
+
+.k-eng-ul3 {
+    margin: 15px 0;
+}
+
+.k-eng-ul4 {
+    margin: 0 0 2px 0;
+}
+
+.k-eng-ul3 img {
+	pointer-events:none;
+    width: 40%;
+    max-width: 32px;
+    min-width: 25px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.k-eng-ul4 li {
+    font-size: 18px;
+    margin: 0 2px 2px 2px;
+}
+
+li.icon-wrap {
+    width: 12%;
+}
+
+li.cnum-wrap,
+li.goto-wrap {
+    width: 18%;
+}
+
+li.goto-wrap {
+    color: #ffffff;
+    background-color: #f54359;
+}
+
+li.space-wrap {
+    width: 60%;
+}

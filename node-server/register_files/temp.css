@@ -1,0 +1,20 @@
+.loadMore {
+	text-align:center;
+	margin-top:10px;
+}
+#step-line2{
+height:200px;
+width:6px;
+position:absolute;
+top:30px;
+left:24px;
+background:#F2F2F2;
+}
+.tag-interest{
+background:url(../img/icon-small01.png) 0 50% no-repeat;
+}
+.status-label.transfer{
+background-image:url(../img/finan_status06.png);
+}
+.btn_condition {margin:0px auto 40px auto;text-align: center;font-weight: lighter;padding:10;}
+.btn_condition a{font-weight:lighter;}

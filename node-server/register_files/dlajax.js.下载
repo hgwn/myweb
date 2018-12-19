@@ -1,0 +1,107 @@
+/**
+ * ajax post请求，接受dlpost(url,data,success)或dlpost(url,success)
+ * @param url 请求url。数据类型：string
+ * @param data 请求参数。数据类型：string,json
+ * @param success 成功返回的处理。数据类型：function，参数为返回的数据
+ * @param async 是否异步调用 默认true
+ */
+function dlpost(url,data,success,async){
+	if(typeof data=='function'){
+		async = success;
+		success = data;
+		data = {};
+	}
+	
+	var ok = function(data, textStatus, jqXHR){
+		successFn(data,success);
+	};
+	
+	if(typeof async=='undefined'){
+		async = true;
+	}
+	
+	$.ajax({
+		url:url,
+		data:data,
+		dataType:'json',
+		type:'post',
+		success:ok,
+		async:async,
+		error:errorFn
+	});
+}
+/**
+ * ajax post请求，接受dlget(url,data,success)或dlget(url,success)
+ * @param url 请求url
+ * @param data 请求参数
+ * @param success 成功返回的处理
+ */
+function dlget(url,data,success){
+	if(typeof data=='function'){
+		success = data;
+		data = {};
+	}
+	
+	var ok = function(data, textStatus, jqXHR){
+		successFn(data,success);
+	};
+	$.ajax({
+		url:url,
+		data:data,
+		dataType:'json',
+		type:'get',
+		success:ok,
+		error:errorFn
+	});
+}
+
+function successFn(data,success){
+	if(data){
+		if(data.rspcode==-100){
+			artDialog.alert("用户尚未登录或登录已超时，请先登录！",function(){
+				top.location.href=_ctx+"/loginWeb.jsp";
+			}).time(2);
+		}else{
+			if(success){
+				success(data);
+			}
+		}
+	}
+};
+
+function errorFn(XMLHttpRequest, textStatus, errorThrown){
+	var dialog = null;
+	if(typeof(artDialog)!='undefined'){
+		dialog = artDialog;
+	}else{
+		dialog = $.ligerDialog;
+	}
+	if(XMLHttpRequest){
+		var status = XMLHttpRequest.status;
+		if(/^3*$/.test(status)){
+			dialog.error("请求已被重定向");
+			return;
+		}
+		if(/^4*$/.test(status)){
+			if(status==404){
+				dialog.error("无效的请求url");
+			}else{
+				dialog.error("请求错误");
+			}
+			return;
+		}
+		if(/^5*$/.test(status)){
+			dialog.error("服务器错误");
+			return;
+		}
+	}
+	if(textStatus=="timeout"){
+		dialog.error("请求超时");
+	}else if(textStatus=="error"){
+		dialog.error("请求异常");
+	}else if(textStatus=="notmodified"){
+		
+	}else if(textStatus=="parsererror"){
+		dialog.error("返回的不是json数据");
+	}
+};
