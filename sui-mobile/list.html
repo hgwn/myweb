@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>下拉刷新demo</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+  <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+
+</head>
+
+<body>
+  <div class="page-group">
+    <div id="page-ptr" class="page page-current">
+      <header class="bar bar-nav">
+        <!-- <a class="button button-link button-nav pull-left" href="/demos/card" data-transition='slide-out'>
+                <span class="icon icon-left"></span>
+                返回
+              </a> -->
+        <h1 class="title">下拉刷新demo</h1>
+      </header>
+
+
+      <nav class="bar bar-tab">
+        <a class="tab-item active" href="#">
+          <span class="icon icon-home"></span>
+          <span class="tab-label">首页</span>
+        </a>
+        <a class="tab-item" href="#">
+          <span class="icon icon-menu"></span>
+          <span class="tab-label">我的待办</span>
+        </a>
+        <a class="tab-item" href="#">
+          <span class="icon icon-me"></span>
+          <span class="tab-label">我的账户</span>
+        </a>
+      </nav>
+
+      <!-- content应该拥有"pull-to-refresh-content"类,表示启用下拉刷新 -->
+      <div class="content pull-to-refresh-content" data-ptr-distance="55">
+        <!-- 这里是页面内容区 -->
+        <!-- 默认的下拉刷新层 -->
+        <div class="pull-to-refresh-layer">
+          <div class="preloader"></div>
+          <div class="pull-to-refresh-arrow"></div>
+        </div>
+        <!-- 下面是正文 -->
+        <div class="card-container">
+          <div class="card">
+            <div class="card-header">card</div>
+            <div class="card-content">
+              <div class="card-content-inner">
+                这里是第1个card，下拉刷新会出现第2个card。
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+  <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+  <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+  <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+  <script type='text/javascript' src='js/list.js' charset='utf-8'></script>
+
+
+
+</body>
+
+</html>
